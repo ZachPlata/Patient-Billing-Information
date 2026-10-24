@@ -33,15 +33,15 @@
             label3 = new Label();
             label2 = new Label();
             panel3 = new Panel();
-            button1 = new Button();
+            btnDrDashboard = new Button();
             label1 = new Label();
             panel1 = new Panel();
             panel4 = new Panel();
             label5 = new Label();
             label4 = new Label();
-            button3 = new Button();
-            button2 = new Button();
-            panel2 = new Panel();
+            btnHlthCheckup = new Button();
+            btnPatientRecord = new Button();
+            Header = new Panel();
             panel7 = new Panel();
             timer = new Label();
             panel6 = new Panel();
@@ -50,9 +50,10 @@
             panel5 = new Panel();
             label6 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            panelContent = new Panel();
             SideNavBar.SuspendLayout();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            Header.SuspendLayout();
             SuspendLayout();
             // 
             // SideNavBar
@@ -61,11 +62,11 @@
             SideNavBar.Controls.Add(label3);
             SideNavBar.Controls.Add(label2);
             SideNavBar.Controls.Add(panel3);
-            SideNavBar.Controls.Add(button1);
+            SideNavBar.Controls.Add(btnDrDashboard);
             SideNavBar.Controls.Add(label1);
             SideNavBar.Controls.Add(panel1);
-            SideNavBar.Controls.Add(button3);
-            SideNavBar.Controls.Add(button2);
+            SideNavBar.Controls.Add(btnHlthCheckup);
+            SideNavBar.Controls.Add(btnPatientRecord);
             SideNavBar.Location = new Point(0, 0);
             SideNavBar.Name = "SideNavBar";
             SideNavBar.Size = new Size(266, 1175);
@@ -102,23 +103,23 @@
             panel3.Size = new Size(52, 47);
             panel3.TabIndex = 5;
             // 
-            // button1
+            // btnDrDashboard
             // 
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
-            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(0, 367);
-            button1.Name = "button1";
-            button1.Size = new Size(266, 40);
-            button1.TabIndex = 0;
-            button1.Text = "Dashboard";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnDrDashboard.FlatAppearance.BorderSize = 0;
+            btnDrDashboard.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
+            btnDrDashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
+            btnDrDashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
+            btnDrDashboard.FlatStyle = FlatStyle.Flat;
+            btnDrDashboard.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDrDashboard.ForeColor = Color.White;
+            btnDrDashboard.Location = new Point(0, 367);
+            btnDrDashboard.Name = "btnDrDashboard";
+            btnDrDashboard.Size = new Size(266, 40);
+            btnDrDashboard.TabIndex = 0;
+            btnDrDashboard.Text = "Dashboard";
+            btnDrDashboard.TextAlign = ContentAlignment.MiddleLeft;
+            btnDrDashboard.UseVisualStyleBackColor = true;
+            btnDrDashboard.Click += button1_Click;
             // 
             // label1
             // 
@@ -173,58 +174,58 @@
             label4.TabIndex = 5;
             label4.Text = "METRO PEDIA";
             // 
-            // button3
+            // btnHlthCheckup
             // 
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
-            button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
-            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(0, 459);
-            button3.Name = "button3";
-            button3.Size = new Size(266, 40);
-            button3.TabIndex = 2;
-            button3.Text = "Health Checkup";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btnHlthCheckup.FlatAppearance.BorderSize = 0;
+            btnHlthCheckup.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
+            btnHlthCheckup.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
+            btnHlthCheckup.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
+            btnHlthCheckup.FlatStyle = FlatStyle.Flat;
+            btnHlthCheckup.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHlthCheckup.ForeColor = Color.White;
+            btnHlthCheckup.Location = new Point(0, 459);
+            btnHlthCheckup.Name = "btnHlthCheckup";
+            btnHlthCheckup.Size = new Size(266, 40);
+            btnHlthCheckup.TabIndex = 2;
+            btnHlthCheckup.Text = "Health Checkup";
+            btnHlthCheckup.TextAlign = ContentAlignment.MiddleLeft;
+            btnHlthCheckup.UseVisualStyleBackColor = true;
+            btnHlthCheckup.Click += button3_Click;
             // 
-            // button2
+            // btnPatientRecord
             // 
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
-            button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
-            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(0, 413);
-            button2.Name = "button2";
-            button2.Size = new Size(266, 40);
-            button2.TabIndex = 1;
-            button2.Text = "Patient Records";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnPatientRecord.FlatAppearance.BorderSize = 0;
+            btnPatientRecord.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
+            btnPatientRecord.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
+            btnPatientRecord.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
+            btnPatientRecord.FlatStyle = FlatStyle.Flat;
+            btnPatientRecord.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPatientRecord.ForeColor = Color.White;
+            btnPatientRecord.Location = new Point(0, 413);
+            btnPatientRecord.Name = "btnPatientRecord";
+            btnPatientRecord.Size = new Size(266, 40);
+            btnPatientRecord.TabIndex = 1;
+            btnPatientRecord.Text = "Patient Records";
+            btnPatientRecord.TextAlign = ContentAlignment.MiddleLeft;
+            btnPatientRecord.UseVisualStyleBackColor = true;
+            btnPatientRecord.Click += button2_Click;
             // 
-            // panel2
+            // Header
             // 
-            panel2.BackColor = Color.FromArgb(250, 249, 246);
-            panel2.Controls.Add(panel7);
-            panel2.Controls.Add(timer);
-            panel2.Controls.Add(panel6);
-            panel2.Controls.Add(date);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(panel5);
-            panel2.Controls.Add(label6);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1902, 125);
-            panel2.TabIndex = 1;
-            panel2.Paint += panel2_Paint;
+            Header.BackColor = Color.FromArgb(250, 249, 246);
+            Header.Controls.Add(panel7);
+            Header.Controls.Add(timer);
+            Header.Controls.Add(panel6);
+            Header.Controls.Add(date);
+            Header.Controls.Add(label7);
+            Header.Controls.Add(panel5);
+            Header.Controls.Add(label6);
+            Header.Dock = DockStyle.Top;
+            Header.Location = new Point(0, 0);
+            Header.Name = "Header";
+            Header.Size = new Size(1902, 125);
+            Header.TabIndex = 1;
+            Header.Paint += panel2_Paint;
             // 
             // panel7
             // 
@@ -300,12 +301,22 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
+            // panelContent
+            // 
+            panelContent.BackColor = Color.FromArgb(250, 249, 246);
+            panelContent.Location = new Point(294, 150);
+            panelContent.Name = "panelContent";
+            panelContent.Size = new Size(1585, 860);
+            panelContent.TabIndex = 2;
+            panelContent.Paint += panel8_Paint;
+            // 
             // Doctor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(panel2);
+            Controls.Add(panelContent);
+            Controls.Add(Header);
             Controls.Add(SideNavBar);
             Name = "Doctor";
             Text = "Metro Pedia Clinical Center - Management System";
@@ -314,18 +325,18 @@
             SideNavBar.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            Header.ResumeLayout(false);
+            Header.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel SideNavBar;
-        private Panel panel2;
-        private Button button2;
-        private Button button1;
-        private Button button3;
+        private Panel Header;
+        private Button btnPatientRecord;
+        private Button btnDrDashboard;
+        private Button btnHlthCheckup;
         private Panel panel1;
         private Label label2;
         private Panel panel3;
@@ -342,5 +353,6 @@
         private Panel panel6;
         private Label timer;
         private Panel panel7;
+        private Panel panelContent;
     }
 }
