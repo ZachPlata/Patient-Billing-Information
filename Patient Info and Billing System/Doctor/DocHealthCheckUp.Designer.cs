@@ -692,6 +692,7 @@
             // 
             button5.BackColor = Color.FromArgb(250, 249, 246);
             button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button5.Location = new Point(975, 803);
             button5.Name = "button5";
