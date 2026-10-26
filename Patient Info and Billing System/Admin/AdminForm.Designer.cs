@@ -38,18 +38,18 @@
             panel5 = new Panel();
             label6 = new Label();
             SideNavBar = new Panel();
-            button1 = new Button();
+            btnALAT = new Button();
             label3 = new Label();
             label2 = new Label();
             panel3 = new Panel();
-            btnDrDashboard = new Button();
+            btnAdminDashboard = new Button();
             label1 = new Label();
             panel1 = new Panel();
             panel4 = new Panel();
             label5 = new Label();
             label4 = new Label();
-            btnHlthCheckup = new Button();
-            btnPatientRecord = new Button();
+            btnClncDtSet = new Button();
+            btnUserManagement = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             panelContent = new Panel();
             Header.SuspendLayout();
@@ -140,36 +140,37 @@
             // SideNavBar
             // 
             SideNavBar.BackColor = Color.FromArgb(17, 34, 64);
-            SideNavBar.Controls.Add(button1);
+            SideNavBar.Controls.Add(btnALAT);
             SideNavBar.Controls.Add(label3);
             SideNavBar.Controls.Add(label2);
             SideNavBar.Controls.Add(panel3);
-            SideNavBar.Controls.Add(btnDrDashboard);
+            SideNavBar.Controls.Add(btnAdminDashboard);
             SideNavBar.Controls.Add(label1);
             SideNavBar.Controls.Add(panel1);
-            SideNavBar.Controls.Add(btnHlthCheckup);
-            SideNavBar.Controls.Add(btnPatientRecord);
+            SideNavBar.Controls.Add(btnClncDtSet);
+            SideNavBar.Controls.Add(btnUserManagement);
             SideNavBar.Location = new Point(0, 0);
             SideNavBar.Name = "SideNavBar";
             SideNavBar.Size = new Size(266, 1175);
             SideNavBar.TabIndex = 3;
             // 
-            // button1
+            // btnALAT
             // 
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
-            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(0, 505);
-            button1.Name = "button1";
-            button1.Size = new Size(266, 40);
-            button1.TabIndex = 7;
-            button1.Text = "Access Logs and Audit Trails";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
+            btnALAT.FlatAppearance.BorderSize = 0;
+            btnALAT.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
+            btnALAT.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
+            btnALAT.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
+            btnALAT.FlatStyle = FlatStyle.Flat;
+            btnALAT.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnALAT.ForeColor = Color.White;
+            btnALAT.Location = new Point(0, 505);
+            btnALAT.Name = "btnALAT";
+            btnALAT.Size = new Size(266, 40);
+            btnALAT.TabIndex = 7;
+            btnALAT.Text = "Access Logs and Audit Trails";
+            btnALAT.TextAlign = ContentAlignment.MiddleLeft;
+            btnALAT.UseVisualStyleBackColor = true;
+            btnALAT.Click += btnALAT_Click;
             // 
             // label3
             // 
@@ -201,22 +202,23 @@
             panel3.Size = new Size(52, 47);
             panel3.TabIndex = 5;
             // 
-            // btnDrDashboard
+            // btnAdminDashboard
             // 
-            btnDrDashboard.FlatAppearance.BorderSize = 0;
-            btnDrDashboard.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
-            btnDrDashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
-            btnDrDashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
-            btnDrDashboard.FlatStyle = FlatStyle.Flat;
-            btnDrDashboard.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDrDashboard.ForeColor = Color.White;
-            btnDrDashboard.Location = new Point(0, 367);
-            btnDrDashboard.Name = "btnDrDashboard";
-            btnDrDashboard.Size = new Size(266, 40);
-            btnDrDashboard.TabIndex = 0;
-            btnDrDashboard.Text = "Dashboard";
-            btnDrDashboard.TextAlign = ContentAlignment.MiddleLeft;
-            btnDrDashboard.UseVisualStyleBackColor = true;
+            btnAdminDashboard.FlatAppearance.BorderSize = 0;
+            btnAdminDashboard.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
+            btnAdminDashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
+            btnAdminDashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
+            btnAdminDashboard.FlatStyle = FlatStyle.Flat;
+            btnAdminDashboard.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdminDashboard.ForeColor = Color.White;
+            btnAdminDashboard.Location = new Point(0, 367);
+            btnAdminDashboard.Name = "btnAdminDashboard";
+            btnAdminDashboard.Size = new Size(266, 40);
+            btnAdminDashboard.TabIndex = 0;
+            btnAdminDashboard.Text = "Dashboard";
+            btnAdminDashboard.TextAlign = ContentAlignment.MiddleLeft;
+            btnAdminDashboard.UseVisualStyleBackColor = true;
+            btnAdminDashboard.Click += btnAdminDashboard_Click;
             // 
             // label1
             // 
@@ -270,39 +272,41 @@
             label4.TabIndex = 5;
             label4.Text = "METRO PEDIA";
             // 
-            // btnHlthCheckup
+            // btnClncDtSet
             // 
-            btnHlthCheckup.FlatAppearance.BorderSize = 0;
-            btnHlthCheckup.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
-            btnHlthCheckup.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
-            btnHlthCheckup.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
-            btnHlthCheckup.FlatStyle = FlatStyle.Flat;
-            btnHlthCheckup.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHlthCheckup.ForeColor = Color.White;
-            btnHlthCheckup.Location = new Point(0, 459);
-            btnHlthCheckup.Name = "btnHlthCheckup";
-            btnHlthCheckup.Size = new Size(266, 40);
-            btnHlthCheckup.TabIndex = 2;
-            btnHlthCheckup.Text = "Clinic and Data Setups";
-            btnHlthCheckup.TextAlign = ContentAlignment.MiddleLeft;
-            btnHlthCheckup.UseVisualStyleBackColor = true;
+            btnClncDtSet.FlatAppearance.BorderSize = 0;
+            btnClncDtSet.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
+            btnClncDtSet.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
+            btnClncDtSet.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
+            btnClncDtSet.FlatStyle = FlatStyle.Flat;
+            btnClncDtSet.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClncDtSet.ForeColor = Color.White;
+            btnClncDtSet.Location = new Point(0, 459);
+            btnClncDtSet.Name = "btnClncDtSet";
+            btnClncDtSet.Size = new Size(266, 40);
+            btnClncDtSet.TabIndex = 2;
+            btnClncDtSet.Text = "Clinic and Data Setups";
+            btnClncDtSet.TextAlign = ContentAlignment.MiddleLeft;
+            btnClncDtSet.UseVisualStyleBackColor = true;
+            btnClncDtSet.Click += btnClncDtSet_Click;
             // 
-            // btnPatientRecord
+            // btnUserManagement
             // 
-            btnPatientRecord.FlatAppearance.BorderSize = 0;
-            btnPatientRecord.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
-            btnPatientRecord.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
-            btnPatientRecord.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
-            btnPatientRecord.FlatStyle = FlatStyle.Flat;
-            btnPatientRecord.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPatientRecord.ForeColor = Color.White;
-            btnPatientRecord.Location = new Point(0, 413);
-            btnPatientRecord.Name = "btnPatientRecord";
-            btnPatientRecord.Size = new Size(266, 40);
-            btnPatientRecord.TabIndex = 1;
-            btnPatientRecord.Text = "User Management";
-            btnPatientRecord.TextAlign = ContentAlignment.MiddleLeft;
-            btnPatientRecord.UseVisualStyleBackColor = true;
+            btnUserManagement.FlatAppearance.BorderSize = 0;
+            btnUserManagement.FlatAppearance.CheckedBackColor = Color.FromArgb(37, 99, 235);
+            btnUserManagement.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
+            btnUserManagement.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
+            btnUserManagement.FlatStyle = FlatStyle.Flat;
+            btnUserManagement.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUserManagement.ForeColor = Color.White;
+            btnUserManagement.Location = new Point(0, 413);
+            btnUserManagement.Name = "btnUserManagement";
+            btnUserManagement.Size = new Size(266, 40);
+            btnUserManagement.TabIndex = 1;
+            btnUserManagement.Text = "User Management";
+            btnUserManagement.TextAlign = ContentAlignment.MiddleLeft;
+            btnUserManagement.UseVisualStyleBackColor = true;
+            btnUserManagement.Click += btnUserManagement_Click;
             // 
             // timer1
             // 
@@ -351,15 +355,15 @@
         private Label label3;
         private Label label2;
         private Panel panel3;
-        private Button btnDrDashboard;
+        private Button btnAdminDashboard;
         private Label label1;
         private Panel panel1;
         private Panel panel4;
         private Label label5;
         private Label label4;
-        private Button btnHlthCheckup;
-        private Button btnPatientRecord;
-        private Button button1;
+        private Button btnClncDtSet;
+        private Button btnUserManagement;
+        private Button btnALAT;
         private System.Windows.Forms.Timer timer1;
         private Panel panelContent;
     }
