@@ -1,0 +1,51 @@
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Doctor.DocHealthCheckUp.resources
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Doctor.Doctor.resources
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Doctor.DrDashboard.resources
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Form1.resources
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.csproj.GenerateResource.cache
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.AssemblyInfoInputs.cache
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.AssemblyInfo.cs
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.csproj.CoreCompileInputs.cache
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.sourcelink.json
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\bin\Debug\net10.0-windows\Patient Info and Billing System.exe
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\bin\Debug\net10.0-windows\Patient Info and Billing System.deps.json
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\bin\Debug\net10.0-windows\Patient Info and Billing System.runtimeconfig.json
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\bin\Debug\net10.0-windows\Patient Info and Billing System.dll
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\bin\Debug\net10.0-windows\Patient Info and Billing System.pdb
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.dll
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\refint\Patient Info and Billing System.dll
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.pdb
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.genruntimeconfig.cache
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\ref\Patient Info and Billing System.dll
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient .55305504.Up2Date
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.BillingStaff.BillingStaffForm.resources
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Admin.AdminForm.resources
+<<<<<<< HEAD
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Admin.AdminUserManagement.resources
+=======
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\bin\Debug\net10.0-windows\Patient Info and Billing System.exe
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\bin\Debug\net10.0-windows\Patient Info and Billing System.deps.json
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\bin\Debug\net10.0-windows\Patient Info and Billing System.runtimeconfig.json
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\bin\Debug\net10.0-windows\Patient Info and Billing System.dll
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\bin\Debug\net10.0-windows\Patient Info and Billing System.pdb
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Admin.AdminForm.resources
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.BillingStaff.BillingStaffForm.resources
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Doctor.DocHealthCheckUp.resources
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Doctor.Doctor.resources
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Doctor.DrDashboard.resources
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Form1.resources
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.csproj.GenerateResource.cache
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.AssemblyInfoInputs.cache
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.AssemblyInfo.cs
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.csproj.CoreCompileInputs.cache
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.sourcelink.json
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.dll
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\refint\Patient Info and Billing System.dll
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.pdb
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.genruntimeconfig.cache
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\ref\Patient Info and Billing System.dll
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient .55305504.Up2Date
+C:\Users\Dranreb\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.LogIn.SignIn.resources
+>>>>>>> 118b914b2ed705c604c133a2c9869e0bddbc42e8
