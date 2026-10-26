@@ -21,3 +21,4 @@ C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing 
 C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient .55305504.Up2Date
 C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.BillingStaff.BillingStaffForm.resources
 C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Admin.AdminForm.resources
+C:\Users\Vonn\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.Admin.AdminUserManagement.resources
