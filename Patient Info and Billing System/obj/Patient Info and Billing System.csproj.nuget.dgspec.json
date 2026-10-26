@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vonn\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj": {}
+    "C:\\Users\\Dranreb\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vonn\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj": {
+    "C:\\Users\\Dranreb\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vonn\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj",
+        "projectUniqueName": "C:\\Users\\Dranreb\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj",
         "projectName": "Patient Info and Billing System",
-        "projectPath": "C:\\Users\\Vonn\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj",
-        "packagesPath": "C:\\Users\\Vonn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vonn\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\obj\\",
+        "projectPath": "C:\\Users\\Dranreb\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj",
+        "packagesPath": "C:\\Users\\Dranreb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dranreb\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Vonn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dranreb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
