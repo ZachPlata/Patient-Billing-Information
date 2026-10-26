@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zach Plata\\source\\repos\\Patient Info and Billing System\\Patient Info and Billing System\\Patient Info and Billing System.csproj": {}
+    "C:\\Users\\trowa\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zach Plata\\source\\repos\\Patient Info and Billing System\\Patient Info and Billing System\\Patient Info and Billing System.csproj": {
+    "C:\\Users\\trowa\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zach Plata\\source\\repos\\Patient Info and Billing System\\Patient Info and Billing System\\Patient Info and Billing System.csproj",
+        "projectUniqueName": "C:\\Users\\trowa\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj",
         "projectName": "Patient Info and Billing System",
-        "projectPath": "C:\\Users\\Zach Plata\\source\\repos\\Patient Info and Billing System\\Patient Info and Billing System\\Patient Info and Billing System.csproj",
-        "packagesPath": "C:\\Users\\Zach Plata\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zach Plata\\source\\repos\\Patient Info and Billing System\\Patient Info and Billing System\\obj\\",
+        "projectPath": "C:\\Users\\trowa\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\Patient Info and Billing System.csproj",
+        "packagesPath": "C:\\Users\\trowa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\trowa\\source\\repos\\Patient-Billing-Information\\Patient Info and Billing System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Zach Plata\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\trowa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
