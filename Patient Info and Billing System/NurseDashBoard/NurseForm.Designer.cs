@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             pnlsidebar = new Panel();
-            btn_shiftlog = new Button();
             panel3 = new Panel();
+            btn_shiftlog = new Button();
             btn_util = new Button();
             btn_ptntrec = new Button();
             btn_ptntreg = new Button();
@@ -38,9 +39,13 @@
             panel2 = new Panel();
             panelContent = new Panel();
             LABEL = new Label();
-            dateTimePicker1 = new DateTimePicker();
             panel1 = new Panel();
+            panel7 = new Panel();
+            timer = new Label();
+            panel6 = new Panel();
+            date = new Label();
             label2 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             pnlsidebar.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -48,17 +53,26 @@
             // pnlsidebar
             // 
             pnlsidebar.BackColor = Color.FromArgb(17, 34, 64);
-            pnlsidebar.Controls.Add(btn_shiftlog);
             pnlsidebar.Controls.Add(panel3);
+            pnlsidebar.Controls.Add(btn_shiftlog);
             pnlsidebar.Controls.Add(btn_util);
             pnlsidebar.Controls.Add(btn_ptntrec);
             pnlsidebar.Controls.Add(btn_ptntreg);
             pnlsidebar.Controls.Add(btn_nursedash);
             pnlsidebar.Controls.Add(panel2);
-            pnlsidebar.Location = new Point(0, 124);
+            pnlsidebar.Location = new Point(0, 95);
             pnlsidebar.Name = "pnlsidebar";
-            pnlsidebar.Size = new Size(266, 1175);
+            pnlsidebar.Size = new Size(233, 952);
             pnlsidebar.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(37, 99, 235);
+            panel3.Location = new Point(12, 122);
+            panel3.Margin = new Padding(3, 2, 3, 2);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(46, 35);
+            panel3.TabIndex = 9;
             // 
             // btn_shiftlog
             // 
@@ -77,14 +91,6 @@
             btn_shiftlog.TextAlign = ContentAlignment.MiddleLeft;
             btn_shiftlog.UseVisualStyleBackColor = true;
             btn_shiftlog.Click += btn_shiftlog_Click;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = SystemColors.ActiveCaption;
-            panel3.Location = new Point(12, 34);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(58, 56);
-            panel3.TabIndex = 7;
             // 
             // btn_util
             // 
@@ -158,16 +164,16 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(10, 25, 47);
-            panel2.Location = new Point(0, 105);
+            panel2.Location = new Point(0, 113);
             panel2.Name = "panel2";
-            panel2.Size = new Size(266, 100);
+            panel2.Size = new Size(233, 57);
             panel2.TabIndex = 0;
             // 
             // panelContent
             // 
-            panelContent.Location = new Point(294, 148);
+            panelContent.Location = new Point(257, 112);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1585, 860);
+            panelContent.Size = new Size(1626, 917);
             panelContent.TabIndex = 1;
             panelContent.Paint += panelContent_Paint_2;
             // 
@@ -184,24 +190,57 @@
             LABEL.Text = "NURSE CLINICAL STATION";
             LABEL.Click += LABEL_Click;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(1599, 55);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 1;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(250, 249, 246);
+            panel1.Controls.Add(panel7);
+            panel1.Controls.Add(timer);
+            panel1.Controls.Add(panel6);
+            panel1.Controls.Add(date);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(LABEL);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1904, 125);
+            panel1.Size = new Size(1904, 94);
             panel1.TabIndex = 2;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.FromArgb(17, 34, 64);
+            panel7.Location = new Point(1459, 56);
+            panel7.Margin = new Padding(3, 2, 3, 2);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(22, 17);
+            panel7.TabIndex = 15;
+            // 
+            // timer
+            // 
+            timer.Font = new Font("Segoe UI Light", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            timer.Location = new Point(1486, 56);
+            timer.Name = "timer";
+            timer.Size = new Size(149, 17);
+            timer.TabIndex = 13;
+            timer.Text = "Time";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(17, 34, 64);
+            panel6.Location = new Point(1219, 56);
+            panel6.Margin = new Padding(3, 2, 3, 2);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(22, 17);
+            panel6.TabIndex = 14;
+            // 
+            // date
+            // 
+            date.Font = new Font("Segoe UI Light", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            date.Location = new Point(1246, 56);
+            date.Name = "date";
+            date.Size = new Size(207, 17);
+            date.TabIndex = 12;
+            date.Text = "Date";
+            date.Click += date_Click;
             // 
             // label2
             // 
@@ -213,6 +252,12 @@
             label2.Size = new Size(319, 17);
             label2.TabIndex = 3;
             label2.Text = "Health / Clinical Diagnosis / Medical Prescriptions";
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += this.timer1_Tick;
             // 
             // Nurse
             // 
@@ -241,10 +286,8 @@
         private Button btn_nursedash;
         private Panel panel2;
         private Button btn_util;
-        private Panel panel3;
         private Panel panelContent;
         private Label LABEL;
-        private DateTimePicker dateTimePicker1;
         private Panel panel1;
         private Label label2;
         private Button shft_log;
@@ -252,5 +295,11 @@
         private Button btn_4;
         private Button button1;
         private Button btn_shiftlog;
+        private Panel panel7;
+        private Label timer;
+        private Panel panel6;
+        private Label date;
+        private Panel panel3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

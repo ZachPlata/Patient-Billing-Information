@@ -69,41 +69,45 @@
             Header.Controls.Add(label6);
             Header.Dock = DockStyle.Top;
             Header.Location = new Point(0, 0);
+            Header.Margin = new Padding(3, 2, 3, 2);
             Header.Name = "Header";
-            Header.Size = new Size(1902, 125);
+            Header.Size = new Size(1904, 94);
             Header.TabIndex = 2;
             // 
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(17, 34, 64);
-            panel7.Location = new Point(1666, 75);
+            panel7.Location = new Point(1459, 56);
+            panel7.Margin = new Padding(3, 2, 3, 2);
             panel7.Name = "panel7";
-            panel7.Size = new Size(25, 23);
+            panel7.Size = new Size(22, 17);
             panel7.TabIndex = 11;
             // 
             // timer
             // 
             timer.Font = new Font("Segoe UI Light", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            timer.Location = new Point(1697, 75);
+            timer.Location = new Point(1486, 56);
             timer.Name = "timer";
-            timer.Size = new Size(170, 23);
+            timer.Size = new Size(149, 17);
             timer.TabIndex = 3;
             timer.Text = "Time";
+            timer.Click += timer_Click;
             // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(17, 34, 64);
-            panel6.Location = new Point(1392, 75);
+            panel6.Location = new Point(1219, 56);
+            panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(25, 23);
+            panel6.Size = new Size(22, 17);
             panel6.TabIndex = 10;
             // 
             // date
             // 
             date.Font = new Font("Segoe UI Light", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            date.Location = new Point(1423, 75);
+            date.Location = new Point(1246, 56);
             date.Name = "date";
-            date.Size = new Size(237, 23);
+            date.Size = new Size(207, 17);
             date.TabIndex = 2;
             date.Text = "Date";
             // 
@@ -112,18 +116,19 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = SystemColors.AppWorkspace;
-            label7.Location = new Point(3, 75);
+            label7.Location = new Point(3, 56);
             label7.Name = "label7";
-            label7.Size = new Size(488, 23);
+            label7.Size = new Size(405, 19);
             label7.TabIndex = 9;
             label7.Text = " User Management / Access Control / System Configuration";
             // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(17, 34, 64);
-            panel5.Location = new Point(14, 31);
+            panel5.Location = new Point(12, 23);
+            panel5.Margin = new Padding(3, 2, 3, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(52, 41);
+            panel5.Size = new Size(46, 31);
             panel5.TabIndex = 8;
             // 
             // label6
@@ -131,9 +136,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(15, 23, 42);
-            label6.Location = new Point(72, 31);
+            label6.Location = new Point(63, 23);
             label6.Name = "label6";
-            label6.Size = new Size(407, 41);
+            label6.Size = new Size(322, 32);
             label6.TabIndex = 6;
             label6.Text = "ADMINISTRATIVE STATION";
             // 
@@ -150,8 +155,9 @@
             SideNavBar.Controls.Add(btnClncDtSet);
             SideNavBar.Controls.Add(btnUserManagement);
             SideNavBar.Location = new Point(0, 0);
+            SideNavBar.Margin = new Padding(3, 2, 3, 2);
             SideNavBar.Name = "SideNavBar";
-            SideNavBar.Size = new Size(266, 1175);
+            SideNavBar.Size = new Size(233, 1042);
             SideNavBar.TabIndex = 3;
             // 
             // btnALAT
@@ -163,9 +169,10 @@
             btnALAT.FlatStyle = FlatStyle.Flat;
             btnALAT.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnALAT.ForeColor = Color.White;
-            btnALAT.Location = new Point(0, 505);
+            btnALAT.Location = new Point(0, 379);
+            btnALAT.Margin = new Padding(3, 2, 3, 2);
             btnALAT.Name = "btnALAT";
-            btnALAT.Size = new Size(266, 40);
+            btnALAT.Size = new Size(233, 30);
             btnALAT.TabIndex = 7;
             btnALAT.Text = "Access Logs and Audit Trails";
             btnALAT.TextAlign = ContentAlignment.MiddleLeft;
@@ -177,9 +184,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(16, 185, 129);
-            label3.Location = new Point(85, 186);
+            label3.Location = new Point(74, 140);
             label3.Name = "label3";
-            label3.Size = new Size(63, 20);
+            label3.Size = new Size(50, 15);
             label3.TabIndex = 6;
             label3.Text = "STATUS";
             // 
@@ -188,18 +195,19 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(85, 162);
+            label2.Location = new Point(74, 122);
             label2.Name = "label2";
-            label2.Size = new Size(97, 20);
+            label2.Size = new Size(77, 15);
             label2.TabIndex = 5;
             label2.Text = "User's Name";
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(37, 99, 235);
-            panel3.Location = new Point(14, 162);
+            panel3.Location = new Point(12, 122);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(52, 47);
+            panel3.Size = new Size(46, 35);
             panel3.TabIndex = 5;
             // 
             // btnAdminDashboard
@@ -211,9 +219,10 @@
             btnAdminDashboard.FlatStyle = FlatStyle.Flat;
             btnAdminDashboard.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdminDashboard.ForeColor = Color.White;
-            btnAdminDashboard.Location = new Point(0, 367);
+            btnAdminDashboard.Location = new Point(0, 275);
+            btnAdminDashboard.Margin = new Padding(3, 2, 3, 2);
             btnAdminDashboard.Name = "btnAdminDashboard";
-            btnAdminDashboard.Size = new Size(266, 40);
+            btnAdminDashboard.Size = new Size(233, 30);
             btnAdminDashboard.TabIndex = 0;
             btnAdminDashboard.Text = "Dashboard";
             btnAdminDashboard.TextAlign = ContentAlignment.MiddleLeft;
@@ -225,9 +234,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(100, 116, 139);
-            label1.Location = new Point(3, 331);
+            label1.Location = new Point(3, 248);
             label1.Name = "label1";
-            label1.Size = new Size(229, 23);
+            label1.Size = new Size(192, 19);
             label1.TabIndex = 4;
             label1.Text = "Administrative Workspaces";
             // 
@@ -237,17 +246,19 @@
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(0, 239);
+            panel1.Location = new Point(0, 179);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(266, 76);
+            panel1.Size = new Size(233, 57);
             panel1.TabIndex = 3;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(17, 34, 64);
-            panel4.Location = new Point(14, 16);
+            panel4.Location = new Point(12, 12);
+            panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(52, 47);
+            panel4.Size = new Size(46, 35);
             panel4.TabIndex = 7;
             // 
             // label5
@@ -255,9 +266,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(100, 116, 139);
-            label5.Location = new Point(72, 40);
+            label5.Location = new Point(63, 30);
             label5.Name = "label5";
-            label5.Size = new Size(110, 23);
+            label5.Size = new Size(91, 19);
             label5.TabIndex = 6;
             label5.Text = "ERP SYSTEM";
             // 
@@ -266,9 +277,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(72, 12);
+            label4.Location = new Point(63, 9);
             label4.Name = "label4";
-            label4.Size = new Size(146, 28);
+            label4.Size = new Size(116, 21);
             label4.TabIndex = 5;
             label4.Text = "METRO PEDIA";
             // 
@@ -281,9 +292,10 @@
             btnClncDtSet.FlatStyle = FlatStyle.Flat;
             btnClncDtSet.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClncDtSet.ForeColor = Color.White;
-            btnClncDtSet.Location = new Point(0, 459);
+            btnClncDtSet.Location = new Point(0, 344);
+            btnClncDtSet.Margin = new Padding(3, 2, 3, 2);
             btnClncDtSet.Name = "btnClncDtSet";
-            btnClncDtSet.Size = new Size(266, 40);
+            btnClncDtSet.Size = new Size(233, 30);
             btnClncDtSet.TabIndex = 2;
             btnClncDtSet.Text = "Clinic and Data Setups";
             btnClncDtSet.TextAlign = ContentAlignment.MiddleLeft;
@@ -299,9 +311,10 @@
             btnUserManagement.FlatStyle = FlatStyle.Flat;
             btnUserManagement.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUserManagement.ForeColor = Color.White;
-            btnUserManagement.Location = new Point(0, 413);
+            btnUserManagement.Location = new Point(0, 310);
+            btnUserManagement.Margin = new Padding(3, 2, 3, 2);
             btnUserManagement.Name = "btnUserManagement";
-            btnUserManagement.Size = new Size(266, 40);
+            btnUserManagement.Size = new Size(233, 30);
             btnUserManagement.TabIndex = 1;
             btnUserManagement.Text = "User Management";
             btnUserManagement.TextAlign = ContentAlignment.MiddleLeft;
@@ -317,19 +330,21 @@
             // panelContent
             // 
             panelContent.BackColor = Color.FromArgb(250, 249, 246);
-            panelContent.Location = new Point(294, 150);
+            panelContent.Location = new Point(257, 112);
+            panelContent.Margin = new Padding(3, 2, 3, 2);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1585, 860);
+            panelContent.Size = new Size(1387, 900);
             panelContent.TabIndex = 4;
             // 
             // AdminForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1902, 1033);
+            ClientSize = new Size(1904, 1041);
             Controls.Add(panelContent);
             Controls.Add(Header);
             Controls.Add(SideNavBar);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AdminForm";
             Text = "Admin";
             Header.ResumeLayout(false);

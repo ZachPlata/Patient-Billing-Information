@@ -18,6 +18,12 @@ namespace NurseDashBoard
         private Color normalColor = Color.FromArgb(17, 34, 64);
         private Color activeColor = Color.FromArgb(37, 99, 235);
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            date.Text = DateTime.Now.ToLongDateString();
+            timer.Text = DateTime.Now.ToLongTimeString();
+        }
+
         private void SetActiveButton(Button selectedButton)
         {
             btn_nursedash.BackColor = normalColor;
@@ -92,6 +98,11 @@ namespace NurseDashBoard
         }
 
         private void btn_shiftlog_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void date_Click(object sender, EventArgs e)
         {
 
         }
