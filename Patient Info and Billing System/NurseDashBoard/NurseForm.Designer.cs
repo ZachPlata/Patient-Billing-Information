@@ -30,7 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             pnlsidebar = new Panel();
-            panel3 = new Panel();
             btn_shiftlog = new Button();
             btn_util = new Button();
             btn_ptntrec = new Button();
@@ -46,14 +45,20 @@
             date = new Label();
             label2 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            pictureBox1 = new PictureBox();
+            label4 = new Label();
+            label1 = new Label();
+            label5 = new Label();
             pnlsidebar.SuspendLayout();
+            panel2.SuspendLayout();
+            panelContent.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnlsidebar
             // 
             pnlsidebar.BackColor = Color.FromArgb(17, 34, 64);
-            pnlsidebar.Controls.Add(panel3);
             pnlsidebar.Controls.Add(btn_shiftlog);
             pnlsidebar.Controls.Add(btn_util);
             pnlsidebar.Controls.Add(btn_ptntrec);
@@ -65,15 +70,6 @@
             pnlsidebar.Name = "pnlsidebar";
             pnlsidebar.Size = new Size(233, 1041);
             pnlsidebar.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(37, 99, 235);
-            panel3.Location = new Point(12, 122);
-            panel3.Margin = new Padding(3, 2, 3, 2);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(46, 35);
-            panel3.TabIndex = 9;
             // 
             // btn_shiftlog
             // 
@@ -165,13 +161,17 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(10, 25, 47);
-            panel2.Location = new Point(0, 113);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(pictureBox1);
+            panel2.Location = new Point(0, 179);
             panel2.Name = "panel2";
             panel2.Size = new Size(233, 57);
             panel2.TabIndex = 0;
             // 
             // panelContent
             // 
+            panelContent.Controls.Add(label4);
             panelContent.Location = new Point(257, 112);
             panelContent.Name = "panelContent";
             panelContent.Size = new Size(1626, 917);
@@ -260,6 +260,48 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Location = new Point(12, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(58, 50);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(755, 448);
+            label4.Name = "label4";
+            label4.Size = new Size(116, 21);
+            label4.TabIndex = 6;
+            label4.Text = "METRO PEDIA";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(90, 4);
+            label1.Name = "label1";
+            label1.Size = new Size(116, 21);
+            label1.TabIndex = 6;
+            label1.Text = "METRO PEDIA";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(100, 116, 139);
+            label5.Location = new Point(90, 25);
+            label5.Name = "label5";
+            label5.Size = new Size(91, 19);
+            label5.TabIndex = 7;
+            label5.Text = "ERP SYSTEM";
+            // 
             // Nurse
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -273,8 +315,13 @@
             Name = "Nurse";
             Text = "Nurse";
             pnlsidebar.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panelContent.ResumeLayout(false);
+            panelContent.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -300,7 +347,10 @@
         private Label timer;
         private Panel panel6;
         private Label date;
-        private Panel panel3;
         private System.Windows.Forms.Timer timer1;
+        private PictureBox pictureBox1;
+        private Label label1;
+        private Label label4;
+        private Label label5;
     }
 }
