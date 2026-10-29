@@ -36,7 +36,11 @@
             btn_ptntreg = new Button();
             btn_nursedash = new Button();
             panel2 = new Panel();
+            label5 = new Label();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
             panelContent = new Panel();
+            label4 = new Label();
             LABEL = new Label();
             panel1 = new Panel();
             panel7 = new Panel();
@@ -45,20 +49,18 @@
             date = new Label();
             label2 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            pictureBox1 = new PictureBox();
-            label4 = new Label();
-            label1 = new Label();
-            label5 = new Label();
+            label3 = new Label();
             pnlsidebar.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelContent.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnlsidebar
             // 
             pnlsidebar.BackColor = Color.FromArgb(17, 34, 64);
+            pnlsidebar.Controls.Add(label3);
             pnlsidebar.Controls.Add(btn_shiftlog);
             pnlsidebar.Controls.Add(btn_util);
             pnlsidebar.Controls.Add(btn_ptntrec);
@@ -80,7 +82,7 @@
             btn_shiftlog.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_shiftlog.ForeColor = SystemColors.ControlLight;
             btn_shiftlog.ImageAlign = ContentAlignment.BottomCenter;
-            btn_shiftlog.Location = new Point(0, 403);
+            btn_shiftlog.Location = new Point(0, 415);
             btn_shiftlog.Name = "btn_shiftlog";
             btn_shiftlog.Size = new Size(266, 40);
             btn_shiftlog.TabIndex = 8;
@@ -97,7 +99,7 @@
             btn_util.FlatStyle = FlatStyle.Flat;
             btn_util.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_util.ForeColor = SystemColors.ControlLight;
-            btn_util.Location = new Point(0, 449);
+            btn_util.Location = new Point(0, 461);
             btn_util.Name = "btn_util";
             btn_util.Size = new Size(266, 40);
             btn_util.TabIndex = 5;
@@ -114,7 +116,7 @@
             btn_ptntrec.FlatStyle = FlatStyle.Flat;
             btn_ptntrec.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_ptntrec.ForeColor = SystemColors.Control;
-            btn_ptntrec.Location = new Point(0, 357);
+            btn_ptntrec.Location = new Point(0, 369);
             btn_ptntrec.Name = "btn_ptntrec";
             btn_ptntrec.Size = new Size(266, 40);
             btn_ptntrec.TabIndex = 3;
@@ -131,7 +133,7 @@
             btn_ptntreg.FlatStyle = FlatStyle.Flat;
             btn_ptntreg.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_ptntreg.ForeColor = SystemColors.Control;
-            btn_ptntreg.Location = new Point(0, 303);
+            btn_ptntreg.Location = new Point(0, 323);
             btn_ptntreg.Name = "btn_ptntreg";
             btn_ptntreg.Size = new Size(266, 40);
             btn_ptntreg.TabIndex = 2;
@@ -148,7 +150,7 @@
             btn_nursedash.FlatStyle = FlatStyle.Flat;
             btn_nursedash.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_nursedash.ForeColor = SystemColors.Control;
-            btn_nursedash.Location = new Point(0, 249);
+            btn_nursedash.Location = new Point(0, 277);
             btn_nursedash.Name = "btn_nursedash";
             btn_nursedash.Size = new Size(266, 40);
             btn_nursedash.TabIndex = 1;
@@ -169,6 +171,37 @@
             panel2.Size = new Size(233, 57);
             panel2.TabIndex = 0;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(100, 116, 139);
+            label5.Location = new Point(90, 25);
+            label5.Name = "label5";
+            label5.Size = new Size(91, 19);
+            label5.TabIndex = 7;
+            label5.Text = "ERP SYSTEM";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(90, 4);
+            label1.Name = "label1";
+            label1.Size = new Size(116, 21);
+            label1.TabIndex = 6;
+            label1.Text = "METRO PEDIA";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Location = new Point(12, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(58, 50);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
             // panelContent
             // 
             panelContent.Controls.Add(label4);
@@ -177,6 +210,17 @@
             panelContent.Size = new Size(1626, 917);
             panelContent.TabIndex = 1;
             panelContent.Paint += panelContent_Paint_2;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(755, 448);
+            label4.Name = "label4";
+            label4.Size = new Size(116, 21);
+            label4.TabIndex = 6;
+            label4.Text = "METRO PEDIA";
             // 
             // LABEL
             // 
@@ -260,47 +304,16 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
-            // pictureBox1
+            // label3
             // 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Location = new Point(12, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(58, 50);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(755, 448);
-            label4.Name = "label4";
-            label4.Size = new Size(116, 21);
-            label4.TabIndex = 6;
-            label4.Text = "METRO PEDIA";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(90, 4);
-            label1.Name = "label1";
-            label1.Size = new Size(116, 21);
-            label1.TabIndex = 6;
-            label1.Text = "METRO PEDIA";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.FromArgb(100, 116, 139);
-            label5.Location = new Point(90, 25);
-            label5.Name = "label5";
-            label5.Size = new Size(91, 19);
-            label5.TabIndex = 7;
-            label5.Text = "ERP SYSTEM";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(100, 116, 139);
+            label3.Location = new Point(0, 255);
+            label3.Name = "label3";
+            label3.Size = new Size(133, 19);
+            label3.TabIndex = 9;
+            label3.Text = "Nurse Workspaces";
             // 
             // Nurse
             // 
@@ -315,13 +328,14 @@
             Name = "Nurse";
             Text = "Nurse";
             pnlsidebar.ResumeLayout(false);
+            pnlsidebar.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -352,5 +366,6 @@
         private Label label1;
         private Label label4;
         private Label label5;
+        private Label label3;
     }
 }
