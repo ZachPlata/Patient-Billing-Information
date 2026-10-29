@@ -60,9 +60,10 @@
             pnlsidebar.Controls.Add(btn_ptntreg);
             pnlsidebar.Controls.Add(btn_nursedash);
             pnlsidebar.Controls.Add(panel2);
-            pnlsidebar.Location = new Point(0, 95);
+            pnlsidebar.Dock = DockStyle.Left;
+            pnlsidebar.Location = new Point(0, 0);
             pnlsidebar.Name = "pnlsidebar";
-            pnlsidebar.Size = new Size(233, 952);
+            pnlsidebar.Size = new Size(233, 1041);
             pnlsidebar.TabIndex = 0;
             // 
             // panel3
@@ -200,9 +201,9 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(LABEL);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
+            panel1.Location = new Point(233, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1904, 94);
+            panel1.Size = new Size(1671, 94);
             panel1.TabIndex = 2;
             // 
             // panel7
@@ -257,7 +258,7 @@
             // 
             timer1.Enabled = true;
             timer1.Interval = 1000;
-            timer1.Tick += this.timer1_Tick;
+            timer1.Tick += timer1_Tick;
             // 
             // Nurse
             // 
