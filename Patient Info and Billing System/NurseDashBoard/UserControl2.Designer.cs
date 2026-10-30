@@ -30,21 +30,10 @@
         {
             panel1 = new Panel();
             panel2 = new Panel();
-            button2 = new Button();
-            button1 = new Button();
-            panel4 = new Panel();
-            label12 = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            textBox9 = new TextBox();
-            textBox12 = new TextBox();
-            textBox8 = new TextBox();
-            textBox7 = new TextBox();
-            textBox6 = new TextBox();
             panel3 = new Panel();
+            button2 = new Button();
             label7 = new Label();
+            button1 = new Button();
             comboBox2 = new ComboBox();
             label6 = new Label();
             textBox1 = new TextBox();
@@ -60,11 +49,22 @@
             textBox5 = new TextBox();
             textBox4 = new TextBox();
             textBox2 = new TextBox();
+            panel4 = new Panel();
+            label12 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            textBox9 = new TextBox();
+            textBox12 = new TextBox();
+            textBox7 = new TextBox();
+            label10 = new Label();
+            textBox6 = new TextBox();
+            label11 = new Label();
+            textBox8 = new TextBox();
             LABEL = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            panel4.SuspendLayout();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -85,137 +85,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1568, 695);
             panel2.TabIndex = 0;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(421, 360);
-            button2.Name = "button2";
-            button2.Size = new Size(109, 37);
-            button2.TabIndex = 0;
-            button2.Text = "Clear Fields";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(270, 360);
-            button1.Name = "button1";
-            button1.Size = new Size(145, 37);
-            button1.TabIndex = 0;
-            button1.Text = "Register New Patient";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = SystemColors.ButtonHighlight;
-            panel4.Controls.Add(label12);
-            panel4.Controls.Add(label8);
-            panel4.Controls.Add(label9);
-            panel4.Controls.Add(textBox9);
-            panel4.Controls.Add(textBox12);
-            panel4.Controls.Add(textBox7);
-            panel4.Controls.Add(label10);
-            panel4.Controls.Add(textBox6);
-            panel4.Controls.Add(label11);
-            panel4.Controls.Add(textBox8);
-            panel4.Location = new Point(1213, 44);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(294, 439);
-            panel4.TabIndex = 1;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.FromArgb(15, 23, 42);
-            label12.Location = new Point(40, 340);
-            label12.Name = "label12";
-            label12.Size = new Size(188, 17);
-            label12.TabIndex = 33;
-            label12.Text = "Known Drug / Food Allergies";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.FromArgb(15, 23, 42);
-            label11.Location = new Point(42, 262);
-            label11.Name = "label11";
-            label11.Size = new Size(118, 17);
-            label11.TabIndex = 32;
-            label11.Text = "Body Weight (Kg)";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(15, 23, 42);
-            label10.Location = new Point(42, 191);
-            label10.Name = "label10";
-            label10.Size = new Size(148, 17);
-            label10.TabIndex = 31;
-            label10.Text = "Body Temperature (°C)";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.FromArgb(15, 23, 42);
-            label9.Location = new Point(42, 107);
-            label9.Name = "label9";
-            label9.Size = new Size(114, 17);
-            label9.TabIndex = 30;
-            label9.Text = "Pulse Rate (BPM)";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.FromArgb(15, 23, 42);
-            label8.Location = new Point(42, 27);
-            label8.Name = "label8";
-            label8.Size = new Size(156, 17);
-            label8.TabIndex = 22;
-            label8.Text = "Blood pressure (mmHg)";
-            // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(42, 211);
-            textBox9.Multiline = true;
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(200, 32);
-            textBox9.TabIndex = 29;
-            // 
-            // textBox12
-            // 
-            textBox12.Location = new Point(40, 360);
-            textBox12.Multiline = true;
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(202, 32);
-            textBox12.TabIndex = 28;
-            // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(40, 283);
-            textBox8.Multiline = true;
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(202, 32);
-            textBox8.TabIndex = 24;
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(42, 127);
-            textBox7.Multiline = true;
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(200, 32);
-            textBox7.TabIndex = 23;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(42, 47);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(200, 32);
-            textBox6.TabIndex = 22;
             // 
             // panel3
             // 
@@ -243,6 +112,15 @@
             panel3.Size = new Size(1159, 438);
             panel3.TabIndex = 0;
             // 
+            // button2
+            // 
+            button2.Location = new Point(421, 360);
+            button2.Name = "button2";
+            button2.Size = new Size(109, 37);
+            button2.TabIndex = 0;
+            button2.Text = "Clear Fields";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -253,6 +131,15 @@
             label7.Size = new Size(88, 17);
             label7.TabIndex = 21;
             label7.Text = "BLOOD TYPE";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(270, 360);
+            button1.Name = "button1";
+            button1.Size = new Size(145, 37);
+            button1.TabIndex = 0;
+            button1.Text = "Register New Patient";
+            button1.UseVisualStyleBackColor = true;
             // 
             // comboBox2
             // 
@@ -398,6 +285,119 @@
             textBox2.Size = new Size(300, 32);
             textBox2.TabIndex = 1;
             // 
+            // panel4
+            // 
+            panel4.BackColor = SystemColors.ButtonHighlight;
+            panel4.Controls.Add(label12);
+            panel4.Controls.Add(label8);
+            panel4.Controls.Add(label9);
+            panel4.Controls.Add(textBox9);
+            panel4.Controls.Add(textBox12);
+            panel4.Controls.Add(textBox7);
+            panel4.Controls.Add(label10);
+            panel4.Controls.Add(textBox6);
+            panel4.Controls.Add(label11);
+            panel4.Controls.Add(textBox8);
+            panel4.Location = new Point(1213, 44);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(294, 439);
+            panel4.TabIndex = 1;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.FromArgb(15, 23, 42);
+            label12.Location = new Point(40, 340);
+            label12.Name = "label12";
+            label12.Size = new Size(188, 17);
+            label12.TabIndex = 33;
+            label12.Text = "Known Drug / Food Allergies";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(15, 23, 42);
+            label8.Location = new Point(42, 27);
+            label8.Name = "label8";
+            label8.Size = new Size(156, 17);
+            label8.TabIndex = 22;
+            label8.Text = "Blood pressure (mmHg)";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(15, 23, 42);
+            label9.Location = new Point(42, 107);
+            label9.Name = "label9";
+            label9.Size = new Size(114, 17);
+            label9.TabIndex = 30;
+            label9.Text = "Pulse Rate (BPM)";
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(42, 211);
+            textBox9.Multiline = true;
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(200, 32);
+            textBox9.TabIndex = 29;
+            // 
+            // textBox12
+            // 
+            textBox12.Location = new Point(40, 360);
+            textBox12.Multiline = true;
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(202, 32);
+            textBox12.TabIndex = 28;
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(42, 127);
+            textBox7.Multiline = true;
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(200, 32);
+            textBox7.TabIndex = 23;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.FromArgb(15, 23, 42);
+            label10.Location = new Point(42, 191);
+            label10.Name = "label10";
+            label10.Size = new Size(148, 17);
+            label10.TabIndex = 31;
+            label10.Text = "Body Temperature (°C)";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(42, 47);
+            textBox6.Multiline = true;
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(200, 32);
+            textBox6.TabIndex = 22;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.FromArgb(15, 23, 42);
+            label11.Location = new Point(42, 262);
+            label11.Name = "label11";
+            label11.Size = new Size(118, 17);
+            label11.TabIndex = 32;
+            label11.Text = "Body Weight (Kg)";
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(40, 283);
+            textBox8.Multiline = true;
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(202, 32);
+            textBox8.TabIndex = 24;
+            // 
             // LABEL
             // 
             LABEL.AllowDrop = true;
@@ -420,10 +420,10 @@
             Size = new Size(1585, 860);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }

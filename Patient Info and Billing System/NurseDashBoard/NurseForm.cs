@@ -1,3 +1,4 @@
+using Patient_Info_and_Billing_System;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -18,8 +19,18 @@ namespace NurseDashBoard
         private Color normalColor = Color.FromArgb(17, 34, 64);
         private Color activeColor = Color.FromArgb(37, 99, 235);
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // Update the date and time labels every tick
+            date.Text = DateTime.Now.ToLongDateString();
+            timer.Text = DateTime.Now.ToLongTimeString();
+        }
+
+
+
         private void SetActiveButton(Button selectedButton)
         {
+            // Reset all buttons to normal color
             btn_nursedash.BackColor = normalColor;
             btn_ptntrec.BackColor = normalColor;
             btn_ptntreg.BackColor = normalColor;
@@ -38,13 +49,14 @@ namespace NurseDashBoard
         {
             // SHOWING THE FORMS WHEN THE BUTTONS ARE CLICKED
             uc_dashboard frm = new uc_dashboard();
+            //uc_dashboard == name of the form that will be shown when the button is clicked
 
 
+            panelContent.Controls.Clear(); // closes the prev form
+            panelContent.Controls.Add(frm); // adds the new form to the panel
+            frm.Show(); // shows the new form
 
-            panelContent.Controls.Clear();
-            panelContent.Controls.Add(frm);
-            frm.Show();
-            SetActiveButton(btn_nursedash);
+            SetActiveButton(btn_nursedash); //for activating button color when clickedr
 
         }
 
@@ -75,6 +87,15 @@ namespace NurseDashBoard
         private void btn_util_Click(object sender, EventArgs e)
         {
 
+            uc_PatientUtil frm = new uc_PatientUtil();
+
+
+
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(frm);
+            frm.Show();
+            SetActiveButton(btn_util);
+
         }
 
         private void panelContent_Paint_1(object sender, PaintEventArgs e)
@@ -92,6 +113,11 @@ namespace NurseDashBoard
         }
 
         private void btn_shiftlog_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void date_Click(object sender, EventArgs e)
         {
 
         }

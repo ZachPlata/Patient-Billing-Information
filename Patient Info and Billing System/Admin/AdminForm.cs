@@ -52,5 +52,10 @@ namespace Patient_Info_and_Billing_System.Admin
         {
             ActiveButton((Button)sender);
         }
+
+        private void timer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
