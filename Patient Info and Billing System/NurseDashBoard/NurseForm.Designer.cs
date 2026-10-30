@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             pnlsidebar = new Panel();
+            label3 = new Label();
             btn_shiftlog = new Button();
             btn_util = new Button();
             btn_ptntrec = new Button();
@@ -49,7 +50,6 @@
             date = new Label();
             label2 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            label3 = new Label();
             pnlsidebar.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -72,6 +72,17 @@
             pnlsidebar.Name = "pnlsidebar";
             pnlsidebar.Size = new Size(233, 1041);
             pnlsidebar.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(100, 116, 139);
+            label3.Location = new Point(0, 255);
+            label3.Name = "label3";
+            label3.Size = new Size(133, 19);
+            label3.TabIndex = 9;
+            label3.Text = "Nurse Workspaces";
             // 
             // btn_shiftlog
             // 
@@ -303,17 +314,6 @@
             timer1.Enabled = true;
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(100, 116, 139);
-            label3.Location = new Point(0, 255);
-            label3.Name = "label3";
-            label3.Size = new Size(133, 19);
-            label3.TabIndex = 9;
-            label3.Text = "Nurse Workspaces";
             // 
             // Nurse
             // 

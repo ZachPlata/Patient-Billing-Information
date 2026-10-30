@@ -1,3 +1,4 @@
+using Patient_Info_and_Billing_System;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -85,6 +86,15 @@ namespace NurseDashBoard
 
         private void btn_util_Click(object sender, EventArgs e)
         {
+
+            uc_PatientUtil frm = new uc_PatientUtil();
+
+
+
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(frm);
+            frm.Show();
+            SetActiveButton(btn_util);
 
         }
 
