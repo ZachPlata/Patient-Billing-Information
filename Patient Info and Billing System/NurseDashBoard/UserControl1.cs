@@ -29,5 +29,10 @@ namespace NurseDashBoard
         {
 
         }
+
+        private void uc_dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

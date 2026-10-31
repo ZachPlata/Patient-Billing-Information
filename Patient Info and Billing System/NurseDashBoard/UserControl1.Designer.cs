@@ -308,8 +308,8 @@
             // uc_dashboard
             // 
             AccessibleName = "Dashboard";
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             Controls.Add(pictureBox1);
             Controls.Add(label13);
             Controls.Add(dataGridView1);
@@ -319,6 +319,7 @@
             Controls.Add(pnlAvailableBeds);
             Name = "uc_dashboard";
             Size = new Size(1585, 860);
+            Load += uc_dashboard_Load;
             pnlAvailableBeds.ResumeLayout(false);
             pnlAvailableBeds.PerformLayout();
             pnlTotalClinicPatients.ResumeLayout(false);
