@@ -71,13 +71,13 @@
             Header.Location = new Point(0, 0);
             Header.Margin = new Padding(3, 2, 3, 2);
             Header.Name = "Header";
-            Header.Size = new Size(1904, 94);
+            Header.Size = new Size(1664, 94);
             Header.TabIndex = 2;
             // 
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(17, 34, 64);
-            panel7.Location = new Point(1459, 56);
+            panel7.Location = new Point(1458, 56);
             panel7.Margin = new Padding(3, 2, 3, 2);
             panel7.Name = "panel7";
             panel7.Size = new Size(22, 17);
@@ -86,17 +86,16 @@
             // timer
             // 
             timer.Font = new Font("Segoe UI Light", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            timer.Location = new Point(1486, 56);
+            timer.Location = new Point(1485, 56);
             timer.Name = "timer";
             timer.Size = new Size(149, 17);
             timer.TabIndex = 3;
             timer.Text = "Time";
-            timer.Click += timer_Click;
             // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(17, 34, 64);
-            panel6.Location = new Point(1219, 56);
+            panel6.Location = new Point(1218, 56);
             panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
             panel6.Size = new Size(22, 17);
@@ -105,7 +104,7 @@
             // date
             // 
             date.Font = new Font("Segoe UI Light", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            date.Location = new Point(1246, 56);
+            date.Location = new Point(1245, 56);
             date.Name = "date";
             date.Size = new Size(207, 17);
             date.TabIndex = 2;
@@ -157,7 +156,7 @@
             SideNavBar.Location = new Point(0, 0);
             SideNavBar.Margin = new Padding(3, 2, 3, 2);
             SideNavBar.Name = "SideNavBar";
-            SideNavBar.Size = new Size(233, 1042);
+            SideNavBar.Size = new Size(233, 881);
             SideNavBar.TabIndex = 3;
             // 
             // btnALAT
@@ -333,14 +332,14 @@
             panelContent.Location = new Point(257, 112);
             panelContent.Margin = new Padding(3, 2, 3, 2);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1387, 900);
+            panelContent.Size = new Size(1387, 645);
             panelContent.TabIndex = 4;
             // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1904, 1041);
+            ClientSize = new Size(1664, 775);
             Controls.Add(panelContent);
             Controls.Add(Header);
             Controls.Add(SideNavBar);
