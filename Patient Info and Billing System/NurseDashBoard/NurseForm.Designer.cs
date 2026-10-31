@@ -327,6 +327,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "Nurse";
             Text = "Nurse";
+            WindowState = FormWindowState.Maximized;
             pnlsidebar.ResumeLayout(false);
             pnlsidebar.PerformLayout();
             panel2.ResumeLayout(false);

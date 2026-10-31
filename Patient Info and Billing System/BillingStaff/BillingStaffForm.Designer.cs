@@ -342,6 +342,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "BillingStaffForm";
             Text = "BillingStaff";
+            WindowState = FormWindowState.Maximized;
             Header.ResumeLayout(false);
             Header.PerformLayout();
             SideNavBar.ResumeLayout(false);

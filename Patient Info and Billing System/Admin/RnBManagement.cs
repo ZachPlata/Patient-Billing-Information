@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Patient_Info_and_Billing_System.Admin
 {
-    public partial class UserControl1 : UserControl
+    public partial class RnBManagement : UserControl
     {
-        public UserControl1()
+        public RnBManagement()
         {
             InitializeComponent();
         }

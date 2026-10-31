@@ -328,12 +328,14 @@
             // 
             // panelContent
             // 
+            panelContent.AutoSize = true;
             panelContent.BackColor = Color.FromArgb(250, 249, 246);
             panelContent.Location = new Point(257, 112);
             panelContent.Margin = new Padding(3, 2, 3, 2);
             panelContent.Name = "panelContent";
             panelContent.Size = new Size(1387, 645);
             panelContent.TabIndex = 4;
+            panelContent.Paint += panelContent_Paint;
             // 
             // AdminForm
             // 
@@ -346,6 +348,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "AdminForm";
             Text = "Admin";
+            WindowState = FormWindowState.Maximized;
             Header.ResumeLayout(false);
             Header.PerformLayout();
             SideNavBar.ResumeLayout(false);
@@ -353,6 +356,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

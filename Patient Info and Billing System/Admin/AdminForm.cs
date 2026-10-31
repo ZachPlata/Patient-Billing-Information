@@ -13,6 +13,7 @@ namespace Patient_Info_and_Billing_System.Admin
         public AdminForm()
         {
             InitializeComponent();
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -46,6 +47,9 @@ namespace Patient_Info_and_Billing_System.Admin
         private void btnClncDtSet_Click(object sender, EventArgs e)
         {
             ActiveButton((Button)sender);
+            ClinicAndDataSetup form = new ClinicAndDataSetup();
+            panelContent.Controls.Add(form);
+            form.Show();
         }
 
         private void btnALAT_Click(object sender, EventArgs e)
@@ -54,6 +58,11 @@ namespace Patient_Info_and_Billing_System.Admin
         }
 
         private void timer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelContent_Paint(object sender, PaintEventArgs e)
         {
 
         }
