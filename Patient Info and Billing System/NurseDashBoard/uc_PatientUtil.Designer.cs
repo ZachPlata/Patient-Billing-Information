@@ -35,23 +35,22 @@
             label11 = new Label();
             label6 = new Label();
             label7 = new Label();
-            button1 = new Button();
-            textBox4 = new TextBox();
+            patUtil_Search = new Button();
+            PatUtil_PatIdTxtBox = new TextBox();
             panel2 = new Panel();
             label15 = new Label();
-            button3 = new Button();
-            label10 = new Label();
+            Date = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             LABEL = new Label();
-            textBox3 = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
+            PatUtil_Notes = new TextBox();
+            PatUtil_Date = new DateTimePicker();
+            PatUtil_QtTextBox = new TextBox();
+            PatUtil_EqIdNoComboBox = new TextBox();
+            PatUtil_EqDrgComboBox = new ComboBox();
+            PatUtil_EqCatComboBox = new ComboBox();
             panel3 = new Panel();
             label1 = new Label();
             dataGridView1 = new DataGridView();
@@ -59,6 +58,8 @@
             label9 = new Label();
             label8 = new Label();
             button2 = new Button();
+            RegPat_BtnAdd = new Button();
+            RegPat_BtnClr = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -75,8 +76,8 @@
             panel1.Controls.Add(label11);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label7);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(patUtil_Search);
+            panel1.Controls.Add(PatUtil_PatIdTxtBox);
             panel1.Location = new Point(18, 31);
             panel1.Name = "panel1";
             panel1.Size = new Size(1549, 139);
@@ -151,40 +152,41 @@
             label7.TabIndex = 23;
             label7.Text = "Patient ID";
             // 
-            // button1
+            // patUtil_Search
             // 
-            button1.Location = new Point(427, 47);
-            button1.Name = "button1";
-            button1.Size = new Size(145, 48);
-            button1.TabIndex = 22;
-            button1.Text = "Search";
-            button1.UseVisualStyleBackColor = true;
+            patUtil_Search.Location = new Point(427, 47);
+            patUtil_Search.Name = "patUtil_Search";
+            patUtil_Search.Size = new Size(145, 48);
+            patUtil_Search.TabIndex = 22;
+            patUtil_Search.Text = "Search";
+            patUtil_Search.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // PatUtil_PatIdTxtBox
             // 
-            textBox4.Location = new Point(30, 47);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(365, 48);
-            textBox4.TabIndex = 21;
+            PatUtil_PatIdTxtBox.Location = new Point(30, 47);
+            PatUtil_PatIdTxtBox.Multiline = true;
+            PatUtil_PatIdTxtBox.Name = "PatUtil_PatIdTxtBox";
+            PatUtil_PatIdTxtBox.Size = new Size(365, 48);
+            PatUtil_PatIdTxtBox.TabIndex = 21;
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(RegPat_BtnClr);
+            panel2.Controls.Add(RegPat_BtnAdd);
             panel2.Controls.Add(label15);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(label10);
+            panel2.Controls.Add(Date);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(LABEL);
-            panel2.Controls.Add(textBox3);
-            panel2.Controls.Add(dateTimePicker1);
-            panel2.Controls.Add(textBox1);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(comboBox2);
-            panel2.Controls.Add(comboBox1);
+            panel2.Controls.Add(PatUtil_Notes);
+            panel2.Controls.Add(PatUtil_Date);
+            panel2.Controls.Add(PatUtil_QtTextBox);
+            panel2.Controls.Add(PatUtil_EqIdNoComboBox);
+            panel2.Controls.Add(PatUtil_EqDrgComboBox);
+            panel2.Controls.Add(PatUtil_EqCatComboBox);
             panel2.Location = new Point(18, 200);
             panel2.Name = "panel2";
             panel2.Size = new Size(670, 643);
@@ -201,25 +203,16 @@
             label15.TabIndex = 28;
             label15.Text = "Notes";
             // 
-            // button3
+            // Date
             // 
-            button3.Location = new Point(30, 569);
-            button3.Name = "button3";
-            button3.Size = new Size(591, 48);
-            button3.TabIndex = 27;
-            button3.Text = "Add To Patient Record";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(15, 23, 42);
-            label10.Location = new Point(30, 237);
-            label10.Name = "label10";
-            label10.Size = new Size(49, 17);
-            label10.TabIndex = 26;
-            label10.Text = "ID NO.";
+            Date.AutoSize = true;
+            Date.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Date.ForeColor = Color.FromArgb(15, 23, 42);
+            Date.Location = new Point(30, 237);
+            Date.Name = "Date";
+            Date.Size = new Size(49, 17);
+            Date.TabIndex = 26;
+            Date.Text = "ID NO.";
             // 
             // label5
             // 
@@ -277,56 +270,56 @@
             LABEL.TabIndex = 21;
             LABEL.Text = "LOG EQUIPMENT";
             // 
-            // textBox3
+            // PatUtil_Notes
             // 
-            textBox3.Location = new Point(30, 346);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(591, 195);
-            textBox3.TabIndex = 20;
+            PatUtil_Notes.Location = new Point(30, 346);
+            PatUtil_Notes.Multiline = true;
+            PatUtil_Notes.Name = "PatUtil_Notes";
+            PatUtil_Notes.Size = new Size(591, 195);
+            PatUtil_Notes.TabIndex = 20;
             // 
-            // dateTimePicker1
+            // PatUtil_Date
             // 
-            dateTimePicker1.Font = new Font("Segoe UI", 11F);
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(30, 257);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(300, 27);
-            dateTimePicker1.TabIndex = 19;
+            PatUtil_Date.Font = new Font("Segoe UI", 11F);
+            PatUtil_Date.Format = DateTimePickerFormat.Short;
+            PatUtil_Date.Location = new Point(30, 257);
+            PatUtil_Date.Name = "PatUtil_Date";
+            PatUtil_Date.Size = new Size(300, 27);
+            PatUtil_Date.TabIndex = 19;
             // 
-            // textBox1
+            // PatUtil_QtTextBox
             // 
-            textBox1.Location = new Point(391, 171);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(230, 32);
-            textBox1.TabIndex = 18;
+            PatUtil_QtTextBox.Location = new Point(391, 171);
+            PatUtil_QtTextBox.Multiline = true;
+            PatUtil_QtTextBox.Name = "PatUtil_QtTextBox";
+            PatUtil_QtTextBox.Size = new Size(230, 32);
+            PatUtil_QtTextBox.TabIndex = 18;
             // 
-            // textBox2
+            // PatUtil_EqIdNoComboBox
             // 
-            textBox2.Location = new Point(30, 171);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(300, 32);
-            textBox2.TabIndex = 17;
+            PatUtil_EqIdNoComboBox.Location = new Point(30, 171);
+            PatUtil_EqIdNoComboBox.Multiline = true;
+            PatUtil_EqIdNoComboBox.Name = "PatUtil_EqIdNoComboBox";
+            PatUtil_EqIdNoComboBox.Size = new Size(300, 32);
+            PatUtil_EqIdNoComboBox.TabIndex = 17;
             // 
-            // comboBox2
+            // PatUtil_EqDrgComboBox
             // 
-            comboBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(391, 82);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(230, 28);
-            comboBox2.TabIndex = 16;
+            PatUtil_EqDrgComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PatUtil_EqDrgComboBox.FormattingEnabled = true;
+            PatUtil_EqDrgComboBox.Location = new Point(391, 82);
+            PatUtil_EqDrgComboBox.Name = "PatUtil_EqDrgComboBox";
+            PatUtil_EqDrgComboBox.Size = new Size(230, 28);
+            PatUtil_EqDrgComboBox.TabIndex = 16;
             // 
-            // comboBox1
+            // PatUtil_EqCatComboBox
             // 
-            comboBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(30, 82);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(300, 28);
-            comboBox1.TabIndex = 15;
+            PatUtil_EqCatComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PatUtil_EqCatComboBox.FormattingEnabled = true;
+            PatUtil_EqCatComboBox.Location = new Point(30, 82);
+            PatUtil_EqCatComboBox.Name = "PatUtil_EqCatComboBox";
+            PatUtil_EqCatComboBox.Size = new Size(300, 28);
+            PatUtil_EqCatComboBox.TabIndex = 15;
             // 
             // panel3
             // 
@@ -375,7 +368,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(15, 23, 42);
-            label9.Location = new Point(3, 123);
+            label9.Location = new Point(3, 115);
             label9.Name = "label9";
             label9.Size = new Size(197, 32);
             label9.TabIndex = 24;
@@ -401,6 +394,33 @@
             button2.TabIndex = 23;
             button2.Text = "Save";
             button2.UseVisualStyleBackColor = true;
+            // 
+            // RegPat_BtnAdd
+            // 
+            RegPat_BtnAdd.BackColor = Color.FromArgb(16, 185, 129);
+            RegPat_BtnAdd.FlatStyle = FlatStyle.Flat;
+            RegPat_BtnAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            RegPat_BtnAdd.ForeColor = Color.White;
+            RegPat_BtnAdd.Location = new Point(30, 556);
+            RegPat_BtnAdd.Margin = new Padding(3, 2, 3, 2);
+            RegPat_BtnAdd.Name = "RegPat_BtnAdd";
+            RegPat_BtnAdd.Size = new Size(300, 52);
+            RegPat_BtnAdd.TabIndex = 29;
+            RegPat_BtnAdd.Text = "Register Patient";
+            RegPat_BtnAdd.UseVisualStyleBackColor = false;
+            // 
+            // RegPat_BtnClr
+            // 
+            RegPat_BtnClr.BackColor = Color.White;
+            RegPat_BtnClr.FlatStyle = FlatStyle.Flat;
+            RegPat_BtnClr.ForeColor = Color.Black;
+            RegPat_BtnClr.Location = new Point(391, 556);
+            RegPat_BtnClr.Margin = new Padding(3, 2, 3, 2);
+            RegPat_BtnClr.Name = "RegPat_BtnClr";
+            RegPat_BtnClr.Size = new Size(229, 53);
+            RegPat_BtnClr.TabIndex = 30;
+            RegPat_BtnClr.Text = "Clear";
+            RegPat_BtnClr.UseVisualStyleBackColor = false;
             // 
             // uc_PatientUtil
             // 
@@ -433,15 +453,15 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox3;
+        private ComboBox PatUtil_EqDrgComboBox;
+        private ComboBox PatUtil_EqCatComboBox;
+        private TextBox PatUtil_QtTextBox;
+        private TextBox PatUtil_EqIdNoComboBox;
+        private DateTimePicker PatUtil_Date;
+        private TextBox PatUtil_Notes;
         private DataGridView dataGridView1;
-        private TextBox textBox4;
-        private Button button1;
+        private TextBox PatUtil_PatIdTxtBox;
+        private Button patUtil_Search;
         private Label LABEL;
         private Label label1;
         private Label label5;
@@ -454,11 +474,12 @@
         private Button button2;
         private Label label9;
         private Label label11;
-        private Label label10;
+        private Label Date;
         private Label label14;
         private Label label13;
         private Label label12;
-        private Button button3;
         private Label label15;
+        private Button RegPat_BtnAdd;
+        private Button RegPat_BtnClr;
     }
 }

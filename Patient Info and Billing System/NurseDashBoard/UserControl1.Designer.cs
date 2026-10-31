@@ -51,6 +51,7 @@
             dataGridView1 = new DataGridView();
             label13 = new Label();
             pictureBox1 = new PictureBox();
+            colorDialog1 = new ColorDialog();
             pnlAvailableBeds.SuspendLayout();
             pnlTotalClinicPatients.SuspendLayout();
             pnlAdmittedPatients.SuspendLayout();
@@ -360,5 +361,6 @@
         private DataGridView dataGridView1;
         private Label label13;
         private PictureBox pictureBox1;
+        private ColorDialog colorDialog1;
     }
 }
