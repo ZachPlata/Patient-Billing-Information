@@ -315,6 +315,7 @@
             btnPatientRecord.Text = "Patient Billing Records";
             btnPatientRecord.TextAlign = ContentAlignment.MiddleLeft;
             btnPatientRecord.UseVisualStyleBackColor = true;
+            btnPatientRecord.Click += btnPatientRecord_Click;
             // 
             // panelContent
             // 

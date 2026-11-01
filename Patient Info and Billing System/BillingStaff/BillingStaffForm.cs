@@ -14,11 +14,28 @@ namespace Patient_Info_and_Billing_System.BillingStaff
         {
             InitializeComponent();
         }
+        private void SetActiveButton(Button selectedButton)
+        {
+
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             date.Text = DateTime.Now.ToLongDateString();
             timer.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void btnPatientRecord_Click(object sender, EventArgs e)
+        {
+
+            uc_PatientBillingRec frm = new uc_PatientBillingRec();
+
+
+
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(frm);
+            frm.Show();
+            SetActiveButton(btnPatientRecord);
         }
     }
 }
