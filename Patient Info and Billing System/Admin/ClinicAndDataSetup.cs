@@ -51,5 +51,23 @@ namespace Patient_Info_and_Billing_System.Admin
             panelContent.Controls.Add(form);
             form.Show();
         }
+
+        private void btnTabMedicine_Click(object sender, EventArgs e)
+        {
+            ActiveButton((Button)sender);
+            panelContent.Controls.Clear();
+            MedCatalog form = new MedCatalog();
+            panelContent.Controls.Add(form);
+            form.Show();
+        }
+
+        private void btnTabConsultation_Click(object sender, EventArgs e)
+        {
+            ActiveButton((Button)sender);
+            panelContent.Controls.Clear();
+            ConsFeeSched form = new ConsFeeSched();
+            panelContent.Controls.Add(form);
+            form.Show();
+        }
     }
 }

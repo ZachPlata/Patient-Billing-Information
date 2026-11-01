@@ -245,6 +245,7 @@ namespace Patient_Info_and_Billing_System.Admin
             btnTabMedicine.Text = "💊  Medicine Catalog  (?)";
             btnTabMedicine.TextAlign = ContentAlignment.MiddleLeft;
             btnTabMedicine.UseVisualStyleBackColor = false;
+            btnTabMedicine.Click += btnTabMedicine_Click;
             // 
             // btnTabConsultation
             // 
@@ -263,6 +264,7 @@ namespace Patient_Info_and_Billing_System.Admin
             btnTabConsultation.Text = "\U0001f9d1‍⚕️  Consultation Fee Schedules  (?)";
             btnTabConsultation.TextAlign = ContentAlignment.MiddleLeft;
             btnTabConsultation.UseVisualStyleBackColor = false;
+            btnTabConsultation.Click += btnTabConsultation_Click;
             // 
             // panelTabsDivider
             // 

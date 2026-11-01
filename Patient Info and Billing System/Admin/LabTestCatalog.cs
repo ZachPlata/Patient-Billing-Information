@@ -14,5 +14,10 @@ namespace Patient_Info_and_Billing_System.Admin
         {
             InitializeComponent();
         }
+
+        private void lblValAvgTurnaround_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

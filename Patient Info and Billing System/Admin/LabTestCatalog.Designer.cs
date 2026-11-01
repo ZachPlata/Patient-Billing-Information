@@ -37,198 +37,233 @@ namespace Patient_Info_and_Billing_System.Admin
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            cardCatalogedTests = new Panel();
-            lblTitleCatalogedTests = new Label();
-            lblValCatalogedTests = new Label();
-            pnlIconCatalogedTests = new Panel();
-            lblIconCatalogedTests = new Label();
-            cardActivePanels = new Panel();
-            lblTitleActivePanels = new Label();
-            lblValActivePanels = new Label();
-            pnlIconActivePanels = new Panel();
-            lblIconActivePanels = new Label();
-            cardAvgTurnaround = new Panel();
-            lblTitleAvgTurnaround = new Label();
-            lblValAvgTurnaround = new Label();
-            pnlIconAvgTurnaround = new Panel();
-            lblIconTurnaround = new Label();
-            cardAvgTariff = new Panel();
-            lblTitleAvgTariff = new Label();
-            lblValAvgTariff = new Label();
             pnlIconAvgTariff = new Panel();
             lblIconTariff = new Label();
-            panelFilterBar = new Panel();
-            txtSearch = new TextBox();
-            lblFilterDepartment = new Label();
-            cmbDepartment = new ComboBox();
-            lblFilterStatus = new Label();
-            cmbStatus = new ComboBox();
-            btnClearFilters = new Button();
-            lblShowingEntries = new Label();
-            dgvLabTests = new DataGridView();
-            colTestCode = new DataGridViewTextBoxColumn();
-            colTestName = new DataGridViewTextBoxColumn();
-            colDepartment = new DataGridViewTextBoxColumn();
-            colTurnaround = new DataGridViewTextBoxColumn();
-            colStandardPrice = new DataGridViewTextBoxColumn();
-            colSpecimen = new DataGridViewTextBoxColumn();
-            colStatus = new DataGridViewTextBoxColumn();
+            lblValAvgTariff = new Label();
+            lblTitleAvgTariff = new Label();
+            cardAvgTariff = new Panel();
             colActions = new DataGridViewTextBoxColumn();
-            cardCatalogedTests.SuspendLayout();
-            pnlIconCatalogedTests.SuspendLayout();
-            cardActivePanels.SuspendLayout();
-            pnlIconActivePanels.SuspendLayout();
-            cardAvgTurnaround.SuspendLayout();
-            pnlIconAvgTurnaround.SuspendLayout();
-            cardAvgTariff.SuspendLayout();
+            colStatus = new DataGridViewTextBoxColumn();
+            colSpecimen = new DataGridViewTextBoxColumn();
+            colStandardPrice = new DataGridViewTextBoxColumn();
+            colTurnaround = new DataGridViewTextBoxColumn();
+            colDepartment = new DataGridViewTextBoxColumn();
+            colTestName = new DataGridViewTextBoxColumn();
+            colTestCode = new DataGridViewTextBoxColumn();
+            dgvLabTests = new DataGridView();
+            pnlIconAvgTurnaround = new Panel();
+            lblIconTurnaround = new Label();
+            lblValAvgTurnaround = new Label();
+            lblTitleAvgTurnaround = new Label();
+            cardAvgTurnaround = new Panel();
+            pnlIconActivePanels = new Panel();
+            lblIconActivePanels = new Label();
+            lblValActivePanels = new Label();
+            lblTitleActivePanels = new Label();
+            cardActivePanels = new Panel();
+            pnlIconCatalogedTests = new Panel();
+            lblIconCatalogedTests = new Label();
+            lblValCatalogedTests = new Label();
+            lblTitleCatalogedTests = new Label();
+            cardCatalogedTests = new Panel();
+            lblShowingEntries = new Label();
+            btnClearFilters = new Button();
+            cmbStatus = new ComboBox();
+            lblFilterStatus = new Label();
+            cmbDepartment = new ComboBox();
+            lblFilterDepartment = new Label();
+            txtSearch = new TextBox();
+            panelFilterBar = new Panel();
             pnlIconAvgTariff.SuspendLayout();
-            panelFilterBar.SuspendLayout();
+            cardAvgTariff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLabTests).BeginInit();
+            pnlIconAvgTurnaround.SuspendLayout();
+            cardAvgTurnaround.SuspendLayout();
+            pnlIconActivePanels.SuspendLayout();
+            cardActivePanels.SuspendLayout();
+            pnlIconCatalogedTests.SuspendLayout();
+            cardCatalogedTests.SuspendLayout();
+            panelFilterBar.SuspendLayout();
             SuspendLayout();
             // 
-            // cardCatalogedTests
+            // pnlIconAvgTariff
             // 
-            cardCatalogedTests.BackColor = Color.White;
-            cardCatalogedTests.BorderStyle = BorderStyle.FixedSingle;
-            cardCatalogedTests.Controls.Add(lblTitleCatalogedTests);
-            cardCatalogedTests.Controls.Add(lblValCatalogedTests);
-            cardCatalogedTests.Controls.Add(pnlIconCatalogedTests);
-            cardCatalogedTests.Location = new Point(0, 8);
-            cardCatalogedTests.Name = "cardCatalogedTests";
-            cardCatalogedTests.Size = new Size(322, 70);
-            cardCatalogedTests.TabIndex = 0;
+            pnlIconAvgTariff.BackColor = Color.FromArgb(250, 245, 255);
+            pnlIconAvgTariff.Controls.Add(lblIconTariff);
+            pnlIconAvgTariff.Location = new Point(266, 13);
+            pnlIconAvgTariff.Name = "pnlIconAvgTariff";
+            pnlIconAvgTariff.Size = new Size(42, 42);
+            pnlIconAvgTariff.TabIndex = 2;
             // 
-            // lblTitleCatalogedTests
+            // lblIconTariff
             // 
-            lblTitleCatalogedTests.AutoSize = true;
-            lblTitleCatalogedTests.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitleCatalogedTests.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleCatalogedTests.Location = new Point(12, 10);
-            lblTitleCatalogedTests.Name = "lblTitleCatalogedTests";
-            lblTitleCatalogedTests.Size = new Size(114, 12);
-            lblTitleCatalogedTests.TabIndex = 0;
-            lblTitleCatalogedTests.Text = "CATALOGED LAB TESTS";
+            lblIconTariff.Dock = DockStyle.Fill;
+            lblIconTariff.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblIconTariff.ForeColor = Color.FromArgb(168, 85, 247);
+            lblIconTariff.Location = new Point(0, 0);
+            lblIconTariff.Name = "lblIconTariff";
+            lblIconTariff.Size = new Size(42, 42);
+            lblIconTariff.TabIndex = 0;
+            lblIconTariff.Text = "\U0001f9fe";
+            lblIconTariff.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblValCatalogedTests
+            // lblValAvgTariff
             // 
-            lblValCatalogedTests.AutoSize = true;
-            lblValCatalogedTests.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblValCatalogedTests.ForeColor = Color.FromArgb(15, 23, 42);
-            lblValCatalogedTests.Location = new Point(12, 26);
-            lblValCatalogedTests.Name = "lblValCatalogedTests";
-            lblValCatalogedTests.Size = new Size(28, 32);
-            lblValCatalogedTests.TabIndex = 1;
-            lblValCatalogedTests.Text = "7";
+            lblValAvgTariff.AutoSize = true;
+            lblValAvgTariff.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblValAvgTariff.ForeColor = Color.FromArgb(15, 23, 42);
+            lblValAvgTariff.Location = new Point(12, 26);
+            lblValAvgTariff.Name = "lblValAvgTariff";
+            lblValAvgTariff.Size = new Size(50, 32);
+            lblValAvgTariff.TabIndex = 1;
+            lblValAvgTariff.Text = "₱ 0";
             // 
-            // pnlIconCatalogedTests
+            // lblTitleAvgTariff
             // 
-            pnlIconCatalogedTests.BackColor = Color.FromArgb(239, 246, 255);
-            pnlIconCatalogedTests.Controls.Add(lblIconCatalogedTests);
-            pnlIconCatalogedTests.Location = new Point(266, 13);
-            pnlIconCatalogedTests.Name = "pnlIconCatalogedTests";
-            pnlIconCatalogedTests.Size = new Size(42, 42);
-            pnlIconCatalogedTests.TabIndex = 2;
+            lblTitleAvgTariff.AutoSize = true;
+            lblTitleAvgTariff.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitleAvgTariff.ForeColor = Color.FromArgb(100, 116, 139);
+            lblTitleAvgTariff.Location = new Point(12, 10);
+            lblTitleAvgTariff.Name = "lblTitleAvgTariff";
+            lblTitleAvgTariff.Size = new Size(110, 12);
+            lblTitleAvgTariff.TabIndex = 0;
+            lblTitleAvgTariff.Text = "AVERAGE TEST TARIFF";
             // 
-            // lblIconCatalogedTests
+            // cardAvgTariff
             // 
-            lblIconCatalogedTests.Dock = DockStyle.Fill;
-            lblIconCatalogedTests.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblIconCatalogedTests.ForeColor = Color.FromArgb(37, 99, 235);
-            lblIconCatalogedTests.Location = new Point(0, 0);
-            lblIconCatalogedTests.Name = "lblIconCatalogedTests";
-            lblIconCatalogedTests.Size = new Size(42, 42);
-            lblIconCatalogedTests.TabIndex = 0;
-            lblIconCatalogedTests.Text = "🧪";
-            lblIconCatalogedTests.TextAlign = ContentAlignment.MiddleCenter;
+            cardAvgTariff.BackColor = Color.White;
+            cardAvgTariff.BorderStyle = BorderStyle.FixedSingle;
+            cardAvgTariff.Controls.Add(lblTitleAvgTariff);
+            cardAvgTariff.Controls.Add(lblValAvgTariff);
+            cardAvgTariff.Controls.Add(pnlIconAvgTariff);
+            cardAvgTariff.Location = new Point(1017, 8);
+            cardAvgTariff.Name = "cardAvgTariff";
+            cardAvgTariff.Size = new Size(322, 70);
+            cardAvgTariff.TabIndex = 3;
             // 
-            // cardActivePanels
+            // colActions
             // 
-            cardActivePanels.BackColor = Color.White;
-            cardActivePanels.BorderStyle = BorderStyle.FixedSingle;
-            cardActivePanels.Controls.Add(lblTitleActivePanels);
-            cardActivePanels.Controls.Add(lblValActivePanels);
-            cardActivePanels.Controls.Add(pnlIconActivePanels);
-            cardActivePanels.Location = new Point(339, 8);
-            cardActivePanels.Name = "cardActivePanels";
-            cardActivePanels.Size = new Size(322, 70);
-            cardActivePanels.TabIndex = 1;
+            colActions.HeaderText = "ACTIONS";
+            colActions.MinimumWidth = 6;
+            colActions.Name = "colActions";
+            colActions.ReadOnly = true;
+            colActions.Width = 80;
             // 
-            // lblTitleActivePanels
+            // colStatus
             // 
-            lblTitleActivePanels.AutoSize = true;
-            lblTitleActivePanels.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitleActivePanels.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleActivePanels.Location = new Point(12, 10);
-            lblTitleActivePanels.Name = "lblTitleActivePanels";
-            lblTitleActivePanels.Size = new Size(104, 12);
-            lblTitleActivePanels.TabIndex = 0;
-            lblTitleActivePanels.Text = "ACTIVE TEST PANELS";
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colStatus.DefaultCellStyle = dataGridViewCellStyle1;
+            colStatus.HeaderText = "STATUS";
+            colStatus.MinimumWidth = 6;
+            colStatus.Name = "colStatus";
+            colStatus.ReadOnly = true;
             // 
-            // lblValActivePanels
+            // colSpecimen
             // 
-            lblValActivePanels.AutoSize = true;
-            lblValActivePanels.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblValActivePanels.ForeColor = Color.FromArgb(16, 185, 129);
-            lblValActivePanels.Location = new Point(12, 26);
-            lblValActivePanels.Name = "lblValActivePanels";
-            lblValActivePanels.Size = new Size(28, 32);
-            lblValActivePanels.TabIndex = 1;
-            lblValActivePanels.Text = "7";
+            colSpecimen.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(71, 85, 105);
+            colSpecimen.DefaultCellStyle = dataGridViewCellStyle2;
+            colSpecimen.HeaderText = "SPECIMEN REQUIREMENT";
+            colSpecimen.MinimumWidth = 6;
+            colSpecimen.Name = "colSpecimen";
+            colSpecimen.ReadOnly = true;
             // 
-            // pnlIconActivePanels
+            // colStandardPrice
             // 
-            pnlIconActivePanels.BackColor = Color.FromArgb(236, 253, 245);
-            pnlIconActivePanels.Controls.Add(lblIconActivePanels);
-            pnlIconActivePanels.Location = new Point(266, 13);
-            pnlIconActivePanels.Name = "pnlIconActivePanels";
-            pnlIconActivePanels.Size = new Size(42, 42);
-            pnlIconActivePanels.TabIndex = 2;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(15, 23, 42);
+            colStandardPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            colStandardPrice.HeaderText = "STANDARD PRICE (₱)";
+            colStandardPrice.MinimumWidth = 6;
+            colStandardPrice.Name = "colStandardPrice";
+            colStandardPrice.ReadOnly = true;
+            colStandardPrice.Width = 150;
             // 
-            // lblIconActivePanels
+            // colTurnaround
             // 
-            lblIconActivePanels.Dock = DockStyle.Fill;
-            lblIconActivePanels.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblIconActivePanels.ForeColor = Color.FromArgb(16, 185, 129);
-            lblIconActivePanels.Location = new Point(0, 0);
-            lblIconActivePanels.Name = "lblIconActivePanels";
-            lblIconActivePanels.Size = new Size(42, 42);
-            lblIconActivePanels.TabIndex = 0;
-            lblIconActivePanels.Text = "✔";
-            lblIconActivePanels.TextAlign = ContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(51, 65, 85);
+            colTurnaround.DefaultCellStyle = dataGridViewCellStyle4;
+            colTurnaround.HeaderText = "TURNAROUND (TAT)";
+            colTurnaround.MinimumWidth = 6;
+            colTurnaround.Name = "colTurnaround";
+            colTurnaround.ReadOnly = true;
+            colTurnaround.Width = 140;
             // 
-            // cardAvgTurnaround
+            // colDepartment
             // 
-            cardAvgTurnaround.BackColor = Color.White;
-            cardAvgTurnaround.BorderStyle = BorderStyle.FixedSingle;
-            cardAvgTurnaround.Controls.Add(lblTitleAvgTurnaround);
-            cardAvgTurnaround.Controls.Add(lblValAvgTurnaround);
-            cardAvgTurnaround.Controls.Add(pnlIconAvgTurnaround);
-            cardAvgTurnaround.Location = new Point(678, 8);
-            cardAvgTurnaround.Name = "cardAvgTurnaround";
-            cardAvgTurnaround.Size = new Size(322, 70);
-            cardAvgTurnaround.TabIndex = 2;
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(51, 65, 85);
+            colDepartment.DefaultCellStyle = dataGridViewCellStyle5;
+            colDepartment.HeaderText = "DEPARTMENT / SECTION";
+            colDepartment.MinimumWidth = 6;
+            colDepartment.Name = "colDepartment";
+            colDepartment.ReadOnly = true;
+            colDepartment.Width = 180;
             // 
-            // lblTitleAvgTurnaround
+            // colTestName
             // 
-            lblTitleAvgTurnaround.AutoSize = true;
-            lblTitleAvgTurnaround.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitleAvgTurnaround.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleAvgTurnaround.Location = new Point(12, 10);
-            lblTitleAvgTurnaround.Name = "lblTitleAvgTurnaround";
-            lblTitleAvgTurnaround.Size = new Size(152, 12);
-            lblTitleAvgTurnaround.TabIndex = 0;
-            lblTitleAvgTurnaround.Text = "AVERAGE TURNAROUND (TAT)";
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(15, 23, 42);
+            colTestName.DefaultCellStyle = dataGridViewCellStyle6;
+            colTestName.HeaderText = "LABORATORY TEST NAME";
+            colTestName.MinimumWidth = 6;
+            colTestName.Name = "colTestName";
+            colTestName.ReadOnly = true;
+            colTestName.Width = 310;
             // 
-            // lblValAvgTurnaround
+            // colTestCode
             // 
-            lblValAvgTurnaround.AutoSize = true;
-            lblValAvgTurnaround.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblValAvgTurnaround.ForeColor = Color.FromArgb(15, 23, 42);
-            lblValAvgTurnaround.Location = new Point(12, 26);
-            lblValAvgTurnaround.Name = "lblValAvgTurnaround";
-            lblValAvgTurnaround.Size = new Size(116, 32);
-            lblValAvgTurnaround.TabIndex = 1;
-            lblValAvgTurnaround.Text = "~2.5 Hrs";
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(37, 99, 235);
+            colTestCode.DefaultCellStyle = dataGridViewCellStyle7;
+            colTestCode.HeaderText = "TEST CODE";
+            colTestCode.MinimumWidth = 6;
+            colTestCode.Name = "colTestCode";
+            colTestCode.ReadOnly = true;
+            colTestCode.Width = 130;
+            // 
+            // dgvLabTests
+            // 
+            dgvLabTests.AllowUserToAddRows = false;
+            dgvLabTests.AllowUserToDeleteRows = false;
+            dgvLabTests.AllowUserToResizeRows = false;
+            dgvLabTests.BackgroundColor = Color.White;
+            dgvLabTests.BorderStyle = BorderStyle.None;
+            dgvLabTests.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvLabTests.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(248, 250, 252);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(100, 116, 139);
+            dataGridViewCellStyle8.Padding = new Padding(8, 0, 0, 0);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(248, 250, 252);
+            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(100, 116, 139);
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dgvLabTests.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dgvLabTests.ColumnHeadersHeight = 36;
+            dgvLabTests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvLabTests.Columns.AddRange(new DataGridViewColumn[] { colTestCode, colTestName, colDepartment, colTurnaround, colStandardPrice, colSpecimen, colStatus, colActions });
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.White;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(15, 23, 42);
+            dataGridViewCellStyle9.Padding = new Padding(8, 0, 0, 0);
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(239, 246, 255);
+            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(15, 23, 42);
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
+            dgvLabTests.DefaultCellStyle = dataGridViewCellStyle9;
+            dgvLabTests.EnableHeadersVisualStyles = false;
+            dgvLabTests.GridColor = Color.FromArgb(241, 245, 249);
+            dgvLabTests.Location = new Point(0, 122);
+            dgvLabTests.MultiSelect = false;
+            dgvLabTests.Name = "dgvLabTests";
+            dgvLabTests.ReadOnly = true;
+            dgvLabTests.RowHeadersVisible = false;
+            dgvLabTests.RowHeadersWidth = 51;
+            dgvLabTests.RowTemplate.Height = 42;
+            dgvLabTests.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvLabTests.Size = new Size(1339, 350);
+            dgvLabTests.TabIndex = 5;
             // 
             // pnlIconAvgTurnaround
             // 
@@ -251,132 +286,161 @@ namespace Patient_Info_and_Billing_System.Admin
             lblIconTurnaround.Text = "⏱";
             lblIconTurnaround.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // cardAvgTariff
+            // lblValAvgTurnaround
             // 
-            cardAvgTariff.BackColor = Color.White;
-            cardAvgTariff.BorderStyle = BorderStyle.FixedSingle;
-            cardAvgTariff.Controls.Add(lblTitleAvgTariff);
-            cardAvgTariff.Controls.Add(lblValAvgTariff);
-            cardAvgTariff.Controls.Add(pnlIconAvgTariff);
-            cardAvgTariff.Location = new Point(1017, 8);
-            cardAvgTariff.Name = "cardAvgTariff";
-            cardAvgTariff.Size = new Size(322, 70);
-            cardAvgTariff.TabIndex = 3;
+            lblValAvgTurnaround.AutoSize = true;
+            lblValAvgTurnaround.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblValAvgTurnaround.ForeColor = Color.FromArgb(15, 23, 42);
+            lblValAvgTurnaround.Location = new Point(12, 26);
+            lblValAvgTurnaround.Name = "lblValAvgTurnaround";
+            lblValAvgTurnaround.Size = new Size(98, 32);
+            lblValAvgTurnaround.TabIndex = 1;
+            lblValAvgTurnaround.Text = "~ 0 Hrs";
+            lblValAvgTurnaround.Click += lblValAvgTurnaround_Click;
             // 
-            // lblTitleAvgTariff
+            // lblTitleAvgTurnaround
             // 
-            lblTitleAvgTariff.AutoSize = true;
-            lblTitleAvgTariff.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitleAvgTariff.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleAvgTariff.Location = new Point(12, 10);
-            lblTitleAvgTariff.Name = "lblTitleAvgTariff";
-            lblTitleAvgTariff.Size = new Size(110, 12);
-            lblTitleAvgTariff.TabIndex = 0;
-            lblTitleAvgTariff.Text = "AVERAGE TEST TARIFF";
+            lblTitleAvgTurnaround.AutoSize = true;
+            lblTitleAvgTurnaround.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitleAvgTurnaround.ForeColor = Color.FromArgb(100, 116, 139);
+            lblTitleAvgTurnaround.Location = new Point(12, 10);
+            lblTitleAvgTurnaround.Name = "lblTitleAvgTurnaround";
+            lblTitleAvgTurnaround.Size = new Size(152, 12);
+            lblTitleAvgTurnaround.TabIndex = 0;
+            lblTitleAvgTurnaround.Text = "AVERAGE TURNAROUND (TAT)";
             // 
-            // lblValAvgTariff
+            // cardAvgTurnaround
             // 
-            lblValAvgTariff.AutoSize = true;
-            lblValAvgTariff.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblValAvgTariff.ForeColor = Color.FromArgb(15, 23, 42);
-            lblValAvgTariff.Location = new Point(12, 26);
-            lblValAvgTariff.Name = "lblValAvgTariff";
-            lblValAvgTariff.Size = new Size(99, 32);
-            lblValAvgTariff.TabIndex = 1;
-            lblValAvgTariff.Text = "₱1,003";
+            cardAvgTurnaround.BackColor = Color.White;
+            cardAvgTurnaround.BorderStyle = BorderStyle.FixedSingle;
+            cardAvgTurnaround.Controls.Add(lblTitleAvgTurnaround);
+            cardAvgTurnaround.Controls.Add(lblValAvgTurnaround);
+            cardAvgTurnaround.Controls.Add(pnlIconAvgTurnaround);
+            cardAvgTurnaround.Location = new Point(678, 8);
+            cardAvgTurnaround.Name = "cardAvgTurnaround";
+            cardAvgTurnaround.Size = new Size(322, 70);
+            cardAvgTurnaround.TabIndex = 2;
             // 
-            // pnlIconAvgTariff
+            // pnlIconActivePanels
             // 
-            pnlIconAvgTariff.BackColor = Color.FromArgb(250, 245, 255);
-            pnlIconAvgTariff.Controls.Add(lblIconTariff);
-            pnlIconAvgTariff.Location = new Point(266, 13);
-            pnlIconAvgTariff.Name = "pnlIconAvgTariff";
-            pnlIconAvgTariff.Size = new Size(42, 42);
-            pnlIconAvgTariff.TabIndex = 2;
+            pnlIconActivePanels.BackColor = Color.FromArgb(236, 253, 245);
+            pnlIconActivePanels.Controls.Add(lblIconActivePanels);
+            pnlIconActivePanels.Location = new Point(266, 13);
+            pnlIconActivePanels.Name = "pnlIconActivePanels";
+            pnlIconActivePanels.Size = new Size(42, 42);
+            pnlIconActivePanels.TabIndex = 2;
             // 
-            // lblIconTariff
+            // lblIconActivePanels
             // 
-            lblIconTariff.Dock = DockStyle.Fill;
-            lblIconTariff.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblIconTariff.ForeColor = Color.FromArgb(168, 85, 247);
-            lblIconTariff.Location = new Point(0, 0);
-            lblIconTariff.Name = "lblIconTariff";
-            lblIconTariff.Size = new Size(42, 42);
-            lblIconTariff.TabIndex = 0;
-            lblIconTariff.Text = "🧾";
-            lblIconTariff.TextAlign = ContentAlignment.MiddleCenter;
+            lblIconActivePanels.Dock = DockStyle.Fill;
+            lblIconActivePanels.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblIconActivePanels.ForeColor = Color.FromArgb(16, 185, 129);
+            lblIconActivePanels.Location = new Point(0, 0);
+            lblIconActivePanels.Name = "lblIconActivePanels";
+            lblIconActivePanels.Size = new Size(42, 42);
+            lblIconActivePanels.TabIndex = 0;
+            lblIconActivePanels.Text = "✔";
+            lblIconActivePanels.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // panelFilterBar
+            // lblValActivePanels
             // 
-            panelFilterBar.Controls.Add(txtSearch);
-            panelFilterBar.Controls.Add(lblFilterDepartment);
-            panelFilterBar.Controls.Add(cmbDepartment);
-            panelFilterBar.Controls.Add(lblFilterStatus);
-            panelFilterBar.Controls.Add(cmbStatus);
-            panelFilterBar.Controls.Add(btnClearFilters);
-            panelFilterBar.Controls.Add(lblShowingEntries);
-            panelFilterBar.Location = new Point(0, 84);
-            panelFilterBar.Name = "panelFilterBar";
-            panelFilterBar.Size = new Size(1339, 32);
-            panelFilterBar.TabIndex = 4;
+            lblValActivePanels.AutoSize = true;
+            lblValActivePanels.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblValActivePanels.ForeColor = Color.FromArgb(16, 185, 129);
+            lblValActivePanels.Location = new Point(12, 26);
+            lblValActivePanels.Name = "lblValActivePanels";
+            lblValActivePanels.Size = new Size(28, 32);
+            lblValActivePanels.TabIndex = 1;
+            lblValActivePanels.Text = "0";
             // 
-            // txtSearch
+            // lblTitleActivePanels
             // 
-            txtSearch.BackColor = Color.White;
-            txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.ForeColor = Color.FromArgb(51, 65, 85);
-            txtSearch.Location = new Point(0, 3);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "🔍  Search room, code, name...";
-            txtSearch.Size = new Size(250, 23);
-            txtSearch.TabIndex = 0;
+            lblTitleActivePanels.AutoSize = true;
+            lblTitleActivePanels.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitleActivePanels.ForeColor = Color.FromArgb(100, 116, 139);
+            lblTitleActivePanels.Location = new Point(12, 10);
+            lblTitleActivePanels.Name = "lblTitleActivePanels";
+            lblTitleActivePanels.Size = new Size(104, 12);
+            lblTitleActivePanels.TabIndex = 0;
+            lblTitleActivePanels.Text = "ACTIVE TEST PANELS";
             // 
-            // lblFilterDepartment
+            // cardActivePanels
             // 
-            lblFilterDepartment.AutoSize = true;
-            lblFilterDepartment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFilterDepartment.ForeColor = Color.FromArgb(71, 85, 105);
-            lblFilterDepartment.Location = new Point(265, 6);
-            lblFilterDepartment.Name = "lblFilterDepartment";
-            lblFilterDepartment.Size = new Size(79, 15);
-            lblFilterDepartment.TabIndex = 1;
-            lblFilterDepartment.Text = "Department:";
+            cardActivePanels.BackColor = Color.White;
+            cardActivePanels.BorderStyle = BorderStyle.FixedSingle;
+            cardActivePanels.Controls.Add(lblTitleActivePanels);
+            cardActivePanels.Controls.Add(lblValActivePanels);
+            cardActivePanels.Controls.Add(pnlIconActivePanels);
+            cardActivePanels.Location = new Point(339, 8);
+            cardActivePanels.Name = "cardActivePanels";
+            cardActivePanels.Size = new Size(322, 70);
+            cardActivePanels.TabIndex = 1;
             // 
-            // cmbDepartment
+            // pnlIconCatalogedTests
             // 
-            cmbDepartment.BackColor = Color.White;
-            cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbDepartment.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbDepartment.FormattingEnabled = true;
-            cmbDepartment.Items.AddRange(new object[] { "ALL", "Hematology", "Clinical Chemistry", "Serology & Virology", "Clinical Microscopy", "Microbiology" });
-            cmbDepartment.Location = new Point(350, 3);
-            cmbDepartment.Name = "cmbDepartment";
-            cmbDepartment.Size = new Size(140, 23);
-            cmbDepartment.TabIndex = 2;
+            pnlIconCatalogedTests.BackColor = Color.FromArgb(239, 246, 255);
+            pnlIconCatalogedTests.Controls.Add(lblIconCatalogedTests);
+            pnlIconCatalogedTests.Location = new Point(266, 13);
+            pnlIconCatalogedTests.Name = "pnlIconCatalogedTests";
+            pnlIconCatalogedTests.Size = new Size(42, 42);
+            pnlIconCatalogedTests.TabIndex = 2;
             // 
-            // lblFilterStatus
+            // lblIconCatalogedTests
             // 
-            lblFilterStatus.AutoSize = true;
-            lblFilterStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFilterStatus.ForeColor = Color.FromArgb(71, 85, 105);
-            lblFilterStatus.Location = new Point(505, 6);
-            lblFilterStatus.Name = "lblFilterStatus";
-            lblFilterStatus.Size = new Size(45, 15);
-            lblFilterStatus.TabIndex = 3;
-            lblFilterStatus.Text = "Status:";
+            lblIconCatalogedTests.Dock = DockStyle.Fill;
+            lblIconCatalogedTests.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblIconCatalogedTests.ForeColor = Color.FromArgb(37, 99, 235);
+            lblIconCatalogedTests.Location = new Point(0, 0);
+            lblIconCatalogedTests.Name = "lblIconCatalogedTests";
+            lblIconCatalogedTests.Size = new Size(42, 42);
+            lblIconCatalogedTests.TabIndex = 0;
+            lblIconCatalogedTests.Text = "\U0001f9ea";
+            lblIconCatalogedTests.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // cmbStatus
+            // lblValCatalogedTests
             // 
-            cmbStatus.BackColor = Color.White;
-            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbStatus.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbStatus.FormattingEnabled = true;
-            cmbStatus.Items.AddRange(new object[] { "ALL", "Active", "Inactive" });
-            cmbStatus.Location = new Point(555, 3);
-            cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(100, 23);
-            cmbStatus.TabIndex = 4;
+            lblValCatalogedTests.AutoSize = true;
+            lblValCatalogedTests.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblValCatalogedTests.ForeColor = Color.FromArgb(15, 23, 42);
+            lblValCatalogedTests.Location = new Point(12, 26);
+            lblValCatalogedTests.Name = "lblValCatalogedTests";
+            lblValCatalogedTests.Size = new Size(28, 32);
+            lblValCatalogedTests.TabIndex = 1;
+            lblValCatalogedTests.Text = "0";
+            // 
+            // lblTitleCatalogedTests
+            // 
+            lblTitleCatalogedTests.AutoSize = true;
+            lblTitleCatalogedTests.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitleCatalogedTests.ForeColor = Color.FromArgb(100, 116, 139);
+            lblTitleCatalogedTests.Location = new Point(12, 10);
+            lblTitleCatalogedTests.Name = "lblTitleCatalogedTests";
+            lblTitleCatalogedTests.Size = new Size(114, 12);
+            lblTitleCatalogedTests.TabIndex = 0;
+            lblTitleCatalogedTests.Text = "CATALOGED LAB TESTS";
+            // 
+            // cardCatalogedTests
+            // 
+            cardCatalogedTests.BackColor = Color.White;
+            cardCatalogedTests.BorderStyle = BorderStyle.FixedSingle;
+            cardCatalogedTests.Controls.Add(lblTitleCatalogedTests);
+            cardCatalogedTests.Controls.Add(lblValCatalogedTests);
+            cardCatalogedTests.Controls.Add(pnlIconCatalogedTests);
+            cardCatalogedTests.Location = new Point(0, 8);
+            cardCatalogedTests.Name = "cardCatalogedTests";
+            cardCatalogedTests.Size = new Size(322, 70);
+            cardCatalogedTests.TabIndex = 0;
+            // 
+            // lblShowingEntries
+            // 
+            lblShowingEntries.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblShowingEntries.ForeColor = Color.FromArgb(100, 116, 139);
+            lblShowingEntries.Location = new Point(1190, 6);
+            lblShowingEntries.Name = "lblShowingEntries";
+            lblShowingEntries.Size = new Size(149, 18);
+            lblShowingEntries.TabIndex = 6;
+            lblShowingEntries.Text = "Showing: 0 entries";
+            lblShowingEntries.TextAlign = ContentAlignment.TopRight;
             // 
             // btnClearFilters
             // 
@@ -395,141 +459,77 @@ namespace Patient_Info_and_Billing_System.Admin
             btnClearFilters.Text = "↺ Clear";
             btnClearFilters.UseVisualStyleBackColor = false;
             // 
-            // lblShowingEntries
+            // cmbStatus
             // 
-            lblShowingEntries.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblShowingEntries.ForeColor = Color.FromArgb(100, 116, 139);
-            lblShowingEntries.Location = new Point(1190, 6);
-            lblShowingEntries.Name = "lblShowingEntries";
-            lblShowingEntries.Size = new Size(149, 18);
-            lblShowingEntries.TabIndex = 6;
-            lblShowingEntries.Text = "Showing: 7 entries";
-            lblShowingEntries.TextAlign = ContentAlignment.TopRight;
+            cmbStatus.BackColor = Color.White;
+            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStatus.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "ALL", "Active", "Inactive" });
+            cmbStatus.Location = new Point(555, 3);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(100, 23);
+            cmbStatus.TabIndex = 4;
             // 
-            // dgvLabTests
+            // lblFilterStatus
             // 
-            dgvLabTests.AllowUserToAddRows = false;
-            dgvLabTests.AllowUserToDeleteRows = false;
-            dgvLabTests.AllowUserToResizeRows = false;
-            dgvLabTests.BackgroundColor = Color.White;
-            dgvLabTests.BorderStyle = BorderStyle.None;
-            dgvLabTests.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvLabTests.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(100, 116, 139);
-            dataGridViewCellStyle1.Padding = new Padding(8, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(248, 250, 252);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(100, 116, 139);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvLabTests.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvLabTests.ColumnHeadersHeight = 36;
-            dgvLabTests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvLabTests.Columns.AddRange(new DataGridViewColumn[] { colTestCode, colTestName, colDepartment, colTurnaround, colStandardPrice, colSpecimen, colStatus, colActions });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(15, 23, 42);
-            dataGridViewCellStyle2.Padding = new Padding(8, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(239, 246, 255);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(15, 23, 42);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvLabTests.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvLabTests.EnableHeadersVisualStyles = false;
-            dgvLabTests.GridColor = Color.FromArgb(241, 245, 249);
-            dgvLabTests.Location = new Point(0, 122);
-            dgvLabTests.MultiSelect = false;
-            dgvLabTests.Name = "dgvLabTests";
-            dgvLabTests.ReadOnly = true;
-            dgvLabTests.RowHeadersVisible = false;
-            dgvLabTests.RowHeadersWidth = 51;
-            dgvLabTests.RowTemplate.Height = 42;
-            dgvLabTests.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLabTests.Size = new Size(1339, 350);
-            dgvLabTests.TabIndex = 5;
+            lblFilterStatus.AutoSize = true;
+            lblFilterStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFilterStatus.ForeColor = Color.FromArgb(71, 85, 105);
+            lblFilterStatus.Location = new Point(505, 6);
+            lblFilterStatus.Name = "lblFilterStatus";
+            lblFilterStatus.Size = new Size(45, 15);
+            lblFilterStatus.TabIndex = 3;
+            lblFilterStatus.Text = "Status:";
             // 
-            // colTestCode
+            // cmbDepartment
             // 
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(37, 99, 235);
-            colTestCode.DefaultCellStyle = dataGridViewCellStyle3;
-            colTestCode.HeaderText = "TEST CODE";
-            colTestCode.MinimumWidth = 6;
-            colTestCode.Name = "colTestCode";
-            colTestCode.ReadOnly = true;
-            colTestCode.Width = 130;
+            cmbDepartment.BackColor = Color.White;
+            cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbDepartment.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbDepartment.FormattingEnabled = true;
+            cmbDepartment.Items.AddRange(new object[] { "ALL", "Hematology", "Clinical Chemistry", "Serology & Virology", "Clinical Microscopy", "Microbiology" });
+            cmbDepartment.Location = new Point(350, 3);
+            cmbDepartment.Name = "cmbDepartment";
+            cmbDepartment.Size = new Size(140, 23);
+            cmbDepartment.TabIndex = 2;
             // 
-            // colTestName
+            // lblFilterDepartment
             // 
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(15, 23, 42);
-            colTestName.DefaultCellStyle = dataGridViewCellStyle4;
-            colTestName.HeaderText = "LABORATORY TEST NAME";
-            colTestName.MinimumWidth = 6;
-            colTestName.Name = "colTestName";
-            colTestName.ReadOnly = true;
-            colTestName.Width = 310;
+            lblFilterDepartment.AutoSize = true;
+            lblFilterDepartment.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFilterDepartment.ForeColor = Color.FromArgb(71, 85, 105);
+            lblFilterDepartment.Location = new Point(265, 6);
+            lblFilterDepartment.Name = "lblFilterDepartment";
+            lblFilterDepartment.Size = new Size(79, 15);
+            lblFilterDepartment.TabIndex = 1;
+            lblFilterDepartment.Text = "Department:";
             // 
-            // colDepartment
+            // txtSearch
             // 
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(51, 65, 85);
-            colDepartment.DefaultCellStyle = dataGridViewCellStyle5;
-            colDepartment.HeaderText = "DEPARTMENT / SECTION";
-            colDepartment.MinimumWidth = 6;
-            colDepartment.Name = "colDepartment";
-            colDepartment.ReadOnly = true;
-            colDepartment.Width = 180;
+            txtSearch.BackColor = Color.White;
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.ForeColor = Color.FromArgb(51, 65, 85);
+            txtSearch.Location = new Point(0, 3);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "🔍  Search room, code, name...";
+            txtSearch.Size = new Size(250, 23);
+            txtSearch.TabIndex = 0;
             // 
-            // colTurnaround
+            // panelFilterBar
             // 
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(51, 65, 85);
-            colTurnaround.DefaultCellStyle = dataGridViewCellStyle6;
-            colTurnaround.HeaderText = "TURNAROUND (TAT)";
-            colTurnaround.MinimumWidth = 6;
-            colTurnaround.Name = "colTurnaround";
-            colTurnaround.ReadOnly = true;
-            colTurnaround.Width = 140;
-            // 
-            // colStandardPrice
-            // 
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(15, 23, 42);
-            colStandardPrice.DefaultCellStyle = dataGridViewCellStyle7;
-            colStandardPrice.HeaderText = "STANDARD PRICE (₱)";
-            colStandardPrice.MinimumWidth = 6;
-            colStandardPrice.Name = "colStandardPrice";
-            colStandardPrice.ReadOnly = true;
-            colStandardPrice.Width = 150;
-            // 
-            // colSpecimen
-            // 
-            colSpecimen.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(71, 85, 105);
-            colSpecimen.DefaultCellStyle = dataGridViewCellStyle8;
-            colSpecimen.HeaderText = "SPECIMEN REQUIREMENT";
-            colSpecimen.MinimumWidth = 6;
-            colSpecimen.Name = "colSpecimen";
-            colSpecimen.ReadOnly = true;
-            // 
-            // colStatus
-            // 
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colStatus.DefaultCellStyle = dataGridViewCellStyle9;
-            colStatus.HeaderText = "STATUS";
-            colStatus.MinimumWidth = 6;
-            colStatus.Name = "colStatus";
-            colStatus.ReadOnly = true;
-            colStatus.Width = 100;
-            // 
-            // colActions
-            // 
-            colActions.HeaderText = "ACTIONS";
-            colActions.MinimumWidth = 6;
-            colActions.Name = "colActions";
-            colActions.ReadOnly = true;
-            colActions.Width = 80;
+            panelFilterBar.Controls.Add(txtSearch);
+            panelFilterBar.Controls.Add(lblFilterDepartment);
+            panelFilterBar.Controls.Add(cmbDepartment);
+            panelFilterBar.Controls.Add(lblFilterStatus);
+            panelFilterBar.Controls.Add(cmbStatus);
+            panelFilterBar.Controls.Add(btnClearFilters);
+            panelFilterBar.Controls.Add(lblShowingEntries);
+            panelFilterBar.Location = new Point(0, 84);
+            panelFilterBar.Name = "panelFilterBar";
+            panelFilterBar.Size = new Size(1339, 32);
+            panelFilterBar.TabIndex = 4;
             // 
             // LabTestCatalog
             // 
@@ -544,62 +544,62 @@ namespace Patient_Info_and_Billing_System.Admin
             Controls.Add(cardAvgTurnaround);
             Name = "LabTestCatalog";
             Size = new Size(1339, 479);
-            cardCatalogedTests.ResumeLayout(false);
-            cardCatalogedTests.PerformLayout();
-            pnlIconCatalogedTests.ResumeLayout(false);
-            cardActivePanels.ResumeLayout(false);
-            cardActivePanels.PerformLayout();
-            pnlIconActivePanels.ResumeLayout(false);
-            cardAvgTurnaround.ResumeLayout(false);
-            cardAvgTurnaround.PerformLayout();
-            pnlIconAvgTurnaround.ResumeLayout(false);
+            pnlIconAvgTariff.ResumeLayout(false);
             cardAvgTariff.ResumeLayout(false);
             cardAvgTariff.PerformLayout();
-            pnlIconAvgTariff.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvLabTests).EndInit();
+            pnlIconAvgTurnaround.ResumeLayout(false);
+            cardAvgTurnaround.ResumeLayout(false);
+            cardAvgTurnaround.PerformLayout();
+            pnlIconActivePanels.ResumeLayout(false);
+            cardActivePanels.ResumeLayout(false);
+            cardActivePanels.PerformLayout();
+            pnlIconCatalogedTests.ResumeLayout(false);
+            cardCatalogedTests.ResumeLayout(false);
+            cardCatalogedTests.PerformLayout();
             panelFilterBar.ResumeLayout(false);
             panelFilterBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvLabTests).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel cardCatalogedTests;
-        private Label lblTitleCatalogedTests;
-        private Label lblValCatalogedTests;
-        private Panel pnlIconCatalogedTests;
-        private Label lblIconCatalogedTests;
-        private Panel cardActivePanels;
-        private Label lblTitleActivePanels;
-        private Label lblValActivePanels;
-        private Panel pnlIconActivePanels;
-        private Label lblIconActivePanels;
-        private Panel cardAvgTurnaround;
-        private Label lblTitleAvgTurnaround;
-        private Label lblValAvgTurnaround;
-        private Panel pnlIconAvgTurnaround;
-        private Label lblIconTurnaround;
-        private Panel cardAvgTariff;
-        private Label lblTitleAvgTariff;
-        private Label lblValAvgTariff;
         private Panel pnlIconAvgTariff;
         private Label lblIconTariff;
-        private Panel panelFilterBar;
-        private TextBox txtSearch;
-        private Label lblFilterDepartment;
-        private ComboBox cmbDepartment;
-        private Label lblFilterStatus;
-        private ComboBox cmbStatus;
-        private Button btnClearFilters;
-        private Label lblShowingEntries;
-        private DataGridView dgvLabTests;
-        private DataGridViewTextBoxColumn colTestCode;
-        private DataGridViewTextBoxColumn colTestName;
-        private DataGridViewTextBoxColumn colDepartment;
-        private DataGridViewTextBoxColumn colTurnaround;
-        private DataGridViewTextBoxColumn colStandardPrice;
-        private DataGridViewTextBoxColumn colSpecimen;
-        private DataGridViewTextBoxColumn colStatus;
+        private Label lblValAvgTariff;
+        private Label lblTitleAvgTariff;
+        private Panel cardAvgTariff;
         private DataGridViewTextBoxColumn colActions;
+        private DataGridViewTextBoxColumn colStatus;
+        private DataGridViewTextBoxColumn colSpecimen;
+        private DataGridViewTextBoxColumn colStandardPrice;
+        private DataGridViewTextBoxColumn colTurnaround;
+        private DataGridViewTextBoxColumn colDepartment;
+        private DataGridViewTextBoxColumn colTestName;
+        private DataGridViewTextBoxColumn colTestCode;
+        private DataGridView dgvLabTests;
+        private Panel pnlIconAvgTurnaround;
+        private Label lblIconTurnaround;
+        private Label lblValAvgTurnaround;
+        private Label lblTitleAvgTurnaround;
+        private Panel cardAvgTurnaround;
+        private Panel pnlIconActivePanels;
+        private Label lblIconActivePanels;
+        private Label lblValActivePanels;
+        private Label lblTitleActivePanels;
+        private Panel cardActivePanels;
+        private Panel pnlIconCatalogedTests;
+        private Label lblIconCatalogedTests;
+        private Label lblValCatalogedTests;
+        private Label lblTitleCatalogedTests;
+        private Panel cardCatalogedTests;
+        private Label lblShowingEntries;
+        private Button btnClearFilters;
+        private ComboBox cmbStatus;
+        private Label lblFilterStatus;
+        private ComboBox cmbDepartment;
+        private Label lblFilterDepartment;
+        private TextBox txtSearch;
+        private Panel panelFilterBar;
     }
 }

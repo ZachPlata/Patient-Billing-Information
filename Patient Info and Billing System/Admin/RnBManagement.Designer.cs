@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             cardTotalBeds = new Panel();
             lblTitleTotalBeds = new Label();
             lblValTotalBeds = new Label();
@@ -53,14 +52,6 @@
             pnlIconOccupiedBeds = new Panel();
             lblIconOccupied = new Label();
             dgvRooms = new DataGridView();
-            colRoomNo = new DataGridViewTextBoxColumn();
-            colRoomType = new DataGridViewTextBoxColumn();
-            colBedId = new DataGridViewTextBoxColumn();
-            colDailyRate = new DataGridViewTextBoxColumn();
-            colStatus = new DataGridViewTextBoxColumn();
-            colWingFloor = new DataGridViewTextBoxColumn();
-            colAmenities = new DataGridViewTextBoxColumn();
-            colActions = new DataGridViewTextBoxColumn();
             panelFilterBar = new Panel();
             txtSearch = new TextBox();
             lblFilterRoomType = new Label();
@@ -74,6 +65,12 @@
             lblValAvgRate = new Label();
             pnlIconAvgRate = new Panel();
             lblIconPeso = new Label();
+            colRoomNo = new DataGridViewTextBoxColumn();
+            colRoomType = new DataGridViewTextBoxColumn();
+            colBedId = new DataGridViewTextBoxColumn();
+            colDailyRate = new DataGridViewTextBoxColumn();
+            colStatus = new DataGridViewTextBoxColumn();
+            colActions = new DataGridViewTextBoxColumn();
             cardTotalBeds.SuspendLayout();
             pnlIconTotalBeds.SuspendLayout();
             cardAvailableBeds.SuspendLayout();
@@ -271,16 +268,16 @@
             dgvRooms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvRooms.ColumnHeadersHeight = 36;
             dgvRooms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvRooms.Columns.AddRange(new DataGridViewColumn[] { colRoomNo, colRoomType, colBedId, colDailyRate, colStatus, colWingFloor, colAmenities, colActions });
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.White;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(15, 23, 42);
-            dataGridViewCellStyle9.Padding = new Padding(8, 0, 0, 0);
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(239, 246, 255);
-            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(15, 23, 42);
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
-            dgvRooms.DefaultCellStyle = dataGridViewCellStyle9;
+            dgvRooms.Columns.AddRange(new DataGridViewColumn[] { colRoomNo, colRoomType, colBedId, colDailyRate, colStatus, colActions });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(15, 23, 42);
+            dataGridViewCellStyle8.Padding = new Padding(8, 0, 0, 0);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(239, 246, 255);
+            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(15, 23, 42);
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvRooms.DefaultCellStyle = dataGridViewCellStyle8;
             dgvRooms.EnableHeadersVisualStyles = false;
             dgvRooms.GridColor = Color.FromArgb(241, 245, 249);
             dgvRooms.Location = new Point(0, 116);
@@ -293,90 +290,6 @@
             dgvRooms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvRooms.Size = new Size(1339, 355);
             dgvRooms.TabIndex = 13;
-            // 
-            // colRoomNo
-            // 
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(15, 23, 42);
-            colRoomNo.DefaultCellStyle = dataGridViewCellStyle2;
-            colRoomNo.HeaderText = "ROOM #";
-            colRoomNo.MinimumWidth = 6;
-            colRoomNo.Name = "colRoomNo";
-            colRoomNo.ReadOnly = true;
-            colRoomNo.Width = 130;
-            // 
-            // colRoomType
-            // 
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(51, 65, 85);
-            colRoomType.DefaultCellStyle = dataGridViewCellStyle3;
-            colRoomType.HeaderText = "ROOM TYPE";
-            colRoomType.MinimumWidth = 6;
-            colRoomType.Name = "colRoomType";
-            colRoomType.ReadOnly = true;
-            colRoomType.Width = 175;
-            // 
-            // colBedId
-            // 
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(37, 99, 235);
-            colBedId.DefaultCellStyle = dataGridViewCellStyle4;
-            colBedId.HeaderText = "BED IDENTIFIER";
-            colBedId.MinimumWidth = 6;
-            colBedId.Name = "colBedId";
-            colBedId.ReadOnly = true;
-            colBedId.Width = 135;
-            // 
-            // colDailyRate
-            // 
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(15, 23, 42);
-            colDailyRate.DefaultCellStyle = dataGridViewCellStyle5;
-            colDailyRate.HeaderText = "DAILY RATE (₱)";
-            colDailyRate.MinimumWidth = 6;
-            colDailyRate.Name = "colDailyRate";
-            colDailyRate.ReadOnly = true;
-            colDailyRate.Width = 140;
-            // 
-            // colStatus
-            // 
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colStatus.DefaultCellStyle = dataGridViewCellStyle6;
-            colStatus.HeaderText = "CURRENT STATUS";
-            colStatus.MinimumWidth = 6;
-            colStatus.Name = "colStatus";
-            colStatus.ReadOnly = true;
-            colStatus.Width = 125;
-            // 
-            // colWingFloor
-            // 
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(71, 85, 105);
-            colWingFloor.DefaultCellStyle = dataGridViewCellStyle7;
-            colWingFloor.HeaderText = "WING / FLOOR";
-            colWingFloor.MinimumWidth = 6;
-            colWingFloor.Name = "colWingFloor";
-            colWingFloor.ReadOnly = true;
-            colWingFloor.Width = 205;
-            // 
-            // colAmenities
-            // 
-            colAmenities.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colAmenities.HeaderText = "SPECIAL AMENITIES";
-            colAmenities.MinimumWidth = 6;
-            colAmenities.Name = "colAmenities";
-            colAmenities.ReadOnly = true;
-            // 
-            // colActions
-            // 
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(100, 116, 139);
-            colActions.DefaultCellStyle = dataGridViewCellStyle8;
-            colActions.HeaderText = "ACTIONS";
-            colActions.MinimumWidth = 6;
-            colActions.Name = "colActions";
-            colActions.ReadOnly = true;
-            colActions.Width = 80;
             // 
             // panelFilterBar
             // 
@@ -533,6 +446,72 @@
             lblIconPeso.Text = "₱";
             lblIconPeso.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // colRoomNo
+            // 
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(15, 23, 42);
+            colRoomNo.DefaultCellStyle = dataGridViewCellStyle2;
+            colRoomNo.HeaderText = "ROOM #";
+            colRoomNo.MinimumWidth = 6;
+            colRoomNo.Name = "colRoomNo";
+            colRoomNo.ReadOnly = true;
+            colRoomNo.Width = 223;
+            // 
+            // colRoomType
+            // 
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(51, 65, 85);
+            colRoomType.DefaultCellStyle = dataGridViewCellStyle3;
+            colRoomType.HeaderText = "ROOM TYPE";
+            colRoomType.MinimumWidth = 6;
+            colRoomType.Name = "colRoomType";
+            colRoomType.ReadOnly = true;
+            colRoomType.Width = 223;
+            // 
+            // colBedId
+            // 
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(37, 99, 235);
+            colBedId.DefaultCellStyle = dataGridViewCellStyle4;
+            colBedId.HeaderText = "BED IDENTIFIER";
+            colBedId.MinimumWidth = 6;
+            colBedId.Name = "colBedId";
+            colBedId.ReadOnly = true;
+            colBedId.Width = 247;
+            // 
+            // colDailyRate
+            // 
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(15, 23, 42);
+            colDailyRate.DefaultCellStyle = dataGridViewCellStyle5;
+            colDailyRate.HeaderText = "DAILY RATE (₱)";
+            colDailyRate.MinimumWidth = 6;
+            colDailyRate.Name = "colDailyRate";
+            colDailyRate.ReadOnly = true;
+            colDailyRate.Width = 223;
+            // 
+            // colStatus
+            // 
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colStatus.DefaultCellStyle = dataGridViewCellStyle6;
+            colStatus.HeaderText = "CURRENT STATUS";
+            colStatus.MinimumWidth = 6;
+            colStatus.Name = "colStatus";
+            colStatus.ReadOnly = true;
+            colStatus.Width = 223;
+            // 
+            // colActions
+            // 
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(100, 116, 139);
+            colActions.DefaultCellStyle = dataGridViewCellStyle7;
+            colActions.HeaderText = "ACTIONS";
+            colActions.MinimumWidth = 6;
+            colActions.Name = "colActions";
+            colActions.ReadOnly = true;
+            colActions.Width = 200;
+            // 
             // RnBManagement
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -581,14 +560,6 @@
         private Panel pnlIconOccupiedBeds;
         private Label lblIconOccupied;
         private DataGridView dgvRooms;
-        private DataGridViewTextBoxColumn colRoomNo;
-        private DataGridViewTextBoxColumn colRoomType;
-        private DataGridViewTextBoxColumn colBedId;
-        private DataGridViewTextBoxColumn colDailyRate;
-        private DataGridViewTextBoxColumn colStatus;
-        private DataGridViewTextBoxColumn colWingFloor;
-        private DataGridViewTextBoxColumn colAmenities;
-        private DataGridViewTextBoxColumn colActions;
         private Panel panelFilterBar;
         private TextBox txtSearch;
         private Label lblFilterRoomType;
@@ -602,5 +573,11 @@
         private Label lblValAvgRate;
         private Panel pnlIconAvgRate;
         private Label lblIconPeso;
+        private DataGridViewTextBoxColumn colRoomNo;
+        private DataGridViewTextBoxColumn colRoomType;
+        private DataGridViewTextBoxColumn colBedId;
+        private DataGridViewTextBoxColumn colDailyRate;
+        private DataGridViewTextBoxColumn colStatus;
+        private DataGridViewTextBoxColumn colActions;
     }
 }
