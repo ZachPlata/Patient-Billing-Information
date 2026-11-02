@@ -36,7 +36,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblTitle = new Label();
             btnExportCsv = new Button();
             btnRefresh = new Button();
-            btnAddBedRoom = new Button();
+            btnAddData = new Button();
             panelNavTabs = new Panel();
             btnTabRoomBed = new Button();
             panelTabUnderline = new Panel();
@@ -63,7 +63,7 @@ namespace Patient_Info_and_Billing_System.Admin
             panelHeader.Controls.Add(lblTitle);
             panelHeader.Controls.Add(btnExportCsv);
             panelHeader.Controls.Add(btnRefresh);
-            panelHeader.Controls.Add(btnAddBedRoom);
+            panelHeader.Controls.Add(btnAddData);
             panelHeader.Location = new Point(24, 12);
             panelHeader.Name = "panelHeader";
             panelHeader.Size = new Size(1339, 62);
@@ -123,6 +123,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblTitle.Size = new Size(365, 28);
             lblTitle.TabIndex = 4;
             lblTitle.Text = "Clinic and Master Data Configuration";
+            lblTitle.Click += lblTitle_Click;
             // 
             // btnExportCsv
             // 
@@ -154,20 +155,21 @@ namespace Patient_Info_and_Billing_System.Admin
             btnRefresh.Text = "⟳  Refresh";
             btnRefresh.UseVisualStyleBackColor = false;
             // 
-            // btnAddBedRoom
+            // btnAddData
             // 
-            btnAddBedRoom.BackColor = Color.FromArgb(37, 99, 235);
-            btnAddBedRoom.Cursor = Cursors.Hand;
-            btnAddBedRoom.FlatAppearance.BorderSize = 0;
-            btnAddBedRoom.FlatStyle = FlatStyle.Flat;
-            btnAddBedRoom.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddBedRoom.ForeColor = Color.White;
-            btnAddBedRoom.Location = new Point(1165, 22);
-            btnAddBedRoom.Name = "btnAddBedRoom";
-            btnAddBedRoom.Size = new Size(174, 34);
-            btnAddBedRoom.TabIndex = 7;
-            btnAddBedRoom.Text = "+ Add New Bed / Room";
-            btnAddBedRoom.UseVisualStyleBackColor = false;
+            btnAddData.BackColor = Color.FromArgb(37, 99, 235);
+            btnAddData.Cursor = Cursors.Hand;
+            btnAddData.FlatAppearance.BorderSize = 0;
+            btnAddData.FlatStyle = FlatStyle.Flat;
+            btnAddData.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddData.ForeColor = Color.White;
+            btnAddData.Location = new Point(1165, 22);
+            btnAddData.Name = "btnAddData";
+            btnAddData.Size = new Size(174, 34);
+            btnAddData.TabIndex = 7;
+            btnAddData.Text = "+ Add New Bed / Room";
+            btnAddData.UseVisualStyleBackColor = false;
+            btnAddData.Click += btnAddBedRoom_Click;
             // 
             // panelNavTabs
             // 
@@ -355,7 +357,7 @@ namespace Patient_Info_and_Billing_System.Admin
         private Label lblTitle;
         private Button btnExportCsv;
         private Button btnRefresh;
-        private Button btnAddBedRoom;
+        private Button btnAddData;
         private Panel panelNavTabs;
         private Button btnTabRoomBed;
         private Panel panelTabUnderline;

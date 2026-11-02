@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Patient_Info_and_Billing_System.Admin
@@ -68,6 +70,16 @@ namespace Patient_Info_and_Billing_System.Admin
             ConsFeeSched form = new ConsFeeSched();
             panelContent.Controls.Add(form);
             form.Show();
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddData_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
