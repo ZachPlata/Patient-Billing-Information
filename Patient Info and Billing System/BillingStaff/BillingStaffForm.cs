@@ -37,5 +37,10 @@ namespace Patient_Info_and_Billing_System.BillingStaff
             frm.Show();
             SetActiveButton(btnPatientRecord);
         }
+
+        private void date_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

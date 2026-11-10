@@ -169,7 +169,7 @@ namespace Patient_Info_and_Billing_System.Admin
             btnAddData.TabIndex = 7;
             btnAddData.Text = "+ Add New Bed / Room";
             btnAddData.UseVisualStyleBackColor = false;
-            btnAddData.Click += btnAddBedRoom_Click;
+
             // 
             // panelNavTabs
             // 

@@ -109,6 +109,7 @@
             date.Size = new Size(207, 17);
             date.TabIndex = 2;
             date.Text = "Date";
+            date.Click += date_Click;
             // 
             // label7
             // 
