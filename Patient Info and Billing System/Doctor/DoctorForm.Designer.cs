@@ -1,6 +1,6 @@
 ﻿namespace Patient_Info_and_Billing_System.Doctor
 {
-    partial class Doctor
+    partial class DoctorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -322,7 +322,7 @@
             panelContent.TabIndex = 2;
             panelContent.Paint += panel8_Paint;
             // 
-            // Doctor
+            // DoctorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -331,8 +331,8 @@
             Controls.Add(Header);
             Controls.Add(SideNavBar);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "Doctor";
-            Text = "Metro Pedia Clinical Center - Management System";
+            Name = "DoctorForm";
+            Text = "  ";
             WindowState = FormWindowState.Maximized;
             Load += Doctor_Load;
             SideNavBar.ResumeLayout(false);

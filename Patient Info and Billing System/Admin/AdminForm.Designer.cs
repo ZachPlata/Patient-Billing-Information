@@ -38,6 +38,7 @@
             panel5 = new Panel();
             label6 = new Label();
             SideNavBar = new Panel();
+            userTxtBox = new TextBox();
             btnALAT = new Button();
             label3 = new Label();
             label2 = new Label();
@@ -68,10 +69,10 @@
             Header.Controls.Add(panel5);
             Header.Controls.Add(label6);
             Header.Dock = DockStyle.Top;
-            Header.Location = new Point(0, 0);
+            Header.Location = new Point(233, 0);
             Header.Margin = new Padding(3, 2, 3, 2);
             Header.Name = "Header";
-            Header.Size = new Size(1664, 94);
+            Header.Size = new Size(1671, 94);
             Header.TabIndex = 2;
             // 
             // panel7
@@ -144,6 +145,7 @@
             // SideNavBar
             // 
             SideNavBar.BackColor = Color.FromArgb(17, 34, 64);
+            SideNavBar.Controls.Add(userTxtBox);
             SideNavBar.Controls.Add(btnALAT);
             SideNavBar.Controls.Add(label3);
             SideNavBar.Controls.Add(label2);
@@ -153,11 +155,19 @@
             SideNavBar.Controls.Add(panel1);
             SideNavBar.Controls.Add(btnClncDtSet);
             SideNavBar.Controls.Add(btnUserManagement);
+            SideNavBar.Dock = DockStyle.Left;
             SideNavBar.Location = new Point(0, 0);
             SideNavBar.Margin = new Padding(3, 2, 3, 2);
             SideNavBar.Name = "SideNavBar";
-            SideNavBar.Size = new Size(233, 881);
+            SideNavBar.Size = new Size(233, 1041);
             SideNavBar.TabIndex = 3;
+            // 
+            // userTxtBox
+            // 
+            userTxtBox.Location = new Point(24, 23);
+            userTxtBox.Name = "userTxtBox";
+            userTxtBox.Size = new Size(100, 23);
+            userTxtBox.TabIndex = 8;
             // 
             // btnALAT
             // 
@@ -333,7 +343,7 @@
             panelContent.Location = new Point(257, 112);
             panelContent.Margin = new Padding(3, 2, 3, 2);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1387, 645);
+            panelContent.Size = new Size(1585, 860);
             panelContent.TabIndex = 4;
             panelContent.Paint += panelContent_Paint;
             // 
@@ -341,7 +351,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1664, 775);
+            ClientSize = new Size(1904, 1041);
             Controls.Add(panelContent);
             Controls.Add(Header);
             Controls.Add(SideNavBar);
@@ -349,6 +359,7 @@
             Name = "AdminForm";
             Text = "Admin";
             WindowState = FormWindowState.Maximized;
+            Load += AdminForm_Load;
             Header.ResumeLayout(false);
             Header.PerformLayout();
             SideNavBar.ResumeLayout(false);
@@ -384,5 +395,6 @@
         private Button btnALAT;
         private System.Windows.Forms.Timer timer1;
         private Panel panelContent;
+        public TextBox userTxtBox;
     }
 }
