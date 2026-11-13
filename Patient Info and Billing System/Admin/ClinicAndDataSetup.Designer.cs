@@ -64,9 +64,9 @@ namespace Patient_Info_and_Billing_System.Admin
             panelHeader.Controls.Add(btnExportCsv);
             panelHeader.Controls.Add(btnRefresh);
             panelHeader.Controls.Add(btnAddData);
-            panelHeader.Location = new Point(24, 12);
+            panelHeader.Location = new Point(24, 14);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1339, 62);
+            panelHeader.Size = new Size(1339, 70);
             panelHeader.TabIndex = 0;
             // 
             // lblBreadcrumb1
@@ -76,7 +76,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblBreadcrumb1.ForeColor = Color.FromArgb(100, 116, 139);
             lblBreadcrumb1.Location = new Point(0, 2);
             lblBreadcrumb1.Name = "lblBreadcrumb1";
-            lblBreadcrumb1.Size = new Size(163, 15);
+            lblBreadcrumb1.Size = new Size(189, 19);
             lblBreadcrumb1.TabIndex = 0;
             lblBreadcrumb1.Text = "Administrative Workspaces   ›";
             // 
@@ -87,7 +87,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblBreadcrumb2.ForeColor = Color.FromArgb(37, 99, 235);
             lblBreadcrumb2.Location = new Point(170, 2);
             lblBreadcrumb2.Name = "lblBreadcrumb2";
-            lblBreadcrumb2.Size = new Size(129, 15);
+            lblBreadcrumb2.Size = new Size(157, 19);
             lblBreadcrumb2.TabIndex = 1;
             lblBreadcrumb2.Text = "Clinic and Data Setups";
             // 
@@ -96,9 +96,9 @@ namespace Patient_Info_and_Billing_System.Admin
             lblActiveBadge.BackColor = Color.FromArgb(219, 234, 254);
             lblActiveBadge.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblActiveBadge.ForeColor = Color.FromArgb(37, 99, 235);
-            lblActiveBadge.Location = new Point(310, 1);
+            lblActiveBadge.Location = new Point(333, 2);
             lblActiveBadge.Name = "lblActiveBadge";
-            lblActiveBadge.Size = new Size(92, 18);
+            lblActiveBadge.Size = new Size(92, 20);
             lblActiveBadge.TabIndex = 2;
             lblActiveBadge.Text = "Active Module";
             lblActiveBadge.TextAlign = ContentAlignment.MiddleCenter;
@@ -107,20 +107,21 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             lblTitleIcon.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitleIcon.ForeColor = Color.FromArgb(37, 99, 235);
-            lblTitleIcon.Location = new Point(0, 24);
+            lblTitleIcon.Location = new Point(3, 26);
             lblTitleIcon.Name = "lblTitleIcon";
-            lblTitleIcon.Size = new Size(26, 32);
+            lblTitleIcon.Size = new Size(26, 36);
             lblTitleIcon.TabIndex = 3;
             lblTitleIcon.Text = "≋";
+            lblTitleIcon.Click += lblTitleIcon_Click;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-            lblTitle.Location = new Point(28, 24);
+            lblTitle.Location = new Point(34, 27);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(365, 28);
+            lblTitle.Size = new Size(413, 31);
             lblTitle.TabIndex = 4;
             lblTitle.Text = "Clinic and Master Data Configuration";
             lblTitle.Click += lblTitle_Click;
@@ -133,12 +134,13 @@ namespace Patient_Info_and_Billing_System.Admin
             btnExportCsv.FlatStyle = FlatStyle.Flat;
             btnExportCsv.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExportCsv.ForeColor = Color.FromArgb(51, 65, 85);
-            btnExportCsv.Location = new Point(939, 22);
+            btnExportCsv.Location = new Point(918, 23);
             btnExportCsv.Name = "btnExportCsv";
-            btnExportCsv.Size = new Size(115, 34);
+            btnExportCsv.Size = new Size(115, 39);
             btnExportCsv.TabIndex = 5;
             btnExportCsv.Text = "⭳  Export CSV";
             btnExportCsv.UseVisualStyleBackColor = false;
+            btnExportCsv.Click += btnExportCsv_Click;
             // 
             // btnRefresh
             // 
@@ -148,12 +150,13 @@ namespace Patient_Info_and_Billing_System.Admin
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRefresh.ForeColor = Color.FromArgb(51, 65, 85);
-            btnRefresh.Location = new Point(1062, 22);
+            btnRefresh.Location = new Point(1039, 23);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(95, 34);
+            btnRefresh.Size = new Size(95, 39);
             btnRefresh.TabIndex = 6;
             btnRefresh.Text = "⟳  Refresh";
             btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += this.btnRefresh_Click;
             // 
             // btnAddData
             // 
@@ -163,13 +166,13 @@ namespace Patient_Info_and_Billing_System.Admin
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddData.ForeColor = Color.White;
-            btnAddData.Location = new Point(1165, 22);
+            btnAddData.Location = new Point(1140, 23);
             btnAddData.Name = "btnAddData";
-            btnAddData.Size = new Size(174, 34);
+            btnAddData.Size = new Size(194, 39);
             btnAddData.TabIndex = 7;
             btnAddData.Text = "+ Add New Bed / Room";
             btnAddData.UseVisualStyleBackColor = false;
-
+            btnAddData.Click += btnAddData_Click;
             // 
             // panelNavTabs
             // 
@@ -179,9 +182,9 @@ namespace Patient_Info_and_Billing_System.Admin
             panelNavTabs.Controls.Add(btnTabMedicine);
             panelNavTabs.Controls.Add(btnTabConsultation);
             panelNavTabs.Controls.Add(panelTabsDivider);
-            panelNavTabs.Location = new Point(24, 78);
+            panelNavTabs.Location = new Point(24, 88);
             panelNavTabs.Name = "panelNavTabs";
-            panelNavTabs.Size = new Size(1339, 42);
+            panelNavTabs.Size = new Size(1339, 48);
             panelNavTabs.TabIndex = 1;
             // 
             // btnTabRoomBed
@@ -194,9 +197,9 @@ namespace Patient_Info_and_Billing_System.Admin
             btnTabRoomBed.FlatStyle = FlatStyle.Flat;
             btnTabRoomBed.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTabRoomBed.ForeColor = Color.FromArgb(37, 99, 235);
-            btnTabRoomBed.Location = new Point(0, 0);
+            btnTabRoomBed.Location = new Point(3, 3);
             btnTabRoomBed.Name = "btnTabRoomBed";
-            btnTabRoomBed.Size = new Size(230, 36);
+            btnTabRoomBed.Size = new Size(246, 38);
             btnTabRoomBed.TabIndex = 0;
             btnTabRoomBed.Text = "🛏  Room & Bed Management  ( 0 )";
             btnTabRoomBed.TextAlign = ContentAlignment.MiddleLeft;
@@ -206,10 +209,11 @@ namespace Patient_Info_and_Billing_System.Admin
             // panelTabUnderline
             // 
             panelTabUnderline.BackColor = Color.FromArgb(37, 99, 235);
-            panelTabUnderline.Location = new Point(0, 36);
+            panelTabUnderline.Location = new Point(0, 41);
             panelTabUnderline.Name = "panelTabUnderline";
-            panelTabUnderline.Size = new Size(230, 3);
+            panelTabUnderline.Size = new Size(246, 3);
             panelTabUnderline.TabIndex = 1;
+            panelTabUnderline.Paint += panelTabUnderline_Paint;
             // 
             // btnTabLabTests
             // 
@@ -221,11 +225,11 @@ namespace Patient_Info_and_Billing_System.Admin
             btnTabLabTests.FlatStyle = FlatStyle.Flat;
             btnTabLabTests.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnTabLabTests.ForeColor = Color.FromArgb(100, 116, 139);
-            btnTabLabTests.Location = new Point(235, 0);
+            btnTabLabTests.Location = new Point(255, 4);
             btnTabLabTests.Name = "btnTabLabTests";
-            btnTabLabTests.Size = new Size(220, 36);
+            btnTabLabTests.Size = new Size(220, 38);
             btnTabLabTests.TabIndex = 2;
-            btnTabLabTests.Text = "\U0001f9ea  Laboratory Tests Catalog  (?)";
+            btnTabLabTests.Text = "\U0001f9ea  Laboratory Tests Catalog  (0)";
             btnTabLabTests.TextAlign = ContentAlignment.MiddleLeft;
             btnTabLabTests.UseVisualStyleBackColor = false;
             btnTabLabTests.Click += btnTabLabTests_Click;
@@ -240,11 +244,11 @@ namespace Patient_Info_and_Billing_System.Admin
             btnTabMedicine.FlatStyle = FlatStyle.Flat;
             btnTabMedicine.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnTabMedicine.ForeColor = Color.FromArgb(100, 116, 139);
-            btnTabMedicine.Location = new Point(460, 0);
+            btnTabMedicine.Location = new Point(480, 4);
             btnTabMedicine.Name = "btnTabMedicine";
-            btnTabMedicine.Size = new Size(180, 36);
+            btnTabMedicine.Size = new Size(180, 38);
             btnTabMedicine.TabIndex = 3;
-            btnTabMedicine.Text = "💊  Medicine Catalog  (?)";
+            btnTabMedicine.Text = "💊  Medicine Catalog  (0)";
             btnTabMedicine.TextAlign = ContentAlignment.MiddleLeft;
             btnTabMedicine.UseVisualStyleBackColor = false;
             btnTabMedicine.Click += btnTabMedicine_Click;
@@ -259,11 +263,11 @@ namespace Patient_Info_and_Billing_System.Admin
             btnTabConsultation.FlatStyle = FlatStyle.Flat;
             btnTabConsultation.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnTabConsultation.ForeColor = Color.FromArgb(100, 116, 139);
-            btnTabConsultation.Location = new Point(645, 0);
+            btnTabConsultation.Location = new Point(665, 4);
             btnTabConsultation.Name = "btnTabConsultation";
-            btnTabConsultation.Size = new Size(245, 36);
+            btnTabConsultation.Size = new Size(245, 38);
             btnTabConsultation.TabIndex = 4;
-            btnTabConsultation.Text = "\U0001f9d1‍⚕️  Consultation Fee Schedules  (?)";
+            btnTabConsultation.Text = "\U0001f9d1‍⚕️  Consultation Fee Schedules  (0)";
             btnTabConsultation.TextAlign = ContentAlignment.MiddleLeft;
             btnTabConsultation.UseVisualStyleBackColor = false;
             btnTabConsultation.Click += btnTabConsultation_Click;
@@ -271,7 +275,7 @@ namespace Patient_Info_and_Billing_System.Admin
             // panelTabsDivider
             // 
             panelTabsDivider.BackColor = Color.FromArgb(226, 232, 240);
-            panelTabsDivider.Location = new Point(0, 39);
+            panelTabsDivider.Location = new Point(0, 44);
             panelTabsDivider.Name = "panelTabsDivider";
             panelTabsDivider.Size = new Size(1339, 1);
             panelTabsDivider.TabIndex = 5;
@@ -281,9 +285,9 @@ namespace Patient_Info_and_Billing_System.Admin
             panelFooter.Controls.Add(lblFooterSecurity);
             panelFooter.Controls.Add(lblFooterAudit);
             panelFooter.Controls.Add(lblFooterDataSet);
-            panelFooter.Location = new Point(24, 610);
+            panelFooter.Location = new Point(24, 691);
             panelFooter.Name = "panelFooter";
-            panelFooter.Size = new Size(1339, 26);
+            panelFooter.Size = new Size(1339, 29);
             panelFooter.TabIndex = 8;
             // 
             // lblFooterSecurity
@@ -291,9 +295,9 @@ namespace Patient_Info_and_Billing_System.Admin
             lblFooterSecurity.AutoSize = true;
             lblFooterSecurity.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFooterSecurity.ForeColor = Color.FromArgb(100, 116, 139);
-            lblFooterSecurity.Location = new Point(0, 4);
+            lblFooterSecurity.Location = new Point(0, 5);
             lblFooterSecurity.Name = "lblFooterSecurity";
-            lblFooterSecurity.Size = new Size(185, 13);
+            lblFooterSecurity.Size = new Size(215, 17);
             lblFooterSecurity.TabIndex = 0;
             lblFooterSecurity.Text = "🛡  Role: Full Administrative Access";
             // 
@@ -302,9 +306,9 @@ namespace Patient_Info_and_Billing_System.Admin
             lblFooterAudit.AutoSize = true;
             lblFooterAudit.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFooterAudit.ForeColor = Color.FromArgb(100, 116, 139);
-            lblFooterAudit.Location = new Point(210, 4);
+            lblFooterAudit.Location = new Point(210, 5);
             lblFooterAudit.Name = "lblFooterAudit";
-            lblFooterAudit.Size = new Size(205, 13);
+            lblFooterAudit.Size = new Size(237, 17);
             lblFooterAudit.TabIndex = 1;
             lblFooterAudit.Text = "•  Audit Stamp: Real-time Ledger Active";
             // 
@@ -312,24 +316,24 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             lblFooterDataSet.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFooterDataSet.ForeColor = Color.FromArgb(100, 116, 139);
-            lblFooterDataSet.Location = new Point(1060, 4);
+            lblFooterDataSet.Location = new Point(1060, 5);
             lblFooterDataSet.Name = "lblFooterDataSet";
-            lblFooterDataSet.Size = new Size(279, 18);
+            lblFooterDataSet.Size = new Size(279, 20);
             lblFooterDataSet.TabIndex = 2;
             lblFooterDataSet.Text = "Data Set: Metro Pedia Central Clinic";
             lblFooterDataSet.TextAlign = ContentAlignment.TopRight;
             // 
             // panelContent
             // 
-            panelContent.Location = new Point(24, 125);
+            panelContent.Location = new Point(24, 142);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1339, 479);
+            panelContent.Size = new Size(1339, 543);
             panelContent.TabIndex = 9;
             panelContent.Paint += panelContent_Paint;
             // 
             // ClinicAndDataSetup
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 250, 252);
             Controls.Add(panelContent);
@@ -338,7 +342,7 @@ namespace Patient_Info_and_Billing_System.Admin
             Controls.Add(panelFooter);
             Name = "ClinicAndDataSetup";
             RightToLeft = RightToLeft.No;
-            Size = new Size(1387, 645);
+            Size = new Size(1387, 731);
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             panelNavTabs.ResumeLayout(false);

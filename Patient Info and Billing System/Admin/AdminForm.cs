@@ -38,6 +38,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnUserManagement_Click(object sender, EventArgs e)
         {
+            panelContent.Controls.Clear();
             ActiveButton((Button)sender);
             AdminUserManagement form = new AdminUserManagement();
             panelContent.Controls.Add(form);
@@ -46,6 +47,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnClncDtSet_Click(object sender, EventArgs e)
         {
+            panelContent.Controls.Clear();
             ActiveButton((Button)sender);
             ClinicAndDataSetup form = new ClinicAndDataSetup();
             panelContent.Controls.Add(form);
