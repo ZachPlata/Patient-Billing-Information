@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
 
@@ -14,7 +15,9 @@ namespace Patient_Info_and_Billing_System.Admin
         {
             InitializeComponent();
 
+
         }
+        public static string usertype;
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -67,6 +70,15 @@ namespace Patient_Info_and_Billing_System.Admin
         private void panelContent_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            if (userTxtBox.Text == "1")
+            {
+                
+            }
+         
         }
     }
 }

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Patient_Info_and_Billing_System.Doctor
 {
-    public partial class Doctor : Form
+    public partial class DoctorForm : Form
     {
-        public Doctor()
+        public DoctorForm()
         {
             InitializeComponent();
         }
