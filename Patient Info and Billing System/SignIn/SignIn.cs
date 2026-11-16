@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic;
 using MySql.Data.MySqlClient;
 using NurseDashBoard;
 using Org.BouncyCastle.Asn1.Mozilla;
@@ -20,21 +20,22 @@ namespace Patient_Info_and_Billing_System.LogIn
         {
             InitializeComponent();
         }
-       
-
         private void SignIn_Load(object sender, EventArgs e)
         {
+            txtUser.Text = "";
+            txtUser.PlaceholderText = "Enter Username";
+            txtPassword.PlaceholderText = "Enter Password";
+            this.ActiveControl = button1;
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string connstring = "server=localhost;user id=root;password=;database=patientbillingdb";
             MySqlConnection conn = new MySqlConnection(connstring);
             MySqlCommand cmd = new MySqlCommand();
             MySqlDataReader dr;
-          
-           
+
+
             try
             {
                 conn.Open();
@@ -44,25 +45,25 @@ namespace Patient_Info_and_Billing_System.LogIn
                           "AND Password = '" + txtPassword.Text + "'";
                 cmd.Connection = conn;
                 dr = cmd.ExecuteReader();
-                if(dr.Read())
+                if (dr.Read())
                 {
-                    txtHideUser.Text = dr[0].ToString(); 
-                    txtHidePw.Text = dr[1].ToString();   
-                    txtHideType.Text = dr[2].ToString(); 
+                    txtHideUser.Text = dr[0].ToString();
+                    txtHidePw.Text = dr[1].ToString();
+                    txtHideType.Text = dr[2].ToString();
                     string role = dr[2]?.ToString();
                     this.Hide();
-                    if (role == "1") 
+                    if (role == "1")
                     {
                         AdminForm adminForm = new AdminForm();
                         adminForm.userTxtBox.Text = txtHideUser.Text;
                         adminForm.Show();
                     }
-                    else if (role == "2") 
+                    else if (role == "2")
                     {
                         Nurse nurseForm = new Nurse();
                         nurseForm.Show();
                     }
-                    else if (role == "3") 
+                    else if (role == "3")
                     {
                         DoctorForm doctorForm = new DoctorForm();
                         doctorForm.Show();
@@ -77,16 +78,56 @@ namespace Patient_Info_and_Billing_System.LogIn
                 {
                     MessageBox.Show("Invalid Username or Password");
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
 
         }
-           
-       
+
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
