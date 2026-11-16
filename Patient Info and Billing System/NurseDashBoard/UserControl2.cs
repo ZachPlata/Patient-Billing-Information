@@ -1,10 +1,14 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.Esf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace NurseDashBoard
 {
@@ -33,6 +37,122 @@ namespace NurseDashBoard
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void RegPat_BtnAdd_Click(object sender, EventArgs e)
+        {
+            // VALIDATES IF U WANT TO SAVE THE RECORD OR NOT
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to save records?", "Saving Records", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (answer == DialogResult.No)
+            {
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(PatReg_NameTxtBox.Text))
+            {
+                //CHECKS PATIENT NAME IF EMPTY OR NOT
+                MessageBox.Show("Please enter the patient's name.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                PatReg_NameTxtBox.Focus();
+                return;
+
+
+            }
+            //gender selection
+            string gender = "Other";
+            if (PatReg_GenderCbox.SelectedIndex == 0)
+            {
+                gender = "Male";
+            }
+            else if (PatReg_GenderCbox.SelectedIndex == 1)
+            {
+                gender = "Female";
+            }
+
+            //Blood type selection
+
+            string bloodtype = PatReg_BloodTypeComboBox.Text.Trim();
+            if (string.IsNullOrEmpty(bloodtype))
+            {
+                bloodtype = "O+";
+            }
+
+            //gen a unique patient ID
+            string patientID = "PAT" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            string birthDate = PatReg_Date.Value.ToString("yyyy-MM-dd");
+            string allergies = string.IsNullOrWhiteSpace(Allergy_notes.Text) ? "None" : Allergy_notes.Text.Trim();
+
+            try // INSERT PATINT TO DATABASE
+            {
+                MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;database=patientbillingbd");
+                MySqlCommand cmd = new MySqlCommand();
+                conn.Open();
+
+                cmd.CommandText = "INSERT INTO patientTable (patient_id, full_name, date_of_birth, gender, blood_type, contact_number, address, emergency_contact_phone, blood_type, allergies, current_status) " +
+                        "VALUES (" +
+                        "'" + patientID + "', " + "'" + PatReg_NameTxtBox.Text.Trim() + "', " + "'" + birthDate + "', " + "'" + gender + "', " + "'" + bloodtype + "', " + "'" + PatReg_ConNoTxtBox.Text.Trim() + "', " + "'" + PatReg_HomeAdTxtBox.Text.Trim() + "', " + "'" + PatReg_ConRelTxtBox.Text.Trim() + "', " + "'" + bloodtype + "', " + "'" + allergies + "', " + "'Active')";
+
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+
+                if (!string.IsNullOrWhiteSpace(PatReg_BPTextBox.Text) || !string.IsNullOrWhiteSpace(PatReg_BPTextBox.Text))
+
+                {
+                    string bp = string.IsNullOrWhiteSpace(PatReg_BPTextBox.Text) ? "120/80" : PatReg_BPTextBox.Text.Trim();
+
+                    int pulse = 75;
+                    int.TryParse(PatReg_BPTextBox.Text.Trim(), out pulse);
+
+                    decimal temp = 36.5m;
+                    decimal.TryParse(PatReg_BodyTemTxtBox.Text.Trim(), out temp);
+
+                    decimal weight = 50.0m;
+                    decimal.TryParse(PatReg_KgTxtBox.Text.Trim(), out weight);
+
+                    MySqlCommand vitalsCmd = new MySqlCommand();
+                    vitalsCmd.Connection = conn;
+                    vitalsCmd.CommandText = "INSERT INTO patientVitals (patient_id, blood_pressure, pulse_rate, body_temperature, weight) " +
+                        "VALUES (" +
+                        "'" + patientID + "', " + "'" + bp + "', " + "'" + pulse + "', " + "'" + temp + "', " + "'" + weight + "')";
+                    vitalsCmd.ExecuteNonQuery();
+                }
+                conn.Close();
+
+                MessageBox.Show("RECORD SAVE", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RegPat_BtnClr_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        private void ClearFields()
+        {
+            PatReg_NameTxtBox.Clear();
+            PatReg_HomeAdTxtBox.Clear();
+            PatReg_ConPerTxtBox.Clear();
+            PatReg_ConNoTxtBox.Clear();
+            PatReg_ConRelTxtBox.Clear();
+            textBox1.Clear();
+
+            PatReg_BPTxtBox.Clear();       
+            PatReg_BPTextBox.Clear();      
+            PatReg_BodyTemTxtBox.Clear();  
+            textBox2.Clear();              
+            PatReg_KgTxtBox.Clear();
+            Allergy_notes.Clear();
+
+            PatReg_GenderCbox.SelectedIndex = -1;
+            PatReg_BloodTypeComboBox.SelectedIndex = -1;
+            PatReg_Date.Value = DateTime.Now;
         }
     }
 }

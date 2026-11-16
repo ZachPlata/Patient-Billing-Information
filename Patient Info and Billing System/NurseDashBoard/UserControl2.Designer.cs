@@ -31,8 +31,10 @@
             panel1 = new Panel();
             panel2 = new Panel();
             label12 = new Label();
-            textBox11 = new TextBox();
+            Allergy_notes = new TextBox();
             panel3 = new Panel();
+            textBox1 = new TextBox();
+            label14 = new Label();
             RegPat_BtnClr = new Button();
             RegPat_BtnAdd = new Button();
             label7 = new Label();
@@ -51,6 +53,8 @@
             PatReg_HomeAdTxtBox = new TextBox();
             PatReg_NameTxtBox = new TextBox();
             panel4 = new Panel();
+            PatReg_HeightTxtBox = new Label();
+            textBox2 = new TextBox();
             PatReg_BloodTypeComboBox = new ComboBox();
             label13 = new Label();
             label8 = new Label();
@@ -62,10 +66,6 @@
             label11 = new Label();
             PatReg_KgTxtBox = new TextBox();
             LABEL = new Label();
-            label14 = new Label();
-            textBox1 = new TextBox();
-            PatReg_HeightTxtBox = new Label();
-            textBox2 = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -85,7 +85,7 @@
             // 
             panel2.BackColor = SystemColors.Control;
             panel2.Controls.Add(label12);
-            panel2.Controls.Add(textBox11);
+            panel2.Controls.Add(Allergy_notes);
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(panel4);
             panel2.Location = new Point(14, 47);
@@ -105,13 +105,13 @@
             label12.TabIndex = 24;
             label12.Text = "Known Medical Conditions / Allergies:";
             // 
-            // textBox11
+            // Allergy_notes
             // 
-            textBox11.Location = new Point(1142, 533);
-            textBox11.Multiline = true;
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(365, 187);
-            textBox11.TabIndex = 23;
+            Allergy_notes.Location = new Point(1142, 533);
+            Allergy_notes.Multiline = true;
+            Allergy_notes.Name = "Allergy_notes";
+            Allergy_notes.Size = new Size(365, 187);
+            Allergy_notes.TabIndex = 23;
             // 
             // panel3
             // 
@@ -140,6 +140,25 @@
             panel3.Size = new Size(1085, 676);
             panel3.TabIndex = 0;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(615, 383);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(451, 32);
+            textBox1.TabIndex = 24;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.FromArgb(15, 23, 42);
+            label14.Location = new Point(614, 363);
+            label14.Name = "label14";
+            label14.Size = new Size(88, 17);
+            label14.TabIndex = 23;
+            label14.Text = "COMPLAINT:";
+            // 
             // RegPat_BtnClr
             // 
             RegPat_BtnClr.BackColor = Color.White;
@@ -152,6 +171,7 @@
             RegPat_BtnClr.TabIndex = 22;
             RegPat_BtnClr.Text = "Clear";
             RegPat_BtnClr.UseVisualStyleBackColor = false;
+            RegPat_BtnClr.Click += RegPat_BtnClr_Click;
             // 
             // RegPat_BtnAdd
             // 
@@ -166,6 +186,7 @@
             RegPat_BtnAdd.TabIndex = 21;
             RegPat_BtnAdd.Text = "Register Patient";
             RegPat_BtnAdd.UseVisualStyleBackColor = false;
+            RegPat_BtnAdd.Click += RegPat_BtnAdd_Click;
             // 
             // label7
             // 
@@ -335,6 +356,25 @@
             panel4.TabIndex = 1;
             panel4.Paint += panel4_Paint;
             // 
+            // PatReg_HeightTxtBox
+            // 
+            PatReg_HeightTxtBox.AutoSize = true;
+            PatReg_HeightTxtBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PatReg_HeightTxtBox.ForeColor = Color.FromArgb(15, 23, 42);
+            PatReg_HeightTxtBox.Location = new Point(76, 220);
+            PatReg_HeightTxtBox.Name = "PatReg_HeightTxtBox";
+            PatReg_HeightTxtBox.Size = new Size(117, 17);
+            PatReg_HeightTxtBox.TabIndex = 35;
+            PatReg_HeightTxtBox.Text = "Body Height (cm)";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(74, 241);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(202, 32);
+            textBox2.TabIndex = 34;
+            // 
             // PatReg_BloodTypeComboBox
             // 
             PatReg_BloodTypeComboBox.AllowDrop = true;
@@ -446,44 +486,6 @@
             LABEL.TabIndex = 1;
             LABEL.Text = "PATIENT REGISTRATION FORM";
             // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.ForeColor = Color.FromArgb(15, 23, 42);
-            label14.Location = new Point(614, 363);
-            label14.Name = "label14";
-            label14.Size = new Size(88, 17);
-            label14.TabIndex = 23;
-            label14.Text = "COMPLAINT:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(615, 383);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(451, 32);
-            textBox1.TabIndex = 24;
-            // 
-            // PatReg_HeightTxtBox
-            // 
-            PatReg_HeightTxtBox.AutoSize = true;
-            PatReg_HeightTxtBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            PatReg_HeightTxtBox.ForeColor = Color.FromArgb(15, 23, 42);
-            PatReg_HeightTxtBox.Location = new Point(76, 220);
-            PatReg_HeightTxtBox.Name = "PatReg_HeightTxtBox";
-            PatReg_HeightTxtBox.Size = new Size(117, 17);
-            PatReg_HeightTxtBox.TabIndex = 35;
-            PatReg_HeightTxtBox.Text = "Body Height (cm)";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(74, 241);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(202, 32);
-            textBox2.TabIndex = 34;
-            // 
             // uc_RegistrationPatients
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -532,7 +534,7 @@
         private Label label9;
         private Label label8;
         private TextBox PatReg_BodyTemTxtBox;
-        private TextBox textBox11;
+        private TextBox Allergy_notes;
         private ComboBox PatReg_BloodTypeComboBox;
         private Label label13;
         private Label label12;
