@@ -28,6 +28,7 @@ namespace Patient_Info_and_Billing_System.LogIn
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignIn));
             txtUser = new TextBox();
             txtPassword = new TextBox();
@@ -50,6 +51,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
+            errorProvider1 = new ErrorProvider(components);
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
             panel3.SuspendLayout();
@@ -57,6 +59,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // txtUser
@@ -247,6 +250,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             button2.TabIndex = 7;
             button2.Text = "Clear";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // label2
             // 
@@ -293,7 +297,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             button5.TabIndex = 2;
             button5.Text = "NURSE";
             button5.UseVisualStyleBackColor = true;
-            button5.Click += groupBox1_Enter;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -304,7 +308,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             button4.TabIndex = 1;
             button4.Text = "DOCTOR";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += groupBox1_Enter;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -315,7 +319,11 @@ namespace Patient_Info_and_Billing_System.LogIn
             button3.TabIndex = 0;
             button3.Text = "ADMIN";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += groupBox1_Enter;
+            button3.Click += button3_Click;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // SignIn
             // 
@@ -346,6 +354,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -372,5 +381,6 @@ namespace Patient_Info_and_Billing_System.LogIn
         private Button button5;
         private Button button4;
         private Button button3;
+        private ErrorProvider errorProvider1;
     }
 }

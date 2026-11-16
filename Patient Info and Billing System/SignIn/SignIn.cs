@@ -16,6 +16,8 @@ namespace Patient_Info_and_Billing_System.LogIn
 {
     public partial class SignIn : Form
     {
+        private string selectedRole = "";
+
         public SignIn()
         {
             InitializeComponent();
@@ -26,10 +28,27 @@ namespace Patient_Info_and_Billing_System.LogIn
             txtUser.PlaceholderText = "Enter Username";
             txtPassword.PlaceholderText = "Enter Password";
             this.ActiveControl = button1;
+            selectedRole = "";
+
+
 
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(selectedRole))
+            {
+               MessageBox.Show("Please Select a Role to Sign In", "Role Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+             if (string.IsNullOrWhiteSpace(txtUser.Text))
+            {
+               errorProvider1.SetError(txtUser, "Username or Email is Required");
+            }
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                errorProvider1.SetError(txtPassword, "Password is Required");
+            }
             string connstring = "server=localhost;user id=root;password=;database=patientbillingdb";
             MySqlConnection conn = new MySqlConnection(connstring);
             MySqlCommand cmd = new MySqlCommand();
@@ -51,6 +70,15 @@ namespace Patient_Info_and_Billing_System.LogIn
                     txtHidePw.Text = dr[1].ToString();
                     txtHideType.Text = dr[2].ToString();
                     string role = dr[2]?.ToString();
+
+
+                    if (role != selectedRole)
+                    {
+
+                        MessageBox.Show("Warning: You do not have permission for the selected role", "Role Mismatch",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     this.Hide();
                     if (role == "1")
                     {
@@ -76,7 +104,7 @@ namespace Patient_Info_and_Billing_System.LogIn
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Username or Password");
+                   MessageBox.Show("Invalid username or password. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                 }
             }
             catch (Exception ex)
@@ -130,6 +158,45 @@ namespace Patient_Info_and_Billing_System.LogIn
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+        private void HighlightSelectedRole(Button selected)
+        {
+            foreach (Button btn in new[] { button3, button4, button5 })
+            {
+                btn.BackColor = Color.White;
+                btn.ForeColor = Color.FromArgb(17, 34, 64);
+            }
+            selected.BackColor = Color.FromArgb(17, 34, 64);
+            selected.ForeColor = Color.White;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            selectedRole = "1"; // Admin
+            HighlightSelectedRole(button3);
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            selectedRole = "3"; // Doctor
+            HighlightSelectedRole(button4);
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            selectedRole = "2"; // Nurse
+            HighlightSelectedRole(button5);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtUser.Clear();
+            txtPassword.Clear();
+            selectedRole = "";
+            foreach (Button btn in new[] { button3, button4, button5 })
+            {
+                btn.BackColor = Color.White;
+                btn.ForeColor = Color.FromArgb(17, 34, 64);
+            }
+            txtUser.Focus();
         }
     }
 }

@@ -50,11 +50,13 @@
             date = new Label();
             label2 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            errorProvider1 = new ErrorProvider(components);
             pnlsidebar.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelContent.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // pnlsidebar
@@ -315,6 +317,10 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // Nurse
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -337,6 +343,7 @@
             panelContent.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -368,5 +375,6 @@
         private Label label4;
         private Label label5;
         private Label label3;
+        private ErrorProvider errorProvider1;
     }
 }
