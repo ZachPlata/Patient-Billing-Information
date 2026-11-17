@@ -35,6 +35,8 @@ namespace Patient_Info_and_Billing_System.Admin
             lblTitleIcon = new Label();
             lblTitle = new Label();
             btnExportCsv = new Button();
+            btnEditData = new Button();
+            btnDeleteData = new Button();
             btnRefresh = new Button();
             btnAddData = new Button();
             panelNavTabs = new Panel();
@@ -61,6 +63,8 @@ namespace Patient_Info_and_Billing_System.Admin
             panelHeader.Controls.Add(lblActiveBadge);
             panelHeader.Controls.Add(lblTitleIcon);
             panelHeader.Controls.Add(lblTitle);
+            panelHeader.Controls.Add(btnEditData);
+            panelHeader.Controls.Add(btnDeleteData);
             panelHeader.Controls.Add(btnExportCsv);
             panelHeader.Controls.Add(btnRefresh);
             panelHeader.Controls.Add(btnAddData);
@@ -125,6 +129,38 @@ namespace Patient_Info_and_Billing_System.Admin
             lblTitle.TabIndex = 4;
             lblTitle.Text = "Clinic and Master Data Configuration";
             lblTitle.Click += lblTitle_Click;
+            // 
+            // btnEditData
+            // 
+            btnEditData.BackColor = Color.White;
+            btnEditData.Cursor = Cursors.Hand;
+            btnEditData.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnEditData.FlatStyle = FlatStyle.Flat;
+            btnEditData.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditData.ForeColor = Color.FromArgb(51, 65, 85);
+            btnEditData.Location = new Point(740, 23);
+            btnEditData.Name = "btnEditData";
+            btnEditData.Size = new Size(83, 39);
+            btnEditData.TabIndex = 8;
+            btnEditData.Text = "Edit";
+            btnEditData.UseVisualStyleBackColor = false;
+            btnEditData.Click += btnEditData_Click;
+            // 
+            // btnDeleteData
+            // 
+            btnDeleteData.BackColor = Color.White;
+            btnDeleteData.Cursor = Cursors.Hand;
+            btnDeleteData.FlatAppearance.BorderColor = Color.FromArgb(252, 165, 165);
+            btnDeleteData.FlatStyle = FlatStyle.Flat;
+            btnDeleteData.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeleteData.ForeColor = Color.FromArgb(220, 38, 38);
+            btnDeleteData.Location = new Point(829, 23);
+            btnDeleteData.Name = "btnDeleteData";
+            btnDeleteData.Size = new Size(83, 39);
+            btnDeleteData.TabIndex = 9;
+            btnDeleteData.Text = "Delete";
+            btnDeleteData.UseVisualStyleBackColor = false;
+            btnDeleteData.Click += btnDeleteData_Click;
             // 
             // btnExportCsv
             // 
@@ -360,6 +396,8 @@ namespace Patient_Info_and_Billing_System.Admin
         private Label lblTitleIcon;
         private Label lblTitle;
         private Button btnExportCsv;
+        private Button btnEditData;
+        private Button btnDeleteData;
         private Button btnRefresh;
         private Button btnAddData;
         private Panel panelNavTabs;
