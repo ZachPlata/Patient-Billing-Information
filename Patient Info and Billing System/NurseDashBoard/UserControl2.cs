@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.Esf;
 using System;
 using System.Collections.Generic;
@@ -83,23 +83,32 @@ namespace NurseDashBoard
             string birthDate = PatReg_Date.Value.ToString("yyyy-MM-dd");
             string allergies = string.IsNullOrWhiteSpace(Allergy_notes.Text) ? "None" : Allergy_notes.Text.Trim();
 
-            try // INSERT PATINT TO DATABASE
+            try // INSERT PATIENT TO DATABASE
             {
-                MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;database=patientbillingbd");
+                MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;database=patientbillingdb;password=;");
                 MySqlCommand cmd = new MySqlCommand();
                 conn.Open();
 
-                cmd.CommandText = "INSERT INTO patientTable (patient_id, full_name, date_of_birth, gender, blood_type, contact_number, address, emergency_contact_phone, blood_type, allergies, current_status) " +
+                cmd.CommandText = "INSERT INTO Patients (patient_id, full_name, date_of_birth, gender, contact_number, address, emergency_contact_name, emergency_contact_phone, blood_type, allergies, current_status) " +
                         "VALUES (" +
-                        "'" + patientID + "', " + "'" + PatReg_NameTxtBox.Text.Trim() + "', " + "'" + birthDate + "', " + "'" + gender + "', " + "'" + bloodtype + "', " + "'" + PatReg_ConNoTxtBox.Text.Trim() + "', " + "'" + PatReg_HomeAdTxtBox.Text.Trim() + "', " + "'" + PatReg_ConRelTxtBox.Text.Trim() + "', " + "'" + bloodtype + "', " + "'" + allergies + "', " + "'Active')";
+                        "'" + patientID + "', " +
+                        "'" + PatReg_NameTxtBox.Text.Trim() + "', " +
+                        "'" + birthDate + "', " +
+                        "'" + gender + "', " +
+                        "'" + PatReg_ConNoTxtBox.Text.Trim() + "', " +
+                        "'" + PatReg_HomeAdTxtBox.Text.Trim() + "', " +
+                        "'" + PatReg_ConPerTxtBox.Text.Trim() + "', " +
+                        "'" + PatReg_ConRelTxtBox.Text.Trim() + "', " +
+                        "'" + bloodtype + "', " +
+                        "'" + allergies + "', " +
+                        "'Outpatient')";
 
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
 
-                if (!string.IsNullOrWhiteSpace(PatReg_BPTextBox.Text) || !string.IsNullOrWhiteSpace(PatReg_BPTextBox.Text))
-
+                if (!string.IsNullOrWhiteSpace(PatReg_BPTxtBox.Text) || !string.IsNullOrWhiteSpace(PatReg_BPTextBox.Text))
                 {
-                    string bp = string.IsNullOrWhiteSpace(PatReg_BPTextBox.Text) ? "120/80" : PatReg_BPTextBox.Text.Trim();
+                    string bp = string.IsNullOrWhiteSpace(PatReg_BPTxtBox.Text) ? "120/80" : PatReg_BPTxtBox.Text.Trim();
 
                     int pulse = 75;
                     int.TryParse(PatReg_BPTextBox.Text.Trim(), out pulse);
@@ -112,9 +121,9 @@ namespace NurseDashBoard
 
                     MySqlCommand vitalsCmd = new MySqlCommand();
                     vitalsCmd.Connection = conn;
-                    vitalsCmd.CommandText = "INSERT INTO patientVitals (patient_id, blood_pressure, pulse_rate, body_temperature, weight) " +
+                    vitalsCmd.CommandText = "INSERT INTO PatientVitalsHistory (patient_id, taken_by_nurse_id, blood_pressure, pulse_rate, temperature, weight_kg) " +
                         "VALUES (" +
-                        "'" + patientID + "', " + "'" + bp + "', " + "'" + pulse + "', " + "'" + temp + "', " + "'" + weight + "')";
+                        "'" + patientID + "', 'USR-NUR-001', '" + bp + "', " + pulse + ", " + temp + ", " + weight + ")";
                     vitalsCmd.ExecuteNonQuery();
                 }
                 conn.Close();
