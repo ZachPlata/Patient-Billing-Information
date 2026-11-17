@@ -68,7 +68,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             txtUser.Location = new Point(46, 0);
             txtUser.Margin = new Padding(3, 2, 3, 2);
             txtUser.Name = "txtUser";
-            txtUser.Size = new Size(369, 22);
+            txtUser.Size = new Size(369, 24);
             txtUser.TabIndex = 1;
             txtUser.WordWrap = false;
             txtUser.TextChanged += txtUser_TextChanged;
@@ -82,7 +82,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             txtPassword.Location = new Point(46, 0);
             txtPassword.Margin = new Padding(3, 2, 3, 2);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(369, 22);
+            txtPassword.Size = new Size(369, 24);
             txtPassword.TabIndex = 2;
             txtPassword.UseSystemPasswordChar = true;
             txtPassword.TextChanged += textBox2_TextChanged;
@@ -92,10 +92,10 @@ namespace Patient_Info_and_Billing_System.LogIn
             button1.BackColor = Color.FromArgb(17, 34, 64);
             button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(230, 227);
+            button1.Location = new Point(230, 257);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(106, 44);
+            button1.Size = new Size(106, 50);
             button1.TabIndex = 0;
             button1.Text = "Sign In";
             button1.UseVisualStyleBackColor = false;
@@ -105,10 +105,10 @@ namespace Patient_Info_and_Billing_System.LogIn
             // 
             txtHideUser.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtHideUser.ForeColor = Color.Gray;
-            txtHideUser.Location = new Point(750, 385);
+            txtHideUser.Location = new Point(750, 436);
             txtHideUser.Margin = new Padding(3, 2, 3, 2);
             txtHideUser.Name = "txtHideUser";
-            txtHideUser.Size = new Size(149, 32);
+            txtHideUser.Size = new Size(149, 35);
             txtHideUser.TabIndex = 7;
             txtHideUser.Visible = false;
             // 
@@ -116,10 +116,10 @@ namespace Patient_Info_and_Billing_System.LogIn
             // 
             txtHideType.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtHideType.ForeColor = Color.Gray;
-            txtHideType.Location = new Point(750, 457);
+            txtHideType.Location = new Point(750, 518);
             txtHideType.Margin = new Padding(3, 2, 3, 2);
             txtHideType.Name = "txtHideType";
-            txtHideType.Size = new Size(149, 32);
+            txtHideType.Size = new Size(149, 35);
             txtHideType.TabIndex = 8;
             txtHideType.Visible = false;
             // 
@@ -127,10 +127,10 @@ namespace Patient_Info_and_Billing_System.LogIn
             // 
             txtHidePw.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtHidePw.ForeColor = Color.Gray;
-            txtHidePw.Location = new Point(750, 421);
+            txtHidePw.Location = new Point(750, 477);
             txtHidePw.Margin = new Padding(3, 2, 3, 2);
             txtHidePw.Name = "txtHidePw";
-            txtHidePw.Size = new Size(149, 32);
+            txtHidePw.Size = new Size(149, 35);
             txtHidePw.TabIndex = 9;
             txtHidePw.Visible = false;
             // 
@@ -142,7 +142,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(570, 108);
+            panel2.Size = new Size(570, 122);
             panel2.TabIndex = 10;
             // 
             // label4
@@ -151,9 +151,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(50, 61);
+            label4.Location = new Point(50, 69);
             label4.Name = "label4";
-            label4.Size = new Size(192, 21);
+            label4.Size = new Size(220, 25);
             label4.TabIndex = 8;
             label4.Text = "Sign in to Your Workspace";
             label4.Click += label4_Click;
@@ -163,9 +163,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(40, 24);
+            label3.Location = new Point(40, 27);
             label3.Name = "label3";
-            label3.Size = new Size(377, 37);
+            label3.Size = new Size(411, 41);
             label3.TabIndex = 5;
             label3.Text = "MetroCare Hospital  System";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -182,9 +182,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             groupBox1.Controls.Add(button1);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.FromArgb(17, 34, 64);
-            groupBox1.Location = new Point(40, 234);
+            groupBox1.Location = new Point(40, 265);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(493, 298);
+            groupBox1.Size = new Size(493, 338);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Text = "ACCOUNT CREDENTIALS";
@@ -196,9 +196,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(txtPassword);
             panel3.Controls.Add(pictureBox2);
-            panel3.Location = new Point(31, 161);
+            panel3.Location = new Point(31, 182);
             panel3.Name = "panel3";
-            panel3.Size = new Size(417, 27);
+            panel3.Size = new Size(417, 30);
             panel3.TabIndex = 14;
             // 
             // pictureBox2
@@ -207,7 +207,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(0, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(46, 25);
+            pictureBox2.Size = new Size(46, 28);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
@@ -218,9 +218,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(txtUser);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(31, 72);
+            panel1.Location = new Point(31, 82);
             panel1.Name = "panel1";
-            panel1.Size = new Size(417, 28);
+            panel1.Size = new Size(417, 31);
             panel1.TabIndex = 13;
             // 
             // pictureBox1
@@ -230,7 +230,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(46, 26);
+            pictureBox1.Size = new Size(46, 29);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -240,10 +240,10 @@ namespace Patient_Info_and_Billing_System.LogIn
             button2.BackColor = Color.White;
             button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Black;
-            button2.Location = new Point(342, 227);
+            button2.Location = new Point(342, 257);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(106, 44);
+            button2.Size = new Size(106, 50);
             button2.TabIndex = 7;
             button2.Text = "Clear";
             button2.UseVisualStyleBackColor = false;
@@ -252,9 +252,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(31, 145);
+            label2.Location = new Point(31, 164);
             label2.Name = "label2";
-            label2.Size = new Size(67, 13);
+            label2.Size = new Size(79, 17);
             label2.TabIndex = 5;
             label2.Text = "PASSWORD";
             // 
@@ -262,9 +262,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(31, 56);
+            label1.Location = new Point(31, 63);
             label1.Name = "label1";
-            label1.Size = new Size(123, 13);
+            label1.Size = new Size(142, 17);
             label1.TabIndex = 4;
             label1.Text = "EMAIL OR USERNAME";
             // 
@@ -276,9 +276,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             groupBox2.Controls.Add(button3);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox2.ForeColor = Color.FromArgb(17, 34, 64);
-            groupBox2.Location = new Point(42, 132);
+            groupBox2.Location = new Point(42, 150);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(491, 75);
+            groupBox2.Size = new Size(491, 85);
             groupBox2.TabIndex = 12;
             groupBox2.TabStop = false;
             groupBox2.Text = "SELECT ACCESS ROLE";
@@ -287,9 +287,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             // button5
             // 
             button5.FlatAppearance.MouseDownBackColor = Color.FromArgb(17, 34, 64);
-            button5.Location = new Point(340, 19);
+            button5.Location = new Point(340, 22);
             button5.Name = "button5";
-            button5.Size = new Size(131, 36);
+            button5.Size = new Size(131, 41);
             button5.TabIndex = 2;
             button5.Text = "NURSE";
             button5.UseVisualStyleBackColor = true;
@@ -298,9 +298,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             // button4
             // 
             button4.FlatAppearance.MouseDownBackColor = Color.FromArgb(17, 34, 64);
-            button4.Location = new Point(180, 19);
+            button4.Location = new Point(180, 22);
             button4.Name = "button4";
-            button4.Size = new Size(131, 36);
+            button4.Size = new Size(131, 41);
             button4.TabIndex = 1;
             button4.Text = "DOCTOR";
             button4.UseVisualStyleBackColor = true;
@@ -309,9 +309,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             // button3
             // 
             button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(17, 34, 64);
-            button3.Location = new Point(21, 22);
+            button3.Location = new Point(21, 25);
             button3.Name = "button3";
-            button3.Size = new Size(131, 36);
+            button3.Size = new Size(131, 41);
             button3.TabIndex = 0;
             button3.Text = "ADMIN";
             button3.UseVisualStyleBackColor = true;
@@ -319,9 +319,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             // 
             // SignIn
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(570, 562);
+            ClientSize = new Size(570, 637);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel2);
