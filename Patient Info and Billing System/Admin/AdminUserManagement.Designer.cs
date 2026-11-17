@@ -268,7 +268,7 @@ namespace Patient_Info_and_Billing_System.Admin
             userTable.Margin = new Padding(3, 2, 3, 2);
             userTable.Name = "userTable";
             userTable.RowHeadersWidth = 51;
-            userTable.Size = new Size(873, 577);
+            userTable.Size = new Size(873, 501);
             userTable.TabIndex = 1;
             // 
             // textBox7

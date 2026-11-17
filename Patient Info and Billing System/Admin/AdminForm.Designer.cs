@@ -38,10 +38,10 @@
             panel5 = new Panel();
             label6 = new Label();
             SideNavBar = new Panel();
-            userTxtBox = new TextBox();
+            label8 = new Label();
             btnALAT = new Button();
             label3 = new Label();
-            label2 = new Label();
+            userLabel = new Label();
             panel3 = new Panel();
             btnAdminDashboard = new Button();
             label1 = new Label();
@@ -145,10 +145,10 @@
             // SideNavBar
             // 
             SideNavBar.BackColor = Color.FromArgb(17, 34, 64);
-            SideNavBar.Controls.Add(userTxtBox);
+            SideNavBar.Controls.Add(label8);
             SideNavBar.Controls.Add(btnALAT);
             SideNavBar.Controls.Add(label3);
-            SideNavBar.Controls.Add(label2);
+            SideNavBar.Controls.Add(userLabel);
             SideNavBar.Controls.Add(panel3);
             SideNavBar.Controls.Add(btnAdminDashboard);
             SideNavBar.Controls.Add(label1);
@@ -161,13 +161,19 @@
             SideNavBar.Name = "SideNavBar";
             SideNavBar.Size = new Size(233, 1041);
             SideNavBar.TabIndex = 3;
+            SideNavBar.Paint += SideNavBar_Paint;
             // 
-            // userTxtBox
+            // label8
             // 
-            userTxtBox.Location = new Point(24, 23);
-            userTxtBox.Name = "userTxtBox";
-            userTxtBox.Size = new Size(100, 23);
-            userTxtBox.TabIndex = 8;
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(74, 40);
+            label8.Name = "label8";
+            label8.Size = new Size(83, 15);
+            label8.TabIndex = 8;
+            label8.Text = "Specialization";
+            label8.Click += label8_Click;
             // 
             // btnALAT
             // 
@@ -178,7 +184,7 @@
             btnALAT.FlatStyle = FlatStyle.Flat;
             btnALAT.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnALAT.ForeColor = Color.White;
-            btnALAT.Location = new Point(0, 379);
+            btnALAT.Location = new Point(3, 290);
             btnALAT.Margin = new Padding(3, 2, 3, 2);
             btnALAT.Name = "btnALAT";
             btnALAT.Size = new Size(233, 30);
@@ -193,30 +199,30 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(16, 185, 129);
-            label3.Location = new Point(74, 140);
+            label3.Location = new Point(74, 60);
             label3.Name = "label3";
             label3.Size = new Size(50, 15);
             label3.TabIndex = 6;
             label3.Text = "STATUS";
             // 
-            // label2
+            // userLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(74, 122);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 15);
-            label2.TabIndex = 5;
-            label2.Text = "User's Name";
+            userLabel.AutoSize = true;
+            userLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            userLabel.ForeColor = Color.White;
+            userLabel.Location = new Point(74, 23);
+            userLabel.Name = "userLabel";
+            userLabel.Size = new Size(77, 15);
+            userLabel.TabIndex = 5;
+            userLabel.Text = "User's Name";
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(37, 99, 235);
-            panel3.Location = new Point(12, 122);
+            panel3.Location = new Point(12, 23);
             panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(46, 35);
+            panel3.Size = new Size(56, 48);
             panel3.TabIndex = 5;
             // 
             // btnAdminDashboard
@@ -228,7 +234,7 @@
             btnAdminDashboard.FlatStyle = FlatStyle.Flat;
             btnAdminDashboard.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdminDashboard.ForeColor = Color.White;
-            btnAdminDashboard.Location = new Point(0, 275);
+            btnAdminDashboard.Location = new Point(3, 186);
             btnAdminDashboard.Margin = new Padding(3, 2, 3, 2);
             btnAdminDashboard.Name = "btnAdminDashboard";
             btnAdminDashboard.Size = new Size(233, 30);
@@ -243,7 +249,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(100, 116, 139);
-            label1.Location = new Point(3, 248);
+            label1.Location = new Point(6, 159);
             label1.Name = "label1";
             label1.Size = new Size(192, 19);
             label1.TabIndex = 4;
@@ -255,7 +261,7 @@
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(0, 179);
+            panel1.Location = new Point(0, 98);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(233, 57);
@@ -301,7 +307,7 @@
             btnClncDtSet.FlatStyle = FlatStyle.Flat;
             btnClncDtSet.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClncDtSet.ForeColor = Color.White;
-            btnClncDtSet.Location = new Point(0, 344);
+            btnClncDtSet.Location = new Point(3, 255);
             btnClncDtSet.Margin = new Padding(3, 2, 3, 2);
             btnClncDtSet.Name = "btnClncDtSet";
             btnClncDtSet.Size = new Size(233, 30);
@@ -320,7 +326,7 @@
             btnUserManagement.FlatStyle = FlatStyle.Flat;
             btnUserManagement.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUserManagement.ForeColor = Color.White;
-            btnUserManagement.Location = new Point(0, 310);
+            btnUserManagement.Location = new Point(3, 221);
             btnUserManagement.Margin = new Padding(3, 2, 3, 2);
             btnUserManagement.Name = "btnUserManagement";
             btnUserManagement.Size = new Size(233, 30);
@@ -382,7 +388,6 @@
         private Label label6;
         private Panel SideNavBar;
         private Label label3;
-        private Label label2;
         private Panel panel3;
         private Button btnAdminDashboard;
         private Label label1;
@@ -395,6 +400,7 @@
         private Button btnALAT;
         private System.Windows.Forms.Timer timer1;
         private Panel panelContent;
-        public TextBox userTxtBox;
+        private Label label8;
+        public Label userLabel;
     }
 }

@@ -20,12 +20,14 @@ namespace Patient_Info_and_Billing_System.LogIn
         {
             InitializeComponent();
         }
+        private string selectedRole = "";
         private void SignIn_Load(object sender, EventArgs e)
         {
             txtUser.Text = "";
             txtUser.PlaceholderText = "Enter Username";
             txtPassword.PlaceholderText = "Enter Password";
             this.ActiveControl = button1;
+            selectedRole = "";
 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace Patient_Info_and_Billing_System.LogIn
                     if (role == "1")
                     {
                         AdminForm adminForm = new AdminForm();
-                        adminForm.userTxtBox.Text = txtHideUser.Text;
+                        adminForm.userLabel.Text = txtHideUser.Text;
                         adminForm.Show();
                     }
                     else if (role == "2")
@@ -86,7 +88,16 @@ namespace Patient_Info_and_Billing_System.LogIn
 
         }
 
-
+        private void SelectedButton(Button selected)
+        {
+            foreach (Button btn in new[] { button3, button4, button5 })
+            {
+                btn.BackColor = Color.White;
+                btn.ForeColor = Color.FromArgb(17, 34, 64);
+            }
+            selected.BackColor = Color.FromArgb(17, 34, 64);
+            selected.ForeColor = Color.White;
+        }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -130,6 +141,24 @@ namespace Patient_Info_and_Billing_System.LogIn
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            selectedRole = "1";
+            SelectedButton(button3);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            selectedRole = "2";
+            SelectedButton(button4);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            selectedRole = "3";
+            SelectedButton(button5);
         }
     }
 }
