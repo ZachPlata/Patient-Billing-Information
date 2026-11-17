@@ -304,7 +304,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             button4.TabIndex = 1;
             button4.Text = "DOCTOR";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += groupBox1_Enter;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -315,7 +315,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             button3.TabIndex = 0;
             button3.Text = "ADMIN";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += groupBox1_Enter;
+            button3.Click += button3_Click;
             // 
             // SignIn
             // 

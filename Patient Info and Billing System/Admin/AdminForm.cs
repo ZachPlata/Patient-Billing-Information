@@ -74,11 +74,18 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            if (userTxtBox.Text == "1")
-            {
-                
-            }
-         
+
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SideNavBar_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
