@@ -44,12 +44,12 @@
             label11 = new Label();
             textBox8 = new TextBox();
             panel4 = new Panel();
-            PatBillRec_DGV = new DataGridView();
-            label1 = new Label();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            textBox1 = new TextBox();
-            label2 = new Label();
             label3 = new Label();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            PatBillRec_DGV = new DataGridView();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -210,38 +210,17 @@
             panel4.Size = new Size(1585, 719);
             panel4.TabIndex = 1;
             // 
-            // PatBillRec_DGV
+            // label3
             // 
-            PatBillRec_DGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PatBillRec_DGV.Location = new Point(0, 72);
-            PatBillRec_DGV.Name = "PatBillRec_DGV";
-            PatBillRec_DGV.Size = new Size(1585, 644);
-            PatBillRec_DGV.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AllowDrop = true;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(15, 23, 42);
-            label1.Location = new Point(3, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(325, 32);
-            label1.TabIndex = 23;
-            label1.Text = "PATIENT BILLING RECORDS";
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(978, 20);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(230, 32);
-            textBox1.TabIndex = 24;
+            label3.AllowDrop = true;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(15, 23, 42);
+            label3.Location = new Point(1274, 20);
+            label3.Name = "label3";
+            label3.Size = new Size(97, 32);
+            label3.TabIndex = 26;
+            label3.Text = "Status: ";
             // 
             // label2
             // 
@@ -255,17 +234,38 @@
             label2.TabIndex = 25;
             label2.Text = "Search: ";
             // 
-            // label3
+            // textBox1
             // 
-            label3.AllowDrop = true;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(15, 23, 42);
-            label3.Location = new Point(1274, 20);
-            label3.Name = "label3";
-            label3.Size = new Size(97, 32);
-            label3.TabIndex = 26;
-            label3.Text = "Status: ";
+            textBox1.Location = new Point(978, 20);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(230, 32);
+            textBox1.TabIndex = 24;
+            // 
+            // label1
+            // 
+            label1.AllowDrop = true;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(15, 23, 42);
+            label1.Location = new Point(3, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(325, 32);
+            label1.TabIndex = 23;
+            label1.Text = "PATIENT BILLING RECORDS";
+            // 
+            // PatBillRec_DGV
+            // 
+            PatBillRec_DGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PatBillRec_DGV.Location = new Point(0, 72);
+            PatBillRec_DGV.Name = "PatBillRec_DGV";
+            PatBillRec_DGV.Size = new Size(1585, 644);
+            PatBillRec_DGV.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // uc_PatientBillingRec
             // 
