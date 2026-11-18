@@ -1,4 +1,4 @@
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using MySql.Data.MySqlClient;
 using NurseDashBoard;
 using Org.BouncyCastle.Asn1.Mozilla;
@@ -32,6 +32,11 @@ namespace Patient_Info_and_Billing_System.LogIn
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (selectedRole == "")
+            {
+                MessageBox.Show("Please select a role before signing in", "No Role Selected",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             string connstring = "server=localhost;user id=root;password=;database=patientbillingdb";
             MySqlConnection conn = new MySqlConnection(connstring);
             MySqlCommand cmd = new MySqlCommand();
@@ -53,6 +58,14 @@ namespace Patient_Info_and_Billing_System.LogIn
                     txtHidePw.Text = dr[1].ToString();
                     txtHideType.Text = dr[2].ToString();
                     string role = dr[2]?.ToString();
+                    
+
+                    if(role != selectedRole)
+                    {
+                        MessageBox.Show("Access Denied. The selected role does not match your account", "Role Mismatch",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     this.Hide();
                     if (role == "1")
                     {

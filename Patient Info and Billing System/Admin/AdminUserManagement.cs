@@ -12,19 +12,38 @@ namespace Patient_Info_and_Billing_System.Admin
     public partial class AdminUserManagement : UserControl
     {
         string connStr = "server=localhost; database=metro_care_db; uid=root";
-
+        private enum SetupTab
+        {
+            DoctorManagement,
+            NurseManagement,
+            AdminManagement
+        }
+        private SetupTab currentTab = SetupTab.DoctorManagement;
         public AdminUserManagement()
         {
             InitializeComponent();
+            btnTabDoctor.PerformClick();
+            //button1.Click += button1_Click;
+            //button2.Click += (s, e) => clearFields();
 
-            button1.Click += button1_Click;
-            button2.Click += (s, e) => clearFields();
-
-            loaddata();
         }
+        private void ActiveButton(Button currentButton)
+        {
+            foreach (Button btn in new[] { btnTabDoctor, btnTabAdmin, btnTabNurse })
+            {
+                btn.ForeColor = Color.FromArgb(100, 116, 139);
+                btn.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            }
+            currentButton.ForeColor = Color.FromArgb(37, 99, 235);
+            currentButton.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            panelTabUnderline.Left = currentButton.Left;
+            panelTabUnderline.Width = currentButton.Width;
+            panelTabUnderline.BringToFront();
 
+        }
         private void AdminUserManagement_Load(object sender, EventArgs e)
         {
+
             loaddata();
         }
 
@@ -42,8 +61,8 @@ namespace Patient_Info_and_Billing_System.Admin
                 cmd.Connection = conn;
                 da.SelectCommand = cmd;
                 da.Fill(ds, "userTable");
-                userTable.DataSource = ds;
-                userTable.DataMember = "userTable";
+                //userTable.DataSource = ds;
+                //userTable.DataMember = "userTable";
                 conn.Close();
             }
             catch (Exception ex)
@@ -64,15 +83,15 @@ namespace Patient_Info_and_Billing_System.Admin
                 return;
             }
 
-            string fullName = txt_Fullname.Text;
-            string username = txt_Username.Text;
-            string password = txt_Password.Text;
-            string role = comboBox1.Text;
-            string specialty = textBox4.Text;
-            string email = textBox5.Text;
-            string phone = textBox6.Text;
+            //string fullName = txt_Fullname.Text;
+            //string username = txt_Username.Text;
+            //string password = txt_Password.Text;
+            //string role = comboBox1.Text;
+            //string specialty = textBox4.Text;
+            //string email = textBox5.Text;
+            //string phone = textBox6.Text;
 
-            CreateStaffAccount(fullName, username, password, role, specialty, email, phone);
+            //CreateStaffAccount(fullName, username, password, role, specialty, email, phone);
         }
 
         void CreateStaffAccount(string fullName, string username, string password, string role, string specialty, string email, string phone)
@@ -112,20 +131,70 @@ namespace Patient_Info_and_Billing_System.Admin
 
         void clearFields()
         {
-            txt_Fullname.Clear();
-            txt_Username.Clear();
-            txt_Password.Clear();
-            comboBox1.SelectedIndex = -1;
-            comboBox1.Text = string.Empty;
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox6.Clear();
-            txt_Fullname.Focus();
+            //txt_Fullname.Clear();
+            //txt_Username.Clear();
+            //txt_Password.Clear();
+            //comboBox1.SelectedIndex = -1;
+            //comboBox1.Text = string.Empty;
+            //textBox4.Clear();
+            //textBox5.Clear();
+            //textBox6.Clear();
+            //txt_Fullname.Focus();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void AdminUserManagement_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTabRoomBed_Click(object sender, EventArgs e)
+        {
+            ActiveButton((Button)sender);
+            currentTab = SetupTab.DoctorManagement;
+            panelContent.Controls.Clear();
+            DoctorManage form = new DoctorManage();
+            panelContent.Controls.Add(form);
+            form.Show();
+        }
+
+        private void panelHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnTabNurse_Click(object sender, EventArgs e)
+        {
+            ActiveButton((Button)sender);
+            currentTab = SetupTab.NurseManagement;
+            panelContent.Controls.Clear();
+            NurseManage form = new NurseManage();
+            panelContent.Controls.Add(form);
+            form.Show();
+        }
+
+        private void btnTabAdmin_Click(object sender, EventArgs e)
+        {
+            ActiveButton((Button)sender);
+            currentTab = SetupTab.AdminManagement;
+            panelContent.Controls.Clear();
+            AdminManage form = new AdminManage();
+            panelContent.Controls.Add(form);
+            form.Show();
         }
     }
 }

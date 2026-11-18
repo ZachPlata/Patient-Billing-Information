@@ -85,7 +85,7 @@ namespace NurseDashBoard
 
             try // INSERT PATINT TO DATABASE
             {
-                MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;database=patientbillingbd");
+                MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;database=patientbillingdb");
                 MySqlCommand cmd = new MySqlCommand();
                 conn.Open();
 

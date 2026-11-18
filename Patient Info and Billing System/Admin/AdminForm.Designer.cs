@@ -346,7 +346,7 @@
             // 
             panelContent.AutoSize = true;
             panelContent.BackColor = Color.FromArgb(250, 249, 246);
-            panelContent.Location = new Point(257, 112);
+            panelContent.Location = new Point(271, 128);
             panelContent.Margin = new Padding(3, 2, 3, 2);
             panelContent.Name = "panelContent";
             panelContent.Size = new Size(1585, 860);

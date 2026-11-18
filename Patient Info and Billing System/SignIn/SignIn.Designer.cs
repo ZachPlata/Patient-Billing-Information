@@ -293,7 +293,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             button5.TabIndex = 2;
             button5.Text = "NURSE";
             button5.UseVisualStyleBackColor = true;
-            button5.Click += groupBox1_Enter;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
