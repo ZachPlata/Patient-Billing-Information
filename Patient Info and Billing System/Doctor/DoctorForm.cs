@@ -33,9 +33,14 @@ namespace Patient_Info_and_Billing_System.Doctor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            PatientForm patientform = new PatientForm();
+            {
+                Dock = DockStyle.Fill;
+            }
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(patientform);
+
             ActiveButton((Button)sender);
-            
 
         }
 

@@ -38,6 +38,8 @@
             patUtil_Search = new Button();
             PatUtil_PatIdTxtBox = new TextBox();
             panel2 = new Panel();
+            RegPat_BtnClr = new Button();
+            util_BtnAdd = new Button();
             label15 = new Label();
             Date = new Label();
             label5 = new Label();
@@ -58,8 +60,6 @@
             label9 = new Label();
             label8 = new Label();
             button2 = new Button();
-            RegPat_BtnAdd = new Button();
-            RegPat_BtnClr = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -173,7 +173,7 @@
             // 
             panel2.BackColor = SystemColors.Control;
             panel2.Controls.Add(RegPat_BtnClr);
-            panel2.Controls.Add(RegPat_BtnAdd);
+            panel2.Controls.Add(util_BtnAdd);
             panel2.Controls.Add(label15);
             panel2.Controls.Add(Date);
             panel2.Controls.Add(label5);
@@ -191,6 +191,33 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(670, 643);
             panel2.TabIndex = 1;
+            // 
+            // RegPat_BtnClr
+            // 
+            RegPat_BtnClr.BackColor = Color.White;
+            RegPat_BtnClr.FlatStyle = FlatStyle.Flat;
+            RegPat_BtnClr.ForeColor = Color.Black;
+            RegPat_BtnClr.Location = new Point(391, 556);
+            RegPat_BtnClr.Margin = new Padding(3, 2, 3, 2);
+            RegPat_BtnClr.Name = "RegPat_BtnClr";
+            RegPat_BtnClr.Size = new Size(229, 53);
+            RegPat_BtnClr.TabIndex = 30;
+            RegPat_BtnClr.Text = "Clear";
+            RegPat_BtnClr.UseVisualStyleBackColor = false;
+            // 
+            // util_BtnAdd
+            // 
+            util_BtnAdd.BackColor = Color.FromArgb(16, 185, 129);
+            util_BtnAdd.FlatStyle = FlatStyle.Flat;
+            util_BtnAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            util_BtnAdd.ForeColor = Color.White;
+            util_BtnAdd.Location = new Point(30, 556);
+            util_BtnAdd.Margin = new Padding(3, 2, 3, 2);
+            util_BtnAdd.Name = "util_BtnAdd";
+            util_BtnAdd.Size = new Size(300, 52);
+            util_BtnAdd.TabIndex = 29;
+            util_BtnAdd.Text = "Register Patient";
+            util_BtnAdd.UseVisualStyleBackColor = false;
             // 
             // label15
             // 
@@ -395,33 +422,6 @@
             button2.Text = "Save";
             button2.UseVisualStyleBackColor = true;
             // 
-            // RegPat_BtnAdd
-            // 
-            RegPat_BtnAdd.BackColor = Color.FromArgb(16, 185, 129);
-            RegPat_BtnAdd.FlatStyle = FlatStyle.Flat;
-            RegPat_BtnAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            RegPat_BtnAdd.ForeColor = Color.White;
-            RegPat_BtnAdd.Location = new Point(30, 556);
-            RegPat_BtnAdd.Margin = new Padding(3, 2, 3, 2);
-            RegPat_BtnAdd.Name = "RegPat_BtnAdd";
-            RegPat_BtnAdd.Size = new Size(300, 52);
-            RegPat_BtnAdd.TabIndex = 29;
-            RegPat_BtnAdd.Text = "Register Patient";
-            RegPat_BtnAdd.UseVisualStyleBackColor = false;
-            // 
-            // RegPat_BtnClr
-            // 
-            RegPat_BtnClr.BackColor = Color.White;
-            RegPat_BtnClr.FlatStyle = FlatStyle.Flat;
-            RegPat_BtnClr.ForeColor = Color.Black;
-            RegPat_BtnClr.Location = new Point(391, 556);
-            RegPat_BtnClr.Margin = new Padding(3, 2, 3, 2);
-            RegPat_BtnClr.Name = "RegPat_BtnClr";
-            RegPat_BtnClr.Size = new Size(229, 53);
-            RegPat_BtnClr.TabIndex = 30;
-            RegPat_BtnClr.Text = "Clear";
-            RegPat_BtnClr.UseVisualStyleBackColor = false;
-            // 
             // uc_PatientUtil
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -479,7 +479,7 @@
         private Label label13;
         private Label label12;
         private Label label15;
-        private Button RegPat_BtnAdd;
+        private Button util_BtnAdd;
         private Button RegPat_BtnClr;
     }
 }
