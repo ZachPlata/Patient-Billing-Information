@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            PatUtil_AdmittedTxtBox = new TextBox();
+            PatUtil_DoctorTxtBox = new TextBox();
+            PatUtil_RoomTxtBox = new TextBox();
+            PatUtil_PatStatus = new TextBox();
+            PatUtil_PatNameTxtBox = new TextBox();
             label14 = new Label();
             label13 = new Label();
             label12 = new Label();
@@ -70,6 +75,11 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Control;
+            panel1.Controls.Add(PatUtil_AdmittedTxtBox);
+            panel1.Controls.Add(PatUtil_DoctorTxtBox);
+            panel1.Controls.Add(PatUtil_RoomTxtBox);
+            panel1.Controls.Add(PatUtil_PatStatus);
+            panel1.Controls.Add(PatUtil_PatNameTxtBox);
             panel1.Controls.Add(label14);
             panel1.Controls.Add(label13);
             panel1.Controls.Add(label12);
@@ -83,6 +93,46 @@
             panel1.Size = new Size(1549, 139);
             panel1.TabIndex = 0;
             // 
+            // PatUtil_AdmittedTxtBox
+            // 
+            PatUtil_AdmittedTxtBox.Location = new Point(1182, 87);
+            PatUtil_AdmittedTxtBox.Multiline = true;
+            PatUtil_AdmittedTxtBox.Name = "PatUtil_AdmittedTxtBox";
+            PatUtil_AdmittedTxtBox.Size = new Size(112, 20);
+            PatUtil_AdmittedTxtBox.TabIndex = 33;
+            // 
+            // PatUtil_DoctorTxtBox
+            // 
+            PatUtil_DoctorTxtBox.Location = new Point(951, 87);
+            PatUtil_DoctorTxtBox.Multiline = true;
+            PatUtil_DoctorTxtBox.Name = "PatUtil_DoctorTxtBox";
+            PatUtil_DoctorTxtBox.Size = new Size(112, 20);
+            PatUtil_DoctorTxtBox.TabIndex = 32;
+            // 
+            // PatUtil_RoomTxtBox
+            // 
+            PatUtil_RoomTxtBox.Location = new Point(706, 84);
+            PatUtil_RoomTxtBox.Multiline = true;
+            PatUtil_RoomTxtBox.Name = "PatUtil_RoomTxtBox";
+            PatUtil_RoomTxtBox.Size = new Size(112, 20);
+            PatUtil_RoomTxtBox.TabIndex = 31;
+            // 
+            // PatUtil_PatStatus
+            // 
+            PatUtil_PatStatus.Location = new Point(1286, 27);
+            PatUtil_PatStatus.Multiline = true;
+            PatUtil_PatStatus.Name = "PatUtil_PatStatus";
+            PatUtil_PatStatus.Size = new Size(247, 42);
+            PatUtil_PatStatus.TabIndex = 30;
+            // 
+            // PatUtil_PatNameTxtBox
+            // 
+            PatUtil_PatNameTxtBox.Location = new Point(761, 27);
+            PatUtil_PatNameTxtBox.Multiline = true;
+            PatUtil_PatNameTxtBox.Name = "PatUtil_PatNameTxtBox";
+            PatUtil_PatNameTxtBox.Size = new Size(365, 41);
+            PatUtil_PatNameTxtBox.TabIndex = 29;
+            // 
             // label14
             // 
             label14.AllowDrop = true;
@@ -91,16 +141,16 @@
             label14.ForeColor = Color.FromArgb(15, 23, 42);
             label14.Location = new Point(1197, 36);
             label14.Name = "label14";
-            label14.Size = new Size(83, 32);
+            label14.Size = new Size(97, 32);
             label14.TabIndex = 28;
-            label14.Text = "Status";
+            label14.Text = "Status: ";
             // 
             // label13
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.FromArgb(15, 23, 42);
-            label13.Location = new Point(1052, 84);
+            label13.Location = new Point(1093, 85);
             label13.Name = "label13";
             label13.Size = new Size(74, 17);
             label13.TabIndex = 27;
@@ -111,7 +161,7 @@
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.FromArgb(15, 23, 42);
-            label12.Location = new Point(787, 84);
+            label12.Location = new Point(824, 87);
             label12.Name = "label12";
             label12.Size = new Size(121, 17);
             label12.TabIndex = 26;
@@ -160,6 +210,7 @@
             patUtil_Search.TabIndex = 22;
             patUtil_Search.Text = "Search";
             patUtil_Search.UseVisualStyleBackColor = true;
+            patUtil_Search.Click += patUtil_Search_Click;
             // 
             // PatUtil_PatIdTxtBox
             // 
@@ -204,6 +255,7 @@
             RegPat_BtnClr.TabIndex = 30;
             RegPat_BtnClr.Text = "Clear";
             RegPat_BtnClr.UseVisualStyleBackColor = false;
+            RegPat_BtnClr.Click += RegPat_BtnClr_Click;
             // 
             // util_BtnAdd
             // 
@@ -481,5 +533,10 @@
         private Label label15;
         private Button util_BtnAdd;
         private Button RegPat_BtnClr;
+        private TextBox PatUtil_AdmittedTxtBox;
+        private TextBox PatUtil_DoctorTxtBox;
+        private TextBox PatUtil_RoomTxtBox;
+        private TextBox PatUtil_PatStatus;
+        private TextBox PatUtil_PatNameTxtBox;
     }
 }

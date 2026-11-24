@@ -62,6 +62,9 @@ namespace Patient_Info_and_Billing_System
                 case 2:
                     category = "Other";
                     break;
+                case 3:
+                    category = "Room";
+                    break;
                 default:
                     MessageBox.Show("Please select a valid equipment category.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
@@ -84,9 +87,43 @@ namespace Patient_Info_and_Billing_System
             MessageBox.Show("RECORD SAVED");
             loaddata();
 
-            }
+        }
 
+        private void RegPat_BtnClr_Click(object sender, EventArgs e)
+        {
+            PatUtil_PatIdTxtBox.Clear();
+            PatUtil_EqIdNoComboBox.Clear();
+            PatUtil_QtTextBox.Text = "1";
+            PatUtil_Notes.Clear();
+            PatUtil_EqCatComboBox.SelectedIndex = -1;
+            PatUtil_EqDrgComboBox.SelectedIndex = -1;
+        }
+
+        private void patUtil_Search_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection("server=localhost; database=patientbillingdb; uid=root");
+            MySqlCommand cmd = new MySqlCommand();
+            MySqlDataReader reader;
+
+            conn.Open();
+            cmd.CommandText = "SELECT * FROM Patients WHERE patient_id = '" + PatUtil_PatIdTxtBox.Text + "'" + PatUtil_PatIdTxtBox.Text + "'";
+            cmd.Connection = conn;
+            reader = cmd.ExecuteReader();
+            reader.Read();
+            if (reader.HasRows)
+            {
+                PatUtil_PatNameTxtBox.Text = reader.GetString("full_name");
+                PatUtil_PatStatus.Text = reader.GetString("status");
+                PatUtil_RoomTxtBox.Text = reader.GetString("room");
+                PatUtil_DoctorTxtBox.Text = reader.GetString("attending_doctor");
+                PatUtil_AdmittedTxtBox.Text = reader.GetString("admitted");
+            }
+            else
+            {
+                MessageBox.Show("No Record Found.", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
     }
+}
 
