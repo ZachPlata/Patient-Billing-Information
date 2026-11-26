@@ -1,6 +1,7 @@
 using NurseDashBoard;
 using Patient_Info_and_Billing_System.Admin;
 using Patient_Info_and_Billing_System.BillingStaff;
+using Patient_Info_and_Billing_System.Doctor;
 using Patient_Info_and_Billing_System.LogIn;
 
 namespace Patient_Info_and_Billing_System

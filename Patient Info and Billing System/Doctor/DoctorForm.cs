@@ -18,7 +18,7 @@ namespace Patient_Info_and_Billing_System.Doctor
 
         private void Doctor_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -102,8 +102,13 @@ namespace Patient_Info_and_Billing_System.Doctor
             btnDrDashboard.BackColor = Color.FromArgb(17, 34, 64);
             btnHlthCheckup.BackColor = Color.FromArgb(17, 34, 64);
             btnPatientRecord.BackColor = Color.FromArgb(17, 34, 64);
-            currentButton.BackColor = Color.FromArgb(37, 99, 235);  
-       
+            currentButton.BackColor = Color.FromArgb(37, 99, 235);
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

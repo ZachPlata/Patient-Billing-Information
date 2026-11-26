@@ -30,9 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             SideNavBar = new Panel();
-            label3 = new Label();
-            label2 = new Label();
-            panel3 = new Panel();
             btnDrDashboard = new Button();
             label1 = new Label();
             panel1 = new Panel();
@@ -51,6 +48,10 @@
             label6 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             panelContent = new Panel();
+            label8 = new Label();
+            label9 = new Label();
+            userLabel = new Label();
+            panel2 = new Panel();
             SideNavBar.SuspendLayout();
             panel1.SuspendLayout();
             Header.SuspendLayout();
@@ -59,51 +60,22 @@
             // SideNavBar
             // 
             SideNavBar.BackColor = Color.FromArgb(17, 34, 64);
-            SideNavBar.Controls.Add(label3);
-            SideNavBar.Controls.Add(label2);
-            SideNavBar.Controls.Add(panel3);
+            SideNavBar.Controls.Add(label8);
+            SideNavBar.Controls.Add(label9);
+            SideNavBar.Controls.Add(userLabel);
+            SideNavBar.Controls.Add(panel2);
             SideNavBar.Controls.Add(btnDrDashboard);
             SideNavBar.Controls.Add(label1);
             SideNavBar.Controls.Add(panel1);
             SideNavBar.Controls.Add(btnHlthCheckup);
             SideNavBar.Controls.Add(btnPatientRecord);
+            SideNavBar.Dock = DockStyle.Left;
             SideNavBar.Location = new Point(0, 0);
             SideNavBar.Margin = new Padding(3, 2, 3, 2);
             SideNavBar.Name = "SideNavBar";
-            SideNavBar.Size = new Size(233, 881);
+            SideNavBar.Size = new Size(233, 775);
             SideNavBar.TabIndex = 0;
             SideNavBar.Paint += SideNavBar_Paint;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(16, 185, 129);
-            label3.Location = new Point(74, 140);
-            label3.Name = "label3";
-            label3.Size = new Size(50, 15);
-            label3.TabIndex = 6;
-            label3.Text = "STATUS";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(74, 122);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 15);
-            label2.TabIndex = 5;
-            label2.Text = "User's Name";
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(37, 99, 235);
-            panel3.Location = new Point(12, 122);
-            panel3.Margin = new Padding(3, 2, 3, 2);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(46, 35);
-            panel3.TabIndex = 5;
             // 
             // btnDrDashboard
             // 
@@ -114,7 +86,7 @@
             btnDrDashboard.FlatStyle = FlatStyle.Flat;
             btnDrDashboard.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDrDashboard.ForeColor = Color.White;
-            btnDrDashboard.Location = new Point(0, 275);
+            btnDrDashboard.Location = new Point(0, 193);
             btnDrDashboard.Margin = new Padding(3, 2, 3, 2);
             btnDrDashboard.Name = "btnDrDashboard";
             btnDrDashboard.Size = new Size(233, 30);
@@ -129,7 +101,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(100, 116, 139);
-            label1.Location = new Point(3, 248);
+            label1.Location = new Point(3, 166);
             label1.Name = "label1";
             label1.Size = new Size(142, 19);
             label1.TabIndex = 4;
@@ -142,7 +114,7 @@
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(0, 179);
+            panel1.Location = new Point(3, 98);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(233, 57);
@@ -188,7 +160,7 @@
             btnHlthCheckup.FlatStyle = FlatStyle.Flat;
             btnHlthCheckup.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHlthCheckup.ForeColor = Color.White;
-            btnHlthCheckup.Location = new Point(0, 344);
+            btnHlthCheckup.Location = new Point(0, 262);
             btnHlthCheckup.Margin = new Padding(3, 2, 3, 2);
             btnHlthCheckup.Name = "btnHlthCheckup";
             btnHlthCheckup.Size = new Size(233, 30);
@@ -207,7 +179,7 @@
             btnPatientRecord.FlatStyle = FlatStyle.Flat;
             btnPatientRecord.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPatientRecord.ForeColor = Color.White;
-            btnPatientRecord.Location = new Point(0, 310);
+            btnPatientRecord.Location = new Point(0, 228);
             btnPatientRecord.Margin = new Padding(3, 2, 3, 2);
             btnPatientRecord.Name = "btnPatientRecord";
             btnPatientRecord.Size = new Size(233, 30);
@@ -228,10 +200,10 @@
             Header.Controls.Add(panel5);
             Header.Controls.Add(label6);
             Header.Dock = DockStyle.Top;
-            Header.Location = new Point(0, 0);
+            Header.Location = new Point(233, 0);
             Header.Margin = new Padding(3, 2, 3, 2);
             Header.Name = "Header";
-            Header.Size = new Size(1664, 94);
+            Header.Size = new Size(1431, 94);
             Header.TabIndex = 1;
             Header.Paint += panel2_Paint;
             // 
@@ -322,6 +294,48 @@
             panelContent.TabIndex = 2;
             panelContent.Paint += panel8_Paint;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(71, 40);
+            label8.Name = "label8";
+            label8.Size = new Size(83, 15);
+            label8.TabIndex = 12;
+            label8.Text = "Specialization";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(16, 185, 129);
+            label9.Location = new Point(74, 60);
+            label9.Name = "label9";
+            label9.Size = new Size(50, 15);
+            label9.TabIndex = 11;
+            label9.Text = "STATUS";
+            // 
+            // userLabel
+            // 
+            userLabel.AutoSize = true;
+            userLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            userLabel.ForeColor = Color.White;
+            userLabel.Location = new Point(74, 23);
+            userLabel.Name = "userLabel";
+            userLabel.Size = new Size(77, 15);
+            userLabel.TabIndex = 9;
+            userLabel.Text = "User's Name";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(37, 99, 235);
+            panel2.Location = new Point(12, 23);
+            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(56, 48);
+            panel2.TabIndex = 10;
+            // 
             // DoctorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -352,9 +366,6 @@
         private Button btnDrDashboard;
         private Button btnHlthCheckup;
         private Panel panel1;
-        private Label label2;
-        private Panel panel3;
-        private Label label3;
         private Label label1;
         private Label label4;
         private Panel panel4;
@@ -368,5 +379,9 @@
         private Label timer;
         private Panel panel7;
         private Panel panelContent;
+        private Label label8;
+        private Label label9;
+        public Label userLabel;
+        private Panel panel2;
     }
 }

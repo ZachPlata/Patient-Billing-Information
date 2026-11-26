@@ -121,5 +121,10 @@ namespace NurseDashBoard
         {
 
         }
+
+        private void pnlsidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

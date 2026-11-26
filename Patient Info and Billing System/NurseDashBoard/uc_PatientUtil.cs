@@ -106,7 +106,7 @@ namespace Patient_Info_and_Billing_System
             MySqlDataReader reader;
 
             conn.Open();
-            cmd.CommandText = "SELECT * FROM Patients WHERE patient_id = '" + PatUtil_PatIdTxtBox.Text + "'" + PatUtil_PatIdTxtBox.Text + "'";
+
             cmd.Connection = conn;
             reader = cmd.ExecuteReader();
             reader.Read();
