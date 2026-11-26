@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
 
@@ -13,7 +14,10 @@ namespace Patient_Info_and_Billing_System.Admin
         public AdminForm()
         {
             InitializeComponent();
+
+
         }
+        public static string usertype;
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -37,6 +41,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnUserManagement_Click(object sender, EventArgs e)
         {
+            panelContent.Controls.Clear();
             ActiveButton((Button)sender);
             AdminUserManagement form = new AdminUserManagement();
             panelContent.Controls.Add(form);
@@ -45,7 +50,11 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnClncDtSet_Click(object sender, EventArgs e)
         {
+            panelContent.Controls.Clear();
             ActiveButton((Button)sender);
+            ClinicAndDataSetup form = new ClinicAndDataSetup();
+            panelContent.Controls.Add(form);
+            form.Show();
         }
 
         private void btnALAT_Click(object sender, EventArgs e)
@@ -54,6 +63,27 @@ namespace Patient_Info_and_Billing_System.Admin
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void timer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

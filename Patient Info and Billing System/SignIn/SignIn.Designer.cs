@@ -1,4 +1,4 @@
-﻿namespace Patient_Info_and_Billing_System.LogIn
+namespace Patient_Info_and_Billing_System.LogIn
 {
     partial class SignIn
     {
@@ -28,129 +28,349 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label3 = new Label();
-            label4 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignIn));
+            txtUser = new TextBox();
+            txtPassword = new TextBox();
             button1 = new Button();
+            txtHideUser = new TextBox();
+            txtHideType = new TextBox();
+            txtHidePw = new TextBox();
+            panel2 = new Panel();
+            label4 = new Label();
+            label3 = new Label();
+            groupBox1 = new GroupBox();
+            panel3 = new Panel();
+            pictureBox2 = new PictureBox();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            button2 = new Button();
+            label2 = new Label();
+            label1 = new Label();
+            groupBox2 = new GroupBox();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            panel2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // txtUser
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(15, 23, 42);
-            label1.Location = new Point(50, 92);
-            label1.Name = "label1";
-            label1.Size = new Size(369, 41);
-            label1.TabIndex = 0;
-            label1.Text = "Metro Pedia Care System";
+            txtUser.BorderStyle = BorderStyle.None;
+            txtUser.Dock = DockStyle.Fill;
+            txtUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUser.ForeColor = Color.Gray;
+            txtUser.Location = new Point(46, 0);
+            txtUser.Margin = new Padding(3, 2, 3, 2);
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(369, 24);
+            txtUser.TabIndex = 1;
+            txtUser.WordWrap = false;
+            txtUser.TextChanged += txtUser_TextChanged;
             // 
-            // label2
+            // txtPassword
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(38, 51);
-            label2.Name = "label2";
-            label2.Size = new Size(160, 28);
-            label2.TabIndex = 1;
-            label2.Text = "Email/Username";
+            txtPassword.BorderStyle = BorderStyle.None;
+            txtPassword.Dock = DockStyle.Fill;
+            txtPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPassword.ForeColor = Color.Gray;
+            txtPassword.Location = new Point(46, 0);
+            txtPassword.Margin = new Padding(3, 2, 3, 2);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(369, 24);
+            txtPassword.TabIndex = 2;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.TextChanged += textBox2_TextChanged;
             // 
-            // textBox1
+            // button1
             // 
-            textBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = Color.Gray;
-            textBox1.Location = new Point(38, 82);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(369, 38);
-            textBox1.TabIndex = 2;
-            textBox1.Text = "example@gmail.com";
+            button1.BackColor = Color.FromArgb(17, 34, 64);
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(230, 257);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(106, 50);
+            button1.TabIndex = 0;
+            button1.Text = "Sign In";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // textBox2
+            // txtHideUser
             // 
-            textBox2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.ForeColor = Color.Gray;
-            textBox2.Location = new Point(38, 194);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(369, 38);
-            textBox2.TabIndex = 3;
-            textBox2.Text = "Enter password";
+            txtHideUser.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtHideUser.ForeColor = Color.Gray;
+            txtHideUser.Location = new Point(750, 436);
+            txtHideUser.Margin = new Padding(3, 2, 3, 2);
+            txtHideUser.Name = "txtHideUser";
+            txtHideUser.Size = new Size(149, 35);
+            txtHideUser.TabIndex = 7;
+            txtHideUser.Visible = false;
             // 
-            // label3
+            // txtHideType
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(38, 163);
-            label3.Name = "label3";
-            label3.Size = new Size(97, 28);
-            label3.TabIndex = 4;
-            label3.Text = "Password";
+            txtHideType.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtHideType.ForeColor = Color.Gray;
+            txtHideType.Location = new Point(750, 518);
+            txtHideType.Margin = new Padding(3, 2, 3, 2);
+            txtHideType.Name = "txtHideType";
+            txtHideType.Size = new Size(149, 35);
+            txtHideType.TabIndex = 8;
+            txtHideType.Visible = false;
+            // 
+            // txtHidePw
+            // 
+            txtHidePw.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtHidePw.ForeColor = Color.Gray;
+            txtHidePw.Location = new Point(750, 477);
+            txtHidePw.Margin = new Padding(3, 2, 3, 2);
+            txtHidePw.Name = "txtHidePw";
+            txtHidePw.Size = new Size(149, 35);
+            txtHidePw.TabIndex = 9;
+            txtHidePw.Visible = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(17, 34, 64);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label3);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(570, 122);
+            panel2.TabIndex = 10;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.DarkBlue;
-            label4.Location = new Point(50, 61);
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(50, 69);
             label4.Name = "label4";
-            label4.Size = new Size(144, 31);
-            label4.TabIndex = 5;
-            label4.Text = "Welcome To";
+            label4.Size = new Size(220, 25);
+            label4.TabIndex = 8;
+            label4.Text = "Sign in to Your Workspace";
+            label4.Click += label4_Click;
             // 
-            // button1
+            // label3
             // 
-            button1.BackColor = Color.FromArgb(16, 185, 129);
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(163, 287);
-            button1.Name = "button1";
-            button1.Size = new Size(122, 41);
-            button1.TabIndex = 6;
-            button1.Text = "Sign In";
-            button1.UseVisualStyleBackColor = false;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ButtonFace;
+            label3.Location = new Point(40, 27);
+            label3.Name = "label3";
+            label3.Size = new Size(411, 41);
+            label3.TabIndex = 5;
+            label3.Text = "MetroCare Hospital  System";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            label3.Click += label3_Click_1;
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = Color.FromArgb(250, 249, 246);
+            groupBox1.Controls.Add(panel3);
+            groupBox1.Controls.Add(panel1);
+            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(button1);
+            groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.ForeColor = Color.FromArgb(17, 34, 64);
+            groupBox1.Location = new Point(40, 265);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(493, 338);
+            groupBox1.TabIndex = 11;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "ACCOUNT CREDENTIALS";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.Window;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(txtPassword);
+            panel3.Controls.Add(pictureBox2);
+            panel3.Location = new Point(31, 182);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(417, 30);
+            panel3.TabIndex = 14;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Dock = DockStyle.Left;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(46, 28);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
             // 
             // panel1
             // 
-            panel1.BackColor = Color.AliceBlue;
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(label3);
-            panel1.Location = new Point(12, 160);
+            panel1.BackColor = SystemColors.Window;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txtUser);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(31, 82);
             panel1.Name = "panel1";
-            panel1.Size = new Size(458, 381);
-            panel1.TabIndex = 7;
+            panel1.Size = new Size(417, 31);
+            panel1.TabIndex = 13;
             // 
-            // Login
+            // pictureBox1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox1.Dock = DockStyle.Left;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(46, 29);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.White;
+            button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.Black;
+            button2.Location = new Point(342, 257);
+            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Name = "button2";
+            button2.Size = new Size(106, 50);
+            button2.TabIndex = 7;
+            button2.Text = "Clear";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(31, 164);
+            label2.Name = "label2";
+            label2.Size = new Size(79, 17);
+            label2.TabIndex = 5;
+            label2.Text = "PASSWORD";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(31, 63);
+            label1.Name = "label1";
+            label1.Size = new Size(142, 17);
+            label1.TabIndex = 4;
+            label1.Text = "EMAIL OR USERNAME";
+            // 
+            // groupBox2
+            // 
+            groupBox2.BackColor = Color.FromArgb(250, 249, 246);
+            groupBox2.Controls.Add(button5);
+            groupBox2.Controls.Add(button4);
+            groupBox2.Controls.Add(button3);
+            groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox2.ForeColor = Color.FromArgb(17, 34, 64);
+            groupBox2.Location = new Point(42, 150);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(491, 85);
+            groupBox2.TabIndex = 12;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "SELECT ACCESS ROLE";
+            groupBox2.Enter += groupBox2_Enter;
+            // 
+            // button5
+            // 
+            button5.FlatAppearance.MouseDownBackColor = Color.FromArgb(17, 34, 64);
+            button5.Location = new Point(340, 22);
+            button5.Name = "button5";
+            button5.Size = new Size(131, 41);
+            button5.TabIndex = 2;
+            button5.Text = "NURSE";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button4
+            // 
+            button4.FlatAppearance.MouseDownBackColor = Color.FromArgb(17, 34, 64);
+            button4.Location = new Point(180, 22);
+            button4.Name = "button4";
+            button4.Size = new Size(131, 41);
+            button4.TabIndex = 1;
+            button4.Text = "DOCTOR";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button3
+            // 
+            button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(17, 34, 64);
+            button3.Location = new Point(21, 25);
+            button3.Name = "button3";
+            button3.Size = new Size(131, 41);
+            button3.TabIndex = 0;
+            button3.Text = "ADMIN";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // SignIn
+            // 
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(482, 553);
-            Controls.Add(label4);
-            Controls.Add(label1);
-            Controls.Add(panel1);
-            Name = "Login";
-            Text = "Sign In";
+            ClientSize = new Size(570, 637);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(panel2);
+            Controls.Add(txtHidePw);
+            Controls.Add(txtHideUser);
+            Controls.Add(txtHideType);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "SignIn";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "MetroCare Hospital System - Sign In";
+            Load += SignIn_Load;
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
+        private TextBox txtUser;
+        private TextBox txtPassword;
+        private Button button1;
+        private TextBox txtHideUser;
+        private TextBox txtHideType;
+        private TextBox txtHidePw;
+        private Panel panel2;
+        private GroupBox groupBox1;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private Button button2;
         private Label label3;
         private Label label4;
-        private Button button1;
+        private GroupBox groupBox2;
         private Panel panel1;
+        private PictureBox pictureBox1;
+        private Panel panel3;
+        private PictureBox pictureBox2;
+        private Button button5;
+        private Button button4;
+        private Button button3;
     }
 }

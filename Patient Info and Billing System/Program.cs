@@ -1,3 +1,9 @@
+using NurseDashBoard;
+using Patient_Info_and_Billing_System.Admin;
+using Patient_Info_and_Billing_System.BillingStaff;
+using Patient_Info_and_Billing_System.Doctor;
+using Patient_Info_and_Billing_System.LogIn;
+
 namespace Patient_Info_and_Billing_System
 {
     internal static class Program
@@ -11,7 +17,7 @@ namespace Patient_Info_and_Billing_System
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Admin.AdminForm());
+            Application.Run(new BillingStaffForm());
         }
     }
 }

@@ -9,16 +9,16 @@ using System.Windows.Forms;
 
 namespace Patient_Info_and_Billing_System.Doctor
 {
-    public partial class Doctor : Form
+    public partial class DoctorForm : Form
     {
-        public Doctor()
+        public DoctorForm()
         {
             InitializeComponent();
         }
 
         private void Doctor_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -33,9 +33,14 @@ namespace Patient_Info_and_Billing_System.Doctor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            PatientForm patientform = new PatientForm();
+            {
+                Dock = DockStyle.Fill;
+            }
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(patientform);
+
             ActiveButton((Button)sender);
-            
 
         }
 
@@ -97,8 +102,13 @@ namespace Patient_Info_and_Billing_System.Doctor
             btnDrDashboard.BackColor = Color.FromArgb(17, 34, 64);
             btnHlthCheckup.BackColor = Color.FromArgb(17, 34, 64);
             btnPatientRecord.BackColor = Color.FromArgb(17, 34, 64);
-            currentButton.BackColor = Color.FromArgb(37, 99, 235);  
-       
+            currentButton.BackColor = Color.FromArgb(37, 99, 235);
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

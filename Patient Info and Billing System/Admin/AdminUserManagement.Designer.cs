@@ -1,4 +1,4 @@
-﻿namespace Patient_Info_and_Billing_System.Admin
+namespace Patient_Info_and_Billing_System.Admin
 {
     partial class AdminUserManagement
     {
@@ -28,332 +28,253 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            label7 = new Label();
-            textBox6 = new TextBox();
-            label6 = new Label();
-            textBox5 = new TextBox();
-            label5 = new Label();
-            textBox4 = new TextBox();
-            label4 = new Label();
-            comboBox1 = new ComboBox();
-            label3 = new Label();
-            textBox3 = new TextBox();
-            label2 = new Label();
-            textBox2 = new TextBox();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            dataGridView1 = new DataGridView();
-            textBox7 = new TextBox();
-            button4 = new Button();
-            comboBox2 = new ComboBox();
-            comboBox3 = new ComboBox();
-            label8 = new Label();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panelHeader = new Panel();
+            lblBreadcrumb1 = new Label();
+            lblBreadcrumb2 = new Label();
+            lblActiveBadge = new Label();
+            lblTitleIcon = new Label();
+            lblTitle = new Label();
+            btnExportCsv = new Button();
+            btnRefresh = new Button();
+            panelNavTabs = new Panel();
+            btnTabDoctor = new Button();
+            panelTabUnderline = new Panel();
+            btnTabNurse = new Button();
+            btnTabAdmin = new Button();
+            panelTabsDivider = new Panel();
+            panelContent = new Panel();
+            panelHeader.SuspendLayout();
+            panelNavTabs.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBox1
+            // panelHeader
             // 
-            groupBox1.BackColor = Color.FromArgb(250, 249, 246);
-            groupBox1.Controls.Add(button3);
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(textBox6);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.ForeColor = Color.FromArgb(17, 34, 64);
-            groupBox1.Location = new Point(14, 20);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(535, 824);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "STAFF CREDENTIALS ENTRY";
+            panelHeader.BackColor = Color.FromArgb(248, 250, 252);
+            panelHeader.Controls.Add(lblBreadcrumb1);
+            panelHeader.Controls.Add(lblBreadcrumb2);
+            panelHeader.Controls.Add(lblActiveBadge);
+            panelHeader.Controls.Add(lblTitleIcon);
+            panelHeader.Controls.Add(lblTitle);
+            panelHeader.Controls.Add(btnExportCsv);
+            panelHeader.Controls.Add(btnRefresh);
+            panelHeader.Location = new Point(21, 3);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(1543, 62);
+            panelHeader.TabIndex = 13;
+            panelHeader.Paint += panelHeader_Paint;
             // 
-            // button3
+            // lblBreadcrumb1
             // 
-            button3.BackColor = Color.FromArgb(37, 99, 235);
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(268, 598);
-            button3.Name = "button3";
-            button3.Size = new Size(245, 29);
-            button3.TabIndex = 16;
-            button3.Text = "Edit";
-            button3.UseVisualStyleBackColor = false;
+            lblBreadcrumb1.AutoSize = true;
+            lblBreadcrumb1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblBreadcrumb1.ForeColor = Color.FromArgb(100, 116, 139);
+            lblBreadcrumb1.Location = new Point(0, 2);
+            lblBreadcrumb1.Name = "lblBreadcrumb1";
+            lblBreadcrumb1.Size = new Size(163, 15);
+            lblBreadcrumb1.TabIndex = 0;
+            lblBreadcrumb1.Text = "Administrative Workspaces   ›";
             // 
-            // button2
+            // lblBreadcrumb2
             // 
-            button2.BackColor = Color.White;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = Color.Black;
-            button2.Location = new Point(16, 598);
-            button2.Name = "button2";
-            button2.Size = new Size(246, 29);
-            button2.TabIndex = 15;
-            button2.Text = "Clear";
-            button2.UseVisualStyleBackColor = false;
+            lblBreadcrumb2.AutoSize = true;
+            lblBreadcrumb2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBreadcrumb2.ForeColor = Color.FromArgb(37, 99, 235);
+            lblBreadcrumb2.Location = new Point(170, 2);
+            lblBreadcrumb2.Name = "lblBreadcrumb2";
+            lblBreadcrumb2.Size = new Size(110, 15);
+            lblBreadcrumb2.TabIndex = 1;
+            lblBreadcrumb2.Text = "User Management";
             // 
-            // button1
+            // lblActiveBadge
             // 
-            button1.BackColor = Color.FromArgb(17, 34, 64);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(16, 563);
-            button1.Name = "button1";
-            button1.Size = new Size(496, 29);
-            button1.TabIndex = 14;
-            button1.Text = "Create Staff Account:";
-            button1.UseVisualStyleBackColor = false;
+            lblActiveBadge.BackColor = Color.FromArgb(219, 234, 254);
+            lblActiveBadge.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblActiveBadge.ForeColor = Color.FromArgb(37, 99, 235);
+            lblActiveBadge.Location = new Point(333, 2);
+            lblActiveBadge.Name = "lblActiveBadge";
+            lblActiveBadge.Size = new Size(92, 18);
+            lblActiveBadge.TabIndex = 2;
+            lblActiveBadge.Text = "Active Module";
+            lblActiveBadge.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // lblTitleIcon
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(16, 484);
-            label7.Name = "label7";
-            label7.Size = new Size(120, 20);
-            label7.TabIndex = 13;
-            label7.Text = "Phone Number:";
+            lblTitleIcon.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitleIcon.ForeColor = Color.FromArgb(37, 99, 235);
+            lblTitleIcon.Location = new Point(3, 23);
+            lblTitleIcon.Name = "lblTitleIcon";
+            lblTitleIcon.Size = new Size(26, 32);
+            lblTitleIcon.TabIndex = 3;
+            lblTitleIcon.Text = "≋";
             // 
-            // textBox6
+            // lblTitle
             // 
-            textBox6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox6.Location = new Point(16, 507);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(496, 27);
-            textBox6.TabIndex = 12;
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
+            lblTitle.Location = new Point(25, 23);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(243, 28);
+            lblTitle.TabIndex = 4;
+            lblTitle.Text = "Clinic User Management";
             // 
-            // label6
+            // btnExportCsv
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(16, 419);
-            label6.Name = "label6";
-            label6.Size = new Size(112, 20);
-            label6.TabIndex = 11;
-            label6.Text = "Email Address:";
+            btnExportCsv.BackColor = Color.White;
+            btnExportCsv.Cursor = Cursors.Hand;
+            btnExportCsv.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnExportCsv.FlatStyle = FlatStyle.Flat;
+            btnExportCsv.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExportCsv.ForeColor = Color.FromArgb(51, 65, 85);
+            btnExportCsv.Location = new Point(1322, 21);
+            btnExportCsv.Name = "btnExportCsv";
+            btnExportCsv.Size = new Size(115, 34);
+            btnExportCsv.TabIndex = 5;
+            btnExportCsv.Text = "⭳  Export CSV";
+            btnExportCsv.UseVisualStyleBackColor = false;
             // 
-            // textBox5
+            // btnRefresh
             // 
-            textBox5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox5.Location = new Point(16, 442);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(496, 27);
-            textBox5.TabIndex = 10;
+            btnRefresh.BackColor = Color.White;
+            btnRefresh.Cursor = Cursors.Hand;
+            btnRefresh.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.ForeColor = Color.FromArgb(51, 65, 85);
+            btnRefresh.Location = new Point(1443, 21);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(95, 34);
+            btnRefresh.TabIndex = 6;
+            btnRefresh.Text = "⟳  Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
             // 
-            // label5
+            // panelNavTabs
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(16, 350);
-            label5.Name = "label5";
-            label5.Size = new Size(162, 20);
-            label5.TabIndex = 9;
-            label5.Text = "Specialty / Clinic Title:";
+            panelNavTabs.BackColor = Color.FromArgb(248, 250, 252);
+            panelNavTabs.Controls.Add(btnTabDoctor);
+            panelNavTabs.Controls.Add(panelTabUnderline);
+            panelNavTabs.Controls.Add(btnTabNurse);
+            panelNavTabs.Controls.Add(btnTabAdmin);
+            panelNavTabs.Controls.Add(panelTabsDivider);
+            panelNavTabs.Location = new Point(18, 82);
+            panelNavTabs.Name = "panelNavTabs";
+            panelNavTabs.Size = new Size(1546, 42);
+            panelNavTabs.TabIndex = 14;
             // 
-            // textBox4
+            // btnTabDoctor
             // 
-            textBox4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(16, 373);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(496, 27);
-            textBox4.TabIndex = 8;
+            btnTabDoctor.BackColor = Color.Transparent;
+            btnTabDoctor.Cursor = Cursors.Hand;
+            btnTabDoctor.FlatAppearance.BorderSize = 0;
+            btnTabDoctor.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnTabDoctor.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnTabDoctor.FlatStyle = FlatStyle.Flat;
+            btnTabDoctor.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTabDoctor.ForeColor = Color.FromArgb(37, 99, 235);
+            btnTabDoctor.Location = new Point(3, 3);
+            btnTabDoctor.Name = "btnTabDoctor";
+            btnTabDoctor.Size = new Size(246, 34);
+            btnTabDoctor.TabIndex = 0;
+            btnTabDoctor.Text = "\U0001fa7aDoctor (0)";
+            btnTabDoctor.TextAlign = ContentAlignment.MiddleLeft;
+            btnTabDoctor.UseVisualStyleBackColor = false;
+            btnTabDoctor.Click += btnTabRoomBed_Click;
             // 
-            // label4
+            // panelTabUnderline
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(16, 281);
-            label4.Name = "label4";
-            label4.Size = new Size(132, 20);
-            label4.TabIndex = 7;
-            label4.Text = "Role Assignment:";
+            panelTabUnderline.BackColor = Color.FromArgb(37, 99, 235);
+            panelTabUnderline.Location = new Point(0, 36);
+            panelTabUnderline.Name = "panelTabUnderline";
+            panelTabUnderline.Size = new Size(246, 3);
+            panelTabUnderline.TabIndex = 1;
             // 
-            // comboBox1
+            // btnTabNurse
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(16, 304);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(496, 31);
-            comboBox1.TabIndex = 6;
+            btnTabNurse.BackColor = Color.Transparent;
+            btnTabNurse.Cursor = Cursors.Hand;
+            btnTabNurse.FlatAppearance.BorderSize = 0;
+            btnTabNurse.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnTabNurse.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnTabNurse.FlatStyle = FlatStyle.Flat;
+            btnTabNurse.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnTabNurse.ForeColor = Color.FromArgb(100, 116, 139);
+            btnTabNurse.Location = new Point(255, 4);
+            btnTabNurse.Name = "btnTabNurse";
+            btnTabNurse.Size = new Size(220, 34);
+            btnTabNurse.TabIndex = 2;
+            btnTabNurse.Text = "💉Nurse (0)";
+            btnTabNurse.TextAlign = ContentAlignment.MiddleLeft;
+            btnTabNurse.UseVisualStyleBackColor = false;
+            btnTabNurse.Click += btnTabNurse_Click;
             // 
-            // label3
+            // btnTabAdmin
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(16, 215);
-            label3.Name = "label3";
-            label3.Size = new Size(80, 20);
-            label3.TabIndex = 5;
-            label3.Text = "Password:";
+            btnTabAdmin.BackColor = Color.Transparent;
+            btnTabAdmin.Cursor = Cursors.Hand;
+            btnTabAdmin.FlatAppearance.BorderSize = 0;
+            btnTabAdmin.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnTabAdmin.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnTabAdmin.FlatStyle = FlatStyle.Flat;
+            btnTabAdmin.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnTabAdmin.ForeColor = Color.FromArgb(100, 116, 139);
+            btnTabAdmin.Location = new Point(480, 4);
+            btnTabAdmin.Name = "btnTabAdmin";
+            btnTabAdmin.Size = new Size(180, 34);
+            btnTabAdmin.TabIndex = 3;
+            btnTabAdmin.Text = "🛡️ Admin (0)";
+            btnTabAdmin.TextAlign = ContentAlignment.MiddleLeft;
+            btnTabAdmin.UseVisualStyleBackColor = false;
+            btnTabAdmin.Click += btnTabAdmin_Click;
             // 
-            // textBox3
+            // panelTabsDivider
             // 
-            textBox3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(16, 238);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(496, 27);
-            textBox3.TabIndex = 4;
+            panelTabsDivider.BackColor = Color.FromArgb(226, 232, 240);
+            panelTabsDivider.Location = new Point(0, 39);
+            panelTabsDivider.Name = "panelTabsDivider";
+            panelTabsDivider.Size = new Size(1339, 1);
+            panelTabsDivider.TabIndex = 5;
             // 
-            // label2
+            // panelContent
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(16, 143);
-            label2.Name = "label2";
-            label2.Size = new Size(84, 20);
-            label2.TabIndex = 3;
-            label2.Text = "Username:";
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(16, 166);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(496, 27);
-            textBox2.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(16, 71);
-            label1.Name = "label1";
-            label1.Size = new Size(122, 20);
-            label1.TabIndex = 1;
-            label1.Text = "Staff Full Name:";
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(16, 97);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(496, 27);
-            textBox1.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(570, 75);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(998, 769);
-            dataGridView1.TabIndex = 1;
-            // 
-            // textBox7
-            // 
-            textBox7.BackColor = Color.FromArgb(250, 249, 246);
-            textBox7.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox7.Location = new Point(570, 29);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(423, 30);
-            textBox7.TabIndex = 2;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(250, 249, 246);
-            button4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.FromArgb(17, 34, 64);
-            button4.Location = new Point(999, 29);
-            button4.Name = "button4";
-            button4.Size = new Size(153, 30);
-            button4.TabIndex = 3;
-            button4.Text = "Search";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // comboBox2
-            // 
-            comboBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Status" });
-            comboBox2.Location = new Point(1406, 28);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(162, 31);
-            comboBox2.TabIndex = 4;
-            // 
-            // comboBox3
-            // 
-            comboBox3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "All Roles" });
-            comboBox3.Location = new Point(1238, 28);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(162, 31);
-            comboBox3.TabIndex = 5;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semilight", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(1238, 5);
-            label8.Name = "label8";
-            label8.Size = new Size(44, 20);
-            label8.TabIndex = 12;
-            label8.Text = "Filter:";
+            panelContent.BackColor = Color.FromArgb(248, 250, 252);
+            panelContent.Location = new Point(18, 141);
+            panelContent.Name = "panelContent";
+            panelContent.Size = new Size(1546, 653);
+            panelContent.TabIndex = 15;
             // 
             // AdminUserManagement
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
-            Controls.Add(label8);
-            Controls.Add(comboBox3);
-            Controls.Add(comboBox2);
-            Controls.Add(button4);
-            Controls.Add(textBox7);
-            Controls.Add(dataGridView1);
-            Controls.Add(groupBox1);
+            BackColor = Color.FromArgb(248, 250, 252);
+            Controls.Add(panelContent);
+            Controls.Add(panelNavTabs);
+            Controls.Add(panelHeader);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AdminUserManagement";
             Size = new Size(1585, 860);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += AdminUserManagement_Load_1;
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelNavTabs.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private GroupBox groupBox1;
-        private DataGridView dataGridView1;
-        private Label label2;
-        private TextBox textBox2;
-        private Label label1;
-        private TextBox textBox1;
-        private Label label3;
-        private TextBox textBox3;
-        private Label label4;
-        private ComboBox comboBox1;
-        private TextBox textBox4;
-        private Label label5;
-        private Label label6;
-        private TextBox textBox5;
-        private Label label7;
-        private TextBox textBox6;
-        private Button button1;
-        private Button button3;
-        private Button button2;
-        private TextBox textBox7;
-        private Button button4;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
-        private Label label8;
+        private Panel panelHeader;
+        private Label lblBreadcrumb1;
+        private Label lblBreadcrumb2;
+        private Label lblActiveBadge;
+        private Label lblTitleIcon;
+        private Label lblTitle;
+        private Button btnExportCsv;
+        private Button btnRefresh;
+        private Panel panelNavTabs;
+        private Button btnTabDoctor;
+        private Panel panelTabUnderline;
+        private Button btnTabNurse;
+        private Button btnTabAdmin;
+        private Panel panelTabsDivider;
+        private Panel panelContent;
     }
 }
