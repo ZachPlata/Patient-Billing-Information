@@ -79,7 +79,14 @@ namespace NurseDashBoard
 
         private void btn_ptntrec_Click(object sender, EventArgs e)
         {
+            uc_PatientBillingRec frm = new uc_PatientBillingRec();
 
+
+
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(frm);
+            frm.Show();
+            SetActiveButton(btn_ptntrec);
         }
 
 

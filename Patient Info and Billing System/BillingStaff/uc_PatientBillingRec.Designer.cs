@@ -1,4 +1,4 @@
-﻿namespace Patient_Info_and_Billing_System
+namespace Patient_Info_and_Billing_System
 {
     partial class uc_PatientBillingRec
     {
@@ -28,286 +28,466 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            panel5 = new Panel();
-            label12 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            textBox9 = new TextBox();
-            textBox12 = new TextBox();
-            textBox7 = new TextBox();
-            label10 = new Label();
-            textBox6 = new TextBox();
-            label11 = new Label();
-            textBox8 = new TextBox();
-            panel4 = new Panel();
-            label3 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            label1 = new Label();
+            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
+            DataGridViewCellStyle rowCellStyle = new DataGridViewCellStyle();
+            panelHeader = new Panel();
+            panelBadge = new Panel();
+            lblBadge = new Label();
+            lblSubtitle = new Label();
+            lblTitle = new Label();
+            panelDetailsCard = new Panel();
+            btnClearSelection = new Button();
+            btnShowAll = new Button();
+            txtEquipmentUsed = new TextBox();
+            lblEquipmentUsed = new Label();
+            txtBillings = new TextBox();
+            lblBillings = new Label();
+            lstVisitHistory = new ListBox();
+            lblVisitHistory = new Label();
+            txtPatientName = new TextBox();
+            lblPatientName = new Label();
+            lblDetailsHeader = new Label();
+            panelTableCard = new Panel();
+            lblFooterRight = new Label();
+            lblFooterLeft = new Label();
+            btnClearSearch = new Button();
+            btnReload = new Button();
+            btnSearch = new Button();
+            txtSearch = new TextBox();
+            lblRecordCount = new Label();
+            lblTableTitle = new Label();
             PatBillRec_DGV = new DataGridView();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            panel5.SuspendLayout();
-            panel4.SuspendLayout();
+            panelHeader.SuspendLayout();
+            panelBadge.SuspendLayout();
+            panelDetailsCard.SuspendLayout();
+            panelTableCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PatBillRec_DGV).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // panelHeader
             // 
-            panel1.Controls.Add(panel2);
-            panel1.Location = new Point(152, 181);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(200, 100);
-            panel1.TabIndex = 0;
+            panelHeader.BackColor = Color.Transparent;
+            panelHeader.Controls.Add(panelBadge);
+            panelHeader.Controls.Add(lblSubtitle);
+            panelHeader.Controls.Add(lblTitle);
+            panelHeader.Location = new Point(20, 15);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(1545, 70);
+            panelHeader.TabIndex = 0;
             // 
-            // panel2
+            // panelBadge
             // 
-            panel2.BackColor = Color.FromArgb(244, 248, 252);
-            panel2.Controls.Add(panel3);
-            panel2.Location = new Point(-692, -351);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1585, 802);
-            panel2.TabIndex = 1;
+            panelBadge.BackColor = Color.White;
+            panelBadge.BorderStyle = BorderStyle.FixedSingle;
+            panelBadge.Controls.Add(lblBadge);
+            panelBadge.Location = new Point(1385, 18);
+            panelBadge.Name = "panelBadge";
+            panelBadge.Size = new Size(160, 34);
+            panelBadge.TabIndex = 2;
             // 
-            // panel3
+            // lblBadge
             // 
-            panel3.BackColor = SystemColors.Control;
-            panel3.Controls.Add(panel5);
-            panel3.Location = new Point(14, 47);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1568, 695);
-            panel3.TabIndex = 0;
+            lblBadge.AutoSize = true;
+            lblBadge.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBadge.ForeColor = Color.FromArgb(16, 185, 129);
+            lblBadge.Location = new Point(14, 7);
+            lblBadge.Name = "lblBadge";
+            lblBadge.Size = new Size(125, 17);
+            lblBadge.TabIndex = 0;
+            lblBadge.Text = "● Billing & History";
             // 
-            // panel5
+            // lblSubtitle
             // 
-            panel5.BackColor = SystemColors.ButtonHighlight;
-            panel5.Controls.Add(label12);
-            panel5.Controls.Add(label8);
-            panel5.Controls.Add(label9);
-            panel5.Controls.Add(textBox9);
-            panel5.Controls.Add(textBox12);
-            panel5.Controls.Add(textBox7);
-            panel5.Controls.Add(label10);
-            panel5.Controls.Add(textBox6);
-            panel5.Controls.Add(label11);
-            panel5.Controls.Add(textBox8);
-            panel5.Location = new Point(1213, 44);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(294, 439);
-            panel5.TabIndex = 1;
+            lblSubtitle.AutoSize = true;
+            lblSubtitle.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSubtitle.ForeColor = Color.FromArgb(100, 116, 139);
+            lblSubtitle.Location = new Point(2, 42);
+            lblSubtitle.Name = "lblSubtitle";
+            lblSubtitle.Size = new Size(540, 17);
+            lblSubtitle.TabIndex = 1;
+            lblSubtitle.Text = "Select a patient to view their visit history, billing records, and utilized equipment/items.";
             // 
-            // label12
+            // lblTitle
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.FromArgb(15, 23, 42);
-            label12.Location = new Point(40, 340);
-            label12.Name = "label12";
-            label12.Size = new Size(188, 17);
-            label12.TabIndex = 33;
-            label12.Text = "Known Drug / Food Allergies";
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
+            lblTitle.Location = new Point(0, 4);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(346, 32);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Patient Records & Billing Log";
             // 
-            // label8
+            // panelDetailsCard
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.FromArgb(15, 23, 42);
-            label8.Location = new Point(42, 27);
-            label8.Name = "label8";
-            label8.Size = new Size(156, 17);
-            label8.TabIndex = 22;
-            label8.Text = "Blood pressure (mmHg)";
+            panelDetailsCard.BackColor = Color.White;
+            panelDetailsCard.BorderStyle = BorderStyle.FixedSingle;
+            panelDetailsCard.Controls.Add(btnClearSelection);
+            panelDetailsCard.Controls.Add(btnShowAll);
+            panelDetailsCard.Controls.Add(txtEquipmentUsed);
+            panelDetailsCard.Controls.Add(lblEquipmentUsed);
+            panelDetailsCard.Controls.Add(txtBillings);
+            panelDetailsCard.Controls.Add(lblBillings);
+            panelDetailsCard.Controls.Add(lstVisitHistory);
+            panelDetailsCard.Controls.Add(lblVisitHistory);
+            panelDetailsCard.Controls.Add(txtPatientName);
+            panelDetailsCard.Controls.Add(lblPatientName);
+            panelDetailsCard.Controls.Add(lblDetailsHeader);
+            panelDetailsCard.Location = new Point(20, 95);
+            panelDetailsCard.Name = "panelDetailsCard";
+            panelDetailsCard.Size = new Size(380, 745);
+            panelDetailsCard.TabIndex = 1;
             // 
-            // label9
+            // btnClearSelection
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.FromArgb(15, 23, 42);
-            label9.Location = new Point(42, 107);
-            label9.Name = "label9";
-            label9.Size = new Size(114, 17);
-            label9.TabIndex = 30;
-            label9.Text = "Pulse Rate (BPM)";
+            btnClearSelection.BackColor = Color.FromArgb(248, 250, 252);
+            btnClearSelection.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnClearSelection.FlatStyle = FlatStyle.Flat;
+            btnClearSelection.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClearSelection.ForeColor = Color.FromArgb(71, 85, 105);
+            btnClearSelection.Location = new Point(18, 687);
+            btnClearSelection.Name = "btnClearSelection";
+            btnClearSelection.Size = new Size(342, 38);
+            btnClearSelection.TabIndex = 10;
+            btnClearSelection.Text = "↺ Clear Selection";
+            btnClearSelection.UseVisualStyleBackColor = false;
+            btnClearSelection.Click += btnClearSelection_Click;
             // 
-            // textBox9
+            // btnShowAll
             // 
-            textBox9.Location = new Point(42, 211);
-            textBox9.Multiline = true;
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(200, 32);
-            textBox9.TabIndex = 29;
+            btnShowAll.BackColor = Color.FromArgb(37, 99, 235);
+            btnShowAll.FlatAppearance.BorderSize = 0;
+            btnShowAll.FlatStyle = FlatStyle.Flat;
+            btnShowAll.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnShowAll.ForeColor = Color.White;
+            btnShowAll.Location = new Point(18, 641);
+            btnShowAll.Name = "btnShowAll";
+            btnShowAll.Size = new Size(342, 38);
+            btnShowAll.TabIndex = 9;
+            btnShowAll.Text = "Show All Billings & Equipment";
+            btnShowAll.UseVisualStyleBackColor = false;
+            btnShowAll.Click += btnShowAll_Click;
             // 
-            // textBox12
+            // txtEquipmentUsed
             // 
-            textBox12.Location = new Point(40, 360);
-            textBox12.Multiline = true;
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(202, 32);
-            textBox12.TabIndex = 28;
+            txtEquipmentUsed.BackColor = Color.FromArgb(248, 250, 252);
+            txtEquipmentUsed.BorderStyle = BorderStyle.FixedSingle;
+            txtEquipmentUsed.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtEquipmentUsed.ForeColor = Color.FromArgb(15, 23, 42);
+            txtEquipmentUsed.Location = new Point(18, 465);
+            txtEquipmentUsed.Multiline = true;
+            txtEquipmentUsed.Name = "txtEquipmentUsed";
+            txtEquipmentUsed.PlaceholderText = "Equipment & drugs used will appear here...";
+            txtEquipmentUsed.ReadOnly = true;
+            txtEquipmentUsed.ScrollBars = ScrollBars.Vertical;
+            txtEquipmentUsed.Size = new Size(342, 160);
+            txtEquipmentUsed.TabIndex = 8;
             // 
-            // textBox7
+            // lblEquipmentUsed
             // 
-            textBox7.Location = new Point(42, 127);
-            textBox7.Multiline = true;
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(200, 32);
-            textBox7.TabIndex = 23;
+            lblEquipmentUsed.AutoSize = true;
+            lblEquipmentUsed.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEquipmentUsed.ForeColor = Color.FromArgb(71, 85, 105);
+            lblEquipmentUsed.Location = new Point(18, 445);
+            lblEquipmentUsed.Name = "lblEquipmentUsed";
+            lblEquipmentUsed.Size = new Size(194, 17);
+            lblEquipmentUsed.TabIndex = 7;
+            lblEquipmentUsed.Text = "Equipment & Drugs Used (Util)";
             // 
-            // label10
+            // txtBillings
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(15, 23, 42);
-            label10.Location = new Point(42, 191);
-            label10.Name = "label10";
-            label10.Size = new Size(148, 17);
-            label10.TabIndex = 31;
-            label10.Text = "Body Temperature (°C)";
+            txtBillings.BackColor = Color.FromArgb(248, 250, 252);
+            txtBillings.BorderStyle = BorderStyle.FixedSingle;
+            txtBillings.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtBillings.ForeColor = Color.FromArgb(15, 23, 42);
+            txtBillings.Location = new Point(18, 290);
+            txtBillings.Multiline = true;
+            txtBillings.Name = "txtBillings";
+            txtBillings.PlaceholderText = "Billing records will appear here...";
+            txtBillings.ReadOnly = true;
+            txtBillings.ScrollBars = ScrollBars.Vertical;
+            txtBillings.Size = new Size(342, 140);
+            txtBillings.TabIndex = 6;
             // 
-            // textBox6
+            // lblBillings
             // 
-            textBox6.Location = new Point(42, 47);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(200, 32);
-            textBox6.TabIndex = 22;
+            lblBillings.AutoSize = true;
+            lblBillings.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBillings.ForeColor = Color.FromArgb(71, 85, 105);
+            lblBillings.Location = new Point(18, 270);
+            lblBillings.Name = "lblBillings";
+            lblBillings.Size = new Size(105, 17);
+            lblBillings.TabIndex = 5;
+            lblBillings.Text = "Billing Records";
             // 
-            // label11
+            // lstVisitHistory
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.FromArgb(15, 23, 42);
-            label11.Location = new Point(42, 262);
-            label11.Name = "label11";
-            label11.Size = new Size(118, 17);
-            label11.TabIndex = 32;
-            label11.Text = "Body Weight (Kg)";
+            lstVisitHistory.BackColor = Color.FromArgb(248, 250, 252);
+            lstVisitHistory.BorderStyle = BorderStyle.FixedSingle;
+            lstVisitHistory.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lstVisitHistory.ForeColor = Color.FromArgb(15, 23, 42);
+            lstVisitHistory.FormattingEnabled = true;
+            lstVisitHistory.ItemHeight = 17;
+            lstVisitHistory.Location = new Point(18, 130);
+            lstVisitHistory.Name = "lstVisitHistory";
+            lstVisitHistory.Size = new Size(342, 121);
+            lstVisitHistory.TabIndex = 4;
+            lstVisitHistory.SelectedIndexChanged += lstVisitHistory_SelectedIndexChanged;
             // 
-            // textBox8
+            // lblVisitHistory
             // 
-            textBox8.Location = new Point(40, 283);
-            textBox8.Multiline = true;
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(202, 32);
-            textBox8.TabIndex = 24;
+            lblVisitHistory.AutoSize = true;
+            lblVisitHistory.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblVisitHistory.ForeColor = Color.FromArgb(71, 85, 105);
+            lblVisitHistory.Location = new Point(18, 110);
+            lblVisitHistory.Name = "lblVisitHistory";
+            lblVisitHistory.Size = new Size(218, 17);
+            lblVisitHistory.TabIndex = 3;
+            lblVisitHistory.Text = "Visit History (Click a date for bill)";
             // 
-            // panel4
+            // txtPatientName
             // 
-            panel4.BackColor = Color.FromArgb(244, 248, 252);
-            panel4.Controls.Add(label3);
-            panel4.Controls.Add(label2);
-            panel4.Controls.Add(textBox1);
-            panel4.Controls.Add(label1);
-            panel4.Controls.Add(PatBillRec_DGV);
-            panel4.Location = new Point(0, 112);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(1585, 719);
-            panel4.TabIndex = 1;
+            txtPatientName.BackColor = Color.FromArgb(248, 250, 252);
+            txtPatientName.BorderStyle = BorderStyle.FixedSingle;
+            txtPatientName.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPatientName.ForeColor = Color.FromArgb(15, 23, 42);
+            txtPatientName.Location = new Point(18, 72);
+            txtPatientName.Name = "txtPatientName";
+            txtPatientName.PlaceholderText = "Select a patient from the table";
+            txtPatientName.ReadOnly = true;
+            txtPatientName.Size = new Size(342, 24);
+            txtPatientName.TabIndex = 2;
             // 
-            // label3
+            // lblPatientName
             // 
-            label3.AllowDrop = true;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(15, 23, 42);
-            label3.Location = new Point(1274, 20);
-            label3.Name = "label3";
-            label3.Size = new Size(97, 32);
-            label3.TabIndex = 26;
-            label3.Text = "Status: ";
+            lblPatientName.AutoSize = true;
+            lblPatientName.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPatientName.ForeColor = Color.FromArgb(71, 85, 105);
+            lblPatientName.Location = new Point(18, 52);
+            lblPatientName.Name = "lblPatientName";
+            lblPatientName.Size = new Size(94, 17);
+            lblPatientName.TabIndex = 1;
+            lblPatientName.Text = "Patient Name";
             // 
-            // label2
+            // lblDetailsHeader
             // 
-            label2.AllowDrop = true;
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(15, 23, 42);
-            label2.Location = new Point(888, 20);
-            label2.Name = "label2";
-            label2.Size = new Size(103, 32);
-            label2.TabIndex = 25;
-            label2.Text = "Search: ";
+            lblDetailsHeader.AutoSize = true;
+            lblDetailsHeader.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDetailsHeader.ForeColor = Color.FromArgb(37, 99, 235);
+            lblDetailsHeader.Location = new Point(16, 16);
+            lblDetailsHeader.Name = "lblDetailsHeader";
+            lblDetailsHeader.Size = new Size(125, 21);
+            lblDetailsHeader.TabIndex = 0;
+            lblDetailsHeader.Text = "Patient Details";
             // 
-            // textBox1
+            // panelTableCard
             // 
-            textBox1.Location = new Point(978, 20);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(230, 32);
-            textBox1.TabIndex = 24;
+            panelTableCard.BackColor = Color.White;
+            panelTableCard.BorderStyle = BorderStyle.FixedSingle;
+            panelTableCard.Controls.Add(lblFooterRight);
+            panelTableCard.Controls.Add(lblFooterLeft);
+            panelTableCard.Controls.Add(btnClearSearch);
+            panelTableCard.Controls.Add(btnReload);
+            panelTableCard.Controls.Add(btnSearch);
+            panelTableCard.Controls.Add(txtSearch);
+            panelTableCard.Controls.Add(lblRecordCount);
+            panelTableCard.Controls.Add(lblTableTitle);
+            panelTableCard.Controls.Add(PatBillRec_DGV);
+            panelTableCard.Location = new Point(416, 95);
+            panelTableCard.Name = "panelTableCard";
+            panelTableCard.Size = new Size(1149, 745);
+            panelTableCard.TabIndex = 2;
             // 
-            // label1
+            // lblFooterRight
             // 
-            label1.AllowDrop = true;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(15, 23, 42);
-            label1.Location = new Point(3, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(325, 32);
-            label1.TabIndex = 23;
-            label1.Text = "PATIENT BILLING RECORDS";
+            lblFooterRight.AutoSize = true;
+            lblFooterRight.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblFooterRight.ForeColor = Color.FromArgb(37, 99, 235);
+            lblFooterRight.Location = new Point(925, 710);
+            lblFooterRight.Name = "lblFooterRight";
+            lblFooterRight.Size = new Size(204, 15);
+            lblFooterRight.TabIndex = 8;
+            lblFooterRight.Text = "Visits, Billings & Equipment Used";
+            // 
+            // lblFooterLeft
+            // 
+            lblFooterLeft.AutoSize = true;
+            lblFooterLeft.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFooterLeft.ForeColor = Color.FromArgb(100, 116, 139);
+            lblFooterLeft.Location = new Point(18, 710);
+            lblFooterLeft.Name = "lblFooterLeft";
+            lblFooterLeft.Size = new Size(462, 15);
+            lblFooterLeft.TabIndex = 7;
+            lblFooterLeft.Text = "Click a patient row, then click any visit date on the left to view that day's billing";
+            // 
+            // btnClearSearch
+            // 
+            btnClearSearch.BackColor = Color.FromArgb(248, 250, 252);
+            btnClearSearch.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnClearSearch.FlatStyle = FlatStyle.Flat;
+            btnClearSearch.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClearSearch.ForeColor = Color.FromArgb(71, 85, 105);
+            btnClearSearch.Location = new Point(1095, 14);
+            btnClearSearch.Name = "btnClearSearch";
+            btnClearSearch.Size = new Size(34, 30);
+            btnClearSearch.TabIndex = 6;
+            btnClearSearch.Text = "✕";
+            btnClearSearch.UseVisualStyleBackColor = false;
+            btnClearSearch.Click += btnClearSearch_Click;
+            // 
+            // btnReload
+            // 
+            btnReload.BackColor = Color.FromArgb(248, 250, 252);
+            btnReload.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnReload.FlatStyle = FlatStyle.Flat;
+            btnReload.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReload.ForeColor = Color.FromArgb(15, 23, 42);
+            btnReload.Location = new Point(1014, 14);
+            btnReload.Name = "btnReload";
+            btnReload.Size = new Size(75, 30);
+            btnReload.TabIndex = 5;
+            btnReload.Text = "Reload";
+            btnReload.UseVisualStyleBackColor = false;
+            btnReload.Click += btnReload_Click;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.FromArgb(16, 185, 129);
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(923, 14);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(85, 30);
+            btnSearch.TabIndex = 4;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.BackColor = Color.FromArgb(248, 250, 252);
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.ForeColor = Color.FromArgb(15, 23, 42);
+            txtSearch.Location = new Point(685, 16);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Search patient ID or name...";
+            txtSearch.Size = new Size(230, 25);
+            txtSearch.TabIndex = 3;
+            // 
+            // lblRecordCount
+            // 
+            lblRecordCount.AutoSize = true;
+            lblRecordCount.Font = new Font("Segoe UI", 9.5F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblRecordCount.ForeColor = Color.FromArgb(100, 116, 139);
+            lblRecordCount.Location = new Point(195, 19);
+            lblRecordCount.Name = "lblRecordCount";
+            lblRecordCount.Size = new Size(74, 17);
+            lblRecordCount.TabIndex = 2;
+            lblRecordCount.Text = "0 patient(s)";
+            // 
+            // lblTableTitle
+            // 
+            lblTableTitle.AutoSize = true;
+            lblTableTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTableTitle.ForeColor = Color.FromArgb(37, 99, 235);
+            lblTableTitle.Location = new Point(16, 16);
+            lblTableTitle.Name = "lblTableTitle";
+            lblTableTitle.Size = new Size(173, 21);
+            lblTableTitle.TabIndex = 1;
+            lblTableTitle.Text = "Patient Records Table";
             // 
             // PatBillRec_DGV
             // 
-            PatBillRec_DGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PatBillRec_DGV.Location = new Point(0, 72);
+            PatBillRec_DGV.AllowUserToAddRows = false;
+            PatBillRec_DGV.AllowUserToDeleteRows = false;
+            PatBillRec_DGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            PatBillRec_DGV.BackgroundColor = Color.FromArgb(248, 250, 252);
+            PatBillRec_DGV.BorderStyle = BorderStyle.FixedSingle;
+            columnHeaderStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            columnHeaderStyle.BackColor = Color.FromArgb(17, 34, 64);
+            columnHeaderStyle.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            columnHeaderStyle.ForeColor = Color.White;
+            columnHeaderStyle.SelectionBackColor = Color.FromArgb(17, 34, 64);
+            columnHeaderStyle.SelectionForeColor = Color.White;
+            columnHeaderStyle.WrapMode = DataGridViewTriState.True;
+            PatBillRec_DGV.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
+            PatBillRec_DGV.ColumnHeadersHeight = 36;
+            PatBillRec_DGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            rowCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            rowCellStyle.BackColor = Color.White;
+            rowCellStyle.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rowCellStyle.ForeColor = Color.FromArgb(15, 23, 42);
+            rowCellStyle.SelectionBackColor = Color.FromArgb(219, 234, 254);
+            rowCellStyle.SelectionForeColor = Color.FromArgb(15, 23, 42);
+            rowCellStyle.WrapMode = DataGridViewTriState.False;
+            PatBillRec_DGV.DefaultCellStyle = rowCellStyle;
+            PatBillRec_DGV.EnableHeadersVisualStyles = false;
+            PatBillRec_DGV.GridColor = Color.FromArgb(226, 232, 240);
+            PatBillRec_DGV.Location = new Point(18, 58);
+            PatBillRec_DGV.MultiSelect = false;
             PatBillRec_DGV.Name = "PatBillRec_DGV";
-            PatBillRec_DGV.Size = new Size(1585, 644);
+            PatBillRec_DGV.ReadOnly = true;
+            PatBillRec_DGV.RowHeadersVisible = false;
+            PatBillRec_DGV.RowTemplate.Height = 32;
+            PatBillRec_DGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            PatBillRec_DGV.Size = new Size(1111, 635);
             PatBillRec_DGV.TabIndex = 0;
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
+            PatBillRec_DGV.CellClick += PatBillRec_DGV_CellClick;
             // 
             // uc_PatientBillingRec
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel4);
-            Controls.Add(panel1);
+            BackColor = Color.FromArgb(244, 248, 252);
+            Controls.Add(panelTableCard);
+            Controls.Add(panelDetailsCard);
+            Controls.Add(panelHeader);
             Name = "uc_PatientBillingRec";
             Size = new Size(1585, 860);
-            panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
+            Load += uc_PatientBillingRec_Load;
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelBadge.ResumeLayout(false);
+            panelBadge.PerformLayout();
+            panelDetailsCard.ResumeLayout(false);
+            panelDetailsCard.PerformLayout();
+            panelTableCard.ResumeLayout(false);
+            panelTableCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PatBillRec_DGV).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private Panel panel2;
-        private Panel panel3;
-        private Panel panel5;
-        private Label label12;
-        private Label label8;
-        private Label label9;
-        private TextBox textBox9;
-        private TextBox textBox12;
-        private TextBox textBox7;
-        private Label label10;
-        private TextBox textBox6;
-        private Label label11;
-        private TextBox textBox8;
-        private Panel panel4;
+        private Panel panelHeader;
+        private Label lblTitle;
+        private Label lblSubtitle;
+        private Panel panelBadge;
+        private Label lblBadge;
+        private Panel panelDetailsCard;
+        private Label lblDetailsHeader;
+        private Label lblPatientName;
+        private TextBox txtPatientName;
+        private Label lblVisitHistory;
+        private ListBox lstVisitHistory;
+        private Label lblBillings;
+        private TextBox txtBillings;
+        private Label lblEquipmentUsed;
+        private TextBox txtEquipmentUsed;
+        private Button btnShowAll;
+        private Button btnClearSelection;
+        private Panel panelTableCard;
+        private Label lblTableTitle;
+        private Label lblRecordCount;
+        private TextBox txtSearch;
+        private Button btnSearch;
+        private Button btnReload;
+        private Button btnClearSearch;
         private DataGridView PatBillRec_DGV;
-        private Label label1;
-        private ContextMenuStrip contextMenuStrip1;
-        private Label label2;
-        private TextBox textBox1;
-        private Label label3;
+        private Label lblFooterLeft;
+        private Label lblFooterRight;
     }
 }

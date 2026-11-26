@@ -1,4 +1,4 @@
-﻿namespace NurseDashBoard
+namespace NurseDashBoard
 {
     partial class uc_RegistrationPatients
     {
@@ -76,9 +76,9 @@
             // 
             panel1.BackColor = Color.FromArgb(244, 248, 252);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(-274, 35);
+            panel1.Location = new Point(0, 35);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1859, 802);
+            panel1.Size = new Size(1585, 802);
             panel1.TabIndex = 0;
             // 
             // panel2
