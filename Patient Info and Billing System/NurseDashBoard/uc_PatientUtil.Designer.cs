@@ -270,6 +270,7 @@
             util_BtnAdd.TabIndex = 29;
             util_BtnAdd.Text = "Register Patient";
             util_BtnAdd.UseVisualStyleBackColor = false;
+            util_BtnAdd.Click += util_BtnAdd_Click_1;
             // 
             // label15
             // 

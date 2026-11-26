@@ -124,6 +124,11 @@ namespace Patient_Info_and_Billing_System
             }
 
         }
+
+        private void util_BtnAdd_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
