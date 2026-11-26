@@ -1,4 +1,4 @@
-﻿namespace Patient_Info_and_Billing_System.BillingStaff
+namespace Patient_Info_and_Billing_System.BillingStaff
 {
     partial class BillingStaffForm
     {
@@ -177,6 +177,7 @@
             button1.Text = "Payment History";
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label3
             // 
@@ -298,6 +299,7 @@
             btnHlthCheckup.Text = "Payment Form";
             btnHlthCheckup.TextAlign = ContentAlignment.MiddleLeft;
             btnHlthCheckup.UseVisualStyleBackColor = true;
+            btnHlthCheckup.Click += btnHlthCheckup_Click;
             // 
             // btnPatientRecord
             // 
