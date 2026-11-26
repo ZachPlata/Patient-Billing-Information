@@ -52,5 +52,15 @@ namespace Patient_Info_and_Billing_System.Admin
         {
             ActiveButton((Button)sender);
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SideNavBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

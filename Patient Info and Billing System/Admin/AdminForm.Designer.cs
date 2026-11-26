@@ -52,9 +52,11 @@
             btnUserManagement = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             panelContent = new Panel();
+            panel2 = new Panel();
             Header.SuspendLayout();
             SideNavBar.SuspendLayout();
             panel1.SuspendLayout();
+            panelContent.SuspendLayout();
             SuspendLayout();
             // 
             // Header
@@ -68,6 +70,7 @@
             Header.Controls.Add(panel5);
             Header.Controls.Add(label6);
             Header.Dock = DockStyle.Top;
+            Header.ImeMode = ImeMode.Off;
             Header.Location = new Point(0, 0);
             Header.Name = "Header";
             Header.Size = new Size(1902, 125);
@@ -153,6 +156,7 @@
             SideNavBar.Name = "SideNavBar";
             SideNavBar.Size = new Size(266, 1175);
             SideNavBar.TabIndex = 3;
+            SideNavBar.Paint += SideNavBar_Paint;
             // 
             // btnALAT
             // 
@@ -317,10 +321,19 @@
             // panelContent
             // 
             panelContent.BackColor = Color.FromArgb(250, 249, 246);
-            panelContent.Location = new Point(294, 150);
+            panelContent.Controls.Add(panel2);
+            panelContent.Location = new Point(272, 148);
             panelContent.Name = "panelContent";
             panelContent.Size = new Size(1585, 860);
             panelContent.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(188, 433);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(250, 125);
+            panel2.TabIndex = 0;
+            panel2.Paint += panel2_Paint;
             // 
             // AdminForm
             // 
@@ -338,6 +351,7 @@
             SideNavBar.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panelContent.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -366,5 +380,6 @@
         private Button btnALAT;
         private System.Windows.Forms.Timer timer1;
         private Panel panelContent;
+        private Panel panel2;
     }
 }

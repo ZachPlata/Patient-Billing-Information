@@ -52,9 +52,30 @@
             btnPatientRecord = new Button();
             panelContent = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
+            button3 = new Button();
+            comboBox1 = new ComboBox();
+            label8 = new Label();
+            label9 = new Label();
+            panel2 = new Panel();
+            button2 = new Button();
+            button4 = new Button();
+            label10 = new Label();
+            dataGridView1 = new DataGridView();
+            payment_id = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            panel8 = new Panel();
             Header.SuspendLayout();
             SideNavBar.SuspendLayout();
             panel1.SuspendLayout();
+            panelContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel8.SuspendLayout();
             SuspendLayout();
             // 
             // Header
@@ -307,6 +328,8 @@
             // panelContent
             // 
             panelContent.BackColor = Color.FromArgb(250, 249, 246);
+            panelContent.Controls.Add(dataGridView1);
+            panelContent.Controls.Add(panel8);
             panelContent.Location = new Point(294, 150);
             panelContent.Name = "panelContent";
             panelContent.Size = new Size(1585, 860);
@@ -317,6 +340,172 @@
             timer1.Enabled = true;
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Blue;
+            button3.ForeColor = SystemColors.Control;
+            button3.Location = new Point(755, 74);
+            button3.Name = "button3";
+            button3.Size = new Size(217, 34);
+            button3.TabIndex = 7;
+            button3.Text = "Settle / Pay Selected Bill";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "All status" });
+            comboBox1.Location = new Point(573, 77);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 6;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = SystemColors.Control;
+            label8.Location = new Point(459, 77);
+            label8.Name = "label8";
+            label8.Size = new Size(118, 28);
+            label8.TabIndex = 5;
+            label8.Text = "Status Filter:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.Control;
+            label9.Location = new Point(28, 74);
+            label9.Name = "label9";
+            label9.Size = new Size(166, 28);
+            label9.TabIndex = 4;
+            label9.Text = "Search(ID/ Name)";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Location = new Point(195, 74);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(250, 31);
+            panel2.TabIndex = 3;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.RoyalBlue;
+            button2.ForeColor = SystemColors.ActiveCaptionText;
+            button2.Location = new Point(195, 132);
+            button2.Name = "button2";
+            button2.Size = new Size(143, 36);
+            button2.TabIndex = 2;
+            button2.Text = "Payment History";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(15, 33, 62);
+            button4.ForeColor = SystemColors.Control;
+            button4.Location = new Point(28, 132);
+            button4.Name = "button4";
+            button4.Size = new Size(143, 36);
+            button4.TabIndex = 1;
+            button4.Text = "View patient bills";
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(22, 17);
+            label10.Name = "label10";
+            label10.Size = new Size(306, 38);
+            label10.TabIndex = 0;
+            label10.Text = "Recent Transaction Bills";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.BackgroundColor = SystemColors.ControlLight;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { payment_id, Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
+            dataGridView1.Location = new Point(0, 177);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1582, 644);
+            dataGridView1.TabIndex = 3;
+            // 
+            // payment_id
+            // 
+            payment_id.HeaderText = "Payment ID";
+            payment_id.MinimumWidth = 6;
+            payment_id.Name = "payment_id";
+            payment_id.Width = 210;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Patient ID";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 210;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Patient Name";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 210;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Payment Details";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Width = 210;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Amount";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 210;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Payment Methods";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.Width = 210;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Date";
+            Column6.MinimumWidth = 6;
+            Column6.Name = "Column6";
+            Column6.Width = 210;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Time";
+            Column7.MinimumWidth = 6;
+            Column7.Name = "Column7";
+            Column7.Width = 210;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.FromArgb(10, 22, 40);
+            panel8.Controls.Add(button3);
+            panel8.Controls.Add(comboBox1);
+            panel8.Controls.Add(label8);
+            panel8.Controls.Add(label9);
+            panel8.Controls.Add(panel2);
+            panel8.Controls.Add(button2);
+            panel8.Controls.Add(button4);
+            panel8.Controls.Add(label10);
+            panel8.Location = new Point(0, 0);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(1582, 381);
+            panel8.TabIndex = 2;
             // 
             // BillingStaffForm
             // 
@@ -334,6 +523,10 @@
             SideNavBar.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panelContent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -362,5 +555,23 @@
         private Button button1;
         private Panel panelContent;
         private System.Windows.Forms.Timer timer1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn payment_id;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
+        private Panel panel8;
+        private Button button3;
+        private ComboBox comboBox1;
+        private Label label8;
+        private Label label9;
+        private Panel panel2;
+        private Button button2;
+        private Button button4;
+        private Label label10;
     }
 }
