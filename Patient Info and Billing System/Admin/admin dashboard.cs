@@ -378,7 +378,6 @@ namespace Patient_Info_and_Billing_System.Admin
                 conn.Open();
                 trans = conn.BeginTransaction();
 
-                // Lock and verify latest bill balance to prevent duplicate/overpayment submissions
                 MySqlCommand cmdCheck = new MySqlCommand();
                 cmdCheck.Connection = conn;
                 cmdCheck.Transaction = trans;
@@ -454,7 +453,6 @@ namespace Patient_Info_and_Billing_System.Admin
                 cmdInsert.Parameters.AddWithValue("@notes", string.IsNullOrEmpty(notes) ? DBNull.Value : notes);
                 cmdInsert.ExecuteNonQuery();
 
-                // Do not manually update generated column remaining_balance
                 MySqlCommand cmdUpdate = new MySqlCommand();
                 cmdUpdate.Connection = conn;
                 cmdUpdate.Transaction = trans;

@@ -86,7 +86,6 @@ namespace Patient_Info_and_Billing_System.Admin
             {
                 conn.Open();
 
-                // 1. Total Active Patients
                 MySqlCommand cmdPatients = new MySqlCommand();
                 cmdPatients.Connection = conn;
                 cmdPatients.CommandText = "SELECT COUNT(*) FROM Patients WHERE current_status IN ('Outpatient', 'Admitted')";
@@ -97,7 +96,6 @@ namespace Patient_Info_and_Billing_System.Admin
                 }
                 readerPatients.Close();
 
-                // 2. Bed Occupancy Rate
                 int totalBeds = 0;
                 int occupiedBeds = 0;
                 double occupancyRate = 0;
@@ -119,7 +117,6 @@ namespace Patient_Info_and_Billing_System.Admin
                 }
                 label5.Text = occupancyRate.ToString("0.0") + "%";
 
-                // 3. Total Clinic Staff
                 MySqlCommand cmdStaff = new MySqlCommand();
                 cmdStaff.Connection = conn;
                 cmdStaff.CommandText = "SELECT COUNT(*) FROM Users WHERE is_active = 1";
@@ -130,7 +127,6 @@ namespace Patient_Info_and_Billing_System.Admin
                 }
                 readerStaff.Close();
 
-                // 4. Total Paid Collection (from BillingRecords.amount_paid to avoid double-counting)
                 MySqlCommand cmdPaid = new MySqlCommand();
                 cmdPaid.Connection = conn;
                 cmdPaid.CommandText = "SELECT IFNULL(SUM(amount_paid), 0) FROM BillingRecords WHERE billing_status <> 'Cancelled'";
@@ -142,7 +138,6 @@ namespace Patient_Info_and_Billing_System.Admin
                 }
                 readerPaid.Close();
 
-                // 5. Quick Alert: Bed Occupancy Warning
                 if (totalBeds == 0)
                 {
                     label1.Text = "SYSTEM WARNING: NO BEDS CONFIGURED IN ROOMS & BEDS";
@@ -160,7 +155,6 @@ namespace Patient_Info_and_Billing_System.Admin
                     label1.Text = "SYSTEM NOTICE: BED OCCUPANCY NORMAL (" + occupiedBeds + "/" + totalBeds + " beds occupied, " + occupancyRate.ToString("0.0") + "%)";
                 }
 
-                // 6. Quick Alert: Critical Medicine Stock
                 int criticalMedCount = 0;
                 MySqlCommand cmdMeds = new MySqlCommand();
                 cmdMeds.Connection = conn;
@@ -181,7 +175,6 @@ namespace Patient_Info_and_Billing_System.Admin
                     label2.Text = "INVENTORY NOTICE: MEDICINE STOCK LEVELS NORMAL (0 critical items)";
                 }
 
-                // 7. Quick Alert: Pending Outstanding Balances
                 int pendingBillCount = 0;
                 decimal totalBalance = 0;
                 MySqlCommand cmdBalances = new MySqlCommand();
