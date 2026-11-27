@@ -42,7 +42,37 @@ namespace Patient_Info_and_Billing_System.Admin
             this.Load += admin_dashboard_Load;
             textBox1.TextChanged += textBox1_TextChanged;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            button1.Click += button1_Click;
+            button2.Click += button2_Click;
+            button3.Click += button3_Click;
             button5.Click += button5_Click;
+        }
+
+        void NavigateToControl(UserControl nextControl)
+        {
+            Control? container = this.Parent;
+            if (container != null)
+            {
+                container.Controls.Clear();
+                nextControl.Dock = DockStyle.Fill;
+                container.Controls.Add(nextControl);
+                nextControl.Show();
+            }
+        }
+
+        private void button1_Click(object? sender, EventArgs e)
+        {
+            NavigateToControl(new borja1());
+        }
+
+        private void button2_Click(object? sender, EventArgs e)
+        {
+            NavigateToControl(new AdminUserManagement());
+        }
+
+        private void button3_Click(object? sender, EventArgs e)
+        {
+            NavigateToControl(new ClinicAndDataSetup());
         }
 
         private void admin_dashboard_Load(object? sender, EventArgs e)
@@ -470,7 +500,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            NavigateToControl(new Access_Logs___Audit_Trail());
         }
 
         private void label1_Click(object sender, EventArgs e)

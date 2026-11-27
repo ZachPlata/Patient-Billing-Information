@@ -20,6 +20,51 @@ namespace Patient_Info_and_Billing_System.Admin
             Column3.DataPropertyName = "action_taken";
 
             this.Load += borja1_Load;
+            button1.Click += button1_Click;
+            button2.Click += button2_Click;
+            button3.Click += button3_Click;
+            button4.Click += button4_Click;
+            panel11.Cursor = Cursors.Hand;
+            label3.Cursor = Cursors.Hand;
+            panel11.Click += OpenBillingDashboard_Click;
+            label3.Click += OpenBillingDashboard_Click;
+        }
+
+        void NavigateToControl(UserControl nextControl)
+        {
+            Control? container = this.Parent;
+            if (container != null)
+            {
+                container.Controls.Clear();
+                nextControl.Dock = DockStyle.Fill;
+                container.Controls.Add(nextControl);
+                nextControl.Show();
+            }
+        }
+
+        private void button1_Click(object? sender, EventArgs e)
+        {
+            loaddata();
+        }
+
+        private void button2_Click(object? sender, EventArgs e)
+        {
+            NavigateToControl(new AdminUserManagement());
+        }
+
+        private void button3_Click(object? sender, EventArgs e)
+        {
+            NavigateToControl(new ClinicAndDataSetup());
+        }
+
+        private void button4_Click(object? sender, EventArgs e)
+        {
+            NavigateToControl(new Access_Logs___Audit_Trail());
+        }
+
+        private void OpenBillingDashboard_Click(object? sender, EventArgs e)
+        {
+            NavigateToControl(new admin_dashboard());
         }
 
         private void borja1_Load(object? sender, EventArgs e)

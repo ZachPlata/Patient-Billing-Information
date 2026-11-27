@@ -27,8 +27,45 @@ namespace Patient_Info_and_Billing_System.Admin
             Column6.DataPropertyName = "action_taken";
 
             this.Load += Access_Logs___Audit_Trail_Load;
+            button1.Click += button1_Click;
+            button2.Click += button2_Click;
+            button3.Click += button3_Click;
+            button4.Click += button4_Click;
             button5.Click += button5_Click;
             button6.Click += button6_Click;
+        }
+
+        void NavigateToControl(UserControl nextControl)
+        {
+            Control? container = this.Parent;
+            if (container != null)
+            {
+                container.Controls.Clear();
+                nextControl.Dock = DockStyle.Fill;
+                container.Controls.Add(nextControl);
+                nextControl.Show();
+            }
+        }
+
+        private void button1_Click(object? sender, EventArgs e)
+        {
+            NavigateToControl(new borja1());
+        }
+
+        private void button2_Click(object? sender, EventArgs e)
+        {
+            NavigateToControl(new AdminUserManagement());
+        }
+
+        private void button3_Click(object? sender, EventArgs e)
+        {
+            NavigateToControl(new ClinicAndDataSetup());
+        }
+
+        private void button4_Click(object? sender, EventArgs e)
+        {
+            SetActiveTab(button5);
+            LoadPatientAccessLogs();
         }
 
         private void Access_Logs___Audit_Trail_Load(object? sender, EventArgs e)
