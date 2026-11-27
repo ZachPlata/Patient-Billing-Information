@@ -43,7 +43,6 @@ C:\Users\miguel\source\repos\Patient-Billing-Information\Patient Info and Billin
 C:\Users\miguel\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.NurseDashBoard..resources
 C:\Users\miguel\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\NurseDashBoard.Nurse.resources
 C:\Users\miguel\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.uc_PatientUtil.resources
-C:\Users\miguel\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\NurseDashBoard.uc_dashboard.resources
 C:\Users\miguel\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\NurseDashBoard.uc_RegistrationPatients.resources
 C:\Users\miguel\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient_Info_and_Billing_System.LogIn.SignIn.resources
 C:\Users\miguel\source\repos\Patient-Billing-Information\Patient Info and Billing System\obj\Debug\net10.0-windows\Patient Info and Billing System.csproj.GenerateResource.cache
