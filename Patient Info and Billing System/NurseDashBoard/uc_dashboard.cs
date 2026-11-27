@@ -1,6 +1,10 @@
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace NurseDashBoard
@@ -18,8 +22,9 @@ namespace NurseDashBoard
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();
             MySqlDataAdapter da = new MySqlDataAdapter();
+
             conn.Open();
-            cmd.CommandText = "SELECT bed_id AS `Bed ID`, room_number AS `Room`, bed_number AS `Bed`, room_type AS `Type`, daily_rate AS `Daily Rate`, IF(is_occupied = 1, 'Occupied', 'Availablec;
+            cmd.CommandText = "SELECT bed_id AS `Bed ID`, room_number AS `Room`, bed_number AS `Bed`, room_type AS `Type`, daily_rate AS `Daily Rate`, IF(is_occupied = 1, 'Occupied', 'Available') AS `Status` FROM RoomsBeds";
             cmd.Connection = conn;
             da.SelectCommand = cmd;
             da.Fill(ds, "abc");
@@ -36,58 +41,57 @@ namespace NurseDashBoard
 
             conn.Open();
 
-            // Available Beds / Total Beds
             cmd.CommandText = "SELECT COUNT(*) AS avail, (SELECT COUNT(*) FROM RoomsBeds) AS total FROM RoomsBeds WHERE is_occupied = 0";
             cmd.Connection = conn;
             reader = cmd.ExecuteReader();
             reader.Read();
             if (reader.HasRows)
             {
-                label10.Text = reader["avail"].ToString() + " / " + reader["total"].ToString();
+                TT_Availablebeds.Text = reader["avail"].ToString() + " / " + reader["total"].ToString();
             }
             reader.Close();
 
-            // Bed Occupancy Rate (Occupied Beds)
+
             cmd.CommandText = "SELECT COUNT(*) AS occupied FROM RoomsBeds WHERE is_occupied = 1";
             cmd.Connection = conn;
             reader = cmd.ExecuteReader();
             reader.Read();
             if (reader.HasRows)
             {
-                label12.Text = reader["occupied"].ToString();
+                Bed_OccuRate.Text = reader["occupied"].ToString();
             }
             reader.Close();
 
-            // Total Clinic Patients
+
             cmd.CommandText = "SELECT COUNT(*) AS total FROM Patients";
             cmd.Connection = conn;
             reader = cmd.ExecuteReader();
             reader.Read();
             if (reader.HasRows)
             {
-                label14.Text = reader["total"].ToString();
+                TT_ClinicPatients.Text = reader["total"].ToString();
             }
             reader.Close();
 
-            // Admitted Patients
+
             cmd.CommandText = "SELECT COUNT(*) AS total FROM Patients WHERE current_status = 'Admitted'";
             cmd.Connection = conn;
             reader = cmd.ExecuteReader();
             reader.Read();
             if (reader.HasRows)
             {
-                label9.Text = reader["total"].ToString();
+                Admitted_Patients.Text = reader["total"].ToString();
             }
             reader.Close();
 
-            // Available Doctors
+
             cmd.CommandText = "SELECT COUNT(*) AS total FROM Users WHERE role = 'Doctor' AND is_active = 1";
             cmd.Connection = conn;
             reader = cmd.ExecuteReader();
             reader.Read();
             if (reader.HasRows)
             {
-                label3.Text = reader["total"].ToString();
+                Available_Doctors.Text = reader["total"].ToString();
             }
             reader.Close();
 
@@ -116,6 +120,21 @@ namespace NurseDashBoard
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TT_Availablebeds_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Bed_OccuRate_Click(object sender, EventArgs e)
         {
 
         }

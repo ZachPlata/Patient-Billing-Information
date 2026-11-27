@@ -30,23 +30,22 @@
         {
             pnlAvailableBeds = new Panel();
             panel1 = new Panel();
-            label10 = new Label();
             label5 = new Label();
             label1 = new Label();
             panel6 = new Panel();
             panel7 = new Panel();
-            label14 = new Label();
+            TT_ClinicPatients = new Label();
             label15 = new Label();
             label16 = new Label();
             pnlAdmittedPatients = new Panel();
             panel2 = new Panel();
-            label9 = new Label();
+            Admitted_Patients = new Label();
             label6 = new Label();
             label2 = new Label();
             pnlBedOccupancyRate = new Panel();
             label4 = new Label();
             panel4 = new Panel();
-            label12 = new Label();
+            Bed_OccuRate = new Label();
             label8 = new Label();
             dataGridView1 = new DataGridView();
             label13 = new Label();
@@ -54,9 +53,10 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel3 = new Panel();
             panel5 = new Panel();
-            label3 = new Label();
+            Available_Doctors = new Label();
             label7 = new Label();
             label11 = new Label();
+            TT_Availablebeds = new Label();
             pnlAvailableBeds.SuspendLayout();
             panel6.SuspendLayout();
             pnlAdmittedPatients.SuspendLayout();
@@ -70,8 +70,8 @@
             // 
             pnlAvailableBeds.BackColor = SystemColors.ControlLightLight;
             pnlAvailableBeds.BorderStyle = BorderStyle.FixedSingle;
+            pnlAvailableBeds.Controls.Add(TT_Availablebeds);
             pnlAvailableBeds.Controls.Add(panel1);
-            pnlAvailableBeds.Controls.Add(label10);
             pnlAvailableBeds.Controls.Add(label5);
             pnlAvailableBeds.Controls.Add(label1);
             pnlAvailableBeds.Location = new Point(3, 3);
@@ -87,17 +87,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(217, 10);
             panel1.TabIndex = 4;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.Black;
-            label10.Location = new Point(3, 74);
-            label10.Name = "label10";
-            label10.Size = new Size(88, 45);
-            label10.TabIndex = 3;
-            label10.Text = "1 / 8";
             // 
             // label5
             // 
@@ -126,7 +115,7 @@
             panel6.BackColor = SystemColors.ControlLightLight;
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(panel7);
-            panel6.Controls.Add(label14);
+            panel6.Controls.Add(TT_ClinicPatients);
             panel6.Controls.Add(label15);
             panel6.Controls.Add(label16);
             panel6.Location = new Point(972, 3);
@@ -143,16 +132,16 @@
             panel7.Size = new Size(215, 10);
             panel7.TabIndex = 6;
             // 
-            // label14
+            // TT_ClinicPatients
             // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.ForeColor = Color.Black;
-            label14.Location = new Point(3, 74);
-            label14.Name = "label14";
-            label14.Size = new Size(38, 45);
-            label14.TabIndex = 5;
-            label14.Text = "4";
+            TT_ClinicPatients.AutoSize = true;
+            TT_ClinicPatients.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TT_ClinicPatients.ForeColor = Color.Black;
+            TT_ClinicPatients.Location = new Point(3, 74);
+            TT_ClinicPatients.Name = "TT_ClinicPatients";
+            TT_ClinicPatients.Size = new Size(38, 45);
+            TT_ClinicPatients.TabIndex = 5;
+            TT_ClinicPatients.Text = "4";
             // 
             // label15
             // 
@@ -181,7 +170,7 @@
             pnlAdmittedPatients.BackColor = SystemColors.ControlLightLight;
             pnlAdmittedPatients.BorderStyle = BorderStyle.FixedSingle;
             pnlAdmittedPatients.Controls.Add(panel2);
-            pnlAdmittedPatients.Controls.Add(label9);
+            pnlAdmittedPatients.Controls.Add(Admitted_Patients);
             pnlAdmittedPatients.Controls.Add(label6);
             pnlAdmittedPatients.Controls.Add(label2);
             pnlAdmittedPatients.Location = new Point(649, 3);
@@ -198,16 +187,16 @@
             panel2.Size = new Size(204, 10);
             panel2.TabIndex = 5;
             // 
-            // label9
+            // Admitted_Patients
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.Black;
-            label9.Location = new Point(3, 74);
-            label9.Name = "label9";
-            label9.Size = new Size(38, 45);
-            label9.TabIndex = 4;
-            label9.Text = "4";
+            Admitted_Patients.AutoSize = true;
+            Admitted_Patients.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Admitted_Patients.ForeColor = Color.Black;
+            Admitted_Patients.Location = new Point(3, 74);
+            Admitted_Patients.Name = "Admitted_Patients";
+            Admitted_Patients.Size = new Size(38, 45);
+            Admitted_Patients.TabIndex = 4;
+            Admitted_Patients.Text = "4";
             // 
             // label6
             // 
@@ -238,7 +227,7 @@
             pnlBedOccupancyRate.BorderStyle = BorderStyle.FixedSingle;
             pnlBedOccupancyRate.Controls.Add(label4);
             pnlBedOccupancyRate.Controls.Add(panel4);
-            pnlBedOccupancyRate.Controls.Add(label12);
+            pnlBedOccupancyRate.Controls.Add(Bed_OccuRate);
             pnlBedOccupancyRate.Controls.Add(label8);
             pnlBedOccupancyRate.Location = new Point(326, 3);
             pnlBedOccupancyRate.Margin = new Padding(3, 3, 90, 3);
@@ -265,16 +254,17 @@
             panel4.Size = new Size(204, 10);
             panel4.TabIndex = 7;
             // 
-            // label12
+            // Bed_OccuRate
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.Black;
-            label12.Location = new Point(3, 77);
-            label12.Name = "label12";
-            label12.Size = new Size(38, 45);
-            label12.TabIndex = 6;
-            label12.Text = "4";
+            Bed_OccuRate.AutoSize = true;
+            Bed_OccuRate.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Bed_OccuRate.ForeColor = Color.Black;
+            Bed_OccuRate.Location = new Point(3, 77);
+            Bed_OccuRate.Name = "Bed_OccuRate";
+            Bed_OccuRate.Size = new Size(38, 45);
+            Bed_OccuRate.TabIndex = 6;
+            Bed_OccuRate.Text = "4";
+            Bed_OccuRate.Click += Bed_OccuRate_Click;
             // 
             // label8
             // 
@@ -325,7 +315,7 @@
             panel3.BackColor = SystemColors.ControlLightLight;
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(panel5);
-            panel3.Controls.Add(label3);
+            panel3.Controls.Add(Available_Doctors);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(label11);
             panel3.Location = new Point(1295, 3);
@@ -341,16 +331,16 @@
             panel5.Size = new Size(204, 10);
             panel5.TabIndex = 6;
             // 
-            // label3
+            // Available_Doctors
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(3, 74);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 45);
-            label3.TabIndex = 5;
-            label3.Text = "4";
+            Available_Doctors.AutoSize = true;
+            Available_Doctors.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Available_Doctors.ForeColor = Color.Black;
+            Available_Doctors.Location = new Point(3, 74);
+            Available_Doctors.Name = "Available_Doctors";
+            Available_Doctors.Size = new Size(38, 45);
+            Available_Doctors.TabIndex = 5;
+            Available_Doctors.Text = "4";
             // 
             // label7
             // 
@@ -373,6 +363,18 @@
             label11.Size = new Size(196, 21);
             label11.TabIndex = 2;
             label11.Text = "👤 AVAILABLE DOCTORS";
+            // 
+            // TT_Availablebeds
+            // 
+            TT_Availablebeds.AutoSize = true;
+            TT_Availablebeds.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TT_Availablebeds.ForeColor = Color.Black;
+            TT_Availablebeds.Location = new Point(0, 74);
+            TT_Availablebeds.Name = "TT_Availablebeds";
+            TT_Availablebeds.Size = new Size(88, 45);
+            TT_Availablebeds.TabIndex = 5;
+            TT_Availablebeds.Text = "1 / 8";
+            TT_Availablebeds.Click += TT_Availablebeds_Click;
             // 
             // uc_dashboard
             // 
@@ -412,9 +414,8 @@
         private Label label5;
         private Label label6;
         private Label label8;
-        private Label label10;
-        private Label label9;
-        private Label label12;
+        private Label Admitted_Patients;
+        private Label Bed_OccuRate;
         private Panel panel1;
         private Panel panel2;
         private Panel panel4;
@@ -423,15 +424,16 @@
         private ColorDialog colorDialog1;
         private Panel panel6;
         private Panel panel7;
-        private Label label14;
+        private Label TT_ClinicPatients;
         private Label label15;
         private Label label16;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel3;
         private Panel panel5;
-        private Label label3;
+        private Label Available_Doctors;
         private Label label7;
         private Label label11;
         private Label label4;
+        private Label TT_Availablebeds;
     }
 }
