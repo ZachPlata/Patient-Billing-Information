@@ -7,7 +7,7 @@ namespace Patient_Info_and_Billing_System.Admin
 {
     public partial class LabTestCatalog : UserControl
     {
-        string connStr = "server=localhost; database=metro_care_db; uid=root";
+        string connStr = "server=localhost; database=patientbillingdb; uid=root";
 
         public LabTestCatalog()
         {
