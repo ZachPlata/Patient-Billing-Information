@@ -32,7 +32,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         void NavigateToControl(UserControl nextControl)
         {
-            Control? container = this.Parent;
+            Control container = this.Parent;
             if (container != null)
             {
                 container.Controls.Clear();
@@ -42,32 +42,32 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        private void button1_Click(object? sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             loaddata();
         }
 
-        private void button2_Click(object? sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             NavigateToControl(new AdminUserManagement());
         }
 
-        private void button3_Click(object? sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             NavigateToControl(new ClinicAndDataSetup());
         }
 
-        private void button4_Click(object? sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             NavigateToControl(new Access_Logs___Audit_Trail());
         }
 
-        private void OpenBillingDashboard_Click(object? sender, EventArgs e)
+        private void OpenBillingDashboard_Click(object sender, EventArgs e)
         {
             NavigateToControl(new admin_dashboard());
         }
 
-        private void borja1_Load(object? sender, EventArgs e)
+        private void borja1_Load(object sender, EventArgs e)
         {
             loaddata();
         }
@@ -142,15 +142,15 @@ namespace Patient_Info_and_Billing_System.Admin
                 {
                     label1.Text = "SYSTEM WARNING: NO BEDS CONFIGURED IN ROOMS & BEDS";
                 }
-                else if (occupancyRate < 50.0)
+                if (totalBeds > 0 && occupancyRate < 50.0)
                 {
                     label1.Text = "SYSTEM WARNING: LOW BED OCCUPANCY RATE (" + occupiedBeds + "/" + totalBeds + " beds occupied, " + occupancyRate.ToString("0.0") + "%)";
                 }
-                else if (occupancyRate >= 85.0)
+                if (totalBeds > 0 && occupancyRate >= 85.0)
                 {
                     label1.Text = "SYSTEM WARNING: HIGH BED OCCUPANCY RATE (" + occupiedBeds + "/" + totalBeds + " beds occupied, " + occupancyRate.ToString("0.0") + "%)";
                 }
-                else
+                if (totalBeds > 0 && occupancyRate >= 50.0 && occupancyRate < 85.0)
                 {
                     label1.Text = "SYSTEM NOTICE: BED OCCUPANCY NORMAL (" + occupiedBeds + "/" + totalBeds + " beds occupied, " + occupancyRate.ToString("0.0") + "%)";
                 }
@@ -170,7 +170,7 @@ namespace Patient_Info_and_Billing_System.Admin
                 {
                     label2.Text = "INVENTORY NOTICE: CRITICAL MEDICINE STOCK (" + criticalMedCount + " item(s) with 20 or fewer units)";
                 }
-                else
+                if (criticalMedCount <= 0)
                 {
                     label2.Text = "INVENTORY NOTICE: MEDICINE STOCK LEVELS NORMAL (0 critical items)";
                 }
@@ -192,7 +192,7 @@ namespace Patient_Info_and_Billing_System.Admin
                 {
                     label3.Text = "BILLING NOTICE: " + pendingBillCount + " PENDING OUTSTANDING BALANCE(S) (Total: ₱" + totalBalance.ToString("N2") + ")";
                 }
-                else
+                if (pendingBillCount <= 0)
                 {
                     label3.Text = "BILLING NOTICE: NO PENDING OUTSTANDING BALANCES";
                 }
@@ -287,6 +287,11 @@ namespace Patient_Info_and_Billing_System.Admin
         }
 
         private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
         {
 
         }

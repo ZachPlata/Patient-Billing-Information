@@ -44,13 +44,15 @@ namespace Patient_Info_and_Billing_System.Admin
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             button1.Click += button1_Click;
             button2.Click += button2_Click;
+
             button3.Click += button3_Click;
+
             button5.Click += button5_Click;
         }
 
         void NavigateToControl(UserControl nextControl)
         {
-            Control? container = this.Parent;
+            Control container = this.Parent;
             if (container != null)
             {
                 container.Controls.Clear();
@@ -60,22 +62,22 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        private void button1_Click(object? sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             NavigateToControl(new borja1());
         }
 
-        private void button2_Click(object? sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             NavigateToControl(new AdminUserManagement());
         }
 
-        private void button3_Click(object? sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             NavigateToControl(new ClinicAndDataSetup());
         }
 
-        private void admin_dashboard_Load(object? sender, EventArgs e)
+        private void admin_dashboard_Load(object sender, EventArgs e)
         {
             loaddata();
         }
@@ -91,7 +93,11 @@ namespace Patient_Info_and_Billing_System.Admin
                 MySqlDataAdapter da = new MySqlDataAdapter();
 
                 string searchKeyword = textBox1.Text.Trim();
-                string selectedStatus = comboBox1.SelectedItem?.ToString() ?? "All";
+                string selectedStatus = "All";
+                if (comboBox1.SelectedItem != null)
+                {
+                    selectedStatus = comboBox1.SelectedItem.ToString();
+                }
 
                 string query = "SELECT b.bill_id, b.patient_id, p.full_name, " +
                     "a.admission_date, a.discharge_date, b.billing_status, " +
@@ -139,17 +145,17 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        private void textBox1_TextChanged(object? sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
             loaddata();
         }
 
-        private void comboBox1_SelectedIndexChanged(object? sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             loaddata();
         }
 
-        private void button5_Click(object? sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             if (isProcessingPayment)
             {
@@ -164,15 +170,28 @@ namespace Patient_Info_and_Billing_System.Admin
             }
 
             DataGridViewRow row = dataGridView1.CurrentRow;
-            string billId = row.Cells["Column1"].Value?.ToString() ?? string.Empty;
-            string patientId = row.Cells["Column2"].Value?.ToString() ?? string.Empty;
-            string patientName = row.Cells["Column3"].Value?.ToString() ?? string.Empty;
-            string billingStatus = row.Cells["Column6"].Value?.ToString() ?? string.Empty;
+            string billId = "";
+            if (row.Cells["Column1"].Value != null) billId = row.Cells["Column1"].Value.ToString();
+
+            string patientId = "";
+            if (row.Cells["Column2"].Value != null) patientId = row.Cells["Column2"].Value.ToString();
+
+            string patientName = "";
+            if (row.Cells["Column3"].Value != null) patientName = row.Cells["Column3"].Value.ToString();
+
+            string billingStatus = "";
+            if (row.Cells["Column6"].Value != null) billingStatus = row.Cells["Column6"].Value.ToString();
 
             decimal totalAmount = 0;
             decimal remainingBalance = 0;
-            decimal.TryParse(row.Cells["Column7"].Value?.ToString(), out totalAmount);
-            decimal.TryParse(row.Cells["Column9"].Value?.ToString(), out remainingBalance);
+            if (row.Cells["Column7"].Value != null)
+            {
+                decimal.TryParse(row.Cells["Column7"].Value.ToString(), out totalAmount);
+            }
+            if (row.Cells["Column9"].Value != null)
+            {
+                decimal.TryParse(row.Cells["Column9"].Value.ToString(), out remainingBalance);
+            }
 
             if (string.IsNullOrEmpty(billId))
             {
@@ -265,7 +284,7 @@ namespace Patient_Info_and_Billing_System.Admin
             btnCancel.Size = new Size(95, 36);
             btnCancel.DialogResult = DialogResult.Cancel;
 
-            btnConfirm.Click += delegate (object? s, EventArgs ev)
+            btnConfirm.Click += delegate (object s, EventArgs ev)
             {
                 if (isProcessingPayment)
                 {
@@ -308,7 +327,11 @@ namespace Patient_Info_and_Billing_System.Admin
                     return;
                 }
 
-                string method = cmbMethod.SelectedItem?.ToString() ?? "Cash";
+                string method = "Cash";
+                if (cmbMethod.SelectedItem != null)
+                {
+                    method = cmbMethod.SelectedItem.ToString();
+                }
                 string notes = txtNotes.Text.Trim();
 
                 btnConfirm.Enabled = false;
@@ -362,7 +385,7 @@ namespace Patient_Info_and_Billing_System.Admin
             string userId = string.Empty;
             if (reader.Read())
             {
-                userId = reader["user_id"].ToString() ?? string.Empty;
+                userId = reader["user_id"].ToString();
             }
             reader.Close();
             return userId;
@@ -371,7 +394,7 @@ namespace Patient_Info_and_Billing_System.Admin
         bool ProcessBillPayment(string billId, string patientId, decimal payAmount, string paymentMethod, string notes)
         {
             MySqlConnection conn = new MySqlConnection(connStr);
-            MySqlTransaction? trans = null;
+            MySqlTransaction trans = null;
 
             try
             {
@@ -395,7 +418,7 @@ namespace Patient_Info_and_Billing_System.Admin
                     return false;
                 }
                 currentRemaining = Convert.ToDecimal(readerCheck["remaining_balance"]);
-                currentStatus = readerCheck["billing_status"].ToString() ?? string.Empty;
+                currentStatus = readerCheck["billing_status"].ToString();
                 readerCheck.Close();
 
                 if (currentStatus == "Paid" || currentStatus == "Cancelled" || currentRemaining <= 0)
@@ -502,6 +525,11 @@ namespace Patient_Info_and_Billing_System.Admin
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

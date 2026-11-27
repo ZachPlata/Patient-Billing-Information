@@ -28,8 +28,8 @@ namespace Patient_Info_and_Billing_System.Admin
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             panel4 = new Panel();
             label11 = new Label();
@@ -52,6 +52,7 @@ namespace Patient_Info_and_Billing_System.Admin
             label14 = new Label();
             label6 = new Label();
             panel3 = new Panel();
+            panel13 = new Panel();
             panel12 = new Panel();
             button1 = new Button();
             button4 = new Button();
@@ -60,7 +61,6 @@ namespace Patient_Info_and_Billing_System.Admin
             panel6 = new Panel();
             label9 = new Label();
             dataGridView1 = new DataGridView();
-            panel13 = new Panel();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
@@ -74,17 +74,18 @@ namespace Patient_Info_and_Billing_System.Admin
             panel2.SuspendLayout();
             panel9.SuspendLayout();
             panel3.SuspendLayout();
+            panel13.SuspendLayout();
             panel12.SuspendLayout();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel13.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaptionText;
             panel1.ForeColor = SystemColors.ControlDarkDark;
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(3, 2);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(0, 0);
             panel1.TabIndex = 0;
@@ -94,28 +95,28 @@ namespace Patient_Info_and_Billing_System.Admin
             panel4.BackColor = Color.White;
             panel4.Controls.Add(label11);
             panel4.Controls.Add(label10);
-            panel4.Location = new Point(16, 33);
+            panel4.Location = new Point(14, 25);
+            panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(340, 125);
+            panel4.Size = new Size(298, 94);
             panel4.TabIndex = 4;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label11.Location = new Point(57, 16);
+            label11.Location = new Point(50, 12);
             label11.Name = "label11";
-            label11.Size = new Size(224, 25);
+            label11.Size = new Size(183, 20);
             label11.TabIndex = 2;
             label11.Text = "TOTAL ACTIVE PATIENTS";
             // 
             // label10
             // 
-            label10.AutoSize = false;
             label10.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(0, 58);
+            label10.Location = new Point(0, 44);
             label10.Name = "label10";
-            label10.Size = new Size(340, 45);
+            label10.Size = new Size(298, 34);
             label10.TabIndex = 1;
             label10.Text = "__________________";
             label10.TextAlign = ContentAlignment.MiddleCenter;
@@ -126,30 +127,30 @@ namespace Patient_Info_and_Billing_System.Admin
             panel5.BackColor = Color.White;
             panel5.Controls.Add(label12);
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(418, 33);
+            panel5.Location = new Point(366, 25);
+            panel5.Margin = new Padding(3, 2, 3, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(340, 125);
+            panel5.Size = new Size(298, 94);
             panel5.TabIndex = 5;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label12.Location = new Point(66, 19);
+            label12.Location = new Point(58, 14);
             label12.Name = "label12";
-            label12.Size = new Size(209, 25);
+            label12.Size = new Size(172, 20);
             label12.TabIndex = 4;
             label12.Text = "BED OCCUPANCY RATE";
             label12.Click += label12_Click;
             // 
             // label5
             // 
-            label5.AutoSize = false;
             label5.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Gold;
-            label5.Location = new Point(0, 58);
+            label5.Location = new Point(0, 44);
             label5.Name = "label5";
-            label5.Size = new Size(340, 45);
+            label5.Size = new Size(298, 34);
             label5.TabIndex = 3;
             label5.Text = "__________________";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -159,29 +160,29 @@ namespace Patient_Info_and_Billing_System.Admin
             panel8.BackColor = Color.White;
             panel8.Controls.Add(label7);
             panel8.Controls.Add(label13);
-            panel8.Location = new Point(811, 33);
+            panel8.Location = new Point(710, 25);
+            panel8.Margin = new Padding(3, 2, 3, 2);
             panel8.Name = "panel8";
-            panel8.Size = new Size(340, 125);
+            panel8.Size = new Size(298, 94);
             panel8.TabIndex = 6;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            label7.Location = new Point(73, 19);
+            label7.Location = new Point(64, 14);
             label7.Name = "label7";
-            label7.Size = new Size(185, 25);
+            label7.Size = new Size(153, 20);
             label7.TabIndex = 6;
             label7.Text = "TOTAL CLINIC STAFF";
             // 
             // label13
             // 
-            label13.AutoSize = false;
             label13.Font = new Font("Segoe UI Black", 16.2F);
             label13.ForeColor = Color.RoyalBlue;
-            label13.Location = new Point(0, 58);
+            label13.Location = new Point(0, 44);
             label13.Name = "label13";
-            label13.Size = new Size(340, 45);
+            label13.Size = new Size(298, 34);
             label13.TabIndex = 5;
             label13.Text = "__________________";
             label13.TextAlign = ContentAlignment.MiddleCenter;
@@ -194,9 +195,10 @@ namespace Patient_Info_and_Billing_System.Admin
             panel7.Controls.Add(panel10);
             panel7.Controls.Add(panel2);
             panel7.Controls.Add(label4);
-            panel7.Location = new Point(6, 350);
+            panel7.Location = new Point(5, 262);
+            panel7.Margin = new Padding(3, 2, 3, 2);
             panel7.Name = "panel7";
-            panel7.Size = new Size(1650, 309);
+            panel7.Size = new Size(1444, 232);
             panel7.TabIndex = 0;
             panel7.Paint += panel7_Paint;
             // 
@@ -204,9 +206,10 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             panel11.BackColor = SystemColors.Control;
             panel11.Controls.Add(label3);
-            panel11.Location = new Point(28, 200);
+            panel11.Location = new Point(24, 150);
+            panel11.Margin = new Padding(3, 2, 3, 2);
             panel11.Name = "panel11";
-            panel11.Size = new Size(1160, 51);
+            panel11.Size = new Size(1015, 38);
             panel11.TabIndex = 6;
             // 
             // label3
@@ -214,9 +217,9 @@ namespace Patient_Info_and_Billing_System.Admin
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.HotTrack;
-            label3.Location = new Point(10, 9);
+            label3.Location = new Point(9, 7);
             label3.Name = "label3";
-            label3.Size = new Size(443, 23);
+            label3.Size = new Size(363, 19);
             label3.TabIndex = 0;
             label3.Text = "BILLING NOTICE: PENDING OUTSTANDING BALANCES";
             // 
@@ -224,9 +227,10 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             panel10.BackColor = SystemColors.Control;
             panel10.Controls.Add(label2);
-            panel10.Location = new Point(28, 130);
+            panel10.Location = new Point(24, 98);
+            panel10.Margin = new Padding(3, 2, 3, 2);
             panel10.Name = "panel10";
-            panel10.Size = new Size(1160, 51);
+            panel10.Size = new Size(1015, 38);
             panel10.TabIndex = 6;
             // 
             // label2
@@ -234,9 +238,9 @@ namespace Patient_Info_and_Billing_System.Admin
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Red;
-            label2.Location = new Point(10, 9);
+            label2.Location = new Point(9, 7);
             label2.Name = "label2";
-            label2.Size = new Size(398, 23);
+            label2.Size = new Size(325, 19);
             label2.TabIndex = 0;
             label2.Text = "INVENTORY NOTICE: CRITICAL MEDICINE STOCK";
             // 
@@ -244,9 +248,10 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             panel2.BackColor = SystemColors.Control;
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(28, 62);
+            panel2.Location = new Point(24, 46);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1160, 51);
+            panel2.Size = new Size(1015, 38);
             panel2.TabIndex = 5;
             // 
             // label1
@@ -254,9 +259,9 @@ namespace Patient_Info_and_Billing_System.Admin
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Gold;
-            label1.Location = new Point(10, 10);
+            label1.Location = new Point(9, 8);
             label1.Name = "label1";
-            label1.Size = new Size(401, 23);
+            label1.Size = new Size(332, 19);
             label1.TabIndex = 0;
             label1.Text = "SYSTEM WARNING: LOW BED OCCUPANCY RATE";
             // 
@@ -265,9 +270,9 @@ namespace Patient_Info_and_Billing_System.Admin
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(29, 13);
+            label4.Location = new Point(25, 10);
             label4.Name = "label4";
-            label4.Size = new Size(527, 31);
+            label4.Size = new Size(435, 25);
             label4.TabIndex = 0;
             label4.Text = "Quick Alert Panel System Warning Notifications";
             // 
@@ -276,29 +281,29 @@ namespace Patient_Info_and_Billing_System.Admin
             panel9.BackColor = Color.White;
             panel9.Controls.Add(label14);
             panel9.Controls.Add(label6);
-            panel9.Location = new Point(1214, 33);
+            panel9.Location = new Point(1062, 25);
+            panel9.Margin = new Padding(3, 2, 3, 2);
             panel9.Name = "panel9";
-            panel9.Size = new Size(340, 125);
+            panel9.Size = new Size(298, 94);
             panel9.TabIndex = 7;
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(59, 16);
+            label14.Location = new Point(52, 12);
             label14.Name = "label14";
-            label14.Size = new Size(249, 28);
+            label14.Size = new Size(197, 21);
             label14.TabIndex = 8;
             label14.Text = "TOTAL PAID COLLECTION";
             // 
             // label6
             // 
-            label6.AutoSize = false;
             label6.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Green;
-            label6.Location = new Point(0, 58);
+            label6.Location = new Point(0, 44);
             label6.Name = "label6";
-            label6.Size = new Size(340, 45);
+            label6.Size = new Size(298, 34);
             label6.TabIndex = 7;
             label6.Text = "__________________";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -312,10 +317,25 @@ namespace Patient_Info_and_Billing_System.Admin
             panel3.Controls.Add(dataGridView1);
             panel3.Controls.Add(panel7);
             panel3.Location = new Point(1, 0);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1901, 1077);
+            panel3.Size = new Size(1663, 808);
             panel3.TabIndex = 2;
             panel3.Paint += panel3_Paint;
+            // 
+            // panel13
+            // 
+            panel13.BackColor = SystemColors.Control;
+            panel13.Controls.Add(panel4);
+            panel13.Controls.Add(panel5);
+            panel13.Controls.Add(panel8);
+            panel13.Controls.Add(panel9);
+            panel13.Location = new Point(24, 103);
+            panel13.Margin = new Padding(3, 2, 3, 2);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(1424, 146);
+            panel13.TabIndex = 14;
+            panel13.Paint += panel13_Paint;
             // 
             // panel12
             // 
@@ -324,9 +344,10 @@ namespace Patient_Info_and_Billing_System.Admin
             panel12.Controls.Add(button4);
             panel12.Controls.Add(button2);
             panel12.Controls.Add(button3);
-            panel12.Location = new Point(-3, 29);
+            panel12.Location = new Point(-3, 22);
+            panel12.Margin = new Padding(3, 2, 3, 2);
             panel12.Name = "panel12";
-            panel12.Size = new Size(1904, 86);
+            panel12.Size = new Size(1666, 64);
             panel12.TabIndex = 13;
             // 
             // button1
@@ -334,9 +355,10 @@ namespace Patient_Info_and_Billing_System.Admin
             button1.BackColor = Color.FromArgb(11, 27, 52);
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(31, 21);
+            button1.Location = new Point(27, 16);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(221, 46);
+            button1.Size = new Size(193, 34);
             button1.TabIndex = 9;
             button1.Text = "Dashboard Quick Alerts";
             button1.UseVisualStyleBackColor = false;
@@ -346,9 +368,10 @@ namespace Patient_Info_and_Billing_System.Admin
             button4.BackColor = Color.FromArgb(11, 27, 52);
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button4.ForeColor = Color.White;
-            button4.Location = new Point(853, 21);
+            button4.Location = new Point(746, 16);
+            button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
-            button4.Size = new Size(215, 46);
+            button4.Size = new Size(188, 34);
             button4.TabIndex = 12;
             button4.Text = "Access Logs Audit Trail";
             button4.UseVisualStyleBackColor = false;
@@ -358,9 +381,10 @@ namespace Patient_Info_and_Billing_System.Admin
             button2.BackColor = Color.FromArgb(11, 27, 52);
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(314, 21);
+            button2.Location = new Point(275, 16);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(213, 46);
+            button2.Size = new Size(186, 34);
             button2.TabIndex = 10;
             button2.Text = "Staff User Credentials";
             button2.UseVisualStyleBackColor = false;
@@ -370,9 +394,10 @@ namespace Patient_Info_and_Billing_System.Admin
             button3.BackColor = Color.FromArgb(11, 27, 52);
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(593, 21);
+            button3.Location = new Point(519, 16);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(196, 46);
+            button3.Size = new Size(172, 34);
             button3.TabIndex = 11;
             button3.Text = "Clinic Data Setups";
             button3.UseVisualStyleBackColor = false;
@@ -381,61 +406,51 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             panel6.BackColor = Color.White;
             panel6.Controls.Add(label9);
-            panel6.Location = new Point(6, 665);
+            panel6.Location = new Point(5, 499);
+            panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(1650, 54);
+            panel6.Size = new Size(1444, 40);
             panel6.TabIndex = 7;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(38, 10);
+            label9.Location = new Point(33, 8);
             label9.Name = "label9";
-            label9.Size = new Size(520, 28);
+            label9.Size = new Size(414, 21);
             label9.TabIndex = 1;
             label9.Text = "Real-time Clinic Activity Feed (Latest Patient Chart Actions)";
             // 
             // dataGridView1
             // 
             dataGridView1.BackgroundColor = SystemColors.Control;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(11, 27, 52);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(11, 27, 52);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column4, Column3 });
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(3, 725);
+            dataGridView1.Location = new Point(3, 544);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1653, 329);
+            dataGridView1.Size = new Size(1446, 247);
             dataGridView1.TabIndex = 8;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // panel13
-            // 
-            panel13.BackColor = SystemColors.Control;
-            panel13.Controls.Add(panel4);
-            panel13.Controls.Add(panel5);
-            panel13.Controls.Add(panel8);
-            panel13.Controls.Add(panel9);
-            panel13.Location = new Point(28, 137);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(1628, 194);
-            panel13.TabIndex = 14;
-            // 
             // Column1
             // 
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(8, 121, 209);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = Color.White;
-            Column1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(8, 121, 209);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            Column1.DefaultCellStyle = dataGridViewCellStyle2;
             Column1.HeaderText = "Timestamp";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
@@ -464,12 +479,13 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             // borja1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel3);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "borja1";
-            Size = new Size(1920, 1080);
+            Size = new Size(1680, 810);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel5.ResumeLayout(false);
@@ -487,11 +503,11 @@ namespace Patient_Info_and_Billing_System.Admin
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panel3.ResumeLayout(false);
+            panel13.ResumeLayout(false);
             panel12.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel13.ResumeLayout(false);
             ResumeLayout(false);
         }
 

@@ -36,11 +36,6 @@
             button2 = new Button();
             button1 = new Button();
             panel1 = new Panel();
-            button5 = new Button();
-            label2 = new Label();
-            comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
-            label1 = new Label();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -51,6 +46,11 @@
             Column7 = new DataGridViewTextBoxColumn();
             Column8 = new DataGridViewTextBoxColumn();
             Column9 = new DataGridViewTextBoxColumn();
+            button5 = new Button();
+            label2 = new Label();
+            comboBox1 = new ComboBox();
+            textBox1 = new TextBox();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -60,9 +60,10 @@
             button4.BackColor = Color.FromArgb(17, 34, 64);
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button4.ForeColor = SystemColors.Control;
-            button4.Location = new Point(756, 34);
+            button4.Location = new Point(662, 26);
+            button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
-            button4.Size = new Size(203, 49);
+            button4.Size = new Size(178, 37);
             button4.TabIndex = 7;
             button4.Text = "🔓Access Logs Audit Trail";
             button4.UseVisualStyleBackColor = false;
@@ -73,9 +74,10 @@
             button3.BackColor = Color.FromArgb(17, 34, 64);
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button3.ForeColor = SystemColors.Control;
-            button3.Location = new Point(499, 34);
+            button3.Location = new Point(437, 26);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(210, 49);
+            button3.Size = new Size(184, 37);
             button3.TabIndex = 6;
             button3.Text = "📋Clinic Data Setups";
             button3.UseVisualStyleBackColor = false;
@@ -85,9 +87,10 @@
             button2.BackColor = Color.FromArgb(17, 34, 64);
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             button2.ForeColor = SystemColors.Control;
-            button2.Location = new Point(252, 34);
+            button2.Location = new Point(220, 26);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(211, 49);
+            button2.Size = new Size(185, 37);
             button2.TabIndex = 5;
             button2.Text = "👨🏼‍⚕️Staff User Credentials";
             button2.UseVisualStyleBackColor = false;
@@ -97,9 +100,10 @@
             button1.BackColor = Color.FromArgb(17, 34, 64);
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.Control;
-            button1.Location = new Point(17, 34);
+            button1.Location = new Point(15, 26);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(216, 49);
+            button1.Size = new Size(189, 37);
             button1.TabIndex = 4;
             button1.Text = "⏩Dashboard Quick Alerts ";
             button1.UseVisualStyleBackColor = false;
@@ -112,55 +116,11 @@
             panel1.Controls.Add(comboBox1);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(17, 89);
+            panel1.Location = new Point(15, 67);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1291, 649);
+            panel1.Size = new Size(1130, 487);
             panel1.TabIndex = 10;
-            // 
-            // button5
-            // 
-            button5.BackColor = SystemColors.MenuHighlight;
-            button5.Location = new Point(660, 34);
-            button5.Name = "button5";
-            button5.Size = new Size(214, 43);
-            button5.TabIndex = 4;
-            button5.Text = "Settle / Pay Selected Bill";
-            button5.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(361, 46);
-            label2.Name = "label2";
-            label2.Size = new Size(98, 20);
-            label2.TabIndex = 3;
-            label2.Text = "Status Filter:";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(462, 42);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(180, 43);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(166, 27);
-            textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(35, 46);
-            label1.Name = "label1";
-            label1.Size = new Size(142, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Search(Id / Name):";
             // 
             // dataGridView1
             // 
@@ -183,11 +143,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(35, 96);
+            dataGridView1.Location = new Point(31, 72);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1194, 536);
+            dataGridView1.Size = new Size(1045, 402);
             dataGridView1.TabIndex = 5;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Column1
             // 
@@ -257,9 +219,57 @@
             Column9.Name = "Column9";
             Column9.Width = 125;
             // 
+            // button5
+            // 
+            button5.BackColor = SystemColors.MenuHighlight;
+            button5.Location = new Point(578, 26);
+            button5.Margin = new Padding(3, 2, 3, 2);
+            button5.Name = "button5";
+            button5.Size = new Size(187, 32);
+            button5.TabIndex = 4;
+            button5.Text = "Settle / Pay Selected Bill";
+            button5.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(316, 34);
+            label2.Name = "label2";
+            label2.Size = new Size(77, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Status Filter:";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(404, 32);
+            comboBox1.Margin = new Padding(3, 2, 3, 2);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(133, 23);
+            comboBox1.TabIndex = 2;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(158, 32);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(146, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(31, 34);
+            label1.Name = "label1";
+            label1.Size = new Size(111, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Search(Id / Name):";
+            // 
             // admin_dashboard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             Controls.Add(panel1);
@@ -267,8 +277,9 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "admin_dashboard";
-            Size = new Size(1361, 785);
+            Size = new Size(1191, 589);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
