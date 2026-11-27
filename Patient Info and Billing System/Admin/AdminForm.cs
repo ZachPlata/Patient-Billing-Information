@@ -36,7 +36,12 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnAdminDashboard_Click(object sender, EventArgs e)
         {
+            panelContent.Controls.Clear();
             ActiveButton((Button)sender);
+            borja1 form = new borja1();
+            form.Dock = DockStyle.Fill;
+            panelContent.Controls.Add(form);
+            form.Show();
         }
 
         private void btnUserManagement_Click(object sender, EventArgs e)
@@ -59,7 +64,12 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnALAT_Click(object sender, EventArgs e)
         {
+            panelContent.Controls.Clear();
             ActiveButton((Button)sender);
+            Access_Logs___Audit_Trail form = new Access_Logs___Audit_Trail();
+            form.Dock = DockStyle.Fill;
+            panelContent.Controls.Add(form);
+            form.Show();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -79,8 +89,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-
-
+            btnAdminDashboard.PerformClick();
         }
 
         private void label8_Click(object sender, EventArgs e)

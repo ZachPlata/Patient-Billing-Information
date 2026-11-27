@@ -39,7 +39,7 @@ namespace NurseDashBoard
 
         private void RegPat_BtnAdd_Click(object sender, EventArgs e)
         {
-            // VALIDATES IF U WANT TO SAVE THE RECORD OR NOT
+
             DialogResult answer;
             answer = MessageBox.Show("Do you want to save records?", "Saving Records", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -50,14 +50,14 @@ namespace NurseDashBoard
 
             if (string.IsNullOrWhiteSpace(PatReg_NameTxtBox.Text))
             {
-                //CHECKS PATIENT NAME IF EMPTY OR NOT
+
                 MessageBox.Show("Please enter the patient's name.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 PatReg_NameTxtBox.Focus();
                 return;
 
 
             }
-            //gender selection
+ 
             string gender = "Other";
             if (PatReg_GenderCbox.SelectedIndex == 0)
             {
@@ -68,7 +68,6 @@ namespace NurseDashBoard
                 gender = "Female";
             }
 
-            //Blood type selection
 
             string bloodtype = PatReg_BloodTypeComboBox.Text.Trim();
             if (string.IsNullOrEmpty(bloodtype))
@@ -83,7 +82,7 @@ namespace NurseDashBoard
 
             try // INSERT PATIENT TO DATABASE
             {
-                MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;database=patientbillingdb;password=;");
+                MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;database=metro_care_db;password=;");
                 MySqlCommand cmd = new MySqlCommand();
                 conn.Open();
 

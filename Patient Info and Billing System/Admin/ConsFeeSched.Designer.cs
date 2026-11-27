@@ -29,15 +29,7 @@ namespace Patient_Info_and_Billing_System.Admin
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             cardActiveSchedules = new Panel();
             lblTitleActiveSchedules = new Label();
             lblValActiveSchedules = new Label();
@@ -58,24 +50,25 @@ namespace Patient_Info_and_Billing_System.Admin
             lblValAvgSpecialistFee = new Label();
             pnlIconAvgSpecialistFee = new Panel();
             lblIconAvgSpecialistFee = new Label();
-            panelFilterBar = new Panel();
+            groupBoxForm = new GroupBox();
+            lblScheduleId = new Label();
+            txtScheduleId = new TextBox();
+            lblDoctor = new Label();
+            cmbDoctor = new ComboBox();
+            lblStandardFee = new Label();
+            txtStandardFee = new TextBox();
+            lblFollowUpFee = new Label();
+            txtFollowUpFee = new TextBox();
+            lblScheduleDays = new Label();
+            txtScheduleDays = new TextBox();
+            btnAdd = new Button();
+            btnUpdate = new Button();
+            btnDelete = new Button();
+            btnClear = new Button();
+            btnRefresh = new Button();
             txtSearch = new TextBox();
-            lblFilterSpecialization = new Label();
-            cmbSpecialization = new ComboBox();
-            lblFilterStatus = new Label();
-            cmbStatus = new ComboBox();
-            btnClearFilters = new Button();
             lblShowingEntries = new Label();
             dgvFeeSchedules = new DataGridView();
-            colScheduleCode = new DataGridViewTextBoxColumn();
-            colPhysician = new DataGridViewTextBoxColumn();
-            colSpecialization = new DataGridViewTextBoxColumn();
-            colServiceType = new DataGridViewTextBoxColumn();
-            colStandardFee = new DataGridViewTextBoxColumn();
-            colFollowUpRate = new DataGridViewTextBoxColumn();
-            colClinicShift = new DataGridViewTextBoxColumn();
-            colStatus = new DataGridViewTextBoxColumn();
-            colActions = new DataGridViewTextBoxColumn();
             cardActiveSchedules.SuspendLayout();
             pnlIconActiveSchedules.SuspendLayout();
             cardPediatricSpecs.SuspendLayout();
@@ -84,7 +77,7 @@ namespace Patient_Info_and_Billing_System.Admin
             pnlIconBaseFee.SuspendLayout();
             cardAvgSpecialistFee.SuspendLayout();
             pnlIconAvgSpecialistFee.SuspendLayout();
-            panelFilterBar.SuspendLayout();
+            groupBoxForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvFeeSchedules).BeginInit();
             SuspendLayout();
             // 
@@ -97,7 +90,7 @@ namespace Patient_Info_and_Billing_System.Admin
             cardActiveSchedules.Controls.Add(pnlIconActiveSchedules);
             cardActiveSchedules.Location = new Point(0, 8);
             cardActiveSchedules.Name = "cardActiveSchedules";
-            cardActiveSchedules.Size = new Size(322, 70);
+            cardActiveSchedules.Size = new Size(372, 76);
             cardActiveSchedules.TabIndex = 0;
             // 
             // lblTitleActiveSchedules
@@ -105,7 +98,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblTitleActiveSchedules.AutoSize = true;
             lblTitleActiveSchedules.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitleActiveSchedules.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleActiveSchedules.Location = new Point(12, 10);
+            lblTitleActiveSchedules.Location = new Point(14, 12);
             lblTitleActiveSchedules.Name = "lblTitleActiveSchedules";
             lblTitleActiveSchedules.Size = new Size(97, 12);
             lblTitleActiveSchedules.TabIndex = 0;
@@ -116,7 +109,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblValActiveSchedules.AutoSize = true;
             lblValActiveSchedules.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblValActiveSchedules.ForeColor = Color.FromArgb(15, 23, 42);
-            lblValActiveSchedules.Location = new Point(12, 26);
+            lblValActiveSchedules.Location = new Point(14, 30);
             lblValActiveSchedules.Name = "lblValActiveSchedules";
             lblValActiveSchedules.Size = new Size(28, 32);
             lblValActiveSchedules.TabIndex = 1;
@@ -126,7 +119,7 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             pnlIconActiveSchedules.BackColor = Color.FromArgb(239, 246, 255);
             pnlIconActiveSchedules.Controls.Add(lblIconActiveSchedules);
-            pnlIconActiveSchedules.Location = new Point(266, 13);
+            pnlIconActiveSchedules.Location = new Point(314, 16);
             pnlIconActiveSchedules.Name = "pnlIconActiveSchedules";
             pnlIconActiveSchedules.Size = new Size(42, 42);
             pnlIconActiveSchedules.TabIndex = 2;
@@ -150,9 +143,9 @@ namespace Patient_Info_and_Billing_System.Admin
             cardPediatricSpecs.Controls.Add(lblTitlePediatricSpecs);
             cardPediatricSpecs.Controls.Add(lblValPediatricSpecs);
             cardPediatricSpecs.Controls.Add(pnlIconPediatricSpecs);
-            cardPediatricSpecs.Location = new Point(339, 8);
+            cardPediatricSpecs.Location = new Point(388, 8);
             cardPediatricSpecs.Name = "cardPediatricSpecs";
-            cardPediatricSpecs.Size = new Size(322, 70);
+            cardPediatricSpecs.Size = new Size(372, 76);
             cardPediatricSpecs.TabIndex = 1;
             // 
             // lblTitlePediatricSpecs
@@ -160,7 +153,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblTitlePediatricSpecs.AutoSize = true;
             lblTitlePediatricSpecs.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitlePediatricSpecs.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitlePediatricSpecs.Location = new Point(12, 10);
+            lblTitlePediatricSpecs.Location = new Point(14, 12);
             lblTitlePediatricSpecs.Name = "lblTitlePediatricSpecs";
             lblTitlePediatricSpecs.Size = new Size(141, 12);
             lblTitlePediatricSpecs.TabIndex = 0;
@@ -171,7 +164,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblValPediatricSpecs.AutoSize = true;
             lblValPediatricSpecs.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblValPediatricSpecs.ForeColor = Color.FromArgb(16, 185, 129);
-            lblValPediatricSpecs.Location = new Point(12, 26);
+            lblValPediatricSpecs.Location = new Point(14, 30);
             lblValPediatricSpecs.Name = "lblValPediatricSpecs";
             lblValPediatricSpecs.Size = new Size(28, 32);
             lblValPediatricSpecs.TabIndex = 1;
@@ -181,7 +174,7 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             pnlIconPediatricSpecs.BackColor = Color.FromArgb(236, 253, 245);
             pnlIconPediatricSpecs.Controls.Add(lblIconPediatricSpecs);
-            pnlIconPediatricSpecs.Location = new Point(266, 13);
+            pnlIconPediatricSpecs.Location = new Point(314, 16);
             pnlIconPediatricSpecs.Name = "pnlIconPediatricSpecs";
             pnlIconPediatricSpecs.Size = new Size(42, 42);
             pnlIconPediatricSpecs.TabIndex = 2;
@@ -205,9 +198,9 @@ namespace Patient_Info_and_Billing_System.Admin
             cardBaseFee.Controls.Add(lblTitleBaseFee);
             cardBaseFee.Controls.Add(lblValBaseFee);
             cardBaseFee.Controls.Add(pnlIconBaseFee);
-            cardBaseFee.Location = new Point(678, 8);
+            cardBaseFee.Location = new Point(776, 8);
             cardBaseFee.Name = "cardBaseFee";
-            cardBaseFee.Size = new Size(322, 70);
+            cardBaseFee.Size = new Size(372, 76);
             cardBaseFee.TabIndex = 2;
             // 
             // lblTitleBaseFee
@@ -215,7 +208,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblTitleBaseFee.AutoSize = true;
             lblTitleBaseFee.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitleBaseFee.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleBaseFee.Location = new Point(12, 10);
+            lblTitleBaseFee.Location = new Point(14, 12);
             lblTitleBaseFee.Name = "lblTitleBaseFee";
             lblTitleBaseFee.Size = new Size(128, 12);
             lblTitleBaseFee.TabIndex = 0;
@@ -226,7 +219,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblValBaseFee.AutoSize = true;
             lblValBaseFee.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblValBaseFee.ForeColor = Color.FromArgb(15, 23, 42);
-            lblValBaseFee.Location = new Point(12, 26);
+            lblValBaseFee.Location = new Point(14, 30);
             lblValBaseFee.Name = "lblValBaseFee";
             lblValBaseFee.Size = new Size(50, 32);
             lblValBaseFee.TabIndex = 1;
@@ -236,7 +229,7 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             pnlIconBaseFee.BackColor = Color.FromArgb(239, 246, 255);
             pnlIconBaseFee.Controls.Add(lblIconBaseFee);
-            pnlIconBaseFee.Location = new Point(266, 13);
+            pnlIconBaseFee.Location = new Point(314, 16);
             pnlIconBaseFee.Name = "pnlIconBaseFee";
             pnlIconBaseFee.Size = new Size(42, 42);
             pnlIconBaseFee.TabIndex = 2;
@@ -260,9 +253,9 @@ namespace Patient_Info_and_Billing_System.Admin
             cardAvgSpecialistFee.Controls.Add(lblTitleAvgSpecialistFee);
             cardAvgSpecialistFee.Controls.Add(lblValAvgSpecialistFee);
             cardAvgSpecialistFee.Controls.Add(pnlIconAvgSpecialistFee);
-            cardAvgSpecialistFee.Location = new Point(1017, 8);
+            cardAvgSpecialistFee.Location = new Point(1164, 8);
             cardAvgSpecialistFee.Name = "cardAvgSpecialistFee";
-            cardAvgSpecialistFee.Size = new Size(322, 70);
+            cardAvgSpecialistFee.Size = new Size(373, 76);
             cardAvgSpecialistFee.TabIndex = 3;
             // 
             // lblTitleAvgSpecialistFee
@@ -270,7 +263,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblTitleAvgSpecialistFee.AutoSize = true;
             lblTitleAvgSpecialistFee.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitleAvgSpecialistFee.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleAvgSpecialistFee.Location = new Point(12, 10);
+            lblTitleAvgSpecialistFee.Location = new Point(14, 12);
             lblTitleAvgSpecialistFee.Name = "lblTitleAvgSpecialistFee";
             lblTitleAvgSpecialistFee.Size = new Size(123, 12);
             lblTitleAvgSpecialistFee.TabIndex = 0;
@@ -281,7 +274,7 @@ namespace Patient_Info_and_Billing_System.Admin
             lblValAvgSpecialistFee.AutoSize = true;
             lblValAvgSpecialistFee.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblValAvgSpecialistFee.ForeColor = Color.FromArgb(147, 51, 234);
-            lblValAvgSpecialistFee.Location = new Point(12, 26);
+            lblValAvgSpecialistFee.Location = new Point(14, 30);
             lblValAvgSpecialistFee.Name = "lblValAvgSpecialistFee";
             lblValAvgSpecialistFee.Size = new Size(50, 32);
             lblValAvgSpecialistFee.TabIndex = 1;
@@ -291,7 +284,7 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             pnlIconAvgSpecialistFee.BackColor = Color.FromArgb(250, 245, 255);
             pnlIconAvgSpecialistFee.Controls.Add(lblIconAvgSpecialistFee);
-            pnlIconAvgSpecialistFee.Location = new Point(266, 13);
+            pnlIconAvgSpecialistFee.Location = new Point(315, 16);
             pnlIconAvgSpecialistFee.Name = "pnlIconAvgSpecialistFee";
             pnlIconAvgSpecialistFee.Size = new Size(42, 42);
             pnlIconAvgSpecialistFee.TabIndex = 2;
@@ -308,104 +301,233 @@ namespace Patient_Info_and_Billing_System.Admin
             lblIconAvgSpecialistFee.Text = "🏥";
             lblIconAvgSpecialistFee.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // panelFilterBar
+            // groupBoxForm
             // 
-            panelFilterBar.Controls.Add(txtSearch);
-            panelFilterBar.Controls.Add(lblFilterSpecialization);
-            panelFilterBar.Controls.Add(cmbSpecialization);
-            panelFilterBar.Controls.Add(lblFilterStatus);
-            panelFilterBar.Controls.Add(cmbStatus);
-            panelFilterBar.Controls.Add(btnClearFilters);
-            panelFilterBar.Controls.Add(lblShowingEntries);
-            panelFilterBar.Location = new Point(0, 84);
-            panelFilterBar.Name = "panelFilterBar";
-            panelFilterBar.Size = new Size(1339, 32);
-            panelFilterBar.TabIndex = 4;
+            groupBoxForm.BackColor = Color.White;
+            groupBoxForm.Controls.Add(lblScheduleId);
+            groupBoxForm.Controls.Add(txtScheduleId);
+            groupBoxForm.Controls.Add(lblDoctor);
+            groupBoxForm.Controls.Add(cmbDoctor);
+            groupBoxForm.Controls.Add(lblStandardFee);
+            groupBoxForm.Controls.Add(txtStandardFee);
+            groupBoxForm.Controls.Add(lblFollowUpFee);
+            groupBoxForm.Controls.Add(txtFollowUpFee);
+            groupBoxForm.Controls.Add(lblScheduleDays);
+            groupBoxForm.Controls.Add(txtScheduleDays);
+            groupBoxForm.Controls.Add(btnAdd);
+            groupBoxForm.Controls.Add(btnUpdate);
+            groupBoxForm.Controls.Add(btnDelete);
+            groupBoxForm.Controls.Add(btnClear);
+            groupBoxForm.Controls.Add(btnRefresh);
+            groupBoxForm.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBoxForm.ForeColor = Color.FromArgb(15, 23, 42);
+            groupBoxForm.Location = new Point(0, 86);
+            groupBoxForm.Name = "groupBoxForm";
+            groupBoxForm.Size = new Size(410, 462);
+            groupBoxForm.TabIndex = 4;
+            groupBoxForm.TabStop = false;
+            groupBoxForm.Text = "Consultation Fee Schedule Details";
+            // 
+            // lblScheduleId
+            // 
+            lblScheduleId.AutoSize = true;
+            lblScheduleId.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblScheduleId.ForeColor = Color.FromArgb(71, 85, 105);
+            lblScheduleId.Location = new Point(16, 24);
+            lblScheduleId.Name = "lblScheduleId";
+            lblScheduleId.Size = new Size(73, 15);
+            lblScheduleId.TabIndex = 0;
+            lblScheduleId.Text = "Schedule ID";
+            // 
+            // txtScheduleId
+            // 
+            txtScheduleId.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtScheduleId.Location = new Point(16, 42);
+            txtScheduleId.Name = "txtScheduleId";
+            txtScheduleId.ReadOnly = true;
+            txtScheduleId.Size = new Size(378, 24);
+            txtScheduleId.TabIndex = 1;
+            // 
+            // lblDoctor
+            // 
+            lblDoctor.AutoSize = true;
+            lblDoctor.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDoctor.ForeColor = Color.FromArgb(71, 85, 105);
+            lblDoctor.Location = new Point(16, 74);
+            lblDoctor.Name = "lblDoctor";
+            lblDoctor.Size = new Size(122, 15);
+            lblDoctor.TabIndex = 2;
+            lblDoctor.Text = "Attending Physician";
+            // 
+            // cmbDoctor
+            // 
+            cmbDoctor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbDoctor.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbDoctor.FormattingEnabled = true;
+            cmbDoctor.Location = new Point(16, 92);
+            cmbDoctor.Name = "cmbDoctor";
+            cmbDoctor.Size = new Size(378, 24);
+            cmbDoctor.TabIndex = 3;
+            // 
+            // lblStandardFee
+            // 
+            lblStandardFee.AutoSize = true;
+            lblStandardFee.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStandardFee.ForeColor = Color.FromArgb(71, 85, 105);
+            lblStandardFee.Location = new Point(16, 124);
+            lblStandardFee.Name = "lblStandardFee";
+            lblStandardFee.Size = new Size(99, 15);
+            lblStandardFee.TabIndex = 4;
+            lblStandardFee.Text = "Standard Fee (₱)";
+            // 
+            // txtStandardFee
+            // 
+            txtStandardFee.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtStandardFee.Location = new Point(16, 142);
+            txtStandardFee.Name = "txtStandardFee";
+            txtStandardFee.Size = new Size(182, 24);
+            txtStandardFee.TabIndex = 5;
+            // 
+            // lblFollowUpFee
+            // 
+            lblFollowUpFee.AutoSize = true;
+            lblFollowUpFee.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFollowUpFee.ForeColor = Color.FromArgb(71, 85, 105);
+            lblFollowUpFee.Location = new Point(212, 124);
+            lblFollowUpFee.Name = "lblFollowUpFee";
+            lblFollowUpFee.Size = new Size(102, 15);
+            lblFollowUpFee.TabIndex = 6;
+            lblFollowUpFee.Text = "Follow-Up Fee (₱)";
+            // 
+            // txtFollowUpFee
+            // 
+            txtFollowUpFee.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtFollowUpFee.Location = new Point(212, 142);
+            txtFollowUpFee.Name = "txtFollowUpFee";
+            txtFollowUpFee.Size = new Size(182, 24);
+            txtFollowUpFee.TabIndex = 7;
+            // 
+            // lblScheduleDays
+            // 
+            lblScheduleDays.AutoSize = true;
+            lblScheduleDays.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblScheduleDays.ForeColor = Color.FromArgb(71, 85, 105);
+            lblScheduleDays.Location = new Point(16, 174);
+            lblScheduleDays.Name = "lblScheduleDays";
+            lblScheduleDays.Size = new Size(88, 15);
+            lblScheduleDays.TabIndex = 8;
+            lblScheduleDays.Text = "Schedule Days";
+            // 
+            // txtScheduleDays
+            // 
+            txtScheduleDays.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtScheduleDays.Location = new Point(16, 192);
+            txtScheduleDays.Name = "txtScheduleDays";
+            txtScheduleDays.Size = new Size(378, 24);
+            txtScheduleDays.TabIndex = 9;
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.FromArgb(37, 99, 235);
+            btnAdd.Cursor = Cursors.Hand;
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.White;
+            btnAdd.Location = new Point(16, 304);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(182, 36);
+            btnAdd.TabIndex = 10;
+            btnAdd.Text = "+ Add Fee Schedule";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.BackColor = Color.White;
+            btnUpdate.Cursor = Cursors.Hand;
+            btnUpdate.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdate.ForeColor = Color.FromArgb(51, 65, 85);
+            btnUpdate.Location = new Point(212, 304);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(182, 36);
+            btnUpdate.TabIndex = 11;
+            btnUpdate.Text = "Edit / Update";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.White;
+            btnDelete.Cursor = Cursors.Hand;
+            btnDelete.FlatAppearance.BorderColor = Color.FromArgb(252, 165, 165);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDelete.ForeColor = Color.FromArgb(220, 38, 38);
+            btnDelete.Location = new Point(16, 350);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(182, 36);
+            btnDelete.TabIndex = 12;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.BackColor = Color.White;
+            btnClear.Cursor = Cursors.Hand;
+            btnClear.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClear.ForeColor = Color.FromArgb(51, 65, 85);
+            btnClear.Location = new Point(212, 350);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(182, 36);
+            btnClear.TabIndex = 13;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.White;
+            btnRefresh.Cursor = Cursors.Hand;
+            btnRefresh.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.ForeColor = Color.FromArgb(51, 65, 85);
+            btnRefresh.Location = new Point(16, 396);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(378, 36);
+            btnRefresh.TabIndex = 14;
+            btnRefresh.Text = "⟳  Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // txtSearch
             // 
             txtSearch.BackColor = Color.White;
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSearch.ForeColor = Color.FromArgb(51, 65, 85);
-            txtSearch.Location = new Point(0, 3);
+            txtSearch.Location = new Point(426, 88);
             txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "🔍  Search brand, generic, or drug code...";
-            txtSearch.Size = new Size(250, 23);
-            txtSearch.TabIndex = 0;
-            // 
-            // lblFilterSpecialization
-            // 
-            lblFilterSpecialization.AutoSize = true;
-            lblFilterSpecialization.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFilterSpecialization.ForeColor = Color.FromArgb(71, 85, 105);
-            lblFilterSpecialization.Location = new Point(265, 6);
-            lblFilterSpecialization.Name = "lblFilterSpecialization";
-            lblFilterSpecialization.Size = new Size(86, 15);
-            lblFilterSpecialization.TabIndex = 1;
-            lblFilterSpecialization.Text = "Specialization:";
-            // 
-            // cmbSpecialization
-            // 
-            cmbSpecialization.BackColor = Color.White;
-            cmbSpecialization.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbSpecialization.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbSpecialization.FormattingEnabled = true;
-            cmbSpecialization.Items.AddRange(new object[] { "ALL", "General Pediatrics", "Neonatology & Perinatology", "Pediatric Pulmonology", "Pediatric Cardiology", "Pediatric Surgery", "Pediatric Emergency Medicine" });
-            cmbSpecialization.Location = new Point(358, 3);
-            cmbSpecialization.Name = "cmbSpecialization";
-            cmbSpecialization.Size = new Size(130, 23);
-            cmbSpecialization.TabIndex = 2;
-            // 
-            // lblFilterStatus
-            // 
-            lblFilterStatus.AutoSize = true;
-            lblFilterStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFilterStatus.ForeColor = Color.FromArgb(71, 85, 105);
-            lblFilterStatus.Location = new Point(498, 6);
-            lblFilterStatus.Name = "lblFilterStatus";
-            lblFilterStatus.Size = new Size(45, 15);
-            lblFilterStatus.TabIndex = 3;
-            lblFilterStatus.Text = "Status:";
-            // 
-            // cmbStatus
-            // 
-            cmbStatus.BackColor = Color.White;
-            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbStatus.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbStatus.FormattingEnabled = true;
-            cmbStatus.Items.AddRange(new object[] { "ALL", "Active", "Inactive" });
-            cmbStatus.Location = new Point(548, 3);
-            cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(95, 23);
-            cmbStatus.TabIndex = 4;
-            // 
-            // btnClearFilters
-            // 
-            btnClearFilters.BackColor = Color.Transparent;
-            btnClearFilters.Cursor = Cursors.Hand;
-            btnClearFilters.FlatAppearance.BorderSize = 0;
-            btnClearFilters.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnClearFilters.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnClearFilters.FlatStyle = FlatStyle.Flat;
-            btnClearFilters.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClearFilters.ForeColor = Color.FromArgb(100, 116, 139);
-            btnClearFilters.Location = new Point(650, 2);
-            btnClearFilters.Name = "btnClearFilters";
-            btnClearFilters.Size = new Size(70, 25);
-            btnClearFilters.TabIndex = 5;
-            btnClearFilters.Text = "↺ Clear";
-            btnClearFilters.UseVisualStyleBackColor = false;
+            txtSearch.PlaceholderText = "🔍  Search doctor name, specialization, or days...";
+            txtSearch.Size = new Size(380, 24);
+            txtSearch.TabIndex = 5;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // lblShowingEntries
             // 
             lblShowingEntries.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblShowingEntries.ForeColor = Color.FromArgb(100, 116, 139);
-            lblShowingEntries.Location = new Point(1150, 6);
+            lblShowingEntries.Location = new Point(1348, 92);
             lblShowingEntries.Name = "lblShowingEntries";
             lblShowingEntries.Size = new Size(189, 18);
             lblShowingEntries.TabIndex = 6;
-            lblShowingEntries.Text = "Showing 7 formulary entries";
+            lblShowingEntries.Text = "Showing 0 entries";
             lblShowingEntries.TextAlign = ContentAlignment.TopRight;
             // 
             // dgvFeeSchedules
@@ -413,149 +535,59 @@ namespace Patient_Info_and_Billing_System.Admin
             dgvFeeSchedules.AllowUserToAddRows = false;
             dgvFeeSchedules.AllowUserToDeleteRows = false;
             dgvFeeSchedules.AllowUserToResizeRows = false;
+            dgvFeeSchedules.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFeeSchedules.BackgroundColor = Color.White;
-            dgvFeeSchedules.BorderStyle = BorderStyle.None;
+            dgvFeeSchedules.BorderStyle = BorderStyle.FixedSingle;
             dgvFeeSchedules.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvFeeSchedules.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(100, 116, 139);
             dataGridViewCellStyle1.Padding = new Padding(8, 0, 0, 0);
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(248, 250, 252);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(100, 116, 139);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvFeeSchedules.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvFeeSchedules.ColumnHeadersHeight = 36;
+            dgvFeeSchedules.ColumnHeadersHeight = 40;
             dgvFeeSchedules.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvFeeSchedules.Columns.AddRange(new DataGridViewColumn[] { colScheduleCode, colPhysician, colSpecialization, colServiceType, colStandardFee, colFollowUpRate, colClinicShift, colStatus, colActions });
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.White;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle10.ForeColor = Color.FromArgb(15, 23, 42);
-            dataGridViewCellStyle10.Padding = new Padding(8, 0, 0, 0);
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(239, 246, 255);
-            dataGridViewCellStyle10.SelectionForeColor = Color.FromArgb(15, 23, 42);
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            dgvFeeSchedules.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(15, 23, 42);
+            dataGridViewCellStyle2.Padding = new Padding(8, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(239, 246, 255);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(15, 23, 42);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvFeeSchedules.DefaultCellStyle = dataGridViewCellStyle2;
             dgvFeeSchedules.EnableHeadersVisualStyles = false;
             dgvFeeSchedules.GridColor = Color.FromArgb(241, 245, 249);
-            dgvFeeSchedules.Location = new Point(0, 122);
+            dgvFeeSchedules.Location = new Point(426, 120);
             dgvFeeSchedules.MultiSelect = false;
             dgvFeeSchedules.Name = "dgvFeeSchedules";
             dgvFeeSchedules.ReadOnly = true;
             dgvFeeSchedules.RowHeadersVisible = false;
-            dgvFeeSchedules.RowHeadersWidth = 51;
-            dgvFeeSchedules.RowTemplate.Height = 42;
+            dgvFeeSchedules.RowTemplate.Height = 40;
             dgvFeeSchedules.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvFeeSchedules.Size = new Size(1339, 350);
-            dgvFeeSchedules.TabIndex = 5;
-            // 
-            // colScheduleCode
-            // 
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(37, 99, 235);
-            colScheduleCode.DefaultCellStyle = dataGridViewCellStyle2;
-            colScheduleCode.HeaderText = "SCHEDULE CODE";
-            colScheduleCode.MinimumWidth = 6;
-            colScheduleCode.Name = "colScheduleCode";
-            colScheduleCode.ReadOnly = true;
-            colScheduleCode.Width = 130;
-            // 
-            // colPhysician
-            // 
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(15, 23, 42);
-            colPhysician.DefaultCellStyle = dataGridViewCellStyle3;
-            colPhysician.HeaderText = "ATTENDING PHYSICIAN";
-            colPhysician.MinimumWidth = 6;
-            colPhysician.Name = "colPhysician";
-            colPhysician.ReadOnly = true;
-            colPhysician.Width = 220;
-            // 
-            // colSpecialization
-            // 
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(51, 65, 85);
-            colSpecialization.DefaultCellStyle = dataGridViewCellStyle4;
-            colSpecialization.HeaderText = "SPECIALIZATION";
-            colSpecialization.MinimumWidth = 6;
-            colSpecialization.Name = "colSpecialization";
-            colSpecialization.ReadOnly = true;
-            colSpecialization.Width = 190;
-            // 
-            // colServiceType
-            // 
-            colServiceType.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(37, 99, 235);
-            colServiceType.DefaultCellStyle = dataGridViewCellStyle5;
-            colServiceType.HeaderText = "CONSULTATION SERVICE TYPE";
-            colServiceType.MinimumWidth = 6;
-            colServiceType.Name = "colServiceType";
-            colServiceType.ReadOnly = true;
-            // 
-            // colStandardFee
-            // 
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(15, 23, 42);
-            colStandardFee.DefaultCellStyle = dataGridViewCellStyle6;
-            colStandardFee.HeaderText = "STANDARD FEE (₱)";
-            colStandardFee.MinimumWidth = 6;
-            colStandardFee.Name = "colStandardFee";
-            colStandardFee.ReadOnly = true;
-            colStandardFee.Width = 130;
-            // 
-            // colFollowUpRate
-            // 
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(71, 85, 105);
-            colFollowUpRate.DefaultCellStyle = dataGridViewCellStyle7;
-            colFollowUpRate.HeaderText = "FOLLOW-UP RATE (₱)";
-            colFollowUpRate.MinimumWidth = 6;
-            colFollowUpRate.Name = "colFollowUpRate";
-            colFollowUpRate.ReadOnly = true;
-            colFollowUpRate.Width = 140;
-            // 
-            // colClinicShift
-            // 
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(71, 85, 105);
-            colClinicShift.DefaultCellStyle = dataGridViewCellStyle8;
-            colClinicShift.HeaderText = "CLINIC SHIFT";
-            colClinicShift.MinimumWidth = 6;
-            colClinicShift.Name = "colClinicShift";
-            colClinicShift.ReadOnly = true;
-            colClinicShift.Width = 180;
-            // 
-            // colStatus
-            // 
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colStatus.DefaultCellStyle = dataGridViewCellStyle9;
-            colStatus.HeaderText = "STATUS";
-            colStatus.MinimumWidth = 6;
-            colStatus.Name = "colStatus";
-            colStatus.ReadOnly = true;
-            colStatus.Width = 95;
-            // 
-            // colActions
-            // 
-            colActions.HeaderText = "ACTIONS";
-            colActions.MinimumWidth = 6;
-            colActions.Name = "colActions";
-            colActions.ReadOnly = true;
-            colActions.Width = 80;
+            dgvFeeSchedules.Size = new Size(1111, 428);
+            dgvFeeSchedules.TabIndex = 7;
+            dgvFeeSchedules.CellClick += dgvFeeSchedules_CellClick;
             // 
             // ConsFeeSched
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            Controls.Add(panelFilterBar);
-            Controls.Add(cardAvgSpecialistFee);
+            BackColor = Color.FromArgb(248, 250, 252);
             Controls.Add(cardActiveSchedules);
-            Controls.Add(dgvFeeSchedules);
             Controls.Add(cardPediatricSpecs);
             Controls.Add(cardBaseFee);
+            Controls.Add(cardAvgSpecialistFee);
+            Controls.Add(groupBoxForm);
+            Controls.Add(txtSearch);
+            Controls.Add(lblShowingEntries);
+            Controls.Add(dgvFeeSchedules);
             Name = "ConsFeeSched";
-            Size = new Size(1339, 479);
+            Size = new Size(1537, 558);
             cardActiveSchedules.ResumeLayout(false);
             cardActiveSchedules.PerformLayout();
             pnlIconActiveSchedules.ResumeLayout(false);
@@ -568,10 +600,11 @@ namespace Patient_Info_and_Billing_System.Admin
             cardAvgSpecialistFee.ResumeLayout(false);
             cardAvgSpecialistFee.PerformLayout();
             pnlIconAvgSpecialistFee.ResumeLayout(false);
-            panelFilterBar.ResumeLayout(false);
-            panelFilterBar.PerformLayout();
+            groupBoxForm.ResumeLayout(false);
+            groupBoxForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvFeeSchedules).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -596,23 +629,24 @@ namespace Patient_Info_and_Billing_System.Admin
         private Label lblValAvgSpecialistFee;
         private Panel pnlIconAvgSpecialistFee;
         private Label lblIconAvgSpecialistFee;
-        private Panel panelFilterBar;
+        private GroupBox groupBoxForm;
+        private Label lblScheduleId;
+        private TextBox txtScheduleId;
+        private Label lblDoctor;
+        private ComboBox cmbDoctor;
+        private Label lblStandardFee;
+        private TextBox txtStandardFee;
+        private Label lblFollowUpFee;
+        private TextBox txtFollowUpFee;
+        private Label lblScheduleDays;
+        private TextBox txtScheduleDays;
+        private Button btnAdd;
+        private Button btnUpdate;
+        private Button btnDelete;
+        private Button btnClear;
+        private Button btnRefresh;
         private TextBox txtSearch;
-        private Label lblFilterSpecialization;
-        private ComboBox cmbSpecialization;
-        private Label lblFilterStatus;
-        private ComboBox cmbStatus;
-        private Button btnClearFilters;
         private Label lblShowingEntries;
         private DataGridView dgvFeeSchedules;
-        private DataGridViewTextBoxColumn colScheduleCode;
-        private DataGridViewTextBoxColumn colPhysician;
-        private DataGridViewTextBoxColumn colSpecialization;
-        private DataGridViewTextBoxColumn colServiceType;
-        private DataGridViewTextBoxColumn colStandardFee;
-        private DataGridViewTextBoxColumn colFollowUpRate;
-        private DataGridViewTextBoxColumn colClinicShift;
-        private DataGridViewTextBoxColumn colStatus;
-        private DataGridViewTextBoxColumn colActions;
     }
 }
