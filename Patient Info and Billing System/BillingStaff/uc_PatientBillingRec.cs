@@ -56,7 +56,7 @@ namespace Patient_Info_and_Billing_System
                 conn.Open();
                 cmd.Connection = conn;
 
-                // 1. Billing Records (filtered by visit date if clicked)
+
                 if (visitDate == "")
                 {
                     cmd.CommandText = "SELECT bill_id, billing_status, total_amount, amount_paid, remaining_balance, DATE_FORMAT(created_at, '%Y-%m-%d') AS bill_date FROM BillingRecords WHERE patient_id = '" + patientId + "' ORDER BY created_at DESC";
@@ -85,7 +85,7 @@ namespace Patient_Info_and_Billing_System
                 }
                 reader.Close();
 
-                // 2. Equipment & Drugs Used from Patient Utilization (BillingLineItems)
+
                 if (visitDate == "")
                 {
                     cmd.CommandText = "SELECT li.item_type, li.description, li.quantity, li.unit_price, li.subtotal FROM BillingLineItems li INNER JOIN BillingRecords b ON li.bill_id = b.bill_id WHERE b.patient_id = '" + patientId + "' ORDER BY li.item_id DESC";
@@ -252,6 +252,11 @@ namespace Patient_Info_and_Billing_System
             lstVisitHistory.Items.Clear();
             txtBillings.Clear();
             txtEquipmentUsed.Clear();
+        }
+
+        private void lblTableTitle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
