@@ -1,4 +1,4 @@
-﻿namespace Patient_Info_and_Billing_System.Admin
+namespace Patient_Info_and_Billing_System.Admin
 {
     partial class borja1
     {
@@ -113,7 +113,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(50, 19);
+            label10.Location = new Point(50, 58);
             label10.Name = "label10";
             label10.Size = new Size(233, 38);
             label10.TabIndex = 1;
@@ -146,7 +146,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Gold;
-            label5.Location = new Point(56, 19);
+            label5.Location = new Point(56, 58);
             label5.Name = "label5";
             label5.Size = new Size(233, 38);
             label5.TabIndex = 3;
@@ -177,7 +177,7 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Black", 16.2F);
             label13.ForeColor = Color.RoyalBlue;
-            label13.Location = new Point(55, 18);
+            label13.Location = new Point(55, 58);
             label13.Name = "label13";
             label13.Size = new Size(233, 38);
             label13.TabIndex = 5;
@@ -293,7 +293,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Green;
-            label6.Location = new Point(55, 16);
+            label6.Location = new Point(55, 58);
             label6.Name = "label6";
             label6.Size = new Size(233, 38);
             label6.TabIndex = 7;

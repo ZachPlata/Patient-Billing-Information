@@ -12,13 +12,7 @@ namespace NurseDashBoard
         public Nurse()
         {
             InitializeComponent();
-            uc_dashboard frm = new uc_dashboard();
-            panelContent.Controls.Clear();
-            panelContent.Controls.Add(frm);
-            frm.Show();
-            SetActiveButton(btn_nursedash); // goes to ucdash automatically
         }
-
 
 
         //changes color of the button when clicked
