@@ -111,13 +111,14 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             // label10
             // 
-            label10.AutoSize = true;
+            label10.AutoSize = false;
             label10.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(50, 58);
+            label10.Location = new Point(0, 58);
             label10.Name = "label10";
-            label10.Size = new Size(233, 38);
+            label10.Size = new Size(340, 45);
             label10.TabIndex = 1;
             label10.Text = "__________________";
+            label10.TextAlign = ContentAlignment.MiddleCenter;
             label10.Click += label10_Click;
             // 
             // panel5
@@ -143,14 +144,15 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             // label5
             // 
-            label5.AutoSize = true;
+            label5.AutoSize = false;
             label5.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Gold;
-            label5.Location = new Point(56, 58);
+            label5.Location = new Point(0, 58);
             label5.Name = "label5";
-            label5.Size = new Size(233, 38);
+            label5.Size = new Size(340, 45);
             label5.TabIndex = 3;
             label5.Text = "__________________";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel8
             // 
@@ -174,14 +176,15 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             // label13
             // 
-            label13.AutoSize = true;
+            label13.AutoSize = false;
             label13.Font = new Font("Segoe UI Black", 16.2F);
             label13.ForeColor = Color.RoyalBlue;
-            label13.Location = new Point(55, 58);
+            label13.Location = new Point(0, 58);
             label13.Name = "label13";
-            label13.Size = new Size(233, 38);
+            label13.Size = new Size(340, 45);
             label13.TabIndex = 5;
             label13.Text = "__________________";
+            label13.TextAlign = ContentAlignment.MiddleCenter;
             label13.Click += label13_Click;
             // 
             // panel7
@@ -290,14 +293,15 @@ namespace Patient_Info_and_Billing_System.Admin
             // 
             // label6
             // 
-            label6.AutoSize = true;
+            label6.AutoSize = false;
             label6.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Green;
-            label6.Location = new Point(55, 58);
+            label6.Location = new Point(0, 58);
             label6.Name = "label6";
-            label6.Size = new Size(233, 38);
+            label6.Size = new Size(340, 45);
             label6.TabIndex = 7;
             label6.Text = "__________________";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
