@@ -161,6 +161,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         void clearFields()
         {
+            errorProvider1.Clear();
             txtScheduleId.Clear();
             cmbDoctor.Enabled = true;
             if (cmbDoctor.Items.Count > 0)
@@ -178,25 +179,52 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+
             if (cmbDoctor.SelectedIndex < 0)
             {
-                MessageBox.Show("Please select an Attending Physician.");
+                errorProvider1.SetError(cmbDoctor, "Please select an Attending Physician.");
+                cmbDoctor.Focus();
                 return;
             }
-
-            if (txtStandardFee.Text.Trim() == "" || txtFollowUpFee.Text.Trim() == "" || txtScheduleDays.Text.Trim() == "")
+            else
             {
-                MessageBox.Show("Please fill in all required fields.");
-                return;
+                errorProvider1.Clear();
             }
 
             decimal stdFee = 0;
-            decimal followFee = 0;
-            if (!decimal.TryParse(txtStandardFee.Text.Trim(), out stdFee) || stdFee < 0 ||
-                !decimal.TryParse(txtFollowUpFee.Text.Trim(), out followFee) || followFee < 0)
+            if (!decimal.TryParse(txtStandardFee.Text.Trim(), out stdFee) || stdFee < 0)
             {
-                MessageBox.Show("Please enter valid non-negative fee amounts.");
+                errorProvider1.SetError(txtStandardFee, "Please enter a valid non-negative Standard Fee.");
+                txtStandardFee.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            decimal followFee = 0;
+            if (!decimal.TryParse(txtFollowUpFee.Text.Trim(), out followFee) || followFee < 0)
+            {
+                errorProvider1.SetError(txtFollowUpFee, "Please enter a valid non-negative Follow-Up Fee.");
+                txtFollowUpFee.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtScheduleDays.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtScheduleDays, "Schedule Days is required.");
+                txtScheduleDays.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -245,25 +273,52 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+
             if (txtScheduleId.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a record from the table first.");
+                errorProvider1.SetError(txtScheduleId, "Please select a record from the table first.");
+                txtScheduleId.Focus();
                 return;
             }
-
-            if (txtStandardFee.Text.Trim() == "" || txtFollowUpFee.Text.Trim() == "" || txtScheduleDays.Text.Trim() == "")
+            else
             {
-                MessageBox.Show("Please fill in all required fields.");
-                return;
+                errorProvider1.Clear();
             }
 
             decimal stdFee = 0;
-            decimal followFee = 0;
-            if (!decimal.TryParse(txtStandardFee.Text.Trim(), out stdFee) || stdFee < 0 ||
-                !decimal.TryParse(txtFollowUpFee.Text.Trim(), out followFee) || followFee < 0)
+            if (!decimal.TryParse(txtStandardFee.Text.Trim(), out stdFee) || stdFee < 0)
             {
-                MessageBox.Show("Please enter valid non-negative fee amounts.");
+                errorProvider1.SetError(txtStandardFee, "Please enter a valid non-negative Standard Fee.");
+                txtStandardFee.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            decimal followFee = 0;
+            if (!decimal.TryParse(txtFollowUpFee.Text.Trim(), out followFee) || followFee < 0)
+            {
+                errorProvider1.SetError(txtFollowUpFee, "Please enter a valid non-negative Follow-Up Fee.");
+                txtFollowUpFee.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtScheduleDays.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtScheduleDays, "Schedule Days is required.");
+                txtScheduleDays.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -310,10 +365,17 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+
             if (txtScheduleId.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a record to delete.");
+                errorProvider1.SetError(txtScheduleId, "Please select a record to delete.");
+                txtScheduleId.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -368,8 +430,13 @@ namespace Patient_Info_and_Billing_System.Admin
             loaddata();
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtSearch.Text.Trim() == "")
+            {
+                loaddata();
+                return;
+            }
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();

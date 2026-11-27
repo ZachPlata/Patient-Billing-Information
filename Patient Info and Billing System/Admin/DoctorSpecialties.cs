@@ -142,6 +142,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         void clearFields()
         {
+            errorProvider1.Clear();
             txtSpecialtyId.Clear();
             txtSpecialtyName.Clear();
             txtDescription.Clear();
@@ -151,10 +152,17 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+
             if (txtSpecialtyName.Text.Trim() == "")
             {
-                MessageBox.Show("Please enter a Specialty Name.");
+                errorProvider1.SetError(txtSpecialtyName, "Specialty Name is required.");
+                txtSpecialtyName.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -206,10 +214,28 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtSpecialtyId.Text.Trim() == "" || txtSpecialtyName.Text.Trim() == "")
+            errorProvider1.Clear();
+
+            if (txtSpecialtyId.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a record from the table first.");
+                errorProvider1.SetError(txtSpecialtyId, "Please select a record from the table first.");
+                txtSpecialtyId.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtSpecialtyName.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtSpecialtyName, "Specialty Name is required.");
+                txtSpecialtyName.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -262,10 +288,17 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+
             if (txtSpecialtyId.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a record to delete.");
+                errorProvider1.SetError(txtSpecialtyId, "Please select a record to delete.");
+                txtSpecialtyId.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -319,8 +352,13 @@ namespace Patient_Info_and_Billing_System.Admin
             loaddata();
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtSearch.Text.Trim() == "")
+            {
+                loaddata();
+                return;
+            }
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();

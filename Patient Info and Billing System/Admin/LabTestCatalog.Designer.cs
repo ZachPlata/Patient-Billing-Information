@@ -28,6 +28,7 @@ namespace Patient_Info_and_Billing_System.Admin
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             cardCatalogedTests = new Panel();
@@ -69,8 +70,10 @@ namespace Patient_Info_and_Billing_System.Admin
             btnClear = new Button();
             btnRefresh = new Button();
             txtSearch = new TextBox();
+            btnSearch = new Button();
             lblShowingEntries = new Label();
             dgvLabTests = new DataGridView();
+            errorProvider1 = new ErrorProvider(components);
             cardCatalogedTests.SuspendLayout();
             pnlIconCatalogedTests.SuspendLayout();
             cardActivePanels.SuspendLayout();
@@ -81,6 +84,7 @@ namespace Patient_Info_and_Billing_System.Admin
             pnlIconAvgTariff.SuspendLayout();
             groupBoxForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLabTests).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // cardCatalogedTests
@@ -540,9 +544,24 @@ namespace Patient_Info_and_Billing_System.Admin
             txtSearch.Location = new Point(426, 88);
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "🔍  Search test code, test name, or category...";
-            txtSearch.Size = new Size(380, 24);
+            txtSearch.Size = new Size(320, 24);
             txtSearch.TabIndex = 5;
-            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.FromArgb(37, 99, 235);
+            btnSearch.Cursor = Cursors.Hand;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(754, 87);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(90, 26);
+            btnSearch.TabIndex = 8;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // lblShowingEntries
             // 
@@ -598,6 +617,10 @@ namespace Patient_Info_and_Billing_System.Admin
             dgvLabTests.TabIndex = 7;
             dgvLabTests.CellClick += dgvLabTests_CellClick;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // LabTestCatalog
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -609,6 +632,7 @@ namespace Patient_Info_and_Billing_System.Admin
             Controls.Add(cardAvgTariff);
             Controls.Add(groupBoxForm);
             Controls.Add(txtSearch);
+            Controls.Add(btnSearch);
             Controls.Add(lblShowingEntries);
             Controls.Add(dgvLabTests);
             Name = "LabTestCatalog";
@@ -628,6 +652,7 @@ namespace Patient_Info_and_Billing_System.Admin
             groupBoxForm.ResumeLayout(false);
             groupBoxForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLabTests).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -673,7 +698,9 @@ namespace Patient_Info_and_Billing_System.Admin
         private Button btnClear;
         private Button btnRefresh;
         private TextBox txtSearch;
+        private Button btnSearch;
         private Label lblShowingEntries;
         private DataGridView dgvLabTests;
+        private ErrorProvider errorProvider1;
     }
 }

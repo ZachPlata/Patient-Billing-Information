@@ -95,6 +95,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         void clearFields()
         {
+            errorProvider1.Clear();
             txtMedCode.Clear();
             txtMedCode.ReadOnly = false;
             txtMedName.Clear();
@@ -108,19 +109,74 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtMedCode.Text.Trim() == "" || txtMedName.Text.Trim() == "" || txtDosageUnit.Text.Trim() == "" || txtCategory.Text.Trim() == "" || txtUnitPrice.Text.Trim() == "" || txtStockQty.Text.Trim() == "")
+            errorProvider1.Clear();
+
+            if (txtMedCode.Text.Trim() == "")
             {
-                MessageBox.Show("Please fill in all required fields.");
+                errorProvider1.SetError(txtMedCode, "Medicine Code is required.");
+                txtMedCode.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtMedName.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtMedName, "Medicine Name is required.");
+                txtMedName.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtDosageUnit.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtDosageUnit, "Dosage Unit is required.");
+                txtDosageUnit.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtCategory.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtCategory, "Category is required.");
+                txtCategory.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             decimal priceValue = 0;
-            int stockValue = 0;
-            if (!decimal.TryParse(txtUnitPrice.Text.Trim(), out priceValue) || priceValue < 0 ||
-                !int.TryParse(txtStockQty.Text.Trim(), out stockValue) || stockValue < 0)
+            if (!decimal.TryParse(txtUnitPrice.Text.Trim(), out priceValue) || priceValue < 0)
             {
-                MessageBox.Show("Please enter valid non-negative Price and Stock Quantity.");
+                errorProvider1.SetError(txtUnitPrice, "Please enter a valid non-negative Price.");
+                txtUnitPrice.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            int stockValue = 0;
+            if (!int.TryParse(txtStockQty.Text.Trim(), out stockValue) || stockValue < 0)
+            {
+                errorProvider1.SetError(txtStockQty, "Please enter a valid non-negative Stock Quantity.");
+                txtStockQty.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -176,19 +232,74 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtMedCode.Text.Trim() == "" || txtMedName.Text.Trim() == "" || txtDosageUnit.Text.Trim() == "" || txtCategory.Text.Trim() == "" || txtUnitPrice.Text.Trim() == "" || txtStockQty.Text.Trim() == "")
+            errorProvider1.Clear();
+
+            if (txtMedCode.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a record from the table first.");
+                errorProvider1.SetError(txtMedCode, "Please select a record from the table first.");
+                txtMedCode.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtMedName.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtMedName, "Medicine Name is required.");
+                txtMedName.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtDosageUnit.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtDosageUnit, "Dosage Unit is required.");
+                txtDosageUnit.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtCategory.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtCategory, "Category is required.");
+                txtCategory.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             decimal priceValue = 0;
-            int stockValue = 0;
-            if (!decimal.TryParse(txtUnitPrice.Text.Trim(), out priceValue) || priceValue < 0 ||
-                !int.TryParse(txtStockQty.Text.Trim(), out stockValue) || stockValue < 0)
+            if (!decimal.TryParse(txtUnitPrice.Text.Trim(), out priceValue) || priceValue < 0)
             {
-                MessageBox.Show("Please enter valid non-negative Price and Stock Quantity.");
+                errorProvider1.SetError(txtUnitPrice, "Please enter a valid non-negative Price.");
+                txtUnitPrice.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            int stockValue = 0;
+            if (!int.TryParse(txtStockQty.Text.Trim(), out stockValue) || stockValue < 0)
+            {
+                errorProvider1.SetError(txtStockQty, "Please enter a valid non-negative Stock Quantity.");
+                txtStockQty.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -244,10 +355,17 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+
             if (txtMedCode.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a record to delete.");
+                errorProvider1.SetError(txtMedCode, "Please select a record to delete.");
+                txtMedCode.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -301,8 +419,13 @@ namespace Patient_Info_and_Billing_System.Admin
             loaddata();
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtSearch.Text.Trim() == "")
+            {
+                loaddata();
+                return;
+            }
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();
