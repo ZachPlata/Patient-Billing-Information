@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             panel1 = new Panel();
             panel4 = new Panel();
             label11 = new Label();
@@ -50,18 +52,19 @@
             label14 = new Label();
             label6 = new Label();
             panel3 = new Panel();
+            panel12 = new Panel();
+            button1 = new Button();
+            button4 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            panel6 = new Panel();
+            label9 = new Label();
             dataGridView1 = new DataGridView();
+            panel13 = new Panel();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
-            panel6 = new Panel();
-            label9 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            panel12 = new Panel();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             panel8.SuspendLayout();
@@ -71,9 +74,10 @@
             panel2.SuspendLayout();
             panel9.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel6.SuspendLayout();
             panel12.SuspendLayout();
+            panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel13.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -87,10 +91,10 @@
             // 
             // panel4
             // 
-            panel4.BackColor = SystemColors.Control;
+            panel4.BackColor = Color.White;
             panel4.Controls.Add(label11);
             panel4.Controls.Add(label10);
-            panel4.Location = new Point(28, 191);
+            panel4.Location = new Point(16, 33);
             panel4.Name = "panel4";
             panel4.Size = new Size(340, 125);
             panel4.TabIndex = 4;
@@ -98,10 +102,10 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
             label11.Location = new Point(57, 16);
             label11.Name = "label11";
-            label11.Size = new Size(221, 28);
+            label11.Size = new Size(224, 25);
             label11.TabIndex = 2;
             label11.Text = "TOTAL ACTIVE PATIENTS";
             // 
@@ -118,10 +122,10 @@
             // 
             // panel5
             // 
-            panel5.BackColor = SystemColors.Control;
+            panel5.BackColor = Color.White;
             panel5.Controls.Add(label12);
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(441, 190);
+            panel5.Location = new Point(418, 33);
             panel5.Name = "panel5";
             panel5.Size = new Size(340, 125);
             panel5.TabIndex = 5;
@@ -129,10 +133,10 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
             label12.Location = new Point(66, 19);
             label12.Name = "label12";
-            label12.Size = new Size(214, 28);
+            label12.Size = new Size(209, 25);
             label12.TabIndex = 4;
             label12.Text = "BED OCCUPANCY RATE";
             label12.Click += label12_Click;
@@ -150,10 +154,10 @@
             // 
             // panel8
             // 
-            panel8.BackColor = SystemColors.Control;
+            panel8.BackColor = Color.White;
             panel8.Controls.Add(label7);
             panel8.Controls.Add(label13);
-            panel8.Location = new Point(888, 190);
+            panel8.Location = new Point(811, 33);
             panel8.Name = "panel8";
             panel8.Size = new Size(340, 125);
             panel8.TabIndex = 6;
@@ -161,23 +165,24 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(77, 16);
+            label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            label7.Location = new Point(73, 19);
             label7.Name = "label7";
-            label7.Size = new Size(187, 28);
+            label7.Size = new Size(185, 25);
             label7.TabIndex = 6;
             label7.Text = "TOTAL CLINIC STAFF";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Font = new Font("Segoe UI Black", 16.2F);
             label13.ForeColor = Color.RoyalBlue;
-            label13.Location = new Point(55, 19);
+            label13.Location = new Point(55, 18);
             label13.Name = "label13";
             label13.Size = new Size(233, 38);
             label13.TabIndex = 5;
             label13.Text = "__________________";
+            label13.Click += label13_Click;
             // 
             // panel7
             // 
@@ -265,10 +270,10 @@
             // 
             // panel9
             // 
-            panel9.BackColor = SystemColors.Control;
+            panel9.BackColor = Color.White;
             panel9.Controls.Add(label14);
             panel9.Controls.Add(label6);
-            panel9.Location = new Point(1316, 190);
+            panel9.Location = new Point(1214, 33);
             panel9.Name = "panel9";
             panel9.Size = new Size(340, 125);
             panel9.TabIndex = 7;
@@ -276,10 +281,10 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label14.Location = new Point(59, 16);
             label14.Name = "label14";
-            label14.Size = new Size(229, 28);
+            label14.Size = new Size(249, 28);
             label14.TabIndex = 8;
             label14.Text = "TOTAL PAID COLLECTION";
             // 
@@ -288,7 +293,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Green;
-            label6.Location = new Point(59, 19);
+            label6.Location = new Point(55, 16);
             label6.Name = "label6";
             label6.Size = new Size(233, 38);
             label6.TabIndex = 7;
@@ -297,25 +302,110 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ControlLight;
+            panel3.Controls.Add(panel13);
             panel3.Controls.Add(panel12);
             panel3.Controls.Add(panel6);
             panel3.Controls.Add(dataGridView1);
-            panel3.Controls.Add(panel9);
             panel3.Controls.Add(panel7);
-            panel3.Controls.Add(panel8);
-            panel3.Controls.Add(panel5);
-            panel3.Controls.Add(panel4);
             panel3.Location = new Point(1, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(1901, 1077);
             panel3.TabIndex = 2;
             panel3.Paint += panel3_Paint;
             // 
+            // panel12
+            // 
+            panel12.BackColor = SystemColors.ControlLightLight;
+            panel12.Controls.Add(button1);
+            panel12.Controls.Add(button4);
+            panel12.Controls.Add(button2);
+            panel12.Controls.Add(button3);
+            panel12.Location = new Point(-3, 29);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(1904, 86);
+            panel12.TabIndex = 13;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(11, 27, 52);
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Transparent;
+            button1.Location = new Point(31, 21);
+            button1.Name = "button1";
+            button1.Size = new Size(221, 46);
+            button1.TabIndex = 9;
+            button1.Text = "Dashboard Quick Alerts";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(11, 27, 52);
+            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(853, 21);
+            button4.Name = "button4";
+            button4.Size = new Size(215, 46);
+            button4.TabIndex = 12;
+            button4.Text = "Access Logs Audit Trail";
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(11, 27, 52);
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(314, 21);
+            button2.Name = "button2";
+            button2.Size = new Size(213, 46);
+            button2.TabIndex = 10;
+            button2.Text = "Staff User Credentials";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(11, 27, 52);
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(593, 21);
+            button3.Name = "button3";
+            button3.Size = new Size(196, 46);
+            button3.TabIndex = 11;
+            button3.Text = "Clinic Data Setups";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.White;
+            panel6.Controls.Add(label9);
+            panel6.Location = new Point(6, 665);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1650, 54);
+            panel6.TabIndex = 7;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(38, 10);
+            label9.Name = "label9";
+            label9.Size = new Size(520, 28);
+            label9.TabIndex = 1;
+            label9.Text = "Real-time Clinic Activity Feed (Latest Patient Chart Actions)";
+            // 
             // dataGridView1
             // 
             dataGridView1.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(11, 27, 52);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column4, Column3 });
+            dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(3, 725);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
@@ -323,8 +413,25 @@
             dataGridView1.TabIndex = 8;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // panel13
+            // 
+            panel13.BackColor = SystemColors.Control;
+            panel13.Controls.Add(panel4);
+            panel13.Controls.Add(panel5);
+            panel13.Controls.Add(panel8);
+            panel13.Controls.Add(panel9);
+            panel13.Location = new Point(28, 137);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(1628, 194);
+            panel13.TabIndex = 14;
+            // 
             // Column1
             // 
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(8, 121, 209);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            Column1.DefaultCellStyle = dataGridViewCellStyle6;
             Column1.HeaderText = "Timestamp";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
@@ -351,73 +458,6 @@
             Column3.Name = "Column3";
             Column3.Width = 400;
             // 
-            // panel6
-            // 
-            panel6.BackColor = Color.White;
-            panel6.Controls.Add(label9);
-            panel6.Location = new Point(6, 665);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(1650, 54);
-            panel6.TabIndex = 7;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(38, 10);
-            label9.Name = "label9";
-            label9.Size = new Size(520, 28);
-            label9.TabIndex = 1;
-            label9.Text = "Real-time Clinic Activity Feed (Latest Patient Chart Actions)";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(31, 21);
-            button1.Name = "button1";
-            button1.Size = new Size(221, 46);
-            button1.TabIndex = 9;
-            button1.Text = "Dashboard Quick Alerts";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(314, 21);
-            button2.Name = "button2";
-            button2.Size = new Size(213, 46);
-            button2.TabIndex = 10;
-            button2.Text = "Staff User Credentials";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(593, 21);
-            button3.Name = "button3";
-            button3.Size = new Size(196, 46);
-            button3.TabIndex = 11;
-            button3.Text = "Clinic Data Setups";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(853, 21);
-            button4.Name = "button4";
-            button4.Size = new Size(215, 46);
-            button4.TabIndex = 12;
-            button4.Text = "Access Logs Audit Trail";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // panel12
-            // 
-            panel12.BackColor = SystemColors.ControlLightLight;
-            panel12.Controls.Add(button1);
-            panel12.Controls.Add(button4);
-            panel12.Controls.Add(button2);
-            panel12.Controls.Add(button3);
-            panel12.Location = new Point(-3, 29);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(1904, 86);
-            panel12.TabIndex = 13;
-            // 
             // borja1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -443,10 +483,11 @@
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel12.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel13.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -469,10 +510,6 @@
         private DataGridView dataGridView1;
         private Panel panel6;
         private Label label9;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column3;
         private Label label10;
         private Label label11;
         private Label label12;
@@ -486,5 +523,10 @@
         private Button button2;
         private Button button4;
         private Button button3;
+        private Panel panel13;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column3;
     }
 }
