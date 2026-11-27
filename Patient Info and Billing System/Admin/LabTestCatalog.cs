@@ -94,6 +94,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         void clearFields()
         {
+            errorProvider1.Clear();
             txtTestCode.Clear();
             txtTestCode.ReadOnly = false;
             txtTestName.Clear();
@@ -106,17 +107,62 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtTestCode.Text.Trim() == "" || txtTestName.Text.Trim() == "" || cmbDepartment.Text.Trim() == "" || txtPrice.Text.Trim() == "" || txtTurnaround.Text.Trim() == "")
+            errorProvider1.Clear();
+
+            if (txtTestCode.Text.Trim() == "")
             {
-                MessageBox.Show("Please fill in all required fields.");
+                errorProvider1.SetError(txtTestCode, "Test Code is required.");
+                txtTestCode.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtTestName.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtTestName, "Test Name is required.");
+                txtTestName.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (cmbDepartment.Text.Trim() == "")
+            {
+                errorProvider1.SetError(cmbDepartment, "Department is required.");
+                cmbDepartment.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             decimal priceValue = 0;
             if (!decimal.TryParse(txtPrice.Text.Trim(), out priceValue) || priceValue < 0)
             {
-                MessageBox.Show("Please enter a valid Price.");
+                errorProvider1.SetError(txtPrice, "Please enter a valid Price.");
+                txtPrice.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtTurnaround.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtTurnaround, "Turnaround Time is required.");
+                txtTurnaround.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -171,17 +217,62 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtTestCode.Text.Trim() == "" || txtTestName.Text.Trim() == "" || cmbDepartment.Text.Trim() == "" || txtPrice.Text.Trim() == "" || txtTurnaround.Text.Trim() == "")
+            errorProvider1.Clear();
+
+            if (txtTestCode.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a record from the table first.");
+                errorProvider1.SetError(txtTestCode, "Please select a record from the table first.");
+                txtTestCode.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtTestName.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtTestName, "Test Name is required.");
+                txtTestName.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (cmbDepartment.Text.Trim() == "")
+            {
+                errorProvider1.SetError(cmbDepartment, "Department is required.");
+                cmbDepartment.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             decimal priceValue = 0;
             if (!decimal.TryParse(txtPrice.Text.Trim(), out priceValue) || priceValue < 0)
             {
-                MessageBox.Show("Please enter a valid Price.");
+                errorProvider1.SetError(txtPrice, "Please enter a valid Price.");
+                txtPrice.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtTurnaround.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtTurnaround, "Turnaround Time is required.");
+                txtTurnaround.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -236,10 +327,17 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+
             if (txtTestCode.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a record to delete.");
+                errorProvider1.SetError(txtTestCode, "Please select a record to delete.");
+                txtTestCode.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -293,8 +391,13 @@ namespace Patient_Info_and_Billing_System.Admin
             loaddata();
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtSearch.Text.Trim() == "")
+            {
+                loaddata();
+                return;
+            }
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();

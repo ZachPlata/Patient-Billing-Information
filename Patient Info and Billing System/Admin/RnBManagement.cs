@@ -92,6 +92,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         void clearFields()
         {
+            errorProvider1.Clear();
             txtBedId.Clear();
             txtBedId.ReadOnly = false;
             txtRoomNumber.Clear();
@@ -104,17 +105,51 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtBedId.Text.Trim() == "" || txtRoomNumber.Text.Trim() == "" || txtBedNumber.Text.Trim() == "" || txtDailyRate.Text.Trim() == "")
+            errorProvider1.Clear();
+
+            if (txtBedId.Text.Trim() == "")
             {
-                MessageBox.Show("Please fill in all required fields.");
+                errorProvider1.SetError(txtBedId, "Bed ID is required.");
+                txtBedId.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtRoomNumber.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtRoomNumber, "Room Number is required.");
+                txtRoomNumber.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtBedNumber.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtBedNumber, "Bed Number is required.");
+                txtBedNumber.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             decimal rateValue = 0;
             if (!decimal.TryParse(txtDailyRate.Text.Trim(), out rateValue) || rateValue < 0)
             {
-                MessageBox.Show("Please enter a valid Daily Rate.");
+                errorProvider1.SetError(txtDailyRate, "Please enter a valid Daily Rate.");
+                txtDailyRate.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -169,17 +204,51 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtBedId.Text.Trim() == "" || txtRoomNumber.Text.Trim() == "" || txtBedNumber.Text.Trim() == "" || txtDailyRate.Text.Trim() == "")
+            errorProvider1.Clear();
+
+            if (txtBedId.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a record from the table first.");
+                errorProvider1.SetError(txtBedId, "Please select a record from the table first.");
+                txtBedId.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtRoomNumber.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtRoomNumber, "Room Number is required.");
+                txtRoomNumber.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (txtBedNumber.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtBedNumber, "Bed Number is required.");
+                txtBedNumber.Focus();
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             decimal rateValue = 0;
             if (!decimal.TryParse(txtDailyRate.Text.Trim(), out rateValue) || rateValue < 0)
             {
-                MessageBox.Show("Please enter a valid Daily Rate.");
+                errorProvider1.SetError(txtDailyRate, "Please enter a valid Daily Rate.");
+                txtDailyRate.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -234,10 +303,17 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+
             if (txtBedId.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a record to delete.");
+                errorProvider1.SetError(txtBedId, "Please select a record to delete.");
+                txtBedId.Focus();
                 return;
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
 
             DialogResult answer;
@@ -291,8 +367,13 @@ namespace Patient_Info_and_Billing_System.Admin
             loaddata();
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtSearch.Text.Trim() == "")
+            {
+                loaddata();
+                return;
+            }
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();
