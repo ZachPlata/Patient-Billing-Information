@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,15 +28,18 @@ namespace Patient_Info_and_Billing_System.Doctor
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DrDashboard dashboard = new DrDashboard();
+            dashboard.Dock = DockStyle.Fill;
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(dashboard);
+
             ActiveButton((Button)sender);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             PatientForm patientform = new PatientForm();
-            {
-                Dock = DockStyle.Fill;
-            }
+            patientform.Dock = DockStyle.Fill;
             panelContent.Controls.Clear();
             panelContent.Controls.Add(patientform);
 
@@ -46,6 +49,7 @@ namespace Patient_Info_and_Billing_System.Doctor
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Dock = DockStyle.Fill;
             DocHealthCheckUp form = new DocHealthCheckUp();
             panelContent.Controls.Add(form);
             form.Show();
@@ -107,6 +111,11 @@ namespace Patient_Info_and_Billing_System.Doctor
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

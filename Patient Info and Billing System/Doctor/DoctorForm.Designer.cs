@@ -30,6 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             SideNavBar = new Panel();
+            label8 = new Label();
+            label9 = new Label();
+            userLabel = new Label();
+            panel2 = new Panel();
             btnDrDashboard = new Button();
             label1 = new Label();
             panel1 = new Panel();
@@ -48,10 +52,6 @@
             label6 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             panelContent = new Panel();
-            label8 = new Label();
-            label9 = new Label();
-            userLabel = new Label();
-            panel2 = new Panel();
             SideNavBar.SuspendLayout();
             panel1.SuspendLayout();
             Header.SuspendLayout();
@@ -71,11 +71,51 @@
             SideNavBar.Controls.Add(btnPatientRecord);
             SideNavBar.Dock = DockStyle.Left;
             SideNavBar.Location = new Point(0, 0);
-            SideNavBar.Margin = new Padding(3, 2, 3, 2);
             SideNavBar.Name = "SideNavBar";
-            SideNavBar.Size = new Size(233, 775);
+            SideNavBar.Size = new Size(266, 1033);
             SideNavBar.TabIndex = 0;
             SideNavBar.Paint += SideNavBar_Paint;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(81, 53);
+            label8.Name = "label8";
+            label8.Size = new Size(104, 20);
+            label8.TabIndex = 12;
+            label8.Text = "Specialization";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(16, 185, 129);
+            label9.Location = new Point(85, 80);
+            label9.Name = "label9";
+            label9.Size = new Size(63, 20);
+            label9.TabIndex = 11;
+            label9.Text = "STATUS";
+            // 
+            // userLabel
+            // 
+            userLabel.AutoSize = true;
+            userLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            userLabel.ForeColor = Color.White;
+            userLabel.Location = new Point(85, 31);
+            userLabel.Name = "userLabel";
+            userLabel.Size = new Size(97, 20);
+            userLabel.TabIndex = 9;
+            userLabel.Text = "User's Name";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(37, 99, 235);
+            panel2.Location = new Point(14, 31);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(64, 64);
+            panel2.TabIndex = 10;
             // 
             // btnDrDashboard
             // 
@@ -86,10 +126,9 @@
             btnDrDashboard.FlatStyle = FlatStyle.Flat;
             btnDrDashboard.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDrDashboard.ForeColor = Color.White;
-            btnDrDashboard.Location = new Point(0, 193);
-            btnDrDashboard.Margin = new Padding(3, 2, 3, 2);
+            btnDrDashboard.Location = new Point(0, 257);
             btnDrDashboard.Name = "btnDrDashboard";
-            btnDrDashboard.Size = new Size(233, 30);
+            btnDrDashboard.Size = new Size(266, 40);
             btnDrDashboard.TabIndex = 0;
             btnDrDashboard.Text = "Dashboard";
             btnDrDashboard.TextAlign = ContentAlignment.MiddleLeft;
@@ -101,9 +140,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(100, 116, 139);
-            label1.Location = new Point(3, 166);
+            label1.Location = new Point(3, 221);
             label1.Name = "label1";
-            label1.Size = new Size(142, 19);
+            label1.Size = new Size(168, 23);
             label1.TabIndex = 4;
             label1.Text = "Clinical Workspaces";
             label1.Click += label1_Click;
@@ -114,19 +153,17 @@
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(3, 98);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(3, 131);
             panel1.Name = "panel1";
-            panel1.Size = new Size(233, 57);
+            panel1.Size = new Size(266, 76);
             panel1.TabIndex = 3;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(17, 34, 64);
-            panel4.Location = new Point(12, 12);
-            panel4.Margin = new Padding(3, 2, 3, 2);
+            panel4.Location = new Point(14, 16);
             panel4.Name = "panel4";
-            panel4.Size = new Size(46, 35);
+            panel4.Size = new Size(53, 47);
             panel4.TabIndex = 7;
             // 
             // label5
@@ -134,9 +171,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(100, 116, 139);
-            label5.Location = new Point(63, 30);
+            label5.Location = new Point(72, 40);
             label5.Name = "label5";
-            label5.Size = new Size(91, 19);
+            label5.Size = new Size(110, 23);
             label5.TabIndex = 6;
             label5.Text = "ERP SYSTEM";
             // 
@@ -145,11 +182,12 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(63, 9);
+            label4.Location = new Point(72, 12);
             label4.Name = "label4";
-            label4.Size = new Size(116, 21);
+            label4.Size = new Size(138, 28);
             label4.TabIndex = 5;
-            label4.Text = "METRO PEDIA";
+            label4.Text = "METRO CARE";
+            label4.Click += label4_Click;
             // 
             // btnHlthCheckup
             // 
@@ -160,10 +198,9 @@
             btnHlthCheckup.FlatStyle = FlatStyle.Flat;
             btnHlthCheckup.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHlthCheckup.ForeColor = Color.White;
-            btnHlthCheckup.Location = new Point(0, 262);
-            btnHlthCheckup.Margin = new Padding(3, 2, 3, 2);
+            btnHlthCheckup.Location = new Point(0, 349);
             btnHlthCheckup.Name = "btnHlthCheckup";
-            btnHlthCheckup.Size = new Size(233, 30);
+            btnHlthCheckup.Size = new Size(266, 40);
             btnHlthCheckup.TabIndex = 2;
             btnHlthCheckup.Text = "Health Checkup";
             btnHlthCheckup.TextAlign = ContentAlignment.MiddleLeft;
@@ -179,10 +216,9 @@
             btnPatientRecord.FlatStyle = FlatStyle.Flat;
             btnPatientRecord.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPatientRecord.ForeColor = Color.White;
-            btnPatientRecord.Location = new Point(0, 228);
-            btnPatientRecord.Margin = new Padding(3, 2, 3, 2);
+            btnPatientRecord.Location = new Point(0, 304);
             btnPatientRecord.Name = "btnPatientRecord";
-            btnPatientRecord.Size = new Size(233, 30);
+            btnPatientRecord.Size = new Size(266, 40);
             btnPatientRecord.TabIndex = 1;
             btnPatientRecord.Text = "Patient Records";
             btnPatientRecord.TextAlign = ContentAlignment.MiddleLeft;
@@ -200,28 +236,26 @@
             Header.Controls.Add(panel5);
             Header.Controls.Add(label6);
             Header.Dock = DockStyle.Top;
-            Header.Location = new Point(233, 0);
-            Header.Margin = new Padding(3, 2, 3, 2);
+            Header.Location = new Point(266, 0);
             Header.Name = "Header";
-            Header.Size = new Size(1431, 94);
+            Header.Size = new Size(1636, 125);
             Header.TabIndex = 1;
             Header.Paint += panel2_Paint;
             // 
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(17, 34, 64);
-            panel7.Location = new Point(1458, 56);
-            panel7.Margin = new Padding(3, 2, 3, 2);
+            panel7.Location = new Point(1666, 75);
             panel7.Name = "panel7";
-            panel7.Size = new Size(22, 17);
+            panel7.Size = new Size(25, 23);
             panel7.TabIndex = 11;
             // 
             // timer
             // 
             timer.Font = new Font("Segoe UI Light", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            timer.Location = new Point(1485, 56);
+            timer.Location = new Point(1697, 75);
             timer.Name = "timer";
-            timer.Size = new Size(149, 17);
+            timer.Size = new Size(170, 23);
             timer.TabIndex = 3;
             timer.Text = "Time";
             timer.Click += label8_Click;
@@ -229,18 +263,17 @@
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(17, 34, 64);
-            panel6.Location = new Point(1218, 56);
-            panel6.Margin = new Padding(3, 2, 3, 2);
+            panel6.Location = new Point(1392, 75);
             panel6.Name = "panel6";
-            panel6.Size = new Size(22, 17);
+            panel6.Size = new Size(25, 23);
             panel6.TabIndex = 10;
             // 
             // date
             // 
             date.Font = new Font("Segoe UI Light", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            date.Location = new Point(1245, 56);
+            date.Location = new Point(1423, 75);
             date.Name = "date";
-            date.Size = new Size(207, 17);
+            date.Size = new Size(237, 23);
             date.TabIndex = 2;
             date.Text = "Date";
             date.Click += timer_Click;
@@ -250,9 +283,9 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = SystemColors.AppWorkspace;
-            label7.Location = new Point(10, 56);
+            label7.Location = new Point(11, 75);
             label7.Name = "label7";
-            label7.Size = new Size(412, 19);
+            label7.Size = new Size(496, 23);
             label7.TabIndex = 9;
             label7.Text = "Health Check Up / Clinical Diagnosis / Medical Presicriptions";
             label7.Click += label7_Click;
@@ -260,10 +293,9 @@
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(17, 34, 64);
-            panel5.Location = new Point(12, 23);
-            panel5.Margin = new Padding(3, 2, 3, 2);
+            panel5.Location = new Point(14, 31);
             panel5.Name = "panel5";
-            panel5.Size = new Size(46, 31);
+            panel5.Size = new Size(53, 41);
             panel5.TabIndex = 8;
             // 
             // label6
@@ -271,9 +303,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(15, 23, 42);
-            label6.Location = new Point(63, 23);
+            label6.Location = new Point(72, 31);
             label6.Name = "label6";
-            label6.Size = new Size(331, 32);
+            label6.Size = new Size(418, 41);
             label6.TabIndex = 6;
             label6.Text = "DOCTOR CLINICAL STATION";
             label6.Click += label6_Click;
@@ -287,64 +319,20 @@
             // panelContent
             // 
             panelContent.BackColor = Color.FromArgb(250, 249, 246);
-            panelContent.Location = new Point(257, 112);
-            panelContent.Margin = new Padding(3, 2, 3, 2);
+            panelContent.Location = new Point(294, 149);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1387, 645);
+            panelContent.Size = new Size(1585, 860);
             panelContent.TabIndex = 2;
             panelContent.Paint += panel8_Paint;
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(71, 40);
-            label8.Name = "label8";
-            label8.Size = new Size(83, 15);
-            label8.TabIndex = 12;
-            label8.Text = "Specialization";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.FromArgb(16, 185, 129);
-            label9.Location = new Point(74, 60);
-            label9.Name = "label9";
-            label9.Size = new Size(50, 15);
-            label9.TabIndex = 11;
-            label9.Text = "STATUS";
-            // 
-            // userLabel
-            // 
-            userLabel.AutoSize = true;
-            userLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            userLabel.ForeColor = Color.White;
-            userLabel.Location = new Point(74, 23);
-            userLabel.Name = "userLabel";
-            userLabel.Size = new Size(77, 15);
-            userLabel.TabIndex = 9;
-            userLabel.Text = "User's Name";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(37, 99, 235);
-            panel2.Location = new Point(12, 23);
-            panel2.Margin = new Padding(3, 2, 3, 2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(56, 48);
-            panel2.TabIndex = 10;
-            // 
             // DoctorForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1664, 775);
+            ClientSize = new Size(1902, 1033);
             Controls.Add(panelContent);
             Controls.Add(Header);
             Controls.Add(SideNavBar);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "DoctorForm";
             Text = "  ";
             WindowState = FormWindowState.Maximized;

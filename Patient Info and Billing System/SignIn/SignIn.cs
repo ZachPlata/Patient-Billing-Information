@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic;
 using MySql.Data.MySqlClient;
 using NurseDashBoard;
 using Org.BouncyCastle.Asn1.Mozilla;
@@ -11,7 +11,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Patient_Info_and_Billing_System.Doctor;
-using NurseDashBoard;
 namespace Patient_Info_and_Billing_System.LogIn
 {
     public partial class SignIn : Form
@@ -36,8 +35,9 @@ namespace Patient_Info_and_Billing_System.LogIn
             {
                 MessageBox.Show("Please select a role before signing in", "No Role Selected",
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            string connstring = "server=localhost;user id=root;password=;database=patientbillingdb";
+            string connstring = "server=localhost; database=metro_care_db; uid=root";
             MySqlConnection conn = new MySqlConnection(connstring);
             MySqlCommand cmd = new MySqlCommand();
             MySqlDataReader dr;
@@ -46,10 +46,10 @@ namespace Patient_Info_and_Billing_System.LogIn
             try
             {
                 conn.Open();
-                cmd.CommandText = cmd.CommandText = "SELECT Username, Password, Usertype " +
-                          "FROM userTable " +
-                          "WHERE Username = '" + txtUser.Text + "' " +
-                          "AND Password = '" + txtPassword.Text + "'";
+                cmd.CommandText = "SELECT username, password_hash, role " +
+                          "FROM users " +
+                          "WHERE username = '" + txtUser.Text + "' " +
+                          "AND password_hash = '" + txtPassword.Text + "'";
                 cmd.Connection = conn;
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
@@ -57,7 +57,7 @@ namespace Patient_Info_and_Billing_System.LogIn
                     txtHideUser.Text = dr[0].ToString();
                     txtHidePw.Text = dr[1].ToString();
                     txtHideType.Text = dr[2].ToString();
-                    string role = dr[2]?.ToString();
+                    string role = dr[2].ToString();
                     
 
                     if(role != selectedRole)
@@ -67,18 +67,18 @@ namespace Patient_Info_and_Billing_System.LogIn
                         return;
                     }
                     this.Hide();
-                    if (role == "1")
+                    if (role == "Admin")
                     {
                         AdminForm adminForm = new AdminForm();
                         adminForm.userLabel.Text = txtHideUser.Text;
                         adminForm.Show();
                     }
-                    else if (role == "2")
+                    else if (role == "Nurse")
                     {
                         Nurse nurseForm = new Nurse();
                         nurseForm.Show();
                     }
-                    else if (role == "3")
+                    else if (role == "Doctor")
                     {
                         DoctorForm doctorForm = new DoctorForm();
                         doctorForm.Show();
@@ -97,6 +97,13 @@ namespace Patient_Info_and_Billing_System.LogIn
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
             }
 
         }
@@ -158,19 +165,19 @@ namespace Patient_Info_and_Billing_System.LogIn
 
         private void button3_Click(object sender, EventArgs e)
         {
-            selectedRole = "1";
+            selectedRole = "Admin";
             SelectedButton(button3);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            selectedRole = "2";
+            selectedRole = "Doctor";
             SelectedButton(button4);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            selectedRole = "3";
+            selectedRole = "Nurse";
             SelectedButton(button5);
         }
     }
