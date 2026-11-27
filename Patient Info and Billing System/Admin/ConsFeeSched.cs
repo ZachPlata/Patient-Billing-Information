@@ -2,7 +2,6 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Patient_Info_and_Billing_System.Admin
@@ -10,51 +9,74 @@ namespace Patient_Info_and_Billing_System.Admin
     public partial class ConsFeeSched : UserControl
     {
         string connStr = "server=localhost; database=metro_care_db; uid=root";
-        DataTable dtSchedules = new DataTable();
+        List<string> doctorIds = new List<string>();
 
         public ConsFeeSched()
         {
             InitializeComponent();
-
-            cmbSpecialization.SelectedIndex = 0;
-            cmbStatus.SelectedIndex = 0;
-            colActions.Visible = false;
-
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            cmbSpecialization.SelectedIndexChanged += cmbSpecialization_SelectedIndexChanged;
-            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
-            btnClearFilters.Click += btnClearFilters_Click;
-
+            loadDoctors();
+            clearFields();
             loaddata();
         }
 
-        public void loaddata()
+        void loadDoctors()
         {
+            doctorIds.Clear();
+            cmbDoctor.Items.Clear();
+
             MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            MySqlDataReader reader;
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
-                DataSet ds = new DataSet();
-                MySqlDataAdapter da = new MySqlDataAdapter();
-
                 conn.Open();
-                cmd.CommandText = "SELECT d.fee_schedule_id, d.doctor_id, u.full_name, u.specialty, d.standard_fee, d.follow_up_fee, d.schedule_days, u.is_active " +
-                                  "FROM DoctorFeeSchedules d " +
-                                  "INNER JOIN Users u ON d.doctor_id = u.user_id " +
-                                  "ORDER BY u.full_name ASC";
+                cmd.CommandText = "SELECT user_id, full_name FROM Users WHERE role = 'Doctor' ORDER BY full_name ASC";
                 cmd.Connection = conn;
-                da.SelectCommand = cmd;
-                da.Fill(ds, "DoctorFeeSchedules");
-                conn.Close();
+                reader = cmd.ExecuteReader();
 
-                if (ds.Tables["DoctorFeeSchedules"] != null)
+                while (reader.Read())
                 {
-                    dtSchedules = ds.Tables["DoctorFeeSchedules"]!;
+                    doctorIds.Add(reader["user_id"].ToString());
+                    cmbDoctor.Items.Add(reader["full_name"].ToString());
                 }
 
-                updateCards();
-                filterData();
+                reader.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading doctors: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        void loaddata()
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter();
+
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "SELECT d.fee_schedule_id AS 'Schedule ID', u.full_name AS 'Physician', u.specialty AS 'Specialization', d.standard_fee AS 'Standard Fee', d.follow_up_fee AS 'Follow-Up Fee', d.schedule_days AS 'Schedule Days', CASE WHEN u.is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM DoctorFeeSchedules d INNER JOIN Users u ON d.doctor_id = u.user_id ORDER BY u.full_name ASC";
+                cmd.Connection = conn;
+                da.SelectCommand = cmd;
+                da.Fill(ds, "abc");
+                dgvFeeSchedules.DataSource = ds;
+                dgvFeeSchedules.DataMember = "abc";
+                conn.Close();
+
+                lblShowingEntries.Text = "Showing " + dgvFeeSchedules.Rows.Count + " entries";
+                updateCards(ds.Tables["abc"]);
             }
             catch (Exception ex)
             {
@@ -69,29 +91,27 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void updateCards()
+        void updateCards(DataTable dt)
         {
+            if (dt == null)
+            {
+                return;
+            }
+
             int activeCount = 0;
-            List<string> specialties = new List<string>();
             decimal minStandardFee = 0;
             decimal totalStandardFee = 0;
-            int totalRows = dtSchedules.Rows.Count;
+            int totalRows = dt.Rows.Count;
 
-            foreach (DataRow row in dtSchedules.Rows)
+            foreach (DataRow row in dt.Rows)
             {
-                int isActive = Convert.ToInt32(row["is_active"]);
-                if (isActive == 1)
+                string status = row["Status"].ToString();
+                if (status == "Active")
                 {
                     activeCount++;
                 }
 
-                string spec = row["specialty"].ToString() ?? "";
-                if (spec != "" && !specialties.Contains(spec))
-                {
-                    specialties.Add(spec);
-                }
-
-                decimal stdFee = Convert.ToDecimal(row["standard_fee"]);
+                decimal stdFee = Convert.ToDecimal(row["Standard Fee"]);
                 totalStandardFee = totalStandardFee + stdFee;
 
                 if (minStandardFee == 0 || stdFee < minStandardFee)
@@ -107,291 +127,107 @@ namespace Patient_Info_and_Billing_System.Admin
             }
 
             lblValActiveSchedules.Text = activeCount.ToString();
-            lblValPediatricSpecs.Text = specialties.Count.ToString();
+            lblValPediatricSpecs.Text = getSpecialtyCount().ToString();
             lblValBaseFee.Text = "₱" + minStandardFee.ToString("N2");
             lblValAvgSpecialistFee.Text = "₱" + avgFee.ToString("N2");
         }
 
-        void filterData()
-        {
-            dgvFeeSchedules.Rows.Clear();
-
-            string search = txtSearch.Text.Trim().ToLower();
-            string selectedSpec = cmbSpecialization.Text;
-            string selectedStatus = cmbStatus.Text;
-
-            foreach (DataRow row in dtSchedules.Rows)
-            {
-                int feeId = Convert.ToInt32(row["fee_schedule_id"]);
-                string doctorName = row["full_name"].ToString() ?? "";
-                string specialty = row["specialty"].ToString() ?? "";
-                decimal standardFee = Convert.ToDecimal(row["standard_fee"]);
-                decimal followUpFee = Convert.ToDecimal(row["follow_up_fee"]);
-                string scheduleDays = row["schedule_days"].ToString() ?? "";
-                int isActive = Convert.ToInt32(row["is_active"]);
-                string statusText = (isActive == 1) ? "Active" : "Inactive";
-                string scheduleCode = "FEE-" + feeId;
-
-                bool matchSpec = (selectedSpec == "ALL" || specialty == selectedSpec);
-                bool matchStatus = (selectedStatus == "ALL" || statusText == selectedStatus);
-                bool matchSearch = (search == "" ||
-                    scheduleCode.ToLower().Contains(search) ||
-                    doctorName.ToLower().Contains(search) ||
-                    specialty.ToLower().Contains(search) ||
-                    scheduleDays.ToLower().Contains(search));
-
-                if (matchSpec && matchStatus && matchSearch)
-                {
-                    int rowIndex = dgvFeeSchedules.Rows.Add(
-                        scheduleCode,
-                        doctorName,
-                        specialty,
-                        "Consultation",
-                        "₱" + standardFee.ToString("N2"),
-                        "₱" + followUpFee.ToString("N2"),
-                        scheduleDays,
-                        statusText,
-                        "Edit / Delete"
-                    );
-
-                    dgvFeeSchedules.Rows[rowIndex].Tag = feeId;
-                }
-            }
-
-            lblShowingEntries.Text = "Showing " + dgvFeeSchedules.Rows.Count + " entries";
-        }
-
-        private void txtSearch_TextChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void cmbSpecialization_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void cmbStatus_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void btnClearFilters_Click(object? sender, EventArgs e)
-        {
-            txtSearch.Clear();
-            cmbSpecialization.SelectedIndex = 0;
-            cmbStatus.SelectedIndex = 0;
-            filterData();
-        }
-
-        public void EditSelectedSchedule()
-        {
-            if (dgvFeeSchedules.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a row to edit.");
-                return;
-            }
-
-            int feeScheduleId = Convert.ToInt32(dgvFeeSchedules.SelectedRows[0].Tag);
-            editSelectedSchedule(feeScheduleId);
-        }
-
-        public void DeleteSelectedSchedule()
-        {
-            if (dgvFeeSchedules.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a row to delete.");
-                return;
-            }
-
-            int feeScheduleId = Convert.ToInt32(dgvFeeSchedules.SelectedRows[0].Tag);
-            string physician = dgvFeeSchedules.SelectedRows[0].Cells["colPhysician"].Value?.ToString() ?? "";
-            deleteSelectedSchedule(feeScheduleId, physician);
-        }
-
-        public void OpenAddFeeScheduleDialog()
-        {
-            List<string> doctorIds = new List<string>();
-            List<string> doctorNames = new List<string>();
-
-            if (!loadDoctorList(doctorIds, doctorNames))
-            {
-                return;
-            }
-
-            AddFeeScheduleForm form = new AddFeeScheduleForm(doctorIds, doctorNames);
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                DialogResult answer = MessageBox.Show(
-                    "Do you want to save records?",
-                    "Saving Records",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (answer == DialogResult.No)
-                {
-                    return;
-                }
-
-                saveFeeSchedule(false, 0, form.DoctorIdValue, form.StandardFeeValue, form.FollowUpFeeValue, form.ScheduleDaysValue);
-            }
-        }
-
-        void editSelectedSchedule(int feeScheduleId)
+        int getSpecialtyCount()
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
-            MySqlDataReader? reader = null;
 
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT * FROM DoctorFeeSchedules WHERE fee_schedule_id = " + feeScheduleId;
+                cmd.CommandText = "SELECT COUNT(DISTINCT u.specialty) FROM DoctorFeeSchedules d INNER JOIN Users u ON d.doctor_id = u.user_id WHERE u.specialty IS NOT NULL AND u.specialty <> ''";
                 cmd.Connection = conn;
-                reader = cmd.ExecuteReader();
-                reader.Read();
-
-                if (reader.HasRows)
-                {
-                    string doctorId = reader["doctor_id"].ToString() ?? "";
-                    string standardFee = reader["standard_fee"].ToString() ?? "0";
-                    string followUpFee = reader["follow_up_fee"].ToString() ?? "0";
-                    string scheduleDays = reader["schedule_days"].ToString() ?? "";
-
-                    reader.Close();
-                    conn.Close();
-
-                    List<string> doctorIds = new List<string>();
-                    List<string> doctorNames = new List<string>();
-
-                    if (!loadDoctorList(doctorIds, doctorNames))
-                    {
-                        return;
-                    }
-
-                    AddFeeScheduleForm form = new AddFeeScheduleForm(doctorIds, doctorNames, doctorId, standardFee, followUpFee, scheduleDays);
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        DialogResult answer = MessageBox.Show(
-                            "Do you want to save records?",
-                            "Saving Records",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question);
-
-                        if (answer == DialogResult.No)
-                        {
-                            return;
-                        }
-
-                        saveFeeSchedule(true, feeScheduleId, form.DoctorIdValue, form.StandardFeeValue, form.FollowUpFeeValue, form.ScheduleDaysValue);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No Record Found");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Error: " + ex.Message);
-            }
-            finally
-            {
-                if (reader != null && !reader.IsClosed)
-                {
-                    reader.Close();
-                }
-
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-        }
-
-        bool loadDoctorList(List<string> doctorIds, List<string> doctorNames)
-        {
-            MySqlConnection conn = new MySqlConnection(connStr);
-            MySqlDataReader? reader = null;
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand();
-                conn.Open();
-                cmd.CommandText = "SELECT user_id, full_name FROM Users WHERE role = 'Doctor' ORDER BY full_name ASC";
-                cmd.Connection = conn;
-                reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    doctorIds.Add(reader["user_id"].ToString() ?? "");
-                    doctorNames.Add(reader["full_name"].ToString() ?? "");
-                }
-
-                reader.Close();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
                 conn.Close();
+                return count;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Error loading doctors: " + ex.Message);
-                return false;
+                return 0;
             }
             finally
             {
-                if (reader != null && !reader.IsClosed)
-                {
-                    reader.Close();
-                }
-
                 if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
                 }
             }
-
-            if (doctorIds.Count == 0)
-            {
-                MessageBox.Show("No Doctor accounts found in Users table.");
-                return false;
-            }
-
-            return true;
         }
 
-        void saveFeeSchedule(bool isEdit, int feeScheduleId, string doctorId, decimal standardFee, decimal followUpFee, string scheduleDays)
+        void clearFields()
         {
+            txtScheduleId.Clear();
+            cmbDoctor.Enabled = true;
+            if (cmbDoctor.Items.Count > 0)
+            {
+                cmbDoctor.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbDoctor.SelectedIndex = -1;
+            }
+            txtStandardFee.Text = "500.00";
+            txtFollowUpFee.Text = "300.00";
+            txtScheduleDays.Text = "Mon - Fri";
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (cmbDoctor.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select an Attending Physician.");
+                return;
+            }
+
+            if (txtStandardFee.Text.Trim() == "" || txtFollowUpFee.Text.Trim() == "" || txtScheduleDays.Text.Trim() == "")
+            {
+                MessageBox.Show("Please fill in all required fields.");
+                return;
+            }
+
+            decimal stdFee = 0;
+            decimal followFee = 0;
+            if (!decimal.TryParse(txtStandardFee.Text.Trim(), out stdFee) || stdFee < 0 ||
+                !decimal.TryParse(txtFollowUpFee.Text.Trim(), out followFee) || followFee < 0)
+            {
+                MessageBox.Show("Please enter valid non-negative fee amounts.");
+                return;
+            }
+
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to save records?", "Saving Records",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (answer == DialogResult.No)
+            {
+                return;
+            }
+
+            string selectedDoctorId = doctorIds[cmbDoctor.SelectedIndex];
+
             MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
                 conn.Open();
-
-                string safeDocId = doctorId.Replace("'", "''");
-                string safeDays = scheduleDays.Replace("'", "''");
-
-                if (isEdit)
-                {
-                    cmd.CommandText = "UPDATE DoctorFeeSchedules SET " +
-                        "standard_fee = " + standardFee + ", " +
-                        "follow_up_fee = " + followUpFee + ", " +
-                        "schedule_days = '" + safeDays + "' " +
-                        "WHERE fee_schedule_id = " + feeScheduleId;
-                }
-                else
-                {
-                    cmd.CommandText = "INSERT INTO DoctorFeeSchedules (doctor_id, standard_fee, follow_up_fee, schedule_days) VALUES (" +
-                        "'" + safeDocId + "', " +
-                        standardFee + ", " +
-                        followUpFee + ", " +
-                        "'" + safeDays + "')";
-                }
-
+                cmd.CommandText = "INSERT INTO DoctorFeeSchedules (doctor_id, standard_fee, follow_up_fee, schedule_days) VALUES (@doctor_id, @standard_fee, @follow_up_fee, @schedule_days)";
                 cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@doctor_id", selectedDoctorId);
+                cmd.Parameters.AddWithValue("@standard_fee", stdFee);
+                cmd.Parameters.AddWithValue("@follow_up_fee", followFee);
+                cmd.Parameters.AddWithValue("@schedule_days", txtScheduleDays.Text.Trim());
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
                 MessageBox.Show("RECORD SAVE");
+                clearFields();
                 loaddata();
             }
             catch (Exception ex)
@@ -407,11 +243,31 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void deleteSelectedSchedule(int feeScheduleId, string physician)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DialogResult answer = MessageBox.Show(
-                "Are you sure you want to delete the fee schedule for " + physician + "?",
-                "Delete Record",
+            if (txtScheduleId.Text.Trim() == "")
+            {
+                MessageBox.Show("Please select a record from the table first.");
+                return;
+            }
+
+            if (txtStandardFee.Text.Trim() == "" || txtFollowUpFee.Text.Trim() == "" || txtScheduleDays.Text.Trim() == "")
+            {
+                MessageBox.Show("Please fill in all required fields.");
+                return;
+            }
+
+            decimal stdFee = 0;
+            decimal followFee = 0;
+            if (!decimal.TryParse(txtStandardFee.Text.Trim(), out stdFee) || stdFee < 0 ||
+                !decimal.TryParse(txtFollowUpFee.Text.Trim(), out followFee) || followFee < 0)
+            {
+                MessageBox.Show("Please enter valid non-negative fee amounts.");
+                return;
+            }
+
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to save records?", "Saving Records",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
@@ -421,16 +277,22 @@ namespace Patient_Info_and_Billing_System.Admin
             }
 
             MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
                 conn.Open();
-                cmd.CommandText = "DELETE FROM DoctorFeeSchedules WHERE fee_schedule_id = " + feeScheduleId;
+                cmd.CommandText = "UPDATE DoctorFeeSchedules SET standard_fee = @standard_fee, follow_up_fee = @follow_up_fee, schedule_days = @schedule_days WHERE fee_schedule_id = @fee_schedule_id";
                 cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@fee_schedule_id", Convert.ToInt32(txtScheduleId.Text.Trim()));
+                cmd.Parameters.AddWithValue("@standard_fee", stdFee);
+                cmd.Parameters.AddWithValue("@follow_up_fee", followFee);
+                cmd.Parameters.AddWithValue("@schedule_days", txtScheduleDays.Text.Trim());
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
+                MessageBox.Show("RECORD SAVE");
+                clearFields();
                 loaddata();
             }
             catch (Exception ex)
@@ -443,6 +305,114 @@ namespace Patient_Info_and_Billing_System.Admin
                 {
                     conn.Close();
                 }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (txtScheduleId.Text.Trim() == "")
+            {
+                MessageBox.Show("Please select a record to delete.");
+                return;
+            }
+
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to delete this record?", "Deleting Record",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (answer == DialogResult.No)
+            {
+                return;
+            }
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "DELETE FROM DoctorFeeSchedules WHERE fee_schedule_id = @fee_schedule_id";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@fee_schedule_id", Convert.ToInt32(txtScheduleId.Text.Trim()));
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("Record deleted.");
+                clearFields();
+                loaddata();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearFields();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+            loadDoctors();
+            clearFields();
+            loaddata();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter();
+
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "SELECT d.fee_schedule_id AS 'Schedule ID', u.full_name AS 'Physician', u.specialty AS 'Specialization', d.standard_fee AS 'Standard Fee', d.follow_up_fee AS 'Follow-Up Fee', d.schedule_days AS 'Schedule Days', CASE WHEN u.is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM DoctorFeeSchedules d INNER JOIN Users u ON d.doctor_id = u.user_id WHERE u.full_name LIKE @search OR u.specialty LIKE @search OR d.schedule_days LIKE @search ORDER BY u.full_name ASC";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
+                da.SelectCommand = cmd;
+                da.Fill(ds, "abc");
+                dgvFeeSchedules.DataSource = ds;
+                dgvFeeSchedules.DataMember = "abc";
+                conn.Close();
+
+                lblShowingEntries.Text = "Showing " + dgvFeeSchedules.Rows.Count + " entries";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Search error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void dgvFeeSchedules_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvFeeSchedules.Rows.Count)
+            {
+                DataGridViewRow row = dgvFeeSchedules.Rows[e.RowIndex];
+                txtScheduleId.Text = row.Cells[0].Value.ToString();
+                cmbDoctor.Text = row.Cells[1].Value.ToString();
+                cmbDoctor.Enabled = false;
+                txtStandardFee.Text = row.Cells[3].Value.ToString();
+                txtFollowUpFee.Text = row.Cells[4].Value.ToString();
+                txtScheduleDays.Text = row.Cells[5].Value.ToString();
             }
         }
     }

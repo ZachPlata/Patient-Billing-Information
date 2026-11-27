@@ -57,6 +57,15 @@ CREATE TABLE IF NOT EXISTS `LabTestCatalog` (
   PRIMARY KEY (`test_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE IF NOT EXISTS `DoctorSpecialties` (
+  `specialty_id` INT NOT NULL AUTO_INCREMENT,
+  `specialty_name` VARCHAR(100) NOT NULL,
+  `description` VARCHAR(255) DEFAULT NULL,
+  `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`specialty_id`),
+  UNIQUE KEY `uq_specialty_name` (`specialty_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS `DoctorFeeSchedules` (
   `fee_schedule_id` INT NOT NULL AUTO_INCREMENT,
   `doctor_id` VARCHAR(36) NOT NULL,

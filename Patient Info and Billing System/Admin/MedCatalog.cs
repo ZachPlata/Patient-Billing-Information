@@ -1,7 +1,6 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Patient_Info_and_Billing_System.Admin
@@ -9,48 +8,34 @@ namespace Patient_Info_and_Billing_System.Admin
     public partial class MedCatalog : UserControl
     {
         string connStr = "server=localhost; database=metro_care_db; uid=root";
-        DataTable dtMedicines = new DataTable();
 
         public MedCatalog()
         {
             InitializeComponent();
-
-            cmbPackagingUnit.SelectedIndex = 0;
-            cmbStatus.SelectedIndex = 0;
-            colActions.Visible = false;
-
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            cmbPackagingUnit.SelectedIndexChanged += cmbPackagingUnit_SelectedIndexChanged;
-            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
-            btnClearFilters.Click += btnClearFilters_Click;
-
+            clearFields();
             loaddata();
         }
 
-        public void loaddata()
+        void loaddata()
         {
             MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter();
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
-                DataSet ds = new DataSet();
-                MySqlDataAdapter da = new MySqlDataAdapter();
-
                 conn.Open();
-                cmd.CommandText = "SELECT medicine_code, name, dosage_unit, category, unit_price, stock_quantity, is_active FROM MedicineCatalog ORDER BY name ASC";
+                cmd.CommandText = "SELECT medicine_code AS 'Code', name AS 'Medicine Name', dosage_unit AS 'Dosage Unit', category AS 'Category', unit_price AS 'Unit Price', stock_quantity AS 'Stock', CASE WHEN is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM MedicineCatalog ORDER BY name ASC";
                 cmd.Connection = conn;
                 da.SelectCommand = cmd;
-                da.Fill(ds, "MedicineCatalog");
+                da.Fill(ds, "abc");
+                dgvMedicines.DataSource = ds;
+                dgvMedicines.DataMember = "abc";
                 conn.Close();
 
-                if (ds.Tables["MedicineCatalog"] != null)
-                {
-                    dtMedicines = ds.Tables["MedicineCatalog"]!;
-                }
-
-                updateCards();
-                filterData();
+                lblShowingEntries.Text = "Showing " + dgvMedicines.Rows.Count + " entries";
+                updateCards(ds.Tables["abc"]);
             }
             catch (Exception ex)
             {
@@ -65,30 +50,35 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void updateCards()
+        void updateCards(DataTable dt)
         {
+            if (dt == null)
+            {
+                return;
+            }
+
             int total = 0;
             int active = 0;
             int oralLiquids = 0;
             decimal totalPrice = 0;
 
-            foreach (DataRow row in dtMedicines.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 total++;
-                int isActive = Convert.ToInt32(row["is_active"]);
-                if (isActive == 1)
+                string status = row["Status"].ToString();
+                if (status == "Active")
                 {
                     active++;
                 }
 
-                string dosage = (row["dosage_unit"].ToString() ?? "").ToLower();
-                string category = (row["category"].ToString() ?? "").ToLower();
-                if (dosage.Contains("bottle") || dosage.Contains("syrup") || dosage.Contains("suspension") || category.Contains("liquid"))
+                string dosage = row["Dosage Unit"].ToString().ToLower();
+                string category = row["Category"].ToString().ToLower();
+                if (dosage.IndexOf("bottle") >= 0 || dosage.IndexOf("syrup") >= 0 || dosage.IndexOf("suspension") >= 0 || category.IndexOf("liquid") >= 0)
                 {
                     oralLiquids++;
                 }
 
-                totalPrice = totalPrice + Convert.ToDecimal(row["unit_price"]);
+                totalPrice = totalPrice + Convert.ToDecimal(row["Unit Price"]);
             }
 
             decimal avgPrice = 0;
@@ -103,231 +93,72 @@ namespace Patient_Info_and_Billing_System.Admin
             lblValAvgUnitPrice.Text = "₱" + avgPrice.ToString("N2");
         }
 
-        void filterData()
+        void clearFields()
         {
-            dgvMedicines.Rows.Clear();
-
-            string search = txtSearch.Text.Trim().ToLower();
-            string selectedUnit = cmbPackagingUnit.Text;
-            string selectedStatus = cmbStatus.Text;
-
-            foreach (DataRow row in dtMedicines.Rows)
-            {
-                string medCode = row["medicine_code"].ToString() ?? "";
-                string medName = row["name"].ToString() ?? "";
-                string dosageUnit = row["dosage_unit"].ToString() ?? "";
-                string category = row["category"].ToString() ?? "";
-                decimal unitPrice = Convert.ToDecimal(row["unit_price"]);
-                int stockQty = Convert.ToInt32(row["stock_quantity"]);
-                int isActive = Convert.ToInt32(row["is_active"]);
-                string statusText = (isActive == 1) ? "Active" : "Inactive";
-
-                bool matchUnit = (selectedUnit == "ALL" ||
-                    dosageUnit.ToLower().Contains(selectedUnit.Replace("Per ", "").ToLower()) ||
-                    category == selectedUnit);
-                bool matchStatus = (selectedStatus == "ALL" || statusText == selectedStatus);
-                bool matchSearch = (search == "" ||
-                    medCode.ToLower().Contains(search) ||
-                    medName.ToLower().Contains(search) ||
-                    category.ToLower().Contains(search) ||
-                    dosageUnit.ToLower().Contains(search));
-
-                if (matchUnit && matchStatus && matchSearch)
-                {
-                    int rowIndex = dgvMedicines.Rows.Add(
-                        medCode,
-                        medName,
-                        category,
-                        dosageUnit,
-                        "Stock: " + stockQty,
-                        "₱" + unitPrice.ToString("N2"),
-                        statusText,
-                        "Edit / Delete"
-                    );
-
-                    dgvMedicines.Rows[rowIndex].Tag = medCode;
-                }
-            }
-
-            lblShowingEntries.Text = "Showing " + dgvMedicines.Rows.Count + " entries";
-        }
-
-        private void txtSearch_TextChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void cmbPackagingUnit_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void cmbStatus_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void btnClearFilters_Click(object? sender, EventArgs e)
-        {
-            txtSearch.Clear();
-            cmbPackagingUnit.SelectedIndex = 0;
+            txtMedCode.Clear();
+            txtMedCode.ReadOnly = false;
+            txtMedName.Clear();
+            txtDosageUnit.Text = "Per Bottle";
+            txtCategory.Text = "Analgesic";
+            txtUnitPrice.Text = "100.00";
+            txtStockQty.Text = "50";
             cmbStatus.SelectedIndex = 0;
-            filterData();
+            txtMedCode.Focus();
         }
 
-        public void EditSelectedMedicine()
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (dgvMedicines.SelectedRows.Count == 0)
+            if (txtMedCode.Text.Trim() == "" || txtMedName.Text.Trim() == "" || txtDosageUnit.Text.Trim() == "" || txtCategory.Text.Trim() == "" || txtUnitPrice.Text.Trim() == "" || txtStockQty.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a row to edit.");
+                MessageBox.Show("Please fill in all required fields.");
                 return;
             }
 
-            string medCode = dgvMedicines.SelectedRows[0].Tag?.ToString() ?? "";
-            editSelectedMedicine(medCode);
-        }
-
-        public void DeleteSelectedMedicine()
-        {
-            if (dgvMedicines.SelectedRows.Count == 0)
+            decimal priceValue = 0;
+            int stockValue = 0;
+            if (!decimal.TryParse(txtUnitPrice.Text.Trim(), out priceValue) || priceValue < 0 ||
+                !int.TryParse(txtStockQty.Text.Trim(), out stockValue) || stockValue < 0)
             {
-                MessageBox.Show("Please select a row to delete.");
+                MessageBox.Show("Please enter valid non-negative Price and Stock Quantity.");
                 return;
             }
 
-            string medCode = dgvMedicines.SelectedRows[0].Tag?.ToString() ?? "";
-            string medName = dgvMedicines.SelectedRows[0].Cells["colBrandName"].Value?.ToString() ?? "";
-            deleteSelectedMedicine(medCode, medName);
-        }
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to save records?", "Saving Records",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
-        public void OpenAddMedicineDialog()
-        {
-            AddMedicineForm form = new AddMedicineForm();
-            if (form.ShowDialog() == DialogResult.OK)
+            if (answer == DialogResult.No)
             {
-                DialogResult answer = MessageBox.Show(
-                    "Do you want to save records?",
-                    "Saving Records",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (answer == DialogResult.No)
-                {
-                    return;
-                }
-
-                saveMedicineRecord(false, form.MedicineCodeValue, form.MedicineNameValue, form.DosageUnitValue, form.CategoryValue, form.UnitPriceValue, form.StockQuantityValue, form.IsActiveValue);
+                return;
             }
-        }
 
-        void editSelectedMedicine(string medCode)
-        {
+            int isActive = 0;
+            if (cmbStatus.Text == "Active")
+            {
+                isActive = 1;
+            }
+
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
-            MySqlDataReader? reader = null;
 
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT * FROM MedicineCatalog WHERE medicine_code = '" + medCode.Replace("'", "''") + "'";
+                cmd.CommandText = "INSERT INTO MedicineCatalog (medicine_code, name, dosage_unit, category, unit_price, stock_quantity, is_active) VALUES (@medicine_code, @name, @dosage_unit, @category, @unit_price, @stock_quantity, @is_active)";
                 cmd.Connection = conn;
-                reader = cmd.ExecuteReader();
-                reader.Read();
-
-                if (reader.HasRows)
-                {
-                    string medName = reader["name"].ToString() ?? "";
-                    string dosageUnit = reader["dosage_unit"].ToString() ?? "";
-                    string category = reader["category"].ToString() ?? "";
-                    string unitPrice = reader["unit_price"].ToString() ?? "0";
-                    string stockQty = reader["stock_quantity"].ToString() ?? "0";
-                    int isActive = Convert.ToInt32(reader["is_active"]);
-
-                    reader.Close();
-                    conn.Close();
-
-                    AddMedicineForm form = new AddMedicineForm(medCode, medName, dosageUnit, category, unitPrice, stockQty, isActive);
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        DialogResult answer = MessageBox.Show(
-                            "Do you want to save records?",
-                            "Saving Records",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question);
-
-                        if (answer == DialogResult.No)
-                        {
-                            return;
-                        }
-
-                        saveMedicineRecord(true, form.MedicineCodeValue, form.MedicineNameValue, form.DosageUnitValue, form.CategoryValue, form.UnitPriceValue, form.StockQuantityValue, form.IsActiveValue);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No Record Found");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Error: " + ex.Message);
-            }
-            finally
-            {
-                if (reader != null && !reader.IsClosed)
-                {
-                    reader.Close();
-                }
-
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-        }
-
-        void saveMedicineRecord(bool isEdit, string medCode, string medName, string dosageUnit, string category, decimal unitPrice, int stockQty, int isActive)
-        {
-            MySqlConnection conn = new MySqlConnection(connStr);
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand();
-                conn.Open();
-
-                string safeCode = medCode.Replace("'", "''");
-                string safeName = medName.Replace("'", "''");
-                string safeDosage = dosageUnit.Replace("'", "''");
-                string safeCat = category.Replace("'", "''");
-
-                if (isEdit)
-                {
-                    cmd.CommandText = "UPDATE MedicineCatalog SET " +
-                        "name = '" + safeName + "', " +
-                        "dosage_unit = '" + safeDosage + "', " +
-                        "category = '" + safeCat + "', " +
-                        "unit_price = " + unitPrice + ", " +
-                        "stock_quantity = " + stockQty + ", " +
-                        "is_active = " + isActive + " " +
-                        "WHERE medicine_code = '" + safeCode + "'";
-                }
-                else
-                {
-                    cmd.CommandText = "INSERT INTO MedicineCatalog (medicine_code, name, dosage_unit, category, unit_price, stock_quantity, is_active) VALUES (" +
-                        "'" + safeCode + "', " +
-                        "'" + safeName + "', " +
-                        "'" + safeDosage + "', " +
-                        "'" + safeCat + "', " +
-                        unitPrice + ", " +
-                        stockQty + ", " +
-                        isActive + ")";
-                }
-
-                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@medicine_code", txtMedCode.Text.Trim());
+                cmd.Parameters.AddWithValue("@name", txtMedName.Text.Trim());
+                cmd.Parameters.AddWithValue("@dosage_unit", txtDosageUnit.Text.Trim());
+                cmd.Parameters.AddWithValue("@category", txtCategory.Text.Trim());
+                cmd.Parameters.AddWithValue("@unit_price", priceValue);
+                cmd.Parameters.AddWithValue("@stock_quantity", stockValue);
+                cmd.Parameters.AddWithValue("@is_active", isActive);
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
                 MessageBox.Show("RECORD SAVE");
+                clearFields();
                 loaddata();
             }
             catch (Exception ex)
@@ -343,11 +174,84 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void deleteSelectedMedicine(string medCode, string medName)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DialogResult answer = MessageBox.Show(
-                "Are you sure you want to delete Medicine " + medName + " (" + medCode + ")?",
-                "Delete Record",
+            if (txtMedCode.Text.Trim() == "" || txtMedName.Text.Trim() == "" || txtDosageUnit.Text.Trim() == "" || txtCategory.Text.Trim() == "" || txtUnitPrice.Text.Trim() == "" || txtStockQty.Text.Trim() == "")
+            {
+                MessageBox.Show("Please select a record from the table first.");
+                return;
+            }
+
+            decimal priceValue = 0;
+            int stockValue = 0;
+            if (!decimal.TryParse(txtUnitPrice.Text.Trim(), out priceValue) || priceValue < 0 ||
+                !int.TryParse(txtStockQty.Text.Trim(), out stockValue) || stockValue < 0)
+            {
+                MessageBox.Show("Please enter valid non-negative Price and Stock Quantity.");
+                return;
+            }
+
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to save records?", "Saving Records",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (answer == DialogResult.No)
+            {
+                return;
+            }
+
+            int isActive = 0;
+            if (cmbStatus.Text == "Active")
+            {
+                isActive = 1;
+            }
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "UPDATE MedicineCatalog SET name = @name, dosage_unit = @dosage_unit, category = @category, unit_price = @unit_price, stock_quantity = @stock_quantity, is_active = @is_active WHERE medicine_code = @medicine_code";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@medicine_code", txtMedCode.Text.Trim());
+                cmd.Parameters.AddWithValue("@name", txtMedName.Text.Trim());
+                cmd.Parameters.AddWithValue("@dosage_unit", txtDosageUnit.Text.Trim());
+                cmd.Parameters.AddWithValue("@category", txtCategory.Text.Trim());
+                cmd.Parameters.AddWithValue("@unit_price", priceValue);
+                cmd.Parameters.AddWithValue("@stock_quantity", stockValue);
+                cmd.Parameters.AddWithValue("@is_active", isActive);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("RECORD SAVE");
+                clearFields();
+                loaddata();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (txtMedCode.Text.Trim() == "")
+            {
+                MessageBox.Show("Please select a record to delete.");
+                return;
+            }
+
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to delete this record?", "Deleting Record",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
@@ -357,16 +261,19 @@ namespace Patient_Info_and_Billing_System.Admin
             }
 
             MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
                 conn.Open();
-                cmd.CommandText = "DELETE FROM MedicineCatalog WHERE medicine_code = '" + medCode.Replace("'", "''") + "'";
+                cmd.CommandText = "DELETE FROM MedicineCatalog WHERE medicine_code = @medicine_code";
                 cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@medicine_code", txtMedCode.Text.Trim());
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
+                MessageBox.Show("Record deleted.");
+                clearFields();
                 loaddata();
             }
             catch (Exception ex)
@@ -379,6 +286,68 @@ namespace Patient_Info_and_Billing_System.Admin
                 {
                     conn.Close();
                 }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearFields();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+            clearFields();
+            loaddata();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter();
+
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "SELECT medicine_code AS 'Code', name AS 'Medicine Name', dosage_unit AS 'Dosage Unit', category AS 'Category', unit_price AS 'Unit Price', stock_quantity AS 'Stock', CASE WHEN is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM MedicineCatalog WHERE medicine_code LIKE @search OR name LIKE @search OR category LIKE @search OR dosage_unit LIKE @search ORDER BY name ASC";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
+                da.SelectCommand = cmd;
+                da.Fill(ds, "abc");
+                dgvMedicines.DataSource = ds;
+                dgvMedicines.DataMember = "abc";
+                conn.Close();
+
+                lblShowingEntries.Text = "Showing " + dgvMedicines.Rows.Count + " entries";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Search error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void dgvMedicines_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvMedicines.Rows.Count)
+            {
+                DataGridViewRow row = dgvMedicines.Rows[e.RowIndex];
+                txtMedCode.Text = row.Cells[0].Value.ToString();
+                txtMedCode.ReadOnly = true;
+                txtMedName.Text = row.Cells[1].Value.ToString();
+                txtDosageUnit.Text = row.Cells[2].Value.ToString();
+                txtCategory.Text = row.Cells[3].Value.ToString();
+                txtUnitPrice.Text = row.Cells[4].Value.ToString();
+                txtStockQty.Text = row.Cells[5].Value.ToString();
+                cmbStatus.Text = row.Cells[6].Value.ToString();
             }
         }
     }
