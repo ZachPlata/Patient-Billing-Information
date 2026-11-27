@@ -1,7 +1,6 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Patient_Info_and_Billing_System.Admin
@@ -9,48 +8,34 @@ namespace Patient_Info_and_Billing_System.Admin
     public partial class RnBManagement : UserControl
     {
         string connStr = "server=localhost; database=metro_care_db; uid=root";
-        DataTable dtBeds = new DataTable();
 
         public RnBManagement()
         {
             InitializeComponent();
-
-            cmbRoomType.SelectedIndex = 0;
-            cmbStatus.SelectedIndex = 0;
-            colActions.Visible = false;
-
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            cmbRoomType.SelectedIndexChanged += cmbRoomType_SelectedIndexChanged;
-            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
-            btnClearFilters.Click += btnClearFilters_Click;
-
+            clearFields();
             loaddata();
         }
 
-        public void loaddata()
+        void loaddata()
         {
             MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter();
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
-                DataSet ds = new DataSet();
-                MySqlDataAdapter da = new MySqlDataAdapter();
-
                 conn.Open();
-                cmd.CommandText = "SELECT bed_id, room_number, bed_number, room_type, daily_rate, is_occupied FROM RoomsBeds ORDER BY room_number ASC, bed_number ASC";
+                cmd.CommandText = "SELECT bed_id AS 'Bed ID', room_number AS 'Room #', bed_number AS 'Bed #', room_type AS 'Room Type', daily_rate AS 'Daily Rate', CASE WHEN is_occupied = 1 THEN 'Occupied' ELSE 'Available' END AS 'Status' FROM RoomsBeds ORDER BY room_number ASC, bed_number ASC";
                 cmd.Connection = conn;
                 da.SelectCommand = cmd;
-                da.Fill(ds, "RoomsBeds");
+                da.Fill(ds, "abc");
+                dgvRooms.DataSource = ds;
+                dgvRooms.DataMember = "abc";
                 conn.Close();
 
-                if (ds.Tables["RoomsBeds"] != null)
-                {
-                    dtBeds = ds.Tables["RoomsBeds"]!;
-                }
-
-                updateCards();
-                filterData();
+                lblShowingEntries.Text = "Showing: " + dgvRooms.Rows.Count + " entries";
+                updateCards(ds.Tables["abc"]);
             }
             catch (Exception ex)
             {
@@ -65,19 +50,23 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void updateCards()
+        void updateCards(DataTable dt)
         {
+            if (dt == null)
+            {
+                return;
+            }
+
             int total = 0;
             int available = 0;
             int occupied = 0;
             decimal totalRate = 0;
 
-            foreach (DataRow row in dtBeds.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 total++;
-                int isOccupied = Convert.ToInt32(row["is_occupied"]);
-
-                if (isOccupied == 1)
+                string status = row["Status"].ToString();
+                if (status == "Occupied")
                 {
                     occupied++;
                 }
@@ -86,7 +75,7 @@ namespace Patient_Info_and_Billing_System.Admin
                     available++;
                 }
 
-                totalRate = totalRate + Convert.ToDecimal(row["daily_rate"]);
+                totalRate = totalRate + Convert.ToDecimal(row["Daily Rate"]);
             }
 
             decimal avgRate = 0;
@@ -101,246 +90,68 @@ namespace Patient_Info_and_Billing_System.Admin
             lblValAvgRate.Text = "₱" + avgRate.ToString("N2");
         }
 
-        string mapFilterRoomType(string selectedFilter)
+        void clearFields()
         {
-            if (selectedFilter == "Pediatric ICU (PICU)" || selectedFilter == "Neonatal ICU (NICU)")
-            {
-                return "ICU";
-            }
-            else if (selectedFilter == "Pediatric Ward")
-            {
-                return "Ward";
-            }
-            else if (selectedFilter == "Isolation Unit")
-            {
-                return "Semi-Private";
-            }
-            else if (selectedFilter == "Private Deluxe Suite")
-            {
-                return "Private";
-            }
-
-            return selectedFilter;
-        }
-
-        void filterData()
-        {
-            dgvRooms.Rows.Clear();
-
-            string search = txtSearch.Text.Trim().ToLower();
-            string selectedType = mapFilterRoomType(cmbRoomType.Text);
-            string selectedStatus = cmbStatus.Text;
-
-            foreach (DataRow row in dtBeds.Rows)
-            {
-                string bedId = row["bed_id"].ToString() ?? "";
-                string roomNumber = row["room_number"].ToString() ?? "";
-                string bedNumber = row["bed_number"].ToString() ?? "";
-                string roomType = row["room_type"].ToString() ?? "";
-                decimal dailyRate = Convert.ToDecimal(row["daily_rate"]);
-                int isOccupied = Convert.ToInt32(row["is_occupied"]);
-                string statusText = (isOccupied == 1) ? "Occupied" : "Available";
-
-                bool matchType = (selectedType == "ALL" || roomType == selectedType);
-                bool matchStatus = (selectedStatus == "ALL" || statusText == selectedStatus);
-                bool matchSearch = (search == "" ||
-                    roomNumber.ToLower().Contains(search) ||
-                    roomType.ToLower().Contains(search) ||
-                    bedId.ToLower().Contains(search) ||
-                    bedNumber.ToLower().Contains(search));
-
-                if (matchType && matchStatus && matchSearch)
-                {
-                    int rowIndex = dgvRooms.Rows.Add(
-                        roomNumber,
-                        roomType,
-                        bedId + " (Bed " + bedNumber + ")",
-                        "₱" + dailyRate.ToString("N2"),
-                        statusText,
-                        "Edit / Delete"
-                    );
-
-                    dgvRooms.Rows[rowIndex].Tag = bedId;
-                }
-            }
-
-            lblShowingEntries.Text = "Showing: " + dgvRooms.Rows.Count + " entries";
-        }
-
-        private void txtSearch_TextChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void cmbRoomType_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void cmbStatus_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void btnClearFilters_Click(object? sender, EventArgs e)
-        {
-            txtSearch.Clear();
+            txtBedId.Clear();
+            txtBedId.ReadOnly = false;
+            txtRoomNumber.Clear();
+            txtBedNumber.Clear();
             cmbRoomType.SelectedIndex = 0;
+            txtDailyRate.Text = "1000.00";
             cmbStatus.SelectedIndex = 0;
-            filterData();
+            txtBedId.Focus();
         }
 
-        public void EditSelectedBed()
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (dgvRooms.SelectedRows.Count == 0)
+            if (txtBedId.Text.Trim() == "" || txtRoomNumber.Text.Trim() == "" || txtBedNumber.Text.Trim() == "" || txtDailyRate.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a row to edit.");
+                MessageBox.Show("Please fill in all required fields.");
                 return;
             }
 
-            string bedId = dgvRooms.SelectedRows[0].Tag?.ToString() ?? "";
-            editSelectedBed(bedId);
-        }
-
-        public void DeleteSelectedBed()
-        {
-            if (dgvRooms.SelectedRows.Count == 0)
+            decimal rateValue = 0;
+            if (!decimal.TryParse(txtDailyRate.Text.Trim(), out rateValue) || rateValue < 0)
             {
-                MessageBox.Show("Please select a row to delete.");
+                MessageBox.Show("Please enter a valid Daily Rate.");
                 return;
             }
 
-            string bedId = dgvRooms.SelectedRows[0].Tag?.ToString() ?? "";
-            string roomNumber = dgvRooms.SelectedRows[0].Cells["colRoomNo"].Value?.ToString() ?? "";
-            string currentStatus = dgvRooms.SelectedRows[0].Cells["colStatus"].Value?.ToString() ?? "";
-            deleteSelectedBed(bedId, roomNumber, currentStatus);
-        }
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to save records?", "Saving Records",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
-        public void OpenAddBedDialog()
-        {
-            AddRoomBedForm form = new AddRoomBedForm();
-            if (form.ShowDialog() == DialogResult.OK)
+            if (answer == DialogResult.No)
             {
-                DialogResult answer = MessageBox.Show(
-                    "Do you want to save records?",
-                    "Saving Records",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (answer == DialogResult.No)
-                {
-                    return;
-                }
-
-                saveBedRecord(false, form.BedIdValue, form.RoomNumberValue, form.BedNumberValue, form.RoomTypeValue, form.DailyRateValue, form.IsOccupiedValue);
+                return;
             }
-        }
 
-        void editSelectedBed(string bedId)
-        {
+            int isOccupied = 0;
+            if (cmbStatus.Text == "Occupied")
+            {
+                isOccupied = 1;
+            }
+
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
-            MySqlDataReader? reader = null;
 
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT * FROM RoomsBeds WHERE bed_id = '" + bedId.Replace("'", "''") + "'";
+                cmd.CommandText = "INSERT INTO RoomsBeds (bed_id, room_number, bed_number, room_type, daily_rate, is_occupied) VALUES (@bed_id, @room_number, @bed_number, @room_type, @daily_rate, @is_occupied)";
                 cmd.Connection = conn;
-                reader = cmd.ExecuteReader();
-                reader.Read();
-
-                if (reader.HasRows)
-                {
-                    string roomNumber = reader["room_number"].ToString() ?? "";
-                    string bedNumber = reader["bed_number"].ToString() ?? "";
-                    string roomType = reader["room_type"].ToString() ?? "Ward";
-                    string dailyRate = reader["daily_rate"].ToString() ?? "0";
-                    int isOccupied = Convert.ToInt32(reader["is_occupied"]);
-
-                    reader.Close();
-                    conn.Close();
-
-                    AddRoomBedForm form = new AddRoomBedForm(bedId, roomNumber, bedNumber, roomType, dailyRate, isOccupied);
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        DialogResult answer = MessageBox.Show(
-                            "Do you want to save records?",
-                            "Saving Records",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question);
-
-                        if (answer == DialogResult.No)
-                        {
-                            return;
-                        }
-
-                        saveBedRecord(true, form.BedIdValue, form.RoomNumberValue, form.BedNumberValue, form.RoomTypeValue, form.DailyRateValue, form.IsOccupiedValue);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No Record Found");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Error: " + ex.Message);
-            }
-            finally
-            {
-                if (reader != null && !reader.IsClosed)
-                {
-                    reader.Close();
-                }
-
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-        }
-
-        void saveBedRecord(bool isEdit, string bedId, string roomNumber, string bedNumber, string roomType, decimal dailyRate, int isOccupied)
-        {
-            MySqlConnection conn = new MySqlConnection(connStr);
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand();
-                conn.Open();
-
-                string safeBedId = bedId.Replace("'", "''");
-                string safeRoomNo = roomNumber.Replace("'", "''");
-                string safeBedNo = bedNumber.Replace("'", "''");
-                string safeType = roomType.Replace("'", "''");
-
-                if (isEdit)
-                {
-                    cmd.CommandText = "UPDATE RoomsBeds SET " +
-                        "room_number = '" + safeRoomNo + "', " +
-                        "bed_number = '" + safeBedNo + "', " +
-                        "room_type = '" + safeType + "', " +
-                        "daily_rate = " + dailyRate + ", " +
-                        "is_occupied = " + isOccupied + " " +
-                        "WHERE bed_id = '" + safeBedId + "'";
-                }
-                else
-                {
-                    cmd.CommandText = "INSERT INTO RoomsBeds (bed_id, room_number, bed_number, room_type, daily_rate, is_occupied) VALUES (" +
-                        "'" + safeBedId + "', " +
-                        "'" + safeRoomNo + "', " +
-                        "'" + safeBedNo + "', " +
-                        "'" + safeType + "', " +
-                        dailyRate + ", " +
-                        isOccupied + ")";
-                }
-
-                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@bed_id", txtBedId.Text.Trim());
+                cmd.Parameters.AddWithValue("@room_number", txtRoomNumber.Text.Trim());
+                cmd.Parameters.AddWithValue("@bed_number", txtBedNumber.Text.Trim());
+                cmd.Parameters.AddWithValue("@room_type", cmbRoomType.Text);
+                cmd.Parameters.AddWithValue("@daily_rate", rateValue);
+                cmd.Parameters.AddWithValue("@is_occupied", isOccupied);
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
                 MessageBox.Show("RECORD SAVE");
+                clearFields();
                 loaddata();
             }
             catch (Exception ex)
@@ -356,17 +167,81 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void deleteSelectedBed(string bedId, string roomNumber, string currentStatus)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (currentStatus == "Occupied")
+            if (txtBedId.Text.Trim() == "" || txtRoomNumber.Text.Trim() == "" || txtBedNumber.Text.Trim() == "" || txtDailyRate.Text.Trim() == "")
             {
-                MessageBox.Show("Cannot delete an Occupied bed.");
+                MessageBox.Show("Please select a record from the table first.");
                 return;
             }
 
-            DialogResult answer = MessageBox.Show(
-                "Are you sure you want to delete Bed " + bedId + " in Room " + roomNumber + "?",
-                "Delete Record",
+            decimal rateValue = 0;
+            if (!decimal.TryParse(txtDailyRate.Text.Trim(), out rateValue) || rateValue < 0)
+            {
+                MessageBox.Show("Please enter a valid Daily Rate.");
+                return;
+            }
+
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to save records?", "Saving Records",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (answer == DialogResult.No)
+            {
+                return;
+            }
+
+            int isOccupied = 0;
+            if (cmbStatus.Text == "Occupied")
+            {
+                isOccupied = 1;
+            }
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "UPDATE RoomsBeds SET room_number = @room_number, bed_number = @bed_number, room_type = @room_type, daily_rate = @daily_rate, is_occupied = @is_occupied WHERE bed_id = @bed_id";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@bed_id", txtBedId.Text.Trim());
+                cmd.Parameters.AddWithValue("@room_number", txtRoomNumber.Text.Trim());
+                cmd.Parameters.AddWithValue("@bed_number", txtBedNumber.Text.Trim());
+                cmd.Parameters.AddWithValue("@room_type", cmbRoomType.Text);
+                cmd.Parameters.AddWithValue("@daily_rate", rateValue);
+                cmd.Parameters.AddWithValue("@is_occupied", isOccupied);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("RECORD SAVE");
+                clearFields();
+                loaddata();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (txtBedId.Text.Trim() == "")
+            {
+                MessageBox.Show("Please select a record to delete.");
+                return;
+            }
+
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to delete this record?", "Deleting Record",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
@@ -376,16 +251,19 @@ namespace Patient_Info_and_Billing_System.Admin
             }
 
             MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
                 conn.Open();
-                cmd.CommandText = "DELETE FROM RoomsBeds WHERE bed_id = '" + bedId.Replace("'", "''") + "'";
+                cmd.CommandText = "DELETE FROM RoomsBeds WHERE bed_id = @bed_id";
                 cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@bed_id", txtBedId.Text.Trim());
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
+                MessageBox.Show("Record deleted.");
+                clearFields();
                 loaddata();
             }
             catch (Exception ex)
@@ -398,6 +276,67 @@ namespace Patient_Info_and_Billing_System.Admin
                 {
                     conn.Close();
                 }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearFields();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+            clearFields();
+            loaddata();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter();
+
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "SELECT bed_id AS 'Bed ID', room_number AS 'Room #', bed_number AS 'Bed #', room_type AS 'Room Type', daily_rate AS 'Daily Rate', CASE WHEN is_occupied = 1 THEN 'Occupied' ELSE 'Available' END AS 'Status' FROM RoomsBeds WHERE bed_id LIKE @search OR room_number LIKE @search OR room_type LIKE @search ORDER BY room_number ASC, bed_number ASC";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
+                da.SelectCommand = cmd;
+                da.Fill(ds, "abc");
+                dgvRooms.DataSource = ds;
+                dgvRooms.DataMember = "abc";
+                conn.Close();
+
+                lblShowingEntries.Text = "Showing: " + dgvRooms.Rows.Count + " entries";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Search error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void dgvRooms_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvRooms.Rows.Count)
+            {
+                DataGridViewRow row = dgvRooms.Rows[e.RowIndex];
+                txtBedId.Text = row.Cells[0].Value.ToString();
+                txtBedId.ReadOnly = true;
+                txtRoomNumber.Text = row.Cells[1].Value.ToString();
+                txtBedNumber.Text = row.Cells[2].Value.ToString();
+                cmbRoomType.Text = row.Cells[3].Value.ToString();
+                txtDailyRate.Text = row.Cells[4].Value.ToString();
+                cmbStatus.Text = row.Cells[5].Value.ToString();
             }
         }
     }

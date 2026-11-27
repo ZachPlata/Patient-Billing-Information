@@ -28,8 +28,8 @@ namespace Patient_Info_and_Billing_System
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
-            DataGridViewCellStyle rowCellStyle = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelHeader = new Panel();
             panelBadge = new Panel();
             lblBadge = new Label();
@@ -92,7 +92,7 @@ namespace Patient_Info_and_Billing_System
             lblBadge.ForeColor = Color.FromArgb(16, 185, 129);
             lblBadge.Location = new Point(14, 7);
             lblBadge.Name = "lblBadge";
-            lblBadge.Size = new Size(125, 17);
+            lblBadge.Size = new Size(114, 17);
             lblBadge.TabIndex = 0;
             lblBadge.Text = "● Billing & History";
             // 
@@ -103,7 +103,7 @@ namespace Patient_Info_and_Billing_System
             lblSubtitle.ForeColor = Color.FromArgb(100, 116, 139);
             lblSubtitle.Location = new Point(2, 42);
             lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(540, 17);
+            lblSubtitle.Size = new Size(511, 17);
             lblSubtitle.TabIndex = 1;
             lblSubtitle.Text = "Select a patient to view their visit history, billing records, and utilized equipment/items.";
             // 
@@ -112,9 +112,9 @@ namespace Patient_Info_and_Billing_System
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.FromArgb(15, 23, 42);
-            lblTitle.Location = new Point(0, 4);
+            lblTitle.Location = new Point(3, 10);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(346, 32);
+            lblTitle.Size = new Size(328, 32);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Patient Records & Billing Log";
             // 
@@ -190,7 +190,7 @@ namespace Patient_Info_and_Billing_System
             lblEquipmentUsed.ForeColor = Color.FromArgb(71, 85, 105);
             lblEquipmentUsed.Location = new Point(18, 445);
             lblEquipmentUsed.Name = "lblEquipmentUsed";
-            lblEquipmentUsed.Size = new Size(194, 17);
+            lblEquipmentUsed.Size = new Size(190, 17);
             lblEquipmentUsed.TabIndex = 7;
             lblEquipmentUsed.Text = "Equipment & Drugs Used (Util)";
             // 
@@ -216,7 +216,7 @@ namespace Patient_Info_and_Billing_System
             lblBillings.ForeColor = Color.FromArgb(71, 85, 105);
             lblBillings.Location = new Point(18, 270);
             lblBillings.Name = "lblBillings";
-            lblBillings.Size = new Size(105, 17);
+            lblBillings.Size = new Size(100, 17);
             lblBillings.TabIndex = 5;
             lblBillings.Text = "Billing Records";
             // 
@@ -227,7 +227,6 @@ namespace Patient_Info_and_Billing_System
             lstVisitHistory.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lstVisitHistory.ForeColor = Color.FromArgb(15, 23, 42);
             lstVisitHistory.FormattingEnabled = true;
-            lstVisitHistory.ItemHeight = 17;
             lstVisitHistory.Location = new Point(18, 130);
             lstVisitHistory.Name = "lstVisitHistory";
             lstVisitHistory.Size = new Size(342, 121);
@@ -241,7 +240,7 @@ namespace Patient_Info_and_Billing_System
             lblVisitHistory.ForeColor = Color.FromArgb(71, 85, 105);
             lblVisitHistory.Location = new Point(18, 110);
             lblVisitHistory.Name = "lblVisitHistory";
-            lblVisitHistory.Size = new Size(218, 17);
+            lblVisitHistory.Size = new Size(217, 17);
             lblVisitHistory.TabIndex = 3;
             lblVisitHistory.Text = "Visit History (Click a date for bill)";
             // 
@@ -265,7 +264,7 @@ namespace Patient_Info_and_Billing_System
             lblPatientName.ForeColor = Color.FromArgb(71, 85, 105);
             lblPatientName.Location = new Point(18, 52);
             lblPatientName.Name = "lblPatientName";
-            lblPatientName.Size = new Size(94, 17);
+            lblPatientName.Size = new Size(92, 17);
             lblPatientName.TabIndex = 1;
             lblPatientName.Text = "Patient Name";
             // 
@@ -276,7 +275,7 @@ namespace Patient_Info_and_Billing_System
             lblDetailsHeader.ForeColor = Color.FromArgb(37, 99, 235);
             lblDetailsHeader.Location = new Point(16, 16);
             lblDetailsHeader.Name = "lblDetailsHeader";
-            lblDetailsHeader.Size = new Size(125, 21);
+            lblDetailsHeader.Size = new Size(122, 21);
             lblDetailsHeader.TabIndex = 0;
             lblDetailsHeader.Text = "Patient Details";
             // 
@@ -305,7 +304,7 @@ namespace Patient_Info_and_Billing_System
             lblFooterRight.ForeColor = Color.FromArgb(37, 99, 235);
             lblFooterRight.Location = new Point(925, 710);
             lblFooterRight.Name = "lblFooterRight";
-            lblFooterRight.Size = new Size(204, 15);
+            lblFooterRight.Size = new Size(171, 15);
             lblFooterRight.TabIndex = 8;
             lblFooterRight.Text = "Visits, Billings & Equipment Used";
             // 
@@ -316,7 +315,7 @@ namespace Patient_Info_and_Billing_System
             lblFooterLeft.ForeColor = Color.FromArgb(100, 116, 139);
             lblFooterLeft.Location = new Point(18, 710);
             lblFooterLeft.Name = "lblFooterLeft";
-            lblFooterLeft.Size = new Size(462, 15);
+            lblFooterLeft.Size = new Size(422, 15);
             lblFooterLeft.TabIndex = 7;
             lblFooterLeft.Text = "Click a patient row, then click any visit date on the left to view that day's billing";
             // 
@@ -384,7 +383,7 @@ namespace Patient_Info_and_Billing_System
             lblRecordCount.ForeColor = Color.FromArgb(100, 116, 139);
             lblRecordCount.Location = new Point(195, 19);
             lblRecordCount.Name = "lblRecordCount";
-            lblRecordCount.Size = new Size(74, 17);
+            lblRecordCount.Size = new Size(70, 17);
             lblRecordCount.TabIndex = 2;
             lblRecordCount.Text = "0 patient(s)";
             // 
@@ -395,7 +394,7 @@ namespace Patient_Info_and_Billing_System
             lblTableTitle.ForeColor = Color.FromArgb(37, 99, 235);
             lblTableTitle.Location = new Point(16, 16);
             lblTableTitle.Name = "lblTableTitle";
-            lblTableTitle.Size = new Size(173, 21);
+            lblTableTitle.Size = new Size(174, 21);
             lblTableTitle.TabIndex = 1;
             lblTableTitle.Text = "Patient Records Table";
             // 
@@ -405,25 +404,24 @@ namespace Patient_Info_and_Billing_System
             PatBillRec_DGV.AllowUserToDeleteRows = false;
             PatBillRec_DGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PatBillRec_DGV.BackgroundColor = Color.FromArgb(248, 250, 252);
-            PatBillRec_DGV.BorderStyle = BorderStyle.FixedSingle;
-            columnHeaderStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            columnHeaderStyle.BackColor = Color.FromArgb(17, 34, 64);
-            columnHeaderStyle.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            columnHeaderStyle.ForeColor = Color.White;
-            columnHeaderStyle.SelectionBackColor = Color.FromArgb(17, 34, 64);
-            columnHeaderStyle.SelectionForeColor = Color.White;
-            columnHeaderStyle.WrapMode = DataGridViewTriState.True;
-            PatBillRec_DGV.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(17, 34, 64);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(17, 34, 64);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            PatBillRec_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             PatBillRec_DGV.ColumnHeadersHeight = 36;
             PatBillRec_DGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            rowCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            rowCellStyle.BackColor = Color.White;
-            rowCellStyle.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rowCellStyle.ForeColor = Color.FromArgb(15, 23, 42);
-            rowCellStyle.SelectionBackColor = Color.FromArgb(219, 234, 254);
-            rowCellStyle.SelectionForeColor = Color.FromArgb(15, 23, 42);
-            rowCellStyle.WrapMode = DataGridViewTriState.False;
-            PatBillRec_DGV.DefaultCellStyle = rowCellStyle;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(15, 23, 42);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(219, 234, 254);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(15, 23, 42);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            PatBillRec_DGV.DefaultCellStyle = dataGridViewCellStyle2;
             PatBillRec_DGV.EnableHeadersVisualStyles = false;
             PatBillRec_DGV.GridColor = Color.FromArgb(226, 232, 240);
             PatBillRec_DGV.Location = new Point(18, 58);

@@ -131,7 +131,7 @@ namespace Patient_Info_and_Billing_System
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection("server=localhost; database=patientbillingdb; uid=root");
+            MySqlConnection conn = new MySqlConnection("server=localhost; database=metro_care_db; uid=root");
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();
             MySqlDataAdapter da = new MySqlDataAdapter();
@@ -184,7 +184,7 @@ namespace Patient_Info_and_Billing_System
             txtPatientName.Text = PatBillRec_DGV.Rows[e.RowIndex].Cells[1].Value.ToString();
             lstVisitHistory.Items.Clear();
 
-            MySqlConnection conn = new MySqlConnection("server=localhost; database=patientbillingdb; uid=root");
+            MySqlConnection conn = new MySqlConnection("server=localhost; database=metro_care_db; uid=root");
             MySqlCommand cmd = new MySqlCommand();
             MySqlDataReader reader;
 

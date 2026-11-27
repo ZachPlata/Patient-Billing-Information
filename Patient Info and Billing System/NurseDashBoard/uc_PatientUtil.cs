@@ -17,7 +17,7 @@ namespace Patient_Info_and_Billing_System
         }
         void loaddata()
         {
-            MySqlConnection conn = new MySqlConnection("server=localhost; database=patientbillingdb; uid=root");
+            MySqlConnection conn = new MySqlConnection("server=localhost; database=metroc_care_db; uid=root");
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();
             MySqlDataAdapter da = new MySqlDataAdapter();

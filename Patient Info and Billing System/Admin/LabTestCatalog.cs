@@ -1,7 +1,6 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Patient_Info_and_Billing_System.Admin
@@ -9,53 +8,34 @@ namespace Patient_Info_and_Billing_System.Admin
     public partial class LabTestCatalog : UserControl
     {
         string connStr = "server=localhost; database=metro_care_db; uid=root";
-        DataTable dtLabTests = new DataTable();
 
         public LabTestCatalog()
         {
             InitializeComponent();
-
-            cmbDepartment.SelectedIndex = 0;
-            cmbStatus.SelectedIndex = 0;
-            colActions.Visible = false;
-
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            cmbDepartment.SelectedIndexChanged += cmbDepartment_SelectedIndexChanged;
-            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
-            btnClearFilters.Click += btnClearFilters_Click;
-
+            clearFields();
             loaddata();
         }
 
-        private void lblValAvgTurnaround_Click(object? sender, EventArgs e)
-        {
-
-        }
-
-        public void loaddata()
+        void loaddata()
         {
             MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter();
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
-                DataSet ds = new DataSet();
-                MySqlDataAdapter da = new MySqlDataAdapter();
-
                 conn.Open();
-                cmd.CommandText = "SELECT test_code, test_name, category, price, turnaround_time, is_active FROM LabTestCatalog ORDER BY test_name ASC";
+                cmd.CommandText = "SELECT test_code AS 'Test Code', test_name AS 'Test Name', category AS 'Department', price AS 'Price', turnaround_time AS 'Turnaround', CASE WHEN is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM LabTestCatalog ORDER BY test_name ASC";
                 cmd.Connection = conn;
                 da.SelectCommand = cmd;
-                da.Fill(ds, "LabTestCatalog");
+                da.Fill(ds, "abc");
+                dgvLabTests.DataSource = ds;
+                dgvLabTests.DataMember = "abc";
                 conn.Close();
 
-                if (ds.Tables["LabTestCatalog"] != null)
-                {
-                    dtLabTests = ds.Tables["LabTestCatalog"]!;
-                }
-
-                updateCards();
-                filterData();
+                lblShowingEntries.Text = "Showing: " + dgvLabTests.Rows.Count + " entries";
+                updateCards(ds.Tables["abc"]);
             }
             catch (Exception ex)
             {
@@ -70,22 +50,27 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void updateCards()
+        void updateCards(DataTable dt)
         {
+            if (dt == null)
+            {
+                return;
+            }
+
             int total = 0;
             int active = 0;
             decimal totalPrice = 0;
 
-            foreach (DataRow row in dtLabTests.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 total++;
-                int isActive = Convert.ToInt32(row["is_active"]);
-                if (isActive == 1)
+                string status = row["Status"].ToString();
+                if (status == "Active")
                 {
                     active++;
                 }
 
-                totalPrice = totalPrice + Convert.ToDecimal(row["price"]);
+                totalPrice = totalPrice + Convert.ToDecimal(row["Price"]);
             }
 
             decimal avgPrice = 0;
@@ -96,228 +81,79 @@ namespace Patient_Info_and_Billing_System.Admin
 
             lblValCatalogedTests.Text = total.ToString();
             lblValActivePanels.Text = active.ToString();
-            lblValAvgTurnaround.Text = total > 0 ? (dtLabTests.Rows[0]["turnaround_time"].ToString() ?? "~ 0 Hrs") : "~ 0 Hrs";
+            if (total > 0)
+            {
+                lblValAvgTurnaround.Text = dt.Rows[0]["Turnaround"].ToString();
+            }
+            else
+            {
+                lblValAvgTurnaround.Text = "~ 0 Hrs";
+            }
             lblValAvgTariff.Text = "₱" + avgPrice.ToString("N2");
         }
 
-        void filterData()
+        void clearFields()
         {
-            dgvLabTests.Rows.Clear();
-
-            string search = txtSearch.Text.Trim().ToLower();
-            string selectedDept = cmbDepartment.Text;
-            string selectedStatus = cmbStatus.Text;
-
-            foreach (DataRow row in dtLabTests.Rows)
-            {
-                string testCode = row["test_code"].ToString() ?? "";
-                string testName = row["test_name"].ToString() ?? "";
-                string category = row["category"].ToString() ?? "";
-                decimal price = Convert.ToDecimal(row["price"]);
-                string turnaround = row["turnaround_time"].ToString() ?? "";
-                int isActive = Convert.ToInt32(row["is_active"]);
-                string statusText = (isActive == 1) ? "Active" : "Inactive";
-
-                bool matchDept = (selectedDept == "ALL" || category == selectedDept);
-                bool matchStatus = (selectedStatus == "ALL" || statusText == selectedStatus);
-                bool matchSearch = (search == "" ||
-                    testCode.ToLower().Contains(search) ||
-                    testName.ToLower().Contains(search) ||
-                    category.ToLower().Contains(search));
-
-                if (matchDept && matchStatus && matchSearch)
-                {
-                    int rowIndex = dgvLabTests.Rows.Add(
-                        testCode,
-                        testName,
-                        category,
-                        turnaround,
-                        "₱" + price.ToString("N2"),
-                        "Standard",
-                        statusText,
-                        "Edit / Delete"
-                    );
-
-                    dgvLabTests.Rows[rowIndex].Tag = testCode;
-                }
-            }
-
-            lblShowingEntries.Text = "Showing: " + dgvLabTests.Rows.Count + " entries";
-        }
-
-        private void txtSearch_TextChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void cmbDepartment_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void cmbStatus_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            filterData();
-        }
-
-        private void btnClearFilters_Click(object? sender, EventArgs e)
-        {
-            txtSearch.Clear();
+            txtTestCode.Clear();
+            txtTestCode.ReadOnly = false;
+            txtTestName.Clear();
             cmbDepartment.SelectedIndex = 0;
+            txtPrice.Text = "500.00";
+            txtTurnaround.Text = "2 Hours";
             cmbStatus.SelectedIndex = 0;
-            filterData();
+            txtTestCode.Focus();
         }
 
-        public void EditSelectedLabTest()
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (dgvLabTests.SelectedRows.Count == 0)
+            if (txtTestCode.Text.Trim() == "" || txtTestName.Text.Trim() == "" || cmbDepartment.Text.Trim() == "" || txtPrice.Text.Trim() == "" || txtTurnaround.Text.Trim() == "")
             {
-                MessageBox.Show("Please select a row to edit.");
+                MessageBox.Show("Please fill in all required fields.");
                 return;
             }
 
-            string testCode = dgvLabTests.SelectedRows[0].Tag?.ToString() ?? "";
-            editSelectedLabTest(testCode);
-        }
-
-        public void DeleteSelectedLabTest()
-        {
-            if (dgvLabTests.SelectedRows.Count == 0)
+            decimal priceValue = 0;
+            if (!decimal.TryParse(txtPrice.Text.Trim(), out priceValue) || priceValue < 0)
             {
-                MessageBox.Show("Please select a row to delete.");
+                MessageBox.Show("Please enter a valid Price.");
                 return;
             }
 
-            string testCode = dgvLabTests.SelectedRows[0].Tag?.ToString() ?? "";
-            string testName = dgvLabTests.SelectedRows[0].Cells["colTestName"].Value?.ToString() ?? "";
-            deleteSelectedLabTest(testCode, testName);
-        }
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to save records?", "Saving Records",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
-        public void OpenAddLabTestDialog()
-        {
-            AddLabTestForm form = new AddLabTestForm();
-            if (form.ShowDialog() == DialogResult.OK)
+            if (answer == DialogResult.No)
             {
-                DialogResult answer = MessageBox.Show(
-                    "Do you want to save records?",
-                    "Saving Records",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (answer == DialogResult.No)
-                {
-                    return;
-                }
-
-                saveLabTestRecord(false, form.TestCodeValue, form.TestNameValue, form.CategoryValue, form.PriceValue, form.TurnaroundValue, form.IsActiveValue);
+                return;
             }
-        }
 
-        void editSelectedLabTest(string testCode)
-        {
+            int isActive = 0;
+            if (cmbStatus.Text == "Active")
+            {
+                isActive = 1;
+            }
+
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
-            MySqlDataReader? reader = null;
 
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT * FROM LabTestCatalog WHERE test_code = '" + testCode.Replace("'", "''") + "'";
+                cmd.CommandText = "INSERT INTO LabTestCatalog (test_code, test_name, category, price, turnaround_time, is_active) VALUES (@test_code, @test_name, @category, @price, @turnaround_time, @is_active)";
                 cmd.Connection = conn;
-                reader = cmd.ExecuteReader();
-                reader.Read();
-
-                if (reader.HasRows)
-                {
-                    string testName = reader["test_name"].ToString() ?? "";
-                    string category = reader["category"].ToString() ?? "Hematology";
-                    string price = reader["price"].ToString() ?? "0";
-                    string turnaround = reader["turnaround_time"].ToString() ?? "";
-                    int isActive = Convert.ToInt32(reader["is_active"]);
-
-                    reader.Close();
-                    conn.Close();
-
-                    AddLabTestForm form = new AddLabTestForm(testCode, testName, category, price, turnaround, isActive);
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        DialogResult answer = MessageBox.Show(
-                            "Do you want to save records?",
-                            "Saving Records",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question);
-
-                        if (answer == DialogResult.No)
-                        {
-                            return;
-                        }
-
-                        saveLabTestRecord(true, form.TestCodeValue, form.TestNameValue, form.CategoryValue, form.PriceValue, form.TurnaroundValue, form.IsActiveValue);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No Record Found");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Error: " + ex.Message);
-            }
-            finally
-            {
-                if (reader != null && !reader.IsClosed)
-                {
-                    reader.Close();
-                }
-
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-        }
-
-        void saveLabTestRecord(bool isEdit, string testCode, string testName, string category, decimal price, string turnaround, int isActive)
-        {
-            MySqlConnection conn = new MySqlConnection(connStr);
-
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand();
-                conn.Open();
-
-                string safeCode = testCode.Replace("'", "''");
-                string safeName = testName.Replace("'", "''");
-                string safeCat = category.Replace("'", "''");
-                string safeTat = turnaround.Replace("'", "''");
-
-                if (isEdit)
-                {
-                    cmd.CommandText = "UPDATE LabTestCatalog SET " +
-                        "test_name = '" + safeName + "', " +
-                        "category = '" + safeCat + "', " +
-                        "price = " + price + ", " +
-                        "turnaround_time = '" + safeTat + "', " +
-                        "is_active = " + isActive + " " +
-                        "WHERE test_code = '" + safeCode + "'";
-                }
-                else
-                {
-                    cmd.CommandText = "INSERT INTO LabTestCatalog (test_code, test_name, category, price, turnaround_time, is_active) VALUES (" +
-                        "'" + safeCode + "', " +
-                        "'" + safeName + "', " +
-                        "'" + safeCat + "', " +
-                        price + ", " +
-                        "'" + safeTat + "', " +
-                        isActive + ")";
-                }
-
-                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@test_code", txtTestCode.Text.Trim());
+                cmd.Parameters.AddWithValue("@test_name", txtTestName.Text.Trim());
+                cmd.Parameters.AddWithValue("@category", cmbDepartment.Text.Trim());
+                cmd.Parameters.AddWithValue("@price", priceValue);
+                cmd.Parameters.AddWithValue("@turnaround_time", txtTurnaround.Text.Trim());
+                cmd.Parameters.AddWithValue("@is_active", isActive);
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
                 MessageBox.Show("RECORD SAVE");
+                clearFields();
                 loaddata();
             }
             catch (Exception ex)
@@ -333,11 +169,81 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void deleteSelectedLabTest(string testCode, string testName)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DialogResult answer = MessageBox.Show(
-                "Are you sure you want to delete Lab Test " + testName + " (" + testCode + ")?",
-                "Delete Record",
+            if (txtTestCode.Text.Trim() == "" || txtTestName.Text.Trim() == "" || cmbDepartment.Text.Trim() == "" || txtPrice.Text.Trim() == "" || txtTurnaround.Text.Trim() == "")
+            {
+                MessageBox.Show("Please select a record from the table first.");
+                return;
+            }
+
+            decimal priceValue = 0;
+            if (!decimal.TryParse(txtPrice.Text.Trim(), out priceValue) || priceValue < 0)
+            {
+                MessageBox.Show("Please enter a valid Price.");
+                return;
+            }
+
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to save records?", "Saving Records",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (answer == DialogResult.No)
+            {
+                return;
+            }
+
+            int isActive = 0;
+            if (cmbStatus.Text == "Active")
+            {
+                isActive = 1;
+            }
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "UPDATE LabTestCatalog SET test_name = @test_name, category = @category, price = @price, turnaround_time = @turnaround_time, is_active = @is_active WHERE test_code = @test_code";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@test_code", txtTestCode.Text.Trim());
+                cmd.Parameters.AddWithValue("@test_name", txtTestName.Text.Trim());
+                cmd.Parameters.AddWithValue("@category", cmbDepartment.Text.Trim());
+                cmd.Parameters.AddWithValue("@price", priceValue);
+                cmd.Parameters.AddWithValue("@turnaround_time", txtTurnaround.Text.Trim());
+                cmd.Parameters.AddWithValue("@is_active", isActive);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("RECORD SAVE");
+                clearFields();
+                loaddata();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (txtTestCode.Text.Trim() == "")
+            {
+                MessageBox.Show("Please select a record to delete.");
+                return;
+            }
+
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want to delete this record?", "Deleting Record",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
@@ -347,16 +253,19 @@ namespace Patient_Info_and_Billing_System.Admin
             }
 
             MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
                 conn.Open();
-                cmd.CommandText = "DELETE FROM LabTestCatalog WHERE test_code = '" + testCode.Replace("'", "''") + "'";
+                cmd.CommandText = "DELETE FROM LabTestCatalog WHERE test_code = @test_code";
                 cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@test_code", txtTestCode.Text.Trim());
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
+                MessageBox.Show("Record deleted.");
+                clearFields();
                 loaddata();
             }
             catch (Exception ex)
@@ -369,6 +278,67 @@ namespace Patient_Info_and_Billing_System.Admin
                 {
                     conn.Close();
                 }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearFields();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+            clearFields();
+            loaddata();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            DataSet ds = new DataSet();
+            MySqlDataAdapter da = new MySqlDataAdapter();
+
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "SELECT test_code AS 'Test Code', test_name AS 'Test Name', category AS 'Department', price AS 'Price', turnaround_time AS 'Turnaround', CASE WHEN is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM LabTestCatalog WHERE test_code LIKE @search OR test_name LIKE @search OR category LIKE @search ORDER BY test_name ASC";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
+                da.SelectCommand = cmd;
+                da.Fill(ds, "abc");
+                dgvLabTests.DataSource = ds;
+                dgvLabTests.DataMember = "abc";
+                conn.Close();
+
+                lblShowingEntries.Text = "Showing: " + dgvLabTests.Rows.Count + " entries";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Search error: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void dgvLabTests_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvLabTests.Rows.Count)
+            {
+                DataGridViewRow row = dgvLabTests.Rows[e.RowIndex];
+                txtTestCode.Text = row.Cells[0].Value.ToString();
+                txtTestCode.ReadOnly = true;
+                txtTestName.Text = row.Cells[1].Value.ToString();
+                cmbDepartment.Text = row.Cells[2].Value.ToString();
+                txtPrice.Text = row.Cells[3].Value.ToString();
+                txtTurnaround.Text = row.Cells[4].Value.ToString();
+                cmbStatus.Text = row.Cells[5].Value.ToString();
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace Patient_Info_and_Billing_System.Admin
+namespace Patient_Info_and_Billing_System.Admin
 {
     partial class RnBManagement
     {
@@ -29,13 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             cardTotalBeds = new Panel();
             lblTitleTotalBeds = new Label();
             lblValTotalBeds = new Label();
@@ -51,36 +45,42 @@
             lblValOccupiedBeds = new Label();
             pnlIconOccupiedBeds = new Panel();
             lblIconOccupied = new Label();
-            dgvRooms = new DataGridView();
-            panelFilterBar = new Panel();
-            txtSearch = new TextBox();
-            lblFilterRoomType = new Label();
-            cmbRoomType = new ComboBox();
-            lblFilterStatus = new Label();
-            cmbStatus = new ComboBox();
-            btnClearFilters = new Button();
-            lblShowingEntries = new Label();
             cardAvgRate = new Panel();
             lblTitleAvgRate = new Label();
             lblValAvgRate = new Label();
             pnlIconAvgRate = new Panel();
             lblIconPeso = new Label();
-            colRoomNo = new DataGridViewTextBoxColumn();
-            colRoomType = new DataGridViewTextBoxColumn();
-            colBedId = new DataGridViewTextBoxColumn();
-            colDailyRate = new DataGridViewTextBoxColumn();
-            colStatus = new DataGridViewTextBoxColumn();
-            colActions = new DataGridViewTextBoxColumn();
+            groupBoxForm = new GroupBox();
+            lblBedId = new Label();
+            txtBedId = new TextBox();
+            lblRoomNumber = new Label();
+            txtRoomNumber = new TextBox();
+            lblBedNumber = new Label();
+            txtBedNumber = new TextBox();
+            lblRoomType = new Label();
+            cmbRoomType = new ComboBox();
+            lblDailyRate = new Label();
+            txtDailyRate = new TextBox();
+            lblStatus = new Label();
+            cmbStatus = new ComboBox();
+            btnAdd = new Button();
+            btnUpdate = new Button();
+            btnDelete = new Button();
+            btnClear = new Button();
+            btnRefresh = new Button();
+            txtSearch = new TextBox();
+            lblShowingEntries = new Label();
+            dgvRooms = new DataGridView();
             cardTotalBeds.SuspendLayout();
             pnlIconTotalBeds.SuspendLayout();
             cardAvailableBeds.SuspendLayout();
             pnlIconAvailBeds.SuspendLayout();
             cardOccupiedBeds.SuspendLayout();
             pnlIconOccupiedBeds.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvRooms).BeginInit();
-            panelFilterBar.SuspendLayout();
             cardAvgRate.SuspendLayout();
             pnlIconAvgRate.SuspendLayout();
+            groupBoxForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRooms).BeginInit();
             SuspendLayout();
             // 
             // cardTotalBeds
@@ -92,15 +92,15 @@
             cardTotalBeds.Controls.Add(pnlIconTotalBeds);
             cardTotalBeds.Location = new Point(0, 8);
             cardTotalBeds.Name = "cardTotalBeds";
-            cardTotalBeds.Size = new Size(322, 70);
-            cardTotalBeds.TabIndex = 8;
+            cardTotalBeds.Size = new Size(372, 76);
+            cardTotalBeds.TabIndex = 0;
             // 
             // lblTitleTotalBeds
             // 
             lblTitleTotalBeds.AutoSize = true;
             lblTitleTotalBeds.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitleTotalBeds.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleTotalBeds.Location = new Point(12, 10);
+            lblTitleTotalBeds.Location = new Point(14, 12);
             lblTitleTotalBeds.Name = "lblTitleTotalBeds";
             lblTitleTotalBeds.Size = new Size(124, 12);
             lblTitleTotalBeds.TabIndex = 0;
@@ -111,7 +111,7 @@
             lblValTotalBeds.AutoSize = true;
             lblValTotalBeds.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblValTotalBeds.ForeColor = Color.FromArgb(15, 23, 42);
-            lblValTotalBeds.Location = new Point(12, 26);
+            lblValTotalBeds.Location = new Point(14, 30);
             lblValTotalBeds.Name = "lblValTotalBeds";
             lblValTotalBeds.Size = new Size(28, 32);
             lblValTotalBeds.TabIndex = 1;
@@ -121,7 +121,7 @@
             // 
             pnlIconTotalBeds.BackColor = Color.FromArgb(239, 246, 255);
             pnlIconTotalBeds.Controls.Add(lblIconBed);
-            pnlIconTotalBeds.Location = new Point(266, 13);
+            pnlIconTotalBeds.Location = new Point(314, 16);
             pnlIconTotalBeds.Name = "pnlIconTotalBeds";
             pnlIconTotalBeds.Size = new Size(42, 42);
             pnlIconTotalBeds.TabIndex = 2;
@@ -145,17 +145,17 @@
             cardAvailableBeds.Controls.Add(lblTitleAvailBeds);
             cardAvailableBeds.Controls.Add(lblValAvailBeds);
             cardAvailableBeds.Controls.Add(pnlIconAvailBeds);
-            cardAvailableBeds.Location = new Point(328, 7);
+            cardAvailableBeds.Location = new Point(388, 8);
             cardAvailableBeds.Name = "cardAvailableBeds";
-            cardAvailableBeds.Size = new Size(322, 70);
-            cardAvailableBeds.TabIndex = 9;
+            cardAvailableBeds.Size = new Size(372, 76);
+            cardAvailableBeds.TabIndex = 1;
             // 
             // lblTitleAvailBeds
             // 
             lblTitleAvailBeds.AutoSize = true;
             lblTitleAvailBeds.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitleAvailBeds.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleAvailBeds.Location = new Point(12, 10);
+            lblTitleAvailBeds.Location = new Point(14, 12);
             lblTitleAvailBeds.Name = "lblTitleAvailBeds";
             lblTitleAvailBeds.Size = new Size(82, 12);
             lblTitleAvailBeds.TabIndex = 0;
@@ -166,7 +166,7 @@
             lblValAvailBeds.AutoSize = true;
             lblValAvailBeds.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblValAvailBeds.ForeColor = Color.FromArgb(16, 185, 129);
-            lblValAvailBeds.Location = new Point(12, 26);
+            lblValAvailBeds.Location = new Point(14, 30);
             lblValAvailBeds.Name = "lblValAvailBeds";
             lblValAvailBeds.Size = new Size(28, 32);
             lblValAvailBeds.TabIndex = 1;
@@ -176,7 +176,7 @@
             // 
             pnlIconAvailBeds.BackColor = Color.FromArgb(236, 253, 245);
             pnlIconAvailBeds.Controls.Add(lblIconDoor);
-            pnlIconAvailBeds.Location = new Point(266, 13);
+            pnlIconAvailBeds.Location = new Point(314, 16);
             pnlIconAvailBeds.Name = "pnlIconAvailBeds";
             pnlIconAvailBeds.Size = new Size(42, 42);
             pnlIconAvailBeds.TabIndex = 2;
@@ -200,17 +200,17 @@
             cardOccupiedBeds.Controls.Add(lblTitleOccupiedBeds);
             cardOccupiedBeds.Controls.Add(lblValOccupiedBeds);
             cardOccupiedBeds.Controls.Add(pnlIconOccupiedBeds);
-            cardOccupiedBeds.Location = new Point(656, 7);
+            cardOccupiedBeds.Location = new Point(776, 8);
             cardOccupiedBeds.Name = "cardOccupiedBeds";
-            cardOccupiedBeds.Size = new Size(322, 70);
-            cardOccupiedBeds.TabIndex = 10;
+            cardOccupiedBeds.Size = new Size(372, 76);
+            cardOccupiedBeds.TabIndex = 2;
             // 
             // lblTitleOccupiedBeds
             // 
             lblTitleOccupiedBeds.AutoSize = true;
             lblTitleOccupiedBeds.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitleOccupiedBeds.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleOccupiedBeds.Location = new Point(12, 10);
+            lblTitleOccupiedBeds.Location = new Point(14, 12);
             lblTitleOccupiedBeds.Name = "lblTitleOccupiedBeds";
             lblTitleOccupiedBeds.Size = new Size(80, 12);
             lblTitleOccupiedBeds.TabIndex = 0;
@@ -221,7 +221,7 @@
             lblValOccupiedBeds.AutoSize = true;
             lblValOccupiedBeds.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblValOccupiedBeds.ForeColor = Color.FromArgb(245, 158, 11);
-            lblValOccupiedBeds.Location = new Point(12, 26);
+            lblValOccupiedBeds.Location = new Point(14, 30);
             lblValOccupiedBeds.Name = "lblValOccupiedBeds";
             lblValOccupiedBeds.Size = new Size(28, 32);
             lblValOccupiedBeds.TabIndex = 1;
@@ -231,7 +231,7 @@
             // 
             pnlIconOccupiedBeds.BackColor = Color.FromArgb(254, 243, 199);
             pnlIconOccupiedBeds.Controls.Add(lblIconOccupied);
-            pnlIconOccupiedBeds.Location = new Point(266, 13);
+            pnlIconOccupiedBeds.Location = new Point(314, 16);
             pnlIconOccupiedBeds.Name = "pnlIconOccupiedBeds";
             pnlIconOccupiedBeds.Size = new Size(42, 42);
             pnlIconOccupiedBeds.TabIndex = 2;
@@ -248,149 +248,6 @@
             lblIconOccupied.Text = "👥";
             lblIconOccupied.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // dgvRooms
-            // 
-            dgvRooms.AllowUserToAddRows = false;
-            dgvRooms.AllowUserToDeleteRows = false;
-            dgvRooms.AllowUserToResizeRows = false;
-            dgvRooms.BackgroundColor = Color.White;
-            dgvRooms.BorderStyle = BorderStyle.None;
-            dgvRooms.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvRooms.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(100, 116, 139);
-            dataGridViewCellStyle1.Padding = new Padding(8, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(248, 250, 252);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(100, 116, 139);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvRooms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvRooms.ColumnHeadersHeight = 36;
-            dgvRooms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvRooms.Columns.AddRange(new DataGridViewColumn[] { colRoomNo, colRoomType, colBedId, colDailyRate, colStatus, colActions });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(15, 23, 42);
-            dataGridViewCellStyle8.Padding = new Padding(8, 0, 0, 0);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(239, 246, 255);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(15, 23, 42);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvRooms.DefaultCellStyle = dataGridViewCellStyle8;
-            dgvRooms.EnableHeadersVisualStyles = false;
-            dgvRooms.GridColor = Color.FromArgb(241, 245, 249);
-            dgvRooms.Location = new Point(0, 116);
-            dgvRooms.MultiSelect = false;
-            dgvRooms.Name = "dgvRooms";
-            dgvRooms.ReadOnly = true;
-            dgvRooms.RowHeadersVisible = false;
-            dgvRooms.RowHeadersWidth = 51;
-            dgvRooms.RowTemplate.Height = 42;
-            dgvRooms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvRooms.Size = new Size(1339, 355);
-            dgvRooms.TabIndex = 13;
-            // 
-            // panelFilterBar
-            // 
-            panelFilterBar.Controls.Add(txtSearch);
-            panelFilterBar.Controls.Add(lblFilterRoomType);
-            panelFilterBar.Controls.Add(cmbRoomType);
-            panelFilterBar.Controls.Add(lblFilterStatus);
-            panelFilterBar.Controls.Add(cmbStatus);
-            panelFilterBar.Controls.Add(btnClearFilters);
-            panelFilterBar.Controls.Add(lblShowingEntries);
-            panelFilterBar.Location = new Point(0, 84);
-            panelFilterBar.Name = "panelFilterBar";
-            panelFilterBar.Size = new Size(1339, 32);
-            panelFilterBar.TabIndex = 12;
-            // 
-            // txtSearch
-            // 
-            txtSearch.BackColor = Color.White;
-            txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.ForeColor = Color.FromArgb(51, 65, 85);
-            txtSearch.Location = new Point(0, 3);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "🔍  Search room, code, name...";
-            txtSearch.Size = new Size(250, 23);
-            txtSearch.TabIndex = 0;
-            // 
-            // lblFilterRoomType
-            // 
-            lblFilterRoomType.AutoSize = true;
-            lblFilterRoomType.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFilterRoomType.ForeColor = Color.FromArgb(71, 85, 105);
-            lblFilterRoomType.Location = new Point(265, 6);
-            lblFilterRoomType.Name = "lblFilterRoomType";
-            lblFilterRoomType.Size = new Size(72, 15);
-            lblFilterRoomType.TabIndex = 1;
-            lblFilterRoomType.Text = "Room Type:";
-            // 
-            // cmbRoomType
-            // 
-            cmbRoomType.BackColor = Color.White;
-            cmbRoomType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbRoomType.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbRoomType.FormattingEnabled = true;
-            cmbRoomType.Items.AddRange(new object[] { "ALL", "Pediatric ICU (PICU)", "Pediatric Ward", "Isolation Unit", "Private Deluxe Suite", "Neonatal ICU (NICU)" });
-            cmbRoomType.Location = new Point(345, 3);
-            cmbRoomType.Name = "cmbRoomType";
-            cmbRoomType.Size = new Size(115, 23);
-            cmbRoomType.TabIndex = 2;
-            // 
-            // lblFilterStatus
-            // 
-            lblFilterStatus.AutoSize = true;
-            lblFilterStatus.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFilterStatus.ForeColor = Color.FromArgb(71, 85, 105);
-            lblFilterStatus.Location = new Point(475, 6);
-            lblFilterStatus.Name = "lblFilterStatus";
-            lblFilterStatus.Size = new Size(45, 15);
-            lblFilterStatus.TabIndex = 3;
-            lblFilterStatus.Text = "Status:";
-            // 
-            // cmbStatus
-            // 
-            cmbStatus.BackColor = Color.White;
-            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbStatus.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbStatus.FormattingEnabled = true;
-            cmbStatus.Items.AddRange(new object[] { "ALL", "Available", "Occupied", "Cleaning" });
-            cmbStatus.Location = new Point(528, 3);
-            cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(100, 23);
-            cmbStatus.TabIndex = 4;
-            // 
-            // btnClearFilters
-            // 
-            btnClearFilters.BackColor = Color.Transparent;
-            btnClearFilters.Cursor = Cursors.Hand;
-            btnClearFilters.FlatAppearance.BorderSize = 0;
-            btnClearFilters.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnClearFilters.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnClearFilters.FlatStyle = FlatStyle.Flat;
-            btnClearFilters.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClearFilters.ForeColor = Color.FromArgb(100, 116, 139);
-            btnClearFilters.Location = new Point(638, 2);
-            btnClearFilters.Name = "btnClearFilters";
-            btnClearFilters.Size = new Size(70, 25);
-            btnClearFilters.TabIndex = 5;
-            btnClearFilters.Text = "↺ Clear";
-            btnClearFilters.UseVisualStyleBackColor = false;
-            // 
-            // lblShowingEntries
-            // 
-            lblShowingEntries.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblShowingEntries.ForeColor = Color.FromArgb(100, 116, 139);
-            lblShowingEntries.Location = new Point(1190, 6);
-            lblShowingEntries.Name = "lblShowingEntries";
-            lblShowingEntries.Size = new Size(149, 18);
-            lblShowingEntries.TabIndex = 6;
-            lblShowingEntries.Text = "Showing: 0 entries";
-            lblShowingEntries.TextAlign = ContentAlignment.TopRight;
-            // 
             // cardAvgRate
             // 
             cardAvgRate.BackColor = Color.White;
@@ -398,17 +255,17 @@
             cardAvgRate.Controls.Add(lblTitleAvgRate);
             cardAvgRate.Controls.Add(lblValAvgRate);
             cardAvgRate.Controls.Add(pnlIconAvgRate);
-            cardAvgRate.Location = new Point(984, 8);
+            cardAvgRate.Location = new Point(1164, 8);
             cardAvgRate.Name = "cardAvgRate";
-            cardAvgRate.Size = new Size(322, 70);
-            cardAvgRate.TabIndex = 11;
+            cardAvgRate.Size = new Size(373, 76);
+            cardAvgRate.TabIndex = 3;
             // 
             // lblTitleAvgRate
             // 
             lblTitleAvgRate.AutoSize = true;
             lblTitleAvgRate.Font = new Font("Segoe UI", 7.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitleAvgRate.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTitleAvgRate.Location = new Point(12, 10);
+            lblTitleAvgRate.Location = new Point(14, 12);
             lblTitleAvgRate.Name = "lblTitleAvgRate";
             lblTitleAvgRate.Size = new Size(121, 12);
             lblTitleAvgRate.TabIndex = 0;
@@ -419,7 +276,7 @@
             lblValAvgRate.AutoSize = true;
             lblValAvgRate.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblValAvgRate.ForeColor = Color.FromArgb(15, 23, 42);
-            lblValAvgRate.Location = new Point(12, 26);
+            lblValAvgRate.Location = new Point(14, 30);
             lblValAvgRate.Name = "lblValAvgRate";
             lblValAvgRate.Size = new Size(43, 32);
             lblValAvgRate.TabIndex = 1;
@@ -429,7 +286,7 @@
             // 
             pnlIconAvgRate.BackColor = Color.FromArgb(250, 245, 255);
             pnlIconAvgRate.Controls.Add(lblIconPeso);
-            pnlIconAvgRate.Location = new Point(266, 13);
+            pnlIconAvgRate.Location = new Point(315, 16);
             pnlIconAvgRate.Name = "pnlIconAvgRate";
             pnlIconAvgRate.Size = new Size(42, 42);
             pnlIconAvgRate.TabIndex = 2;
@@ -446,84 +303,317 @@
             lblIconPeso.Text = "₱";
             lblIconPeso.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // colRoomNo
+            // groupBoxForm
             // 
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBoxForm.BackColor = Color.White;
+            groupBoxForm.Controls.Add(lblBedId);
+            groupBoxForm.Controls.Add(txtBedId);
+            groupBoxForm.Controls.Add(lblRoomNumber);
+            groupBoxForm.Controls.Add(txtRoomNumber);
+            groupBoxForm.Controls.Add(lblBedNumber);
+            groupBoxForm.Controls.Add(txtBedNumber);
+            groupBoxForm.Controls.Add(lblRoomType);
+            groupBoxForm.Controls.Add(cmbRoomType);
+            groupBoxForm.Controls.Add(lblDailyRate);
+            groupBoxForm.Controls.Add(txtDailyRate);
+            groupBoxForm.Controls.Add(lblStatus);
+            groupBoxForm.Controls.Add(cmbStatus);
+            groupBoxForm.Controls.Add(btnAdd);
+            groupBoxForm.Controls.Add(btnUpdate);
+            groupBoxForm.Controls.Add(btnDelete);
+            groupBoxForm.Controls.Add(btnClear);
+            groupBoxForm.Controls.Add(btnRefresh);
+            groupBoxForm.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBoxForm.ForeColor = Color.FromArgb(15, 23, 42);
+            groupBoxForm.Location = new Point(0, 86);
+            groupBoxForm.Name = "groupBoxForm";
+            groupBoxForm.Size = new Size(410, 462);
+            groupBoxForm.TabIndex = 4;
+            groupBoxForm.TabStop = false;
+            groupBoxForm.Text = "Room && Bed Details";
+            // 
+            // lblBedId
+            // 
+            lblBedId.AutoSize = true;
+            lblBedId.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBedId.ForeColor = Color.FromArgb(71, 85, 105);
+            lblBedId.Location = new Point(16, 24);
+            lblBedId.Name = "lblBedId";
+            lblBedId.Size = new Size(45, 15);
+            lblBedId.TabIndex = 0;
+            lblBedId.Text = "Bed ID";
+            // 
+            // txtBedId
+            // 
+            txtBedId.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtBedId.Location = new Point(16, 42);
+            txtBedId.Name = "txtBedId";
+            txtBedId.Size = new Size(378, 24);
+            txtBedId.TabIndex = 1;
+            // 
+            // lblRoomNumber
+            // 
+            lblRoomNumber.AutoSize = true;
+            lblRoomNumber.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRoomNumber.ForeColor = Color.FromArgb(71, 85, 105);
+            lblRoomNumber.Location = new Point(16, 74);
+            lblRoomNumber.Name = "lblRoomNumber";
+            lblRoomNumber.Size = new Size(88, 15);
+            lblRoomNumber.TabIndex = 2;
+            lblRoomNumber.Text = "Room Number";
+            // 
+            // txtRoomNumber
+            // 
+            txtRoomNumber.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtRoomNumber.Location = new Point(16, 92);
+            txtRoomNumber.Name = "txtRoomNumber";
+            txtRoomNumber.Size = new Size(182, 24);
+            txtRoomNumber.TabIndex = 3;
+            // 
+            // lblBedNumber
+            // 
+            lblBedNumber.AutoSize = true;
+            lblBedNumber.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBedNumber.ForeColor = Color.FromArgb(71, 85, 105);
+            lblBedNumber.Location = new Point(212, 74);
+            lblBedNumber.Name = "lblBedNumber";
+            lblBedNumber.Size = new Size(76, 15);
+            lblBedNumber.TabIndex = 4;
+            lblBedNumber.Text = "Bed Number";
+            // 
+            // txtBedNumber
+            // 
+            txtBedNumber.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtBedNumber.Location = new Point(212, 92);
+            txtBedNumber.Name = "txtBedNumber";
+            txtBedNumber.Size = new Size(182, 24);
+            txtBedNumber.TabIndex = 5;
+            // 
+            // lblRoomType
+            // 
+            lblRoomType.AutoSize = true;
+            lblRoomType.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRoomType.ForeColor = Color.FromArgb(71, 85, 105);
+            lblRoomType.Location = new Point(16, 124);
+            lblRoomType.Name = "lblRoomType";
+            lblRoomType.Size = new Size(69, 15);
+            lblRoomType.TabIndex = 6;
+            lblRoomType.Text = "Room Type";
+            // 
+            // cmbRoomType
+            // 
+            cmbRoomType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbRoomType.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbRoomType.FormattingEnabled = true;
+            cmbRoomType.Items.AddRange(new object[] { "Ward", "Semi-Private", "Private", "ICU" });
+            cmbRoomType.Location = new Point(16, 142);
+            cmbRoomType.Name = "cmbRoomType";
+            cmbRoomType.Size = new Size(378, 24);
+            cmbRoomType.TabIndex = 7;
+            // 
+            // lblDailyRate
+            // 
+            lblDailyRate.AutoSize = true;
+            lblDailyRate.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDailyRate.ForeColor = Color.FromArgb(71, 85, 105);
+            lblDailyRate.Location = new Point(16, 174);
+            lblDailyRate.Name = "lblDailyRate";
+            lblDailyRate.Size = new Size(85, 15);
+            lblDailyRate.TabIndex = 8;
+            lblDailyRate.Text = "Daily Rate (₱)";
+            // 
+            // txtDailyRate
+            // 
+            txtDailyRate.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtDailyRate.Location = new Point(16, 192);
+            txtDailyRate.Name = "txtDailyRate";
+            txtDailyRate.Size = new Size(182, 24);
+            txtDailyRate.TabIndex = 9;
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStatus.ForeColor = Color.FromArgb(71, 85, 105);
+            lblStatus.Location = new Point(212, 174);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(42, 15);
+            lblStatus.TabIndex = 10;
+            lblStatus.Text = "Status";
+            // 
+            // cmbStatus
+            // 
+            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStatus.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "Available", "Occupied" });
+            cmbStatus.Location = new Point(212, 192);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(182, 24);
+            cmbStatus.TabIndex = 11;
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.FromArgb(37, 99, 235);
+            btnAdd.Cursor = Cursors.Hand;
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.White;
+            btnAdd.Location = new Point(16, 304);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(182, 36);
+            btnAdd.TabIndex = 12;
+            btnAdd.Text = "+ Add Bed / Room";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.BackColor = Color.White;
+            btnUpdate.Cursor = Cursors.Hand;
+            btnUpdate.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdate.ForeColor = Color.FromArgb(51, 65, 85);
+            btnUpdate.Location = new Point(212, 304);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(182, 36);
+            btnUpdate.TabIndex = 13;
+            btnUpdate.Text = "Edit / Update";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.White;
+            btnDelete.Cursor = Cursors.Hand;
+            btnDelete.FlatAppearance.BorderColor = Color.FromArgb(252, 165, 165);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDelete.ForeColor = Color.FromArgb(220, 38, 38);
+            btnDelete.Location = new Point(16, 350);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(182, 36);
+            btnDelete.TabIndex = 14;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.BackColor = Color.White;
+            btnClear.Cursor = Cursors.Hand;
+            btnClear.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClear.ForeColor = Color.FromArgb(51, 65, 85);
+            btnClear.Location = new Point(212, 350);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(182, 36);
+            btnClear.TabIndex = 15;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.White;
+            btnRefresh.Cursor = Cursors.Hand;
+            btnRefresh.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.ForeColor = Color.FromArgb(51, 65, 85);
+            btnRefresh.Location = new Point(16, 396);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(378, 36);
+            btnRefresh.TabIndex = 16;
+            btnRefresh.Text = "⟳  Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.BackColor = Color.White;
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.ForeColor = Color.FromArgb(51, 65, 85);
+            txtSearch.Location = new Point(426, 88);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "🔍  Search bed ID, room #, or room type...";
+            txtSearch.Size = new Size(380, 24);
+            txtSearch.TabIndex = 5;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // lblShowingEntries
+            // 
+            lblShowingEntries.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblShowingEntries.ForeColor = Color.FromArgb(100, 116, 139);
+            lblShowingEntries.Location = new Point(1348, 92);
+            lblShowingEntries.Name = "lblShowingEntries";
+            lblShowingEntries.Size = new Size(189, 18);
+            lblShowingEntries.TabIndex = 6;
+            lblShowingEntries.Text = "Showing: 0 entries";
+            lblShowingEntries.TextAlign = ContentAlignment.TopRight;
+            // 
+            // dgvRooms
+            // 
+            dgvRooms.AllowUserToAddRows = false;
+            dgvRooms.AllowUserToDeleteRows = false;
+            dgvRooms.AllowUserToResizeRows = false;
+            dgvRooms.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvRooms.BackgroundColor = Color.White;
+            dgvRooms.BorderStyle = BorderStyle.FixedSingle;
+            dgvRooms.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvRooms.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(100, 116, 139);
+            dataGridViewCellStyle1.Padding = new Padding(8, 0, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(248, 250, 252);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(100, 116, 139);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvRooms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvRooms.ColumnHeadersHeight = 40;
+            dgvRooms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(15, 23, 42);
-            colRoomNo.DefaultCellStyle = dataGridViewCellStyle2;
-            colRoomNo.HeaderText = "ROOM #";
-            colRoomNo.MinimumWidth = 6;
-            colRoomNo.Name = "colRoomNo";
-            colRoomNo.ReadOnly = true;
-            colRoomNo.Width = 223;
-            // 
-            // colRoomType
-            // 
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(51, 65, 85);
-            colRoomType.DefaultCellStyle = dataGridViewCellStyle3;
-            colRoomType.HeaderText = "ROOM TYPE";
-            colRoomType.MinimumWidth = 6;
-            colRoomType.Name = "colRoomType";
-            colRoomType.ReadOnly = true;
-            colRoomType.Width = 223;
-            // 
-            // colBedId
-            // 
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(37, 99, 235);
-            colBedId.DefaultCellStyle = dataGridViewCellStyle4;
-            colBedId.HeaderText = "BED IDENTIFIER";
-            colBedId.MinimumWidth = 6;
-            colBedId.Name = "colBedId";
-            colBedId.ReadOnly = true;
-            colBedId.Width = 247;
-            // 
-            // colDailyRate
-            // 
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(15, 23, 42);
-            colDailyRate.DefaultCellStyle = dataGridViewCellStyle5;
-            colDailyRate.HeaderText = "DAILY RATE (₱)";
-            colDailyRate.MinimumWidth = 6;
-            colDailyRate.Name = "colDailyRate";
-            colDailyRate.ReadOnly = true;
-            colDailyRate.Width = 223;
-            // 
-            // colStatus
-            // 
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colStatus.DefaultCellStyle = dataGridViewCellStyle6;
-            colStatus.HeaderText = "CURRENT STATUS";
-            colStatus.MinimumWidth = 6;
-            colStatus.Name = "colStatus";
-            colStatus.ReadOnly = true;
-            colStatus.Width = 223;
-            // 
-            // colActions
-            // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(100, 116, 139);
-            colActions.DefaultCellStyle = dataGridViewCellStyle7;
-            colActions.HeaderText = "ACTIONS";
-            colActions.MinimumWidth = 6;
-            colActions.Name = "colActions";
-            colActions.ReadOnly = true;
-            colActions.Width = 200;
+            dataGridViewCellStyle2.Padding = new Padding(8, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(239, 246, 255);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(15, 23, 42);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvRooms.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvRooms.EnableHeadersVisualStyles = false;
+            dgvRooms.GridColor = Color.FromArgb(241, 245, 249);
+            dgvRooms.Location = new Point(426, 120);
+            dgvRooms.MultiSelect = false;
+            dgvRooms.Name = "dgvRooms";
+            dgvRooms.ReadOnly = true;
+            dgvRooms.RowHeadersVisible = false;
+            dgvRooms.RowTemplate.Height = 40;
+            dgvRooms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvRooms.Size = new Size(1111, 428);
+            dgvRooms.TabIndex = 7;
+            dgvRooms.CellClick += dgvRooms_CellClick;
             // 
             // RnBManagement
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(248, 250, 252);
             Controls.Add(cardTotalBeds);
             Controls.Add(cardAvailableBeds);
             Controls.Add(cardOccupiedBeds);
-            Controls.Add(dgvRooms);
-            Controls.Add(panelFilterBar);
             Controls.Add(cardAvgRate);
+            Controls.Add(groupBoxForm);
+            Controls.Add(txtSearch);
+            Controls.Add(lblShowingEntries);
+            Controls.Add(dgvRooms);
             Name = "RnBManagement";
-            Size = new Size(1339, 479);
+            Size = new Size(1537, 558);
             cardTotalBeds.ResumeLayout(false);
             cardTotalBeds.PerformLayout();
             pnlIconTotalBeds.ResumeLayout(false);
@@ -533,13 +623,14 @@
             cardOccupiedBeds.ResumeLayout(false);
             cardOccupiedBeds.PerformLayout();
             pnlIconOccupiedBeds.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvRooms).EndInit();
-            panelFilterBar.ResumeLayout(false);
-            panelFilterBar.PerformLayout();
             cardAvgRate.ResumeLayout(false);
             cardAvgRate.PerformLayout();
             pnlIconAvgRate.ResumeLayout(false);
+            groupBoxForm.ResumeLayout(false);
+            groupBoxForm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRooms).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -559,25 +650,31 @@
         private Label lblValOccupiedBeds;
         private Panel pnlIconOccupiedBeds;
         private Label lblIconOccupied;
-        private DataGridView dgvRooms;
-        private Panel panelFilterBar;
-        private TextBox txtSearch;
-        private Label lblFilterRoomType;
-        private ComboBox cmbRoomType;
-        private Label lblFilterStatus;
-        private ComboBox cmbStatus;
-        private Button btnClearFilters;
-        private Label lblShowingEntries;
         private Panel cardAvgRate;
         private Label lblTitleAvgRate;
         private Label lblValAvgRate;
         private Panel pnlIconAvgRate;
         private Label lblIconPeso;
-        private DataGridViewTextBoxColumn colRoomNo;
-        private DataGridViewTextBoxColumn colRoomType;
-        private DataGridViewTextBoxColumn colBedId;
-        private DataGridViewTextBoxColumn colDailyRate;
-        private DataGridViewTextBoxColumn colStatus;
-        private DataGridViewTextBoxColumn colActions;
+        private GroupBox groupBoxForm;
+        private Label lblBedId;
+        private TextBox txtBedId;
+        private Label lblRoomNumber;
+        private TextBox txtRoomNumber;
+        private Label lblBedNumber;
+        private TextBox txtBedNumber;
+        private Label lblRoomType;
+        private ComboBox cmbRoomType;
+        private Label lblDailyRate;
+        private TextBox txtDailyRate;
+        private Label lblStatus;
+        private ComboBox cmbStatus;
+        private Button btnAdd;
+        private Button btnUpdate;
+        private Button btnDelete;
+        private Button btnClear;
+        private Button btnRefresh;
+        private TextBox txtSearch;
+        private Label lblShowingEntries;
+        private DataGridView dgvRooms;
     }
 }
