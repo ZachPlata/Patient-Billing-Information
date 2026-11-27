@@ -45,7 +45,6 @@ namespace NurseDashBoard
             label3 = new Label();
             PatReg_GenderCbox = new ComboBox();
             label2 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             label1 = new Label();
             PatReg_Date = new DateTimePicker();
             PatReg_ConNoTxtBox = new TextBox();
@@ -66,10 +65,13 @@ namespace NurseDashBoard
             label11 = new Label();
             PatReg_KgTxtBox = new TextBox();
             LABEL = new Label();
+            panel5 = new Panel();
+            label15 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -116,6 +118,7 @@ namespace NurseDashBoard
             // panel3
             // 
             panel3.BackColor = SystemColors.ButtonHighlight;
+            panel3.Controls.Add(panel5);
             panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label14);
             panel3.Controls.Add(RegPat_BtnClr);
@@ -128,7 +131,6 @@ namespace NurseDashBoard
             panel3.Controls.Add(label3);
             panel3.Controls.Add(PatReg_GenderCbox);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(flowLayoutPanel1);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(PatReg_Date);
             panel3.Controls.Add(PatReg_ConNoTxtBox);
@@ -272,15 +274,6 @@ namespace NurseDashBoard
             label2.TabIndex = 13;
             label2.Text = "SEX:";
             label2.Click += label2_Click;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.BackColor = Color.FromArgb(15, 23, 42);
-            flowLayoutPanel1.ForeColor = Color.FromArgb(15, 23, 42);
-            flowLayoutPanel1.Location = new Point(30, 27);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(215, 141);
-            flowLayoutPanel1.TabIndex = 12;
             // 
             // label1
             // 
@@ -486,6 +479,26 @@ namespace NurseDashBoard
             LABEL.TabIndex = 1;
             LABEL.Text = "PATIENT REGISTRATION FORM";
             // 
+            // panel5
+            // 
+            panel5.BackColor = SystemColors.Highlight;
+            panel5.Controls.Add(label15);
+            panel5.Location = new Point(28, 25);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(226, 145);
+            panel5.TabIndex = 26;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 72F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label15.ForeColor = SystemColors.ButtonFace;
+            label15.Location = new Point(28, 11);
+            label15.Name = "label15";
+            label15.Size = new Size(186, 128);
+            label15.TabIndex = 0;
+            label15.Text = "👤";
+            // 
             // uc_RegistrationPatients
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -501,6 +514,8 @@ namespace NurseDashBoard
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -519,7 +534,6 @@ namespace NurseDashBoard
         private DateTimePicker PatReg_Date;
         private Label label1;
         private Label label2;
-        private FlowLayoutPanel flowLayoutPanel1;
         private ComboBox PatReg_GenderCbox;
         private Label label6;
         private TextBox PatReg_ConRelTxtBox;
@@ -545,5 +559,7 @@ namespace NurseDashBoard
         private Label label14;
         private Label PatReg_HeightTxtBox;
         private TextBox textBox2;
+        private Panel panel5;
+        private Label label15;
     }
 }

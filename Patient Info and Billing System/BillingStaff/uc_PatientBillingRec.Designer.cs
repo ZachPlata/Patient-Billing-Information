@@ -397,6 +397,7 @@ namespace Patient_Info_and_Billing_System
             lblTableTitle.Size = new Size(174, 21);
             lblTableTitle.TabIndex = 1;
             lblTableTitle.Text = "Patient Records Table";
+            lblTableTitle.Click += lblTableTitle_Click;
             // 
             // PatBillRec_DGV
             // 
