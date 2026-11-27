@@ -26,7 +26,7 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT test_code AS 'Test Code', test_name AS 'Test Name', category AS 'Department', price AS 'Price', turnaround_time AS 'Turnaround', CASE WHEN is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM LabTestCatalog ORDER BY test_name ASC";
+                cmd.CommandText = "SELECT test_code, test_name, category, price, turnaround_time, is_active FROM LabTestCatalog ORDER BY test_name ASC";
                 cmd.Connection = conn;
                 da.SelectCommand = cmd;
                 da.Fill(ds, "abc");
@@ -35,7 +35,7 @@ namespace Patient_Info_and_Billing_System.Admin
                 conn.Close();
 
                 lblShowingEntries.Text = "Showing: " + dgvLabTests.Rows.Count + " entries";
-                updateCards(ds.Tables["abc"]);
+                updateCards();
             }
             catch (Exception ex)
             {
@@ -50,46 +50,64 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void updateCards(DataTable dt)
+        void updateCards()
         {
-            if (dt == null)
-            {
-                return;
-            }
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            MySqlDataReader reader;
 
-            int total = 0;
-            int active = 0;
-            decimal totalPrice = 0;
-
-            foreach (DataRow row in dt.Rows)
+            try
             {
-                total++;
-                string status = row["Status"].ToString();
-                if (status == "Active")
+                conn.Open();
+                cmd.Connection = conn;
+
+                cmd.CommandText = "SELECT COUNT(*) FROM LabTestCatalog";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    active++;
+                    lblValCatalogedTests.Text = reader[0].ToString();
                 }
+                reader.Close();
 
-                totalPrice = totalPrice + Convert.ToDecimal(row["Price"]);
-            }
+                cmd.CommandText = "SELECT COUNT(*) FROM LabTestCatalog WHERE is_active = 1";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblValActivePanels.Text = reader[0].ToString();
+                }
+                reader.Close();
 
-            decimal avgPrice = 0;
-            if (total > 0)
-            {
-                avgPrice = totalPrice / total;
-            }
-
-            lblValCatalogedTests.Text = total.ToString();
-            lblValActivePanels.Text = active.ToString();
-            if (total > 0)
-            {
-                lblValAvgTurnaround.Text = dt.Rows[0]["Turnaround"].ToString();
-            }
-            else
-            {
                 lblValAvgTurnaround.Text = "~ 0 Hrs";
+                cmd.CommandText = "SELECT turnaround_time FROM LabTestCatalog ORDER BY test_name ASC LIMIT 1";
+                reader = cmd.ExecuteReader();
+                if (reader.Read() && reader[0] != DBNull.Value)
+                {
+                    lblValAvgTurnaround.Text = reader[0].ToString();
+                }
+                reader.Close();
+
+                decimal avgPrice = 0;
+                cmd.CommandText = "SELECT AVG(price) FROM LabTestCatalog";
+                reader = cmd.ExecuteReader();
+                if (reader.Read() && reader[0] != DBNull.Value)
+                {
+                    avgPrice = Convert.ToDecimal(reader[0]);
+                }
+                reader.Close();
+                lblValAvgTariff.Text = "₱" + avgPrice.ToString("N2");
+
+                conn.Close();
             }
-            lblValAvgTariff.Text = "₱" + avgPrice.ToString("N2");
+            catch
+            {
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
         }
 
         void clearFields()
@@ -406,7 +424,7 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT test_code AS 'Test Code', test_name AS 'Test Name', category AS 'Department', price AS 'Price', turnaround_time AS 'Turnaround', CASE WHEN is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM LabTestCatalog WHERE test_code LIKE @search OR test_name LIKE @search OR category LIKE @search ORDER BY test_name ASC";
+                cmd.CommandText = "SELECT test_code, test_name, category, price, turnaround_time, is_active FROM LabTestCatalog WHERE test_code LIKE @search OR test_name LIKE @search OR category LIKE @search ORDER BY test_name ASC";
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
                 da.SelectCommand = cmd;
@@ -441,7 +459,15 @@ namespace Patient_Info_and_Billing_System.Admin
                 cmbDepartment.Text = row.Cells[2].Value.ToString();
                 txtPrice.Text = row.Cells[3].Value.ToString();
                 txtTurnaround.Text = row.Cells[4].Value.ToString();
-                cmbStatus.Text = row.Cells[5].Value.ToString();
+                string activeVal = row.Cells[5].Value.ToString();
+                if (activeVal == "1" || activeVal == "True")
+                {
+                    cmbStatus.Text = "Active";
+                }
+                else
+                {
+                    cmbStatus.Text = "Inactive";
+                }
             }
         }
     }

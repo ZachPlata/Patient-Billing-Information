@@ -105,12 +105,41 @@ namespace Patient_Info_and_Billing_System.BillingStaff
 
         void PopulateFieldsFromRow(DataGridViewRow row)
         {
-            txtPaymentId.Text = row.Cells["Payment ID"].Value?.ToString() ?? "";
-            txtPatientName.Text = row.Cells["Patient Name"].Value?.ToString() ?? "";
-            txtDatePaid.Text = row.Cells["Date Paid"].Value?.ToString() ?? "";
-            txtAmountPaid.Text = row.Cells["Amount Paid"].Value?.ToString() ?? "";
-            txtPaymentMethod.Text = row.Cells["Payment Method"].Value?.ToString() ?? "";
-            txtReceiptNumber.Text = row.Cells["Receipt Number"].Value?.ToString() ?? "";
+            txtPaymentId.Text = "";
+            if (row.Cells["Payment ID"].Value != null)
+            {
+                txtPaymentId.Text = row.Cells["Payment ID"].Value.ToString();
+            }
+
+            txtPatientName.Text = "";
+            if (row.Cells["Patient Name"].Value != null)
+            {
+                txtPatientName.Text = row.Cells["Patient Name"].Value.ToString();
+            }
+
+            txtDatePaid.Text = "";
+            if (row.Cells["Date Paid"].Value != null)
+            {
+                txtDatePaid.Text = row.Cells["Date Paid"].Value.ToString();
+            }
+
+            txtAmountPaid.Text = "";
+            if (row.Cells["Amount Paid"].Value != null)
+            {
+                txtAmountPaid.Text = row.Cells["Amount Paid"].Value.ToString();
+            }
+
+            txtPaymentMethod.Text = "";
+            if (row.Cells["Payment Method"].Value != null)
+            {
+                txtPaymentMethod.Text = row.Cells["Payment Method"].Value.ToString();
+            }
+
+            txtReceiptNumber.Text = "";
+            if (row.Cells["Receipt Number"].Value != null)
+            {
+                txtReceiptNumber.Text = row.Cells["Receipt Number"].Value.ToString();
+            }
         }
 
         private void dgvPaymentHistory_CellClick(object sender, DataGridViewCellEventArgs e)

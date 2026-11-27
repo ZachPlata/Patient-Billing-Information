@@ -26,7 +26,7 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT bed_id AS 'Bed ID', room_number AS 'Room #', bed_number AS 'Bed #', room_type AS 'Room Type', daily_rate AS 'Daily Rate', CASE WHEN is_occupied = 1 THEN 'Occupied' ELSE 'Available' END AS 'Status' FROM RoomsBeds ORDER BY room_number ASC, bed_number ASC";
+                cmd.CommandText = "SELECT bed_id, room_number, bed_number, room_type, daily_rate, is_occupied FROM RoomsBeds ORDER BY room_number ASC, bed_number ASC";
                 cmd.Connection = conn;
                 da.SelectCommand = cmd;
                 da.Fill(ds, "abc");
@@ -35,7 +35,7 @@ namespace Patient_Info_and_Billing_System.Admin
                 conn.Close();
 
                 lblShowingEntries.Text = "Showing: " + dgvRooms.Rows.Count + " entries";
-                updateCards(ds.Tables["abc"]);
+                updateCards();
             }
             catch (Exception ex)
             {
@@ -50,44 +50,63 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void updateCards(DataTable dt)
+        void updateCards()
         {
-            if (dt == null)
-            {
-                return;
-            }
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            MySqlDataReader reader;
 
-            int total = 0;
-            int available = 0;
-            int occupied = 0;
-            decimal totalRate = 0;
-
-            foreach (DataRow row in dt.Rows)
+            try
             {
-                total++;
-                string status = row["Status"].ToString();
-                if (status == "Occupied")
+                conn.Open();
+                cmd.Connection = conn;
+
+                cmd.CommandText = "SELECT COUNT(*) FROM RoomsBeds";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    occupied++;
+                    lblValTotalBeds.Text = reader[0].ToString();
                 }
-                else
+                reader.Close();
+
+                cmd.CommandText = "SELECT COUNT(*) FROM RoomsBeds WHERE is_occupied = 0";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    available++;
+                    lblValAvailBeds.Text = reader[0].ToString();
                 }
+                reader.Close();
 
-                totalRate = totalRate + Convert.ToDecimal(row["Daily Rate"]);
+                cmd.CommandText = "SELECT COUNT(*) FROM RoomsBeds WHERE is_occupied = 1";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblValOccupiedBeds.Text = reader[0].ToString();
+                }
+                reader.Close();
+
+                decimal avgRate = 0;
+                cmd.CommandText = "SELECT AVG(daily_rate) FROM RoomsBeds";
+                reader = cmd.ExecuteReader();
+                if (reader.Read() && reader[0] != DBNull.Value)
+                {
+                    avgRate = Convert.ToDecimal(reader[0]);
+                }
+                reader.Close();
+                lblValAvgRate.Text = "₱" + avgRate.ToString("N2");
+
+                conn.Close();
             }
-
-            decimal avgRate = 0;
-            if (total > 0)
+            catch
             {
-                avgRate = totalRate / total;
             }
-
-            lblValTotalBeds.Text = total.ToString();
-            lblValAvailBeds.Text = available.ToString();
-            lblValOccupiedBeds.Text = occupied.ToString();
-            lblValAvgRate.Text = "₱" + avgRate.ToString("N2");
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
         }
 
         void clearFields()
@@ -382,7 +401,7 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT bed_id AS 'Bed ID', room_number AS 'Room #', bed_number AS 'Bed #', room_type AS 'Room Type', daily_rate AS 'Daily Rate', CASE WHEN is_occupied = 1 THEN 'Occupied' ELSE 'Available' END AS 'Status' FROM RoomsBeds WHERE bed_id LIKE @search OR room_number LIKE @search OR room_type LIKE @search ORDER BY room_number ASC, bed_number ASC";
+                cmd.CommandText = "SELECT bed_id, room_number, bed_number, room_type, daily_rate, is_occupied FROM RoomsBeds WHERE bed_id LIKE @search OR room_number LIKE @search OR room_type LIKE @search ORDER BY room_number ASC, bed_number ASC";
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
                 da.SelectCommand = cmd;
@@ -417,7 +436,15 @@ namespace Patient_Info_and_Billing_System.Admin
                 txtBedNumber.Text = row.Cells[2].Value.ToString();
                 cmbRoomType.Text = row.Cells[3].Value.ToString();
                 txtDailyRate.Text = row.Cells[4].Value.ToString();
-                cmbStatus.Text = row.Cells[5].Value.ToString();
+                string occVal = row.Cells[5].Value.ToString();
+                if (occVal == "1" || occVal == "True")
+                {
+                    cmbStatus.Text = "Occupied";
+                }
+                else
+                {
+                    cmbStatus.Text = "Available";
+                }
             }
         }
     }

@@ -1,6 +1,5 @@
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -9,7 +8,6 @@ namespace Patient_Info_and_Billing_System.Admin
     public partial class ConsFeeSched : UserControl
     {
         string connStr = "server=localhost; database=patientbillingdb; uid=root";
-        List<string> doctorIds = new List<string>();
 
         public ConsFeeSched()
         {
@@ -21,7 +19,6 @@ namespace Patient_Info_and_Billing_System.Admin
 
         void loadDoctors()
         {
-            doctorIds.Clear();
             cmbDoctor.Items.Clear();
 
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -31,13 +28,12 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT user_id, full_name FROM Users WHERE role = 'Doctor' ORDER BY full_name ASC";
+                cmd.CommandText = "SELECT full_name FROM Users WHERE role = 'Doctor' ORDER BY full_name ASC";
                 cmd.Connection = conn;
                 reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    doctorIds.Add(reader["user_id"].ToString());
                     cmbDoctor.Items.Add(reader["full_name"].ToString());
                 }
 
@@ -47,6 +43,43 @@ namespace Patient_Info_and_Billing_System.Admin
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading doctors: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        string getDoctorIdByName(string doctorName)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            MySqlDataReader reader;
+            string doctorId = "";
+
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "SELECT user_id FROM Users WHERE full_name = @full_name AND role = 'Doctor' LIMIT 1";
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@full_name", doctorName);
+                reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    doctorId = reader["user_id"].ToString();
+                }
+
+                reader.Close();
+                conn.Close();
+                return doctorId;
+            }
+            catch
+            {
+                return "";
             }
             finally
             {
@@ -67,7 +100,7 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT d.fee_schedule_id AS 'Schedule ID', u.full_name AS 'Physician', u.specialty AS 'Specialization', d.standard_fee AS 'Standard Fee', d.follow_up_fee AS 'Follow-Up Fee', d.schedule_days AS 'Schedule Days', CASE WHEN u.is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM DoctorFeeSchedules d INNER JOIN Users u ON d.doctor_id = u.user_id ORDER BY u.full_name ASC";
+                cmd.CommandText = "SELECT d.fee_schedule_id, u.full_name, u.specialty, d.standard_fee, d.follow_up_fee, d.schedule_days, u.is_active FROM DoctorFeeSchedules d INNER JOIN Users u ON d.doctor_id = u.user_id ORDER BY u.full_name ASC";
                 cmd.Connection = conn;
                 da.SelectCommand = cmd;
                 da.Fill(ds, "abc");
@@ -76,7 +109,7 @@ namespace Patient_Info_and_Billing_System.Admin
                 conn.Close();
 
                 lblShowingEntries.Text = "Showing " + dgvFeeSchedules.Rows.Count + " entries";
-                updateCards(ds.Tables["abc"]);
+                updateCards();
             }
             catch (Exception ex)
             {
@@ -91,64 +124,57 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void updateCards(DataTable dt)
-        {
-            if (dt == null)
-            {
-                return;
-            }
-
-            int activeCount = 0;
-            decimal minStandardFee = 0;
-            decimal totalStandardFee = 0;
-            int totalRows = dt.Rows.Count;
-
-            foreach (DataRow row in dt.Rows)
-            {
-                string status = row["Status"].ToString();
-                if (status == "Active")
-                {
-                    activeCount++;
-                }
-
-                decimal stdFee = Convert.ToDecimal(row["Standard Fee"]);
-                totalStandardFee = totalStandardFee + stdFee;
-
-                if (minStandardFee == 0 || stdFee < minStandardFee)
-                {
-                    minStandardFee = stdFee;
-                }
-            }
-
-            decimal avgFee = 0;
-            if (totalRows > 0)
-            {
-                avgFee = totalStandardFee / totalRows;
-            }
-
-            lblValActiveSchedules.Text = activeCount.ToString();
-            lblValPediatricSpecs.Text = getSpecialtyCount().ToString();
-            lblValBaseFee.Text = "₱" + minStandardFee.ToString("N2");
-            lblValAvgSpecialistFee.Text = "₱" + avgFee.ToString("N2");
-        }
-
-        int getSpecialtyCount()
+        void updateCards()
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
+            MySqlDataReader reader;
 
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT COUNT(DISTINCT u.specialty) FROM DoctorFeeSchedules d INNER JOIN Users u ON d.doctor_id = u.user_id WHERE u.specialty IS NOT NULL AND u.specialty <> ''";
                 cmd.Connection = conn;
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd.CommandText = "SELECT COUNT(*) FROM DoctorFeeSchedules d INNER JOIN Users u ON d.doctor_id = u.user_id WHERE u.is_active = 1";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblValActiveSchedules.Text = reader[0].ToString();
+                }
+                reader.Close();
+
+                cmd.CommandText = "SELECT COUNT(DISTINCT u.specialty) FROM DoctorFeeSchedules d INNER JOIN Users u ON d.doctor_id = u.user_id WHERE u.specialty IS NOT NULL AND u.specialty <> ''";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblValPediatricSpecs.Text = reader[0].ToString();
+                }
+                reader.Close();
+
+                decimal minFee = 0;
+                cmd.CommandText = "SELECT MIN(standard_fee) FROM DoctorFeeSchedules";
+                reader = cmd.ExecuteReader();
+                if (reader.Read() && reader[0] != DBNull.Value)
+                {
+                    minFee = Convert.ToDecimal(reader[0]);
+                }
+                reader.Close();
+                lblValBaseFee.Text = "₱" + minFee.ToString("N2");
+
+                decimal avgFee = 0;
+                cmd.CommandText = "SELECT AVG(standard_fee) FROM DoctorFeeSchedules";
+                reader = cmd.ExecuteReader();
+                if (reader.Read() && reader[0] != DBNull.Value)
+                {
+                    avgFee = Convert.ToDecimal(reader[0]);
+                }
+                reader.Close();
+                lblValAvgSpecialistFee.Text = "₱" + avgFee.ToString("N2");
+
                 conn.Close();
-                return count;
             }
             catch
             {
-                return 0;
             }
             finally
             {
@@ -237,7 +263,12 @@ namespace Patient_Info_and_Billing_System.Admin
                 return;
             }
 
-            string selectedDoctorId = doctorIds[cmbDoctor.SelectedIndex];
+            string selectedDoctorId = getDoctorIdByName(cmbDoctor.Text);
+            if (selectedDoctorId == "")
+            {
+                MessageBox.Show("Selected doctor was not found.");
+                return;
+            }
 
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
@@ -445,7 +476,7 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT d.fee_schedule_id AS 'Schedule ID', u.full_name AS 'Physician', u.specialty AS 'Specialization', d.standard_fee AS 'Standard Fee', d.follow_up_fee AS 'Follow-Up Fee', d.schedule_days AS 'Schedule Days', CASE WHEN u.is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM DoctorFeeSchedules d INNER JOIN Users u ON d.doctor_id = u.user_id WHERE u.full_name LIKE @search OR u.specialty LIKE @search OR d.schedule_days LIKE @search ORDER BY u.full_name ASC";
+                cmd.CommandText = "SELECT d.fee_schedule_id, u.full_name, u.specialty, d.standard_fee, d.follow_up_fee, d.schedule_days, u.is_active FROM DoctorFeeSchedules d INNER JOIN Users u ON d.doctor_id = u.user_id WHERE u.full_name LIKE @search OR u.specialty LIKE @search OR d.schedule_days LIKE @search ORDER BY u.full_name ASC";
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
                 da.SelectCommand = cmd;

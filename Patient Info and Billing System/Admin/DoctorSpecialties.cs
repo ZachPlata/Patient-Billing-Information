@@ -12,40 +12,8 @@ namespace Patient_Info_and_Billing_System.Admin
         public DoctorSpecialties()
         {
             InitializeComponent();
-            createTableIfMissing();
             clearFields();
             loaddata();
-        }
-
-        void createTableIfMissing()
-        {
-            MySqlConnection conn = new MySqlConnection(connStr);
-            MySqlCommand cmd = new MySqlCommand();
-
-            try
-            {
-                conn.Open();
-                cmd.CommandText = "CREATE TABLE IF NOT EXISTS DoctorSpecialties (" +
-                                  "specialty_id INT NOT NULL AUTO_INCREMENT, " +
-                                  "specialty_name VARCHAR(100) NOT NULL, " +
-                                  "description VARCHAR(255) DEFAULT NULL, " +
-                                  "is_active TINYINT(1) NOT NULL DEFAULT 1, " +
-                                  "PRIMARY KEY (specialty_id), " +
-                                  "UNIQUE KEY uq_specialty_name (specialty_name))";
-                cmd.Connection = conn;
-                cmd.ExecuteNonQuery();
-                conn.Close();
-            }
-            catch
-            {
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
         }
 
         void loaddata()
@@ -58,7 +26,7 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT specialty_id AS 'ID', specialty_name AS 'Specialty Name', description AS 'Description', CASE WHEN is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM DoctorSpecialties ORDER BY specialty_name ASC";
+                cmd.CommandText = "SELECT specialty_id, specialty_name, description, is_active FROM DoctorSpecialties ORDER BY specialty_name ASC";
                 cmd.Connection = conn;
                 da.SelectCommand = cmd;
                 da.Fill(ds, "abc");
@@ -67,7 +35,7 @@ namespace Patient_Info_and_Billing_System.Admin
                 conn.Close();
 
                 lblShowingEntries.Text = "Showing " + dgvSpecialties.Rows.Count + " entries";
-                updateCards(ds.Tables["abc"]);
+                updateCards();
             }
             catch (Exception ex)
             {
@@ -82,54 +50,53 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void updateCards(DataTable dt)
-        {
-            if (dt == null)
-            {
-                return;
-            }
-
-            int total = 0;
-            int active = 0;
-            int inactive = 0;
-
-            foreach (DataRow row in dt.Rows)
-            {
-                total++;
-                string status = row["Status"].ToString();
-                if (status == "Active")
-                {
-                    active++;
-                }
-                else
-                {
-                    inactive++;
-                }
-            }
-
-            lblValTotalSpecs.Text = total.ToString();
-            lblValActiveSpecs.Text = active.ToString();
-            lblValInactiveSpecs.Text = inactive.ToString();
-            lblValAssignedDoctors.Text = getAssignedDoctorCount().ToString();
-        }
-
-        int getAssignedDoctorCount()
+        void updateCards()
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
+            MySqlDataReader reader;
 
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT COUNT(*) FROM Users WHERE role = 'Doctor' AND specialty IS NOT NULL AND specialty <> ''";
                 cmd.Connection = conn;
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd.CommandText = "SELECT COUNT(*) FROM DoctorSpecialties";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblValTotalSpecs.Text = reader[0].ToString();
+                }
+                reader.Close();
+
+                cmd.CommandText = "SELECT COUNT(*) FROM DoctorSpecialties WHERE is_active = 1";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblValActiveSpecs.Text = reader[0].ToString();
+                }
+                reader.Close();
+
+                cmd.CommandText = "SELECT COUNT(*) FROM DoctorSpecialties WHERE is_active = 0";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblValInactiveSpecs.Text = reader[0].ToString();
+                }
+                reader.Close();
+
+                cmd.CommandText = "SELECT COUNT(*) FROM Users WHERE role = 'Doctor' AND specialty IS NOT NULL AND specialty <> ''";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblValAssignedDoctors.Text = reader[0].ToString();
+                }
+                reader.Close();
+
                 conn.Close();
-                return count;
             }
             catch
             {
-                return 0;
             }
             finally
             {
@@ -367,7 +334,7 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT specialty_id AS 'ID', specialty_name AS 'Specialty Name', description AS 'Description', CASE WHEN is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM DoctorSpecialties WHERE specialty_name LIKE @search OR description LIKE @search ORDER BY specialty_name ASC";
+                cmd.CommandText = "SELECT specialty_id, specialty_name, description, is_active FROM DoctorSpecialties WHERE specialty_name LIKE @search OR description LIKE @search ORDER BY specialty_name ASC";
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
                 da.SelectCommand = cmd;
@@ -399,7 +366,15 @@ namespace Patient_Info_and_Billing_System.Admin
                 txtSpecialtyId.Text = row.Cells[0].Value.ToString();
                 txtSpecialtyName.Text = row.Cells[1].Value.ToString();
                 txtDescription.Text = row.Cells[2].Value.ToString();
-                cmbStatus.Text = row.Cells[3].Value.ToString();
+                string activeVal = row.Cells[3].Value.ToString();
+                if (activeVal == "1" || activeVal == "True")
+                {
+                    cmbStatus.Text = "Active";
+                }
+                else
+                {
+                    cmbStatus.Text = "Inactive";
+                }
             }
         }
     }

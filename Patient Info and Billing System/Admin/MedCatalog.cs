@@ -26,7 +26,7 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT medicine_code AS 'Code', name AS 'Medicine Name', dosage_unit AS 'Dosage Unit', category AS 'Category', unit_price AS 'Unit Price', stock_quantity AS 'Stock', CASE WHEN is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM MedicineCatalog ORDER BY name ASC";
+                cmd.CommandText = "SELECT medicine_code, name, dosage_unit, category, unit_price, stock_quantity, is_active FROM MedicineCatalog ORDER BY name ASC";
                 cmd.Connection = conn;
                 da.SelectCommand = cmd;
                 da.Fill(ds, "abc");
@@ -35,7 +35,7 @@ namespace Patient_Info_and_Billing_System.Admin
                 conn.Close();
 
                 lblShowingEntries.Text = "Showing " + dgvMedicines.Rows.Count + " entries";
-                updateCards(ds.Tables["abc"]);
+                updateCards();
             }
             catch (Exception ex)
             {
@@ -50,47 +50,63 @@ namespace Patient_Info_and_Billing_System.Admin
             }
         }
 
-        void updateCards(DataTable dt)
+        void updateCards()
         {
-            if (dt == null)
-            {
-                return;
-            }
+            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlCommand cmd = new MySqlCommand();
+            MySqlDataReader reader;
 
-            int total = 0;
-            int active = 0;
-            int oralLiquids = 0;
-            decimal totalPrice = 0;
-
-            foreach (DataRow row in dt.Rows)
+            try
             {
-                total++;
-                string status = row["Status"].ToString();
-                if (status == "Active")
+                conn.Open();
+                cmd.Connection = conn;
+
+                cmd.CommandText = "SELECT COUNT(*) FROM MedicineCatalog";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    active++;
+                    lblValCatalogedMeds.Text = reader[0].ToString();
                 }
+                reader.Close();
 
-                string dosage = row["Dosage Unit"].ToString().ToLower();
-                string category = row["Category"].ToString().ToLower();
-                if (dosage.IndexOf("bottle") >= 0 || dosage.IndexOf("syrup") >= 0 || dosage.IndexOf("suspension") >= 0 || category.IndexOf("liquid") >= 0)
+                cmd.CommandText = "SELECT COUNT(*) FROM MedicineCatalog WHERE is_active = 1";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    oralLiquids++;
+                    lblValActiveFormulary.Text = reader[0].ToString();
                 }
+                reader.Close();
 
-                totalPrice = totalPrice + Convert.ToDecimal(row["Unit Price"]);
+                cmd.CommandText = "SELECT COUNT(*) FROM MedicineCatalog WHERE dosage_unit LIKE '%bottle%' OR dosage_unit LIKE '%syrup%' OR dosage_unit LIKE '%suspension%' OR category LIKE '%liquid%'";
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lblValOralLiquids.Text = reader[0].ToString();
+                }
+                reader.Close();
+
+                decimal avgPrice = 0;
+                cmd.CommandText = "SELECT AVG(unit_price) FROM MedicineCatalog";
+                reader = cmd.ExecuteReader();
+                if (reader.Read() && reader[0] != DBNull.Value)
+                {
+                    avgPrice = Convert.ToDecimal(reader[0]);
+                }
+                reader.Close();
+                lblValAvgUnitPrice.Text = "₱" + avgPrice.ToString("N2");
+
+                conn.Close();
             }
-
-            decimal avgPrice = 0;
-            if (total > 0)
+            catch
             {
-                avgPrice = totalPrice / total;
             }
-
-            lblValCatalogedMeds.Text = total.ToString();
-            lblValActiveFormulary.Text = active.ToString();
-            lblValOralLiquids.Text = oralLiquids.ToString();
-            lblValAvgUnitPrice.Text = "₱" + avgPrice.ToString("N2");
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
         }
 
         void clearFields()
@@ -434,7 +450,7 @@ namespace Patient_Info_and_Billing_System.Admin
             try
             {
                 conn.Open();
-                cmd.CommandText = "SELECT medicine_code AS 'Code', name AS 'Medicine Name', dosage_unit AS 'Dosage Unit', category AS 'Category', unit_price AS 'Unit Price', stock_quantity AS 'Stock', CASE WHEN is_active = 1 THEN 'Active' ELSE 'Inactive' END AS 'Status' FROM MedicineCatalog WHERE medicine_code LIKE @search OR name LIKE @search OR category LIKE @search OR dosage_unit LIKE @search ORDER BY name ASC";
+                cmd.CommandText = "SELECT medicine_code, name, dosage_unit, category, unit_price, stock_quantity, is_active FROM MedicineCatalog WHERE medicine_code LIKE @search OR name LIKE @search OR category LIKE @search OR dosage_unit LIKE @search ORDER BY name ASC";
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
                 da.SelectCommand = cmd;
@@ -470,7 +486,15 @@ namespace Patient_Info_and_Billing_System.Admin
                 txtCategory.Text = row.Cells[3].Value.ToString();
                 txtUnitPrice.Text = row.Cells[4].Value.ToString();
                 txtStockQty.Text = row.Cells[5].Value.ToString();
-                cmbStatus.Text = row.Cells[6].Value.ToString();
+                string activeVal = row.Cells[6].Value.ToString();
+                if (activeVal == "1" || activeVal == "True")
+                {
+                    cmbStatus.Text = "Active";
+                }
+                else
+                {
+                    cmbStatus.Text = "Inactive";
+                }
             }
         }
     }

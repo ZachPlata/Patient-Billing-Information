@@ -108,14 +108,28 @@ namespace Patient_Info_and_Billing_System.BillingStaff
 
         void PopulateFieldsFromRow(DataGridViewRow row)
         {
-            txtBillId.Text = row.Cells["Bill ID"].Value?.ToString() ?? "";
-            selectedPatientId = row.Cells["Patient ID"].Value?.ToString() ?? "";
-            txtPatientName.Text = row.Cells["Patient Name"].Value?.ToString() ?? "";
+            txtBillId.Text = "";
+            if (row.Cells["Bill ID"].Value != null)
+            {
+                txtBillId.Text = row.Cells["Bill ID"].Value.ToString();
+            }
+
+            selectedPatientId = "";
+            if (row.Cells["Patient ID"].Value != null)
+            {
+                selectedPatientId = row.Cells["Patient ID"].Value.ToString();
+            }
+
+            txtPatientName.Text = "";
+            if (row.Cells["Patient Name"].Value != null)
+            {
+                txtPatientName.Text = row.Cells["Patient Name"].Value.ToString();
+            }
 
             decimal amountDue = 0;
             if (row.Cells["Remaining Balance"].Value != null)
             {
-                decimal.TryParse(row.Cells["Remaining Balance"].Value?.ToString(), out amountDue);
+                decimal.TryParse(row.Cells["Remaining Balance"].Value.ToString(), out amountDue);
             }
 
             txtAmountDue.Text = amountDue.ToString("0.00");
@@ -225,7 +239,7 @@ namespace Patient_Info_and_Billing_System.BillingStaff
             reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                userId = reader[0].ToString() ?? "";
+                userId = reader[0].ToString();
             }
             reader.Close();
 
@@ -235,7 +249,7 @@ namespace Patient_Info_and_Billing_System.BillingStaff
                 reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    userId = reader[0].ToString() ?? "";
+                    userId = reader[0].ToString();
                 }
                 reader.Close();
             }

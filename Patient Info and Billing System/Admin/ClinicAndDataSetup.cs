@@ -92,13 +92,20 @@ namespace Patient_Info_and_Billing_System.Admin
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand();
+            MySqlDataReader reader;
+            int count = 0;
 
             try
             {
                 conn.Open();
                 cmd.CommandText = "SELECT COUNT(*) FROM " + tableName;
                 cmd.Connection = conn;
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    count = Convert.ToInt32(reader[0]);
+                }
+                reader.Close();
                 conn.Close();
                 return count;
             }
