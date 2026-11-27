@@ -12,16 +12,21 @@
 *.suo
 *.userprefs
 
+## NuGet Packages & Caches
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nupkg
+*.snupkg
+project.assets.json
+project.nuget.cache
+*.nuget.dgspec.json
+*.nuget.g.props
+*.nuget.g.targets
+
 ## Generated files & caches
 *.cache
 *.FileListAbsolute.txt
 *.editorconfig
 *.genruntimeconfig.cache
-project.assets.json
-project.nuget.cache
-Patient Info and Billing System/obj/Debug/net10.0-windows/Patient Info and Billing System.designer.runtimeconfig.json
-Patient Info and Billing System/NurseDashBoard/uc_dashboard.cs
-Patient Info and Billing System/obj/Debug/net10.0-windows/Patient Info and Billing System.designer.deps.json
-Patient Info and Billing System/obj/Debug/net10.0-windows/Patient Info and Billing System.designer.runtimeconfig.json
-Patient Info and Billing System/obj/Debug/net10.0-windows/Patient Info and Billing System.designer.runtimeconfig.json
-Patient Info and Billing System/obj/Debug/net10.0-windows/Patient Info and Billing System.designer.deps.json
+*.designer.deps.json
+*.designer.runtimeconfig.json

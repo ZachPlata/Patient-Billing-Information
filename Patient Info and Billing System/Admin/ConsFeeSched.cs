@@ -8,7 +8,7 @@ namespace Patient_Info_and_Billing_System.Admin
 {
     public partial class ConsFeeSched : UserControl
     {
-        string connStr = "server=localhost; database=metro_care_db; uid=root";
+        string connStr = "server=localhost; database=patientbillingdb; uid=root";
         List<string> doctorIds = new List<string>();
 
         public ConsFeeSched()

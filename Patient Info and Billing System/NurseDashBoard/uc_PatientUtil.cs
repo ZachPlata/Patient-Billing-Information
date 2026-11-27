@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +17,7 @@ namespace Patient_Info_and_Billing_System
         }
         void loaddata()
         {
-            MySqlConnection conn = new MySqlConnection("server=localhost; database=metroc_care_db; uid=root");
+            MySqlConnection conn = new MySqlConnection("server=localhost; database=patientbillingdb; uid=root");
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();
             MySqlDataAdapter da = new MySqlDataAdapter();
