@@ -1,4 +1,4 @@
-﻿namespace Patient_Info_and_Billing_System.Admin
+namespace Patient_Info_and_Billing_System.Admin
 {
     partial class AdminManage
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -39,12 +40,6 @@
             comboBox1 = new ComboBox();
             searchText = new TextBox();
             userTable = new DataGridView();
-            staffid = new DataGridViewTextBoxColumn();
-            fullName = new DataGridViewTextBoxColumn();
-            userName = new DataGridViewTextBoxColumn();
-            role = new DataGridViewTextBoxColumn();
-            email = new DataGridViewTextBoxColumn();
-            accountStatus = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
             button4 = new Button();
             groupBox2 = new GroupBox();
@@ -64,10 +59,12 @@
             txt_Username = new TextBox();
             label1 = new Label();
             txt_Fullname = new TextBox();
+            errorProvider1 = new ErrorProvider(components);
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)userTable).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // groupBox3
@@ -96,6 +93,7 @@
             button6.TabIndex = 5;
             button6.Text = "Clear";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
@@ -108,6 +106,7 @@
             button5.TabIndex = 4;
             button5.Text = "Search";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // label8
             // 
@@ -131,11 +130,14 @@
             // 
             // comboBox1
             // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "ACTIVE", "INACTIVE", "LOCKED" });
             comboBox1.Location = new Point(656, 37);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(199, 23);
             comboBox1.TabIndex = 1;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // searchText
             // 
@@ -163,7 +165,6 @@
             userTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             userTable.ColumnHeadersHeight = 42;
             userTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            userTable.Columns.AddRange(new DataGridViewColumn[] { staffid, fullName, userName, role, email, accountStatus });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(13, 27, 48);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -191,36 +192,7 @@
             userTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             userTable.Size = new Size(1010, 514);
             userTable.TabIndex = 8;
-            // 
-            // staffid
-            // 
-            staffid.HeaderText = "Staff ID";
-            staffid.Name = "staffid";
-            // 
-            // fullName
-            // 
-            fullName.HeaderText = "Full Name";
-            fullName.Name = "fullName";
-            // 
-            // userName
-            // 
-            userName.HeaderText = "Username";
-            userName.Name = "userName";
-            // 
-            // role
-            // 
-            role.HeaderText = "Role";
-            role.Name = "role";
-            // 
-            // email
-            // 
-            email.HeaderText = "Email";
-            email.Name = "email";
-            // 
-            // accountStatus
-            // 
-            accountStatus.HeaderText = "Account Status";
-            accountStatus.Name = "accountStatus";
+            userTable.CellClick += userTable_CellClick;
             // 
             // groupBox1
             // 
@@ -263,6 +235,7 @@
             button4.TabIndex = 18;
             button4.Text = "Delete";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // groupBox2
             // 
@@ -324,6 +297,7 @@
             button3.TabIndex = 16;
             button3.Text = "Edit ";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -337,6 +311,7 @@
             button2.TabIndex = 15;
             button2.Text = "Clear";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -350,6 +325,7 @@
             button1.TabIndex = 14;
             button1.Text = "New ";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label7
             // 
@@ -446,6 +422,10 @@
             txt_Fullname.Size = new Size(434, 23);
             txt_Fullname.TabIndex = 0;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // AdminManage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -463,6 +443,7 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -495,11 +476,6 @@
         private TextBox txt_Username;
         private Label label1;
         private TextBox txt_Fullname;
-        private DataGridViewTextBoxColumn staffid;
-        private DataGridViewTextBoxColumn fullName;
-        private DataGridViewTextBoxColumn userName;
-        private DataGridViewTextBoxColumn role;
-        private DataGridViewTextBoxColumn email;
-        private DataGridViewTextBoxColumn accountStatus;
+        private ErrorProvider errorProvider1;
     }
 }

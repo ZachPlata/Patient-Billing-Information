@@ -1,4 +1,4 @@
-﻿namespace Patient_Info_and_Billing_System.Admin
+namespace Patient_Info_and_Billing_System.Admin
 {
     partial class NurseManage
     {
@@ -28,49 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             groupBox3 = new GroupBox();
             button6 = new Button();
             button5 = new Button();
             label8 = new Label();
             label4 = new Label();
-            comboBox1 = new ComboBox();
+            cmbBoxFilter = new ComboBox();
             searchText = new TextBox();
-            userTable = new DataGridView();
+            nurseTable = new DataGridView();
             groupBox1 = new GroupBox();
             button4 = new Button();
             groupBox2 = new GroupBox();
-            radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
+            rbtnInactive = new RadioButton();
+            rbtnActive = new RadioButton();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
             label7 = new Label();
-            textBox6 = new TextBox();
+            textPNum = new TextBox();
             label6 = new Label();
-            textBox5 = new TextBox();
+            textEmail = new TextBox();
             label5 = new Label();
-            textBox4 = new TextBox();
+            textTitle = new TextBox();
             label3 = new Label();
             txt_Password = new TextBox();
             label2 = new Label();
             txt_Username = new TextBox();
             label1 = new Label();
             txt_Fullname = new TextBox();
-            staffid = new DataGridViewTextBoxColumn();
-            fullName = new DataGridViewTextBoxColumn();
-            userName = new DataGridViewTextBoxColumn();
-            role = new DataGridViewTextBoxColumn();
-            nurse_title = new DataGridViewTextBoxColumn();
-            email = new DataGridViewTextBoxColumn();
-            accountStatus = new DataGridViewTextBoxColumn();
+            errorProvider1 = new ErrorProvider(components);
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)userTable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nurseTable).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // groupBox3
@@ -80,7 +75,7 @@
             groupBox3.Controls.Add(button5);
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(comboBox1);
+            groupBox3.Controls.Add(cmbBoxFilter);
             groupBox3.Controls.Add(searchText);
             groupBox3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox3.Location = new Point(514, 18);
@@ -100,6 +95,7 @@
             button6.TabIndex = 5;
             button6.Text = "Clear";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
@@ -112,6 +108,7 @@
             button5.TabIndex = 4;
             button5.Text = "Search";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // label8
             // 
@@ -133,13 +130,16 @@
             label4.TabIndex = 2;
             label4.Text = "Search: ";
             // 
-            // comboBox1
+            // cmbBoxFilter
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(656, 37);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(199, 23);
-            comboBox1.TabIndex = 1;
+            cmbBoxFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBoxFilter.FormattingEnabled = true;
+            cmbBoxFilter.Items.AddRange(new object[] { "ACTIVE", "INACTIVE" });
+            cmbBoxFilter.Location = new Point(656, 37);
+            cmbBoxFilter.Name = "cmbBoxFilter";
+            cmbBoxFilter.Size = new Size(199, 23);
+            cmbBoxFilter.TabIndex = 1;
+            cmbBoxFilter.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // searchText
             // 
@@ -148,53 +148,53 @@
             searchText.Size = new Size(549, 23);
             searchText.TabIndex = 0;
             // 
-            // userTable
+            // nurseTable
             // 
-            userTable.AllowUserToResizeColumns = false;
-            userTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            userTable.BackgroundColor = Color.White;
-            userTable.BorderStyle = BorderStyle.None;
-            userTable.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            userTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(13, 27, 48);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.Padding = new Padding(10, 0, 10, 0);
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            userTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            userTable.ColumnHeadersHeight = 42;
-            userTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            userTable.Columns.AddRange(new DataGridViewColumn[] { staffid, fullName, userName, role, nurse_title, email, accountStatus });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(13, 27, 48);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.Padding = new Padding(10, 0, 10, 0);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(13, 27, 48);
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            userTable.DefaultCellStyle = dataGridViewCellStyle8;
-            userTable.EnableHeadersVisualStyles = false;
-            userTable.GridColor = Color.FromArgb(235, 238, 242);
-            userTable.Location = new Point(514, 121);
-            userTable.Margin = new Padding(3, 2, 3, 2);
-            userTable.Name = "userTable";
-            userTable.RowHeadersVisible = false;
-            userTable.RowHeadersWidth = 51;
-            dataGridViewCellStyle9.BackColor = Color.White;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(45, 52, 64);
-            dataGridViewCellStyle9.Padding = new Padding(10, 0, 10, 0);
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(235, 242, 252);
-            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(45, 52, 64);
-            userTable.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            userTable.RowTemplate.Height = 38;
-            userTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            userTable.Size = new Size(1010, 514);
-            userTable.TabIndex = 5;
+            nurseTable.AllowUserToResizeColumns = false;
+            nurseTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            nurseTable.BackgroundColor = Color.White;
+            nurseTable.BorderStyle = BorderStyle.None;
+            nurseTable.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            nurseTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(13, 27, 48);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.Padding = new Padding(10, 0, 10, 0);
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            nurseTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            nurseTable.ColumnHeadersHeight = 42;
+            nurseTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(13, 27, 48);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.Padding = new Padding(10, 0, 10, 0);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(13, 27, 48);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            nurseTable.DefaultCellStyle = dataGridViewCellStyle5;
+            nurseTable.EnableHeadersVisualStyles = false;
+            nurseTable.GridColor = Color.FromArgb(235, 238, 242);
+            nurseTable.Location = new Point(514, 121);
+            nurseTable.Margin = new Padding(3, 2, 3, 2);
+            nurseTable.Name = "nurseTable";
+            nurseTable.RowHeadersVisible = false;
+            nurseTable.RowHeadersWidth = 51;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(45, 52, 64);
+            dataGridViewCellStyle6.Padding = new Padding(10, 0, 10, 0);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(235, 242, 252);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(45, 52, 64);
+            nurseTable.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            nurseTable.RowTemplate.Height = 38;
+            nurseTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            nurseTable.Size = new Size(1010, 514);
+            nurseTable.TabIndex = 5;
+            nurseTable.CellClick += nurseTable_CellClick;
             // 
             // groupBox1
             // 
@@ -205,11 +205,11 @@
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(textBox6);
+            groupBox1.Controls.Add(textPNum);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(textBox5);
+            groupBox1.Controls.Add(textEmail);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(textTitle);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txt_Password);
             groupBox1.Controls.Add(label2);
@@ -239,12 +239,12 @@
             button4.TabIndex = 18;
             button4.Text = "Delete";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(radioButton3);
-            groupBox2.Controls.Add(radioButton2);
-            groupBox2.Controls.Add(radioButton1);
+            groupBox2.Controls.Add(rbtnInactive);
+            groupBox2.Controls.Add(rbtnActive);
             groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox2.Location = new Point(14, 376);
             groupBox2.Name = "groupBox2";
@@ -253,39 +253,27 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Account Status";
             // 
-            // radioButton3
+            // rbtnInactive
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(190, 22);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(65, 19);
-            radioButton3.TabIndex = 5;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Locked";
-            radioButton3.UseVisualStyleBackColor = true;
+            rbtnInactive.AutoSize = true;
+            rbtnInactive.Location = new Point(93, 22);
+            rbtnInactive.Name = "rbtnInactive";
+            rbtnInactive.Size = new Size(70, 19);
+            rbtnInactive.TabIndex = 4;
+            rbtnInactive.TabStop = true;
+            rbtnInactive.Text = "Inactive";
+            rbtnInactive.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbtnActive
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(105, 22);
-            radioButton2.Name = "radioButton2";
-            radioButton2.RightToLeft = RightToLeft.No;
-            radioButton2.Size = new Size(70, 19);
-            radioButton2.TabIndex = 4;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Inactive";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(26, 22);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(61, 19);
-            radioButton1.TabIndex = 3;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Active";
-            radioButton1.UseVisualStyleBackColor = true;
+            rbtnActive.AutoSize = true;
+            rbtnActive.Location = new Point(26, 22);
+            rbtnActive.Name = "rbtnActive";
+            rbtnActive.Size = new Size(61, 19);
+            rbtnActive.TabIndex = 3;
+            rbtnActive.TabStop = true;
+            rbtnActive.Text = "Active";
+            rbtnActive.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -300,6 +288,7 @@
             button3.TabIndex = 16;
             button3.Text = "Edit ";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -313,6 +302,7 @@
             button2.TabIndex = 15;
             button2.Text = "Clear";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -326,6 +316,7 @@
             button1.TabIndex = 14;
             button1.Text = "New ";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label7
             // 
@@ -337,14 +328,14 @@
             label7.TabIndex = 13;
             label7.Text = "Phone Number:";
             // 
-            // textBox6
+            // textPNum
             // 
-            textBox6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox6.Location = new Point(15, 280);
-            textBox6.Margin = new Padding(3, 2, 3, 2);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(434, 23);
-            textBox6.TabIndex = 12;
+            textPNum.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textPNum.Location = new Point(15, 280);
+            textPNum.Margin = new Padding(3, 2, 3, 2);
+            textPNum.Name = "textPNum";
+            textPNum.Size = new Size(434, 23);
+            textPNum.TabIndex = 12;
             // 
             // label6
             // 
@@ -356,14 +347,14 @@
             label6.TabIndex = 11;
             label6.Text = "Email Address:";
             // 
-            // textBox5
+            // textEmail
             // 
-            textBox5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox5.Location = new Point(15, 232);
-            textBox5.Margin = new Padding(3, 2, 3, 2);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(434, 23);
-            textBox5.TabIndex = 10;
+            textEmail.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textEmail.Location = new Point(15, 232);
+            textEmail.Margin = new Padding(3, 2, 3, 2);
+            textEmail.Name = "textEmail";
+            textEmail.Size = new Size(434, 23);
+            textEmail.TabIndex = 10;
             // 
             // label5
             // 
@@ -375,14 +366,14 @@
             label5.TabIndex = 9;
             label5.Text = "Nurse Title";
             // 
-            // textBox4
+            // textTitle
             // 
-            textBox4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(15, 331);
-            textBox4.Margin = new Padding(3, 2, 3, 2);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(434, 23);
-            textBox4.TabIndex = 8;
+            textTitle.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textTitle.Location = new Point(15, 331);
+            textTitle.Margin = new Padding(3, 2, 3, 2);
+            textTitle.Name = "textTitle";
+            textTitle.Size = new Size(434, 23);
+            textTitle.TabIndex = 8;
             // 
             // label3
             // 
@@ -441,58 +432,28 @@
             txt_Fullname.Size = new Size(434, 23);
             txt_Fullname.TabIndex = 0;
             // 
-            // staffid
+            // errorProvider1
             // 
-            staffid.HeaderText = "Staff ID";
-            staffid.Name = "staffid";
-            // 
-            // fullName
-            // 
-            fullName.HeaderText = "Full Name";
-            fullName.Name = "fullName";
-            // 
-            // userName
-            // 
-            userName.HeaderText = "Username";
-            userName.Name = "userName";
-            // 
-            // role
-            // 
-            role.HeaderText = "Role";
-            role.Name = "role";
-            // 
-            // nurse_title
-            // 
-            nurse_title.HeaderText = "Nurse Title";
-            nurse_title.Name = "nurse_title";
-            // 
-            // email
-            // 
-            email.HeaderText = "Email";
-            email.Name = "email";
-            // 
-            // accountStatus
-            // 
-            accountStatus.HeaderText = "Account Status";
-            accountStatus.Name = "accountStatus";
+            errorProvider1.ContainerControl = this;
             // 
             // NurseManage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(groupBox3);
-            Controls.Add(userTable);
+            Controls.Add(nurseTable);
             Controls.Add(groupBox1);
             Name = "NurseManage";
             Size = new Size(1546, 653);
             Load += NurseManage_Load;
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)userTable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nurseTable).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -503,9 +464,9 @@
         private Button button5;
         private Label label8;
         private Label label4;
-        private ComboBox comboBox1;
+        private ComboBox cmbBoxFilter;
         private TextBox searchText;
-        private DataGridView userTable;
+        private DataGridView nurseTable;
         private GroupBox groupBox1;
         private Button button4;
         private GroupBox groupBox2;
@@ -513,11 +474,11 @@
         private Button button2;
         private Button button1;
         private Label label7;
-        private TextBox textBox6;
+        private TextBox textPNum;
         private Label label6;
-        private TextBox textBox5;
+        private TextBox textEmail;
         private Label label5;
-        private TextBox textBox4;
+        private TextBox textTitle;
         private Label label3;
         private TextBox txt_Password;
         private Label label2;
@@ -526,13 +487,8 @@
         private TextBox txt_Fullname;
         private RadioButton radioButton3;
         private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private DataGridViewTextBoxColumn staffid;
-        private DataGridViewTextBoxColumn fullName;
-        private DataGridViewTextBoxColumn userName;
-        private DataGridViewTextBoxColumn role;
-        private DataGridViewTextBoxColumn nurse_title;
-        private DataGridViewTextBoxColumn email;
-        private DataGridViewTextBoxColumn accountStatus;
+        private RadioButton rbtnActive;
+        private RadioButton rbtnInactive;
+        private ErrorProvider errorProvider1;
     }
 }
