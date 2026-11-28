@@ -1,4 +1,5 @@
 using Patient_Info_and_Billing_System;
+using Patient_Info_and_Billing_System.Doctor;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -85,7 +86,7 @@ namespace NurseDashBoard
 
         private void btn_ptntrec_Click(object sender, EventArgs e)
         {
-            uc_PatientBillingRec frm = new uc_PatientBillingRec();
+            PatientForm frm = new PatientForm();
 
 
 

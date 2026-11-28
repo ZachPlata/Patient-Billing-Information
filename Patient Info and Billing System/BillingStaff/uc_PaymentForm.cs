@@ -7,7 +7,7 @@ namespace Patient_Info_and_Billing_System.BillingStaff
 {
     public partial class uc_PaymentForm : UserControl
     {
-        string connStr = "server=localhost; database=patientbillingdb; uid=root";
+        string connStr = "server=localhost; database=metro_care_db; uid=root";
         string selectedPatientId = "";
 
         public uc_PaymentForm()

@@ -7,7 +7,7 @@ namespace Patient_Info_and_Billing_System.Admin
 {
     public partial class borja1 : UserControl
     {
-        string connStr = "server=localhost; database=patientbillingdb; uid=root; pwd=;";
+        string connStr = "server=localhost; database=metro_care_db; uid=root; pwd=;";
 
         public borja1()
         {

@@ -18,7 +18,7 @@ namespace NurseDashBoard
 
         void loaddata()
         {
-            MySqlConnection conn = new MySqlConnection("server=localhost; database=patientbillingdb; uid=root");
+            MySqlConnection conn = new MySqlConnection("server=localhost; database=metro_care_db; uid=root");
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();
             MySqlDataAdapter da = new MySqlDataAdapter();
@@ -35,7 +35,7 @@ namespace NurseDashBoard
 
         void loadcounts()
         {
-            MySqlConnection conn = new MySqlConnection("server=localhost; database=patientbillingdb; uid=root");
+            MySqlConnection conn = new MySqlConnection("server=localhost; database=metro_care_db; uid=root");
             MySqlCommand cmd = new MySqlCommand();
             MySqlDataReader reader;
 

@@ -82,7 +82,7 @@ namespace NurseDashBoard
 
             try // INSERT PATIENT TO DATABASE
             {
-                MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;database=patientbillingdb;password=;");
+                MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;database=metro_care_db;password=;");
                 MySqlCommand cmd = new MySqlCommand();
                 conn.Open();
 

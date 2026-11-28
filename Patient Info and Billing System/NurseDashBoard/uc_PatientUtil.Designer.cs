@@ -1,4 +1,4 @@
-﻿namespace Patient_Info_and_Billing_System
+namespace Patient_Info_and_Billing_System
 {
     partial class uc_PatientUtil
     {
@@ -270,7 +270,7 @@
             util_BtnAdd.TabIndex = 29;
             util_BtnAdd.Text = "Register Patient";
             util_BtnAdd.UseVisualStyleBackColor = false;
-            util_BtnAdd.Click += util_BtnAdd_Click_1;
+            util_BtnAdd.Click += util_BtnAdd_Click;
             // 
             // label15
             // 

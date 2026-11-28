@@ -11,7 +11,7 @@ namespace Patient_Info_and_Billing_System.Admin
 {
     public partial class AdminUserManagement : UserControl
     {
-        string connStr = "server=localhost; database=patientbillingdb; uid=root";
+        string connStr = "server=localhost; database=metro_care_db; uid=root";
         private enum SetupTab
         {
             DoctorManagement,

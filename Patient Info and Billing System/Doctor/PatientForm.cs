@@ -11,7 +11,7 @@ namespace Patient_Info_and_Billing_System.Doctor
 {
     public partial class PatientForm : UserControl
     {
-        string connstring = "server=localhost; database=patientbillingdb; uid=root";
+        string connstring = "server=localhost; database=metro_care_db; uid=root";
 
         public PatientForm()
         {
