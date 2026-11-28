@@ -34,8 +34,6 @@ namespace Patient_Info_and_Billing_System.Admin
             lblActiveBadge = new Label();
             lblTitleIcon = new Label();
             lblTitle = new Label();
-            btnExportCsv = new Button();
-            btnRefresh = new Button();
             panelNavTabs = new Panel();
             btnTabDoctor = new Button();
             panelTabUnderline = new Panel();
@@ -55,8 +53,6 @@ namespace Patient_Info_and_Billing_System.Admin
             panelHeader.Controls.Add(lblActiveBadge);
             panelHeader.Controls.Add(lblTitleIcon);
             panelHeader.Controls.Add(lblTitle);
-            panelHeader.Controls.Add(btnExportCsv);
-            panelHeader.Controls.Add(btnRefresh);
             panelHeader.Location = new Point(21, 3);
             panelHeader.Name = "panelHeader";
             panelHeader.Size = new Size(1543, 62);
@@ -117,36 +113,6 @@ namespace Patient_Info_and_Billing_System.Admin
             lblTitle.Size = new Size(243, 28);
             lblTitle.TabIndex = 4;
             lblTitle.Text = "Clinic User Management";
-            // 
-            // btnExportCsv
-            // 
-            btnExportCsv.BackColor = Color.White;
-            btnExportCsv.Cursor = Cursors.Hand;
-            btnExportCsv.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-            btnExportCsv.FlatStyle = FlatStyle.Flat;
-            btnExportCsv.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExportCsv.ForeColor = Color.FromArgb(51, 65, 85);
-            btnExportCsv.Location = new Point(1322, 21);
-            btnExportCsv.Name = "btnExportCsv";
-            btnExportCsv.Size = new Size(115, 34);
-            btnExportCsv.TabIndex = 5;
-            btnExportCsv.Text = "⭳  Export CSV";
-            btnExportCsv.UseVisualStyleBackColor = false;
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.BackColor = Color.White;
-            btnRefresh.Cursor = Cursors.Hand;
-            btnRefresh.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
-            btnRefresh.FlatStyle = FlatStyle.Flat;
-            btnRefresh.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRefresh.ForeColor = Color.FromArgb(51, 65, 85);
-            btnRefresh.Location = new Point(1443, 21);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(95, 34);
-            btnRefresh.TabIndex = 6;
-            btnRefresh.Text = "⟳  Refresh";
-            btnRefresh.UseVisualStyleBackColor = false;
             // 
             // panelNavTabs
             // 
@@ -267,8 +233,6 @@ namespace Patient_Info_and_Billing_System.Admin
         private Label lblActiveBadge;
         private Label lblTitleIcon;
         private Label lblTitle;
-        private Button btnExportCsv;
-        private Button btnRefresh;
         private Panel panelNavTabs;
         private Button btnTabDoctor;
         private Panel panelTabUnderline;

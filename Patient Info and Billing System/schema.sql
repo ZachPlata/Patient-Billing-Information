@@ -5,7 +5,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- --------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `Users` (
-  `user_id` VARCHAR(36) NOT NULL,
+  `user_id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(50) NOT NULL,
   `password_hash` VARCHAR(255) NOT NULL,
   `full_name` VARCHAR(150) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `contact_number` VARCHAR(30) DEFAULT NULL,
   `specialty` VARCHAR(100) DEFAULT NULL,
   `license_number` VARCHAR(50) DEFAULT NULL,
-  `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+  `status` ENUM('ACTIVE', 'INACTIVE', 'LOCKED') NOT NULL DEFAULT 'ACTIVE',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `uq_users_username` (`username`),
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `DoctorSpecialties` (
 
 CREATE TABLE IF NOT EXISTS `DoctorFeeSchedules` (
   `fee_schedule_id` INT NOT NULL AUTO_INCREMENT,
-  `doctor_id` VARCHAR(36) NOT NULL,
+  `doctor_id` INT NOT NULL,
   `standard_fee` DECIMAL(10,2) NOT NULL CHECK (`standard_fee` >= 0),
   `follow_up_fee` DECIMAL(10,2) NOT NULL CHECK (`follow_up_fee` >= 0),
   `schedule_days` VARCHAR(100) NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `Patients` (
   `blood_type` ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-') DEFAULT NULL,
   `allergies` VARCHAR(500) NOT NULL DEFAULT 'None known',
   `current_status` ENUM('Outpatient', 'Admitted', 'Discharged') NOT NULL DEFAULT 'Outpatient',
-  `assigned_doctor_id` VARCHAR(36) DEFAULT NULL,
+  `assigned_doctor_id` INT DEFAULT NULL,
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`patient_id`),
   KEY `fk_patients_doctor` (`assigned_doctor_id`),
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `Patients` (
 CREATE TABLE IF NOT EXISTS `Appointments` (
   `appointment_id` INT NOT NULL AUTO_INCREMENT,
   `patient_id` VARCHAR(20) NOT NULL,
-  `doctor_id` VARCHAR(36) NOT NULL,
+  `doctor_id` INT NOT NULL,
   `scheduled_date` DATE NOT NULL,
   `scheduled_time` VARCHAR(10) NOT NULL,
   `reason` VARCHAR(255) NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `Admissions` (
   `admission_id` INT NOT NULL AUTO_INCREMENT,
   `patient_id` VARCHAR(20) NOT NULL,
   `bed_id` VARCHAR(20) NOT NULL,
-  `admitted_by_nurse_id` VARCHAR(36) NOT NULL,
+  `admitted_by_nurse_id` INT NOT NULL,
   `admission_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `discharge_date` DATETIME DEFAULT NULL,
   `discharge_notes` TEXT DEFAULT NULL,
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `Admissions` (
 CREATE TABLE IF NOT EXISTS `PatientVitalsHistory` (
   `vital_id` INT NOT NULL AUTO_INCREMENT,
   `patient_id` VARCHAR(20) NOT NULL,
-  `taken_by_nurse_id` VARCHAR(36) NOT NULL,
+  `taken_by_nurse_id` INT NOT NULL,
   `blood_pressure` VARCHAR(15) NOT NULL,
   `pulse_rate` INT NOT NULL,
   `temperature` DECIMAL(4,1) NOT NULL,
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `PatientVitalsHistory` (
 CREATE TABLE IF NOT EXISTS `NurseObservationLogs` (
   `log_id` VARCHAR(30) NOT NULL,
   `patient_id` VARCHAR(20) NOT NULL,
-  `nurse_id` VARCHAR(36) NOT NULL,
+  `nurse_id` INT NOT NULL,
   `shift` VARCHAR(50) NOT NULL,
   `vitals_summary` VARCHAR(100) DEFAULT NULL,
   `clinical_observation` TEXT NOT NULL,
@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `NurseObservationLogs` (
 CREATE TABLE IF NOT EXISTS `HealthCheckups` (
   `checkup_id` VARCHAR(30) NOT NULL,
   `patient_id` VARCHAR(20) NOT NULL,
-  `doctor_id` VARCHAR(36) NOT NULL,
+  `doctor_id` INT NOT NULL,
   `checkup_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `blood_pressure` VARCHAR(15) NOT NULL,
   `pulse_rate` INT NOT NULL,
@@ -274,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `PaymentRecords` (
   `remaining_balance_after` DECIMAL(12,2) NOT NULL CHECK (`remaining_balance_after` >= 0),
   `payment_method` ENUM('Cash', 'GCash', 'Credit card', 'Debit card', 'Bank Transfer', 'HMO/Insurance') NOT NULL,
   `official_receipt_number` VARCHAR(50) NOT NULL,
-  `cashier_user_id` VARCHAR(36) NOT NULL,
+  `cashier_user_id` INT NOT NULL,
   `payment_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `notes` VARCHAR(500) DEFAULT NULL,
   PRIMARY KEY (`payment_id`),
@@ -293,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `PaymentRecords` (
 
 CREATE TABLE IF NOT EXISTS `StaffLoginLogs` (
   `log_id` INT NOT NULL AUTO_INCREMENT,
-  `staff_id` VARCHAR(36) NOT NULL,
+  `staff_id` INT NOT NULL,
   `event_type` ENUM('Login', 'Logout', 'Failed Attempt') NOT NULL,
   `terminal_ip` VARCHAR(45) NOT NULL,
   `timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -304,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `StaffLoginLogs` (
 
 CREATE TABLE IF NOT EXISTS `PatientAccessLogs` (
   `log_id` INT NOT NULL AUTO_INCREMENT,
-  `staff_id` VARCHAR(36) NOT NULL,
+  `staff_id` INT NOT NULL,
   `patient_id` VARCHAR(20) NOT NULL,
   `action_taken` VARCHAR(255) NOT NULL,
   `timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -316,4 +316,3 @@ CREATE TABLE IF NOT EXISTS `PatientAccessLogs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 SET FOREIGN_KEY_CHECKS = 1;
-

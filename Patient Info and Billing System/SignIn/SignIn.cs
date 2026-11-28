@@ -37,7 +37,7 @@ namespace Patient_Info_and_Billing_System.LogIn
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            string connstring = "server=localhost; database=patientbillingdb; uid=root";
+            string connstring = "server=localhost;user id=root;password=;database=metro_care_db";
             MySqlConnection conn = new MySqlConnection(connstring);
             MySqlCommand cmd = new MySqlCommand();
             MySqlDataReader dr;
