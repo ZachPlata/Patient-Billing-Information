@@ -131,5 +131,10 @@ namespace Patient_Info_and_Billing_System.Admin
         {
 
         }
+
+        private void panelContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
