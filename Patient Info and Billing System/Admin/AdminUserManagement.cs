@@ -6,25 +6,27 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+
 
 namespace Patient_Info_and_Billing_System.Admin
 {
     public partial class AdminUserManagement : UserControl
     {
-        string connStr = "server=localhost; database=metro_care_db; uid=root";
+        public static string connStr = "server=localhost; database=metro_care_db; uid=root";
         private enum SetupTab
         {
             DoctorManagement,
             NurseManagement,
             AdminManagement
         }
+        
         private SetupTab currentTab = SetupTab.DoctorManagement;
         public AdminUserManagement()
         {
             InitializeComponent();
             btnTabDoctor.PerformClick();
-            //button1.Click += button1_Click;
-            //button2.Click += (s, e) => clearFields();
+         
 
         }
         private void ActiveButton(Button currentButton)
@@ -44,10 +46,10 @@ namespace Patient_Info_and_Billing_System.Admin
         private void AdminUserManagement_Load(object sender, EventArgs e)
         {
 
-            loaddata();
+            
         }
 
-        void loaddata()
+        public static void loadstaffdata(DataGridView dgv, string role)
         {
             try
             {
@@ -57,12 +59,12 @@ namespace Patient_Info_and_Billing_System.Admin
                 MySqlDataAdapter da = new MySqlDataAdapter();
 
                 conn.Open();
-                cmd.CommandText = "SELECT * FROM users";
+                cmd.CommandText = "SELECT user_id, full_name, username, role, specialty, email, contact_number, status FROM users WHERE role = '" + role + "' ORDER BY full_name ASC";
                 cmd.Connection = conn;
                 da.SelectCommand = cmd;
-                da.Fill(ds, "userTable");
-                //userTable.DataSource = ds;
-                //userTable.DataMember = "userTable";
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+
                 conn.Close();
             }
             catch (Exception ex)
@@ -73,75 +75,145 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void button1_Click(object? sender, EventArgs e)
         {
-            DialogResult answer;
-            answer = MessageBox.Show("Do you want to save records?", "Saving Records",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (answer == DialogResult.No)
-            {
-                return;
-            }
-
-            //string fullName = txt_Fullname.Text;
-            //string username = txt_Username.Text;
-            //string password = txt_Password.Text;
-            //string role = comboBox1.Text;
-            //string specialty = textBox4.Text;
-            //string email = textBox5.Text;
-            //string phone = textBox6.Text;
-
-            //CreateStaffAccount(fullName, username, password, role, specialty, email, phone);
+        
         }
 
-        void CreateStaffAccount(string fullName, string username, string password, string role, string specialty, string email, string phone)
+        public static void CreateStaffAccount(string fullName, string username, string password, string role, string specialty, string email, string phone, string status)
         {
             try
             {
-                string userId = Guid.NewGuid().ToString();
+
 
                 MySqlConnection conn = new MySqlConnection(connStr);
                 MySqlCommand cmd = new MySqlCommand();
                 conn.Open();
 
-                cmd.CommandText = "INSERT INTO users (user_id, username, password_hash, full_name, role, email, contact_number, specialty) VALUES (" +
-                    "'" + userId + "', " +
+                cmd.CommandText = "INSERT INTO users (username, password_hash, full_name, role, email, contact_number, specialty, status) VALUES (" +
                     "'" + username + "', " +
                     "'" + password + "', " +
                     "'" + fullName + "', " +
                     "'" + role + "', " +
                     "'" + email + "', " +
                     "'" + phone + "', " +
-                    "'" + specialty + "')";
+                    "'" + specialty + "'," +
+                    "'" + status + "')";
 
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
-                MessageBox.Show("RECORD SAVE");
-
-                clearFields();
-                loaddata();
+                MessageBox.Show("Record Succesfully Saved!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Database Error: " + ex.Message);
             }
         }
-
-        void clearFields()
+        public static void EditStaffAccount(string userId, string fullName, string username, string password, string role, string specialty, string email, string phone, string status)
         {
-            //txt_Fullname.Clear();
-            //txt_Username.Clear();
-            //txt_Password.Clear();
-            //comboBox1.SelectedIndex = -1;
-            //comboBox1.Text = string.Empty;
-            //textBox4.Clear();
-            //textBox5.Clear();
-            //textBox6.Clear();
-            //txt_Fullname.Focus();
-        }
+            try
+            {
+                
+                MySqlConnection conn = new MySqlConnection(connStr);
+                MySqlCommand cmd = new MySqlCommand();
+                conn.Open();
+                cmd.CommandText = "UPDATE users SET " +
+                "username = '" + username + "', " +
+                "password_hash = '" + password + "', " +
+                "full_name = '" + fullName + "', " +
+                "role = '" + role + "', " +
+                "email = '" + email + "', " +
+                "contact_number = '" + phone + "', " +
+                "specialty = '" + specialty + "', " +
+                "status = '" + status + "' " +
+                "WHERE user_id = '" + userId + "'";
 
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Record Successfully Updated!");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public static void DeleteStaffAccount(string userId)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this account?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+            {
+                return;
+            }
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(connStr);
+                MySqlCommand cmd = new MySqlCommand();
+                conn.Open();
+                cmd.CommandText = "DELETE FROM users WHERE user_id = '" + userId + "'";
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Record Successfully Deleted!");
+           
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public static void SearchStaff(DataGridView dgv, string role, string keyword)
+        {
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(connStr);
+                MySqlCommand cmd = new MySqlCommand();
+                DataSet ds = new DataSet();
+                MySqlDataAdapter da = new MySqlDataAdapter();
+
+                conn.Open();
+                cmd.CommandText = "SELECT user_id, full_name, username, role, specialty, email, contact_number, status FROM users " +
+                "WHERE role = '" + role + "' AND (" +
+                "full_name LIKE '%" + keyword + "%' OR " +
+                "username LIKE '%" + keyword + "%' OR " +
+                "specialty LIKE '%" + keyword + "%' OR " +
+                "email LIKE '%" + keyword + "%' OR " +
+                "contact_number LIKE '%" + keyword + "%')";
+
+                cmd.Connection = conn;
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching data" + ex.Message);
+            }
+        }
+        public static void FilterByStatus(DataGridView dgv, string role, string status)
+        {
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(connStr);
+                MySqlCommand cmd = new MySqlCommand();
+                DataSet ds = new DataSet();
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                conn.Open();
+                cmd.CommandText = "SELECT user_id, full_name, username, role, specialty, email, contact_number, status FROM users " +
+                "WHERE role = '" + role + "' AND status = '" + status + "'";
+                cmd.Connection = conn;
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error filtering data: " + ex.Message);
+            }
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -149,7 +221,7 @@ namespace Patient_Info_and_Billing_System.Admin
 
         private void AdminUserManagement_Load_1(object sender, EventArgs e)
         {
-
+            
         }
 
         private void userTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
