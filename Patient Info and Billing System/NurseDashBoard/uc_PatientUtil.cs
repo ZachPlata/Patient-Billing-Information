@@ -20,6 +20,13 @@ namespace Patient_Info_and_Billing_System
 
         void loaddata()
         {
+            if (PatUtil_PatIdTxtBox.Text.Trim() == "")
+            {
+                dataGridView1.DataSource = null;
+                label9.Text = "Estimated Cost: ₱ 0.00";
+                return;
+            }
+
             MySqlConnection conn = new MySqlConnection("server=localhost; database=metro_care_db; uid=root");
             MySqlCommand cmd = new MySqlCommand();
             DataSet ds = new DataSet();
@@ -27,11 +34,7 @@ namespace Patient_Info_and_Billing_System
 
             conn.Open();
 
-            string filter = "";
-            if (PatUtil_PatIdTxtBox.Text.Trim() != "")
-            {
-                filter = " WHERE b.patient_id = '" + PatUtil_PatIdTxtBox.Text.Trim() + "' ";
-            }
+            string filter = " WHERE b.patient_id = '" + PatUtil_PatIdTxtBox.Text.Trim() + "' ";
 
             cmd.CommandText = "SELECT b.patient_id AS `Patient ID`, " +
                               "COALESCE(CONCAT(r.room_number, ' (', r.bed_id, ')'), 'Outpatient / None') AS `Room`, " +

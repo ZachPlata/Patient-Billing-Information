@@ -1,3 +1,4 @@
+using Patient_Info_and_Billing_System.LogIn;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,6 +96,13 @@ namespace Patient_Info_and_Billing_System.Admin
         private void SideNavBar_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+            SignIn frm = new SignIn();
+            frm.Show();
+            this.Close();
         }
     }
 }
