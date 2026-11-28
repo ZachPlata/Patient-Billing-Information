@@ -20,6 +20,7 @@ namespace Patient_Info_and_Billing_System.LogIn
             InitializeComponent();
         }
         private string selectedRole = "";
+        
         private void SignIn_Load(object sender, EventArgs e)
         {
             txtUser.Text = "";
@@ -179,6 +180,26 @@ namespace Patient_Info_and_Billing_System.LogIn
         {
             selectedRole = "Nurse";
             SelectedButton(button5);
+        }
+        private void ClearRoleColorButtons()
+        {
+            Button[] roleButtons = 
+            {
+                button3, button4, button5
+            };
+            foreach (Button btn in roleButtons)
+            {
+                btn.BackColor = Color.White;
+                btn.ForeColor = Color.FromArgb(17, 34, 64);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtUser.Clear();
+            txtPassword.Clear();
+            selectedRole = "";
+            ClearRoleColorButtons();
         }
     }
 }

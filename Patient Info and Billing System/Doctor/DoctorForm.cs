@@ -14,6 +14,10 @@ namespace Patient_Info_and_Billing_System.Doctor
         public DoctorForm()
         {
             InitializeComponent();
+            DrDashboard dashboard = new DrDashboard();
+            dashboard.Dock = DockStyle.Fill;
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(dashboard);
         }
 
         private void Doctor_Load(object sender, EventArgs e)
