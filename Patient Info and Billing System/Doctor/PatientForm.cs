@@ -509,7 +509,13 @@ namespace Patient_Info_and_Billing_System.Doctor
 
         private void button5_Click(object? sender, EventArgs e)
         {
-            if (this.Parent != null)
+            Form parentForm = this.FindForm();
+            if (parentForm != null && parentForm is DoctorForm)
+            {
+                DoctorForm doctorForm = (DoctorForm)parentForm;
+                doctorForm.OpenHealthCheckup();
+            }
+            else if (this.Parent != null)
             {
                 Control parentPanel = this.Parent;
                 DocHealthCheckUp checkupForm = new DocHealthCheckUp();

@@ -47,13 +47,18 @@ namespace Patient_Info_and_Billing_System.Doctor
 
         }
 
+        public void OpenHealthCheckup()
+        {
+            DocHealthCheckUp doccheckupform = new DocHealthCheckUp();
+            doccheckupform.Dock = DockStyle.Fill;
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(doccheckupform);
+            ActiveButton(btnHlthCheckup);
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            Dock = DockStyle.Fill;
-            DocHealthCheckUp form = new DocHealthCheckUp();
-            panelContent.Controls.Add(form);
-            form.Show();
-            ActiveButton((Button)sender);
+            OpenHealthCheckup();
         }
 
         private void SideNavBar_Paint(object sender, PaintEventArgs e)
