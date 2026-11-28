@@ -1,3 +1,4 @@
+using Patient_Info_and_Billing_System.LogIn;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -127,6 +128,13 @@ namespace Patient_Info_and_Billing_System.Doctor
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+            SignIn frm = new SignIn();
+            frm.Show();
+            this.Close();
         }
     }
 }

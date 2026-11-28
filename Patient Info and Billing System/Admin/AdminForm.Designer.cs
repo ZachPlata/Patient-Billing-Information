@@ -176,7 +176,6 @@ namespace Patient_Info_and_Billing_System.Admin
             label8.Size = new Size(83, 15);
             label8.TabIndex = 8;
             label8.Text = "Specialization";
-
             // 
             // btnALAT
             // 
