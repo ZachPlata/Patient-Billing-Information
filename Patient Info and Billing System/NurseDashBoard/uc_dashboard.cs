@@ -85,7 +85,7 @@ namespace NurseDashBoard
             reader.Close();
 
 
-            cmd.CommandText = "SELECT COUNT(*) AS total FROM Users WHERE role = 'Doctor' AND is_active = 1";
+            cmd.CommandText = "SELECT COUNT(*) AS total FROM Users WHERE role = 'Doctor' AND status = 'ACTIVE'";
             cmd.Connection = conn;
             reader = cmd.ExecuteReader();
             reader.Read();

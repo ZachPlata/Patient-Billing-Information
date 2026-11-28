@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pnlAvailableBeds = new Panel();
+            TT_Availablebeds = new Label();
             panel1 = new Panel();
             label5 = new Label();
             label1 = new Label();
@@ -56,7 +57,6 @@
             Available_Doctors = new Label();
             label7 = new Label();
             label11 = new Label();
-            TT_Availablebeds = new Label();
             pnlAvailableBeds.SuspendLayout();
             panel6.SuspendLayout();
             pnlAdmittedPatients.SuspendLayout();
@@ -79,6 +79,18 @@
             pnlAvailableBeds.Name = "pnlAvailableBeds";
             pnlAvailableBeds.Size = new Size(230, 140);
             pnlAvailableBeds.TabIndex = 0;
+            // 
+            // TT_Availablebeds
+            // 
+            TT_Availablebeds.AutoSize = true;
+            TT_Availablebeds.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TT_Availablebeds.ForeColor = Color.Black;
+            TT_Availablebeds.Location = new Point(0, 74);
+            TT_Availablebeds.Name = "TT_Availablebeds";
+            TT_Availablebeds.Size = new Size(88, 45);
+            TT_Availablebeds.TabIndex = 5;
+            TT_Availablebeds.Text = "1 / 8";
+            TT_Availablebeds.Click += TT_Availablebeds_Click;
             // 
             // panel1
             // 
@@ -279,9 +291,11 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(28, 201);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.Size = new Size(1529, 637);
             dataGridView1.TabIndex = 4;
             // 
@@ -363,18 +377,6 @@
             label11.Size = new Size(196, 21);
             label11.TabIndex = 2;
             label11.Text = "👤 AVAILABLE DOCTORS";
-            // 
-            // TT_Availablebeds
-            // 
-            TT_Availablebeds.AutoSize = true;
-            TT_Availablebeds.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TT_Availablebeds.ForeColor = Color.Black;
-            TT_Availablebeds.Location = new Point(0, 74);
-            TT_Availablebeds.Name = "TT_Availablebeds";
-            TT_Availablebeds.Size = new Size(88, 45);
-            TT_Availablebeds.TabIndex = 5;
-            TT_Availablebeds.Text = "1 / 8";
-            TT_Availablebeds.Click += TT_Availablebeds_Click;
             // 
             // uc_dashboard
             // 
