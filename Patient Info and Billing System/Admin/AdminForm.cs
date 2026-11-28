@@ -92,11 +92,6 @@ namespace Patient_Info_and_Billing_System.Admin
             btnAdminDashboard.PerformClick();
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SideNavBar_Paint(object sender, PaintEventArgs e)
         {
 

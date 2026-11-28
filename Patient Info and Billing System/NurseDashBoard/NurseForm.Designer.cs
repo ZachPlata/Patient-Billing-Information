@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             pnlsidebar = new Panel();
+            LogOut = new Button();
             label8 = new Label();
             label1 = new Label();
             userLabel = new Label();
@@ -64,6 +65,7 @@
             // pnlsidebar
             // 
             pnlsidebar.BackColor = Color.FromArgb(17, 34, 64);
+            pnlsidebar.Controls.Add(LogOut);
             pnlsidebar.Controls.Add(label8);
             pnlsidebar.Controls.Add(label1);
             pnlsidebar.Controls.Add(userLabel);
@@ -77,20 +79,39 @@
             pnlsidebar.Controls.Add(panel2);
             pnlsidebar.Dock = DockStyle.Left;
             pnlsidebar.Location = new Point(0, 0);
-            pnlsidebar.Margin = new Padding(3, 4, 3, 4);
             pnlsidebar.Name = "pnlsidebar";
-            pnlsidebar.Size = new Size(266, 1055);
+            pnlsidebar.Size = new Size(233, 791);
             pnlsidebar.TabIndex = 0;
             pnlsidebar.Paint += pnlsidebar_Paint;
+            // 
+            // LogOut
+            // 
+            LogOut.BackColor = Color.DarkRed;
+            LogOut.Dock = DockStyle.Bottom;
+            LogOut.FlatAppearance.BorderSize = 0;
+            LogOut.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
+            LogOut.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 99, 235);
+            LogOut.FlatStyle = FlatStyle.Flat;
+            LogOut.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LogOut.ForeColor = SystemColors.ButtonHighlight;
+            LogOut.Location = new Point(0, 751);
+            LogOut.Name = "LogOut";
+            LogOut.Size = new Size(233, 40);
+            LogOut.TabIndex = 14;
+            LogOut.Text = "➜] Log Out";
+            LogOut.TextAlign = ContentAlignment.MiddleLeft;
+            LogOut.TextImageRelation = TextImageRelation.TextAboveImage;
+            LogOut.UseVisualStyleBackColor = false;
+            LogOut.Click += LogOut_Click;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(99, 64);
+            label8.Location = new Point(87, 48);
             label8.Name = "label8";
-            label8.Size = new Size(104, 20);
+            label8.Size = new Size(83, 15);
             label8.TabIndex = 13;
             label8.Text = "Specialization";
             // 
@@ -99,9 +120,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(16, 185, 129);
-            label1.Location = new Point(103, 91);
+            label1.Location = new Point(90, 68);
             label1.Name = "label1";
-            label1.Size = new Size(63, 20);
+            label1.Size = new Size(50, 15);
             label1.TabIndex = 12;
             label1.Text = "STATUS";
             // 
@@ -110,18 +131,19 @@
             userLabel.AutoSize = true;
             userLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             userLabel.ForeColor = Color.White;
-            userLabel.Location = new Point(103, 41);
+            userLabel.Location = new Point(90, 31);
             userLabel.Name = "userLabel";
-            userLabel.Size = new Size(97, 20);
+            userLabel.Size = new Size(77, 15);
             userLabel.TabIndex = 10;
             userLabel.Text = "User's Name";
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(37, 99, 235);
-            panel3.Location = new Point(32, 41);
+            panel3.Location = new Point(28, 31);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(64, 64);
+            panel3.Size = new Size(56, 48);
             panel3.TabIndex = 11;
             // 
             // label3
@@ -129,9 +151,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(100, 116, 139);
-            label3.Location = new Point(0, 213);
+            label3.Location = new Point(0, 160);
             label3.Name = "label3";
-            label3.Size = new Size(156, 23);
+            label3.Size = new Size(133, 19);
             label3.TabIndex = 9;
             label3.Text = "Nurse Workspaces";
             // 
@@ -144,10 +166,9 @@
             btn_shiftlog.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_shiftlog.ForeColor = SystemColors.ControlLight;
             btn_shiftlog.ImageAlign = ContentAlignment.BottomCenter;
-            btn_shiftlog.Location = new Point(0, 427);
-            btn_shiftlog.Margin = new Padding(3, 4, 3, 4);
+            btn_shiftlog.Location = new Point(0, 320);
             btn_shiftlog.Name = "btn_shiftlog";
-            btn_shiftlog.Size = new Size(304, 53);
+            btn_shiftlog.Size = new Size(266, 40);
             btn_shiftlog.TabIndex = 8;
             btn_shiftlog.Text = "Shift Logs";
             btn_shiftlog.TextAlign = ContentAlignment.MiddleLeft;
@@ -162,10 +183,9 @@
             btn_util.FlatStyle = FlatStyle.Flat;
             btn_util.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_util.ForeColor = SystemColors.ControlLight;
-            btn_util.Location = new Point(0, 488);
-            btn_util.Margin = new Padding(3, 4, 3, 4);
+            btn_util.Location = new Point(0, 366);
             btn_util.Name = "btn_util";
-            btn_util.Size = new Size(304, 53);
+            btn_util.Size = new Size(266, 40);
             btn_util.TabIndex = 5;
             btn_util.Text = "Utilization";
             btn_util.TextAlign = ContentAlignment.MiddleLeft;
@@ -180,10 +200,9 @@
             btn_ptntrec.FlatStyle = FlatStyle.Flat;
             btn_ptntrec.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_ptntrec.ForeColor = SystemColors.Control;
-            btn_ptntrec.Location = new Point(0, 365);
-            btn_ptntrec.Margin = new Padding(3, 4, 3, 4);
+            btn_ptntrec.Location = new Point(0, 274);
             btn_ptntrec.Name = "btn_ptntrec";
-            btn_ptntrec.Size = new Size(304, 53);
+            btn_ptntrec.Size = new Size(266, 40);
             btn_ptntrec.TabIndex = 3;
             btn_ptntrec.Text = "Patient Records";
             btn_ptntrec.TextAlign = ContentAlignment.MiddleLeft;
@@ -198,10 +217,9 @@
             btn_ptntreg.FlatStyle = FlatStyle.Flat;
             btn_ptntreg.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_ptntreg.ForeColor = SystemColors.Control;
-            btn_ptntreg.Location = new Point(0, 304);
-            btn_ptntreg.Margin = new Padding(3, 4, 3, 4);
+            btn_ptntreg.Location = new Point(0, 228);
             btn_ptntreg.Name = "btn_ptntreg";
-            btn_ptntreg.Size = new Size(304, 53);
+            btn_ptntreg.Size = new Size(266, 40);
             btn_ptntreg.TabIndex = 2;
             btn_ptntreg.Text = "Patient Registration";
             btn_ptntreg.TextAlign = ContentAlignment.MiddleLeft;
@@ -216,10 +234,9 @@
             btn_nursedash.FlatStyle = FlatStyle.Flat;
             btn_nursedash.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_nursedash.ForeColor = SystemColors.Control;
-            btn_nursedash.Location = new Point(0, 243);
-            btn_nursedash.Margin = new Padding(3, 4, 3, 4);
+            btn_nursedash.Location = new Point(0, 182);
             btn_nursedash.Name = "btn_nursedash";
-            btn_nursedash.Size = new Size(304, 53);
+            btn_nursedash.Size = new Size(266, 40);
             btn_nursedash.TabIndex = 1;
             btn_nursedash.Text = "Dashboard";
             btn_nursedash.TextAlign = ContentAlignment.MiddleLeft;
@@ -233,18 +250,18 @@
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label6);
-            panel2.Location = new Point(0, 133);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(0, 100);
             panel2.Name = "panel2";
-            panel2.Size = new Size(270, 76);
+            panel2.Size = new Size(236, 57);
             panel2.TabIndex = 0;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(17, 34, 64);
-            panel4.Location = new Point(14, 16);
+            panel4.Location = new Point(12, 12);
+            panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(53, 47);
+            panel4.Size = new Size(46, 35);
             panel4.TabIndex = 10;
             // 
             // label5
@@ -252,9 +269,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(100, 116, 139);
-            label5.Location = new Point(72, 40);
+            label5.Location = new Point(63, 30);
             label5.Name = "label5";
-            label5.Size = new Size(110, 23);
+            label5.Size = new Size(91, 19);
             label5.TabIndex = 9;
             label5.Text = "ERP SYSTEM";
             // 
@@ -263,19 +280,18 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(72, 12);
+            label6.Location = new Point(63, 9);
             label6.Name = "label6";
-            label6.Size = new Size(138, 28);
+            label6.Size = new Size(109, 21);
             label6.TabIndex = 8;
             label6.Text = "METRO CARE";
             // 
             // panelContent
             // 
             panelContent.Controls.Add(label4);
-            panelContent.Location = new Point(294, 149);
-            panelContent.Margin = new Padding(3, 4, 3, 4);
+            panelContent.Location = new Point(257, 112);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1858, 1223);
+            panelContent.Size = new Size(1626, 917);
             panelContent.TabIndex = 1;
             panelContent.Paint += panelContent_Paint_2;
             // 
@@ -284,9 +300,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(863, 597);
+            label4.Location = new Point(755, 448);
             label4.Name = "label4";
-            label4.Size = new Size(146, 28);
+            label4.Size = new Size(116, 21);
             label4.TabIndex = 6;
             label4.Text = "METRO PEDIA";
             // 
@@ -296,9 +312,9 @@
             LABEL.AutoSize = true;
             LABEL.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LABEL.ForeColor = Color.FromArgb(15, 23, 42);
-            LABEL.Location = new Point(73, 41);
+            LABEL.Location = new Point(64, 31);
             LABEL.Name = "LABEL";
-            LABEL.Size = new Size(393, 41);
+            LABEL.Size = new Size(311, 32);
             LABEL.TabIndex = 0;
             LABEL.Text = "NURSE CLINICAL STATION";
             LABEL.Click += LABEL_Click;
@@ -314,51 +330,53 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(LABEL);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(266, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(233, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1658, 125);
+            panel1.Size = new Size(1451, 94);
             panel1.TabIndex = 2;
             // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(17, 34, 64);
-            panel5.Location = new Point(14, 41);
+            panel5.Location = new Point(12, 31);
+            panel5.Margin = new Padding(3, 2, 3, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(53, 41);
+            panel5.Size = new Size(46, 31);
             panel5.TabIndex = 16;
             // 
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(17, 34, 64);
-            panel7.Location = new Point(1667, 75);
+            panel7.Location = new Point(1459, 56);
+            panel7.Margin = new Padding(3, 2, 3, 2);
             panel7.Name = "panel7";
-            panel7.Size = new Size(25, 23);
+            panel7.Size = new Size(22, 17);
             panel7.TabIndex = 15;
             // 
             // timer
             // 
             timer.Font = new Font("Segoe UI Light", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            timer.Location = new Point(1698, 75);
+            timer.Location = new Point(1486, 56);
             timer.Name = "timer";
-            timer.Size = new Size(170, 23);
+            timer.Size = new Size(149, 17);
             timer.TabIndex = 13;
             timer.Text = "Time";
             // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(17, 34, 64);
-            panel6.Location = new Point(1393, 75);
+            panel6.Location = new Point(1219, 56);
+            panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(25, 23);
+            panel6.Size = new Size(22, 17);
             panel6.TabIndex = 14;
             // 
             // date
             // 
             date.Font = new Font("Segoe UI Light", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            date.Location = new Point(1424, 75);
+            date.Location = new Point(1246, 56);
             date.Name = "date";
-            date.Size = new Size(237, 23);
+            date.Size = new Size(207, 17);
             date.TabIndex = 12;
             date.Text = "Date";
             date.Click += date_Click;
@@ -368,9 +386,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.AppWorkspace;
-            label2.Location = new Point(14, 100);
+            label2.Location = new Point(12, 75);
             label2.Name = "label2";
-            label2.Size = new Size(410, 23);
+            label2.Size = new Size(319, 17);
             label2.TabIndex = 3;
             label2.Text = "Health / Clinical Diagnosis / Medical Prescriptions";
             // 
@@ -382,13 +400,14 @@
             // 
             // Nurse
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(1924, 1055);
+            ClientSize = new Size(1684, 791);
             Controls.Add(panel1);
             Controls.Add(panelContent);
             Controls.Add(pnlsidebar);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Nurse";
             Text = "Nurse";
             WindowState = FormWindowState.Maximized;
@@ -436,5 +455,6 @@
         private Panel panel4;
         private Label label5;
         private Label label6;
+        private Button LogOut;
     }
 }

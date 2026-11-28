@@ -1,5 +1,6 @@
 using Patient_Info_and_Billing_System;
 using Patient_Info_and_Billing_System.Doctor;
+using Patient_Info_and_Billing_System.LogIn;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -139,6 +140,13 @@ namespace NurseDashBoard
         private void pnlsidebar_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+            SignIn frm = new SignIn();
+            frm.Show();
+            this.Close();
         }
     }
 }
